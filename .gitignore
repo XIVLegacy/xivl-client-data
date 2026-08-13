@@ -1,0 +1,42 @@
+# Agent / AI tooling
+.claude/
+.agents/
+AGENTS.md
+CLAUDE.md
+docs/ai_agents/local/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Local tool output
+tmp/
+out/
+artifacts/
+build/
+*.log
+
+# Python tooling
+__pycache__/
+*.pyc
+
+# Cold storage: extracted client assets over the in-repo size threshold. Only
+# their manifest under manifests/ and derived tables are tracked. See
+# derived/icons-1.23b/README.md.
+/archive/
+
+# Binary capture/archive data does not belong here.
+*.pcap
+*.pcapng
+*.dat
+*.index
+*.win32
+*.exe
+*.dll
+
+# Public repository exclusions
+/csv/

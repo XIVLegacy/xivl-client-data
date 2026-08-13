@@ -1,0 +1,48 @@
+"""Single-CSV mapping for the actorclass_graphic seed table."""
+
+SQL_TABLE = "actorclass_graphic"
+SOURCE_CSV = "actorclass_graphic.csv"
+
+# Columns 45-46 are trailing extras; see docs/corpus-inventory.md.
+COLUMNS = [
+    ("id", "row_id", "u32"),
+    ("base", 6, "s32"),
+    ("size", 7, "s32"),
+    ("hairStyle", 8, "s32"),
+    ("hairHighlightColor", 9, "s32"),
+    ("hairVariation", 10, "s32"),
+    ("faceType", 11, "s32"),
+    ("characteristics", 12, "s32"),
+    ("characteristicsColor", 13, "s32"),
+    ("faceEyebrows", 14, "s32"),
+    ("faceIrisSize", 15, "s32"),
+    ("faceEyeShape", 16, "s32"),
+    ("faceNose", 17, "s32"),
+    ("faceFeatures", 18, "s32"),
+    ("faceMouth", 19, "s32"),
+    ("ears", 20, "s32"),
+    ("hairColor", 21, "s32"),
+    ("skinColor", 22, "s32"),
+    ("eyeColor", 23, "s32"),
+    ("voice", 24, "s32"),
+    ("mainHand", 25, "s32"),
+    ("offHand", 26, "s32"),
+    ("spMainHand", 27, "s32"),
+    ("spOffHand", 28, "s32"),
+    ("throwing", 29, "s32"),
+    ("pack", 30, "s32"),
+    ("pouch", 31, "s32"),
+    ("head", 32, "s32"),
+    ("body", 33, "s32"),
+    ("legs", 34, "s32"),
+    ("hands", 35, "s32"),
+    ("feet", 36, "s32"),
+    ("waist", 37, "s32"),
+    ("neck", 38, "s32"),
+    ("leftEar", 39, "s32"),
+    ("rightEar", 40, "s32"),
+    ("leftIndex", 41, "s32"),
+    ("rightIndex", 42, "s32"),
+    ("leftFinger", 43, "s32"),
+    ("rightFinger", 44, "s32"),
+]

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/XIVLegacy/xivl-client-data/schemas/staticactor_class_paths.schema.json",
+  "title": "XIVLegacy Client Data Staticactor Class Paths",
+  "description": "Decoded sane-magic static-actor table: [u32 BE actor id][NUL-terminated classPath] records; tools/validate_corpus.py enforces recordCount == len(records), which JSON Schema cannot express.",
+  "type": "object",
+  "required": [
+    "_provenance",
+    "recordCount",
+    "records"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "_provenance": {
+      "type": "object",
+      "required": [
+        "source_path",
+        "method",
+        "evidence_class",
+        "limitations",
+        "generator"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source_path": { "type": "string" },
+        "method": { "type": "string" },
+        "evidence_class": {
+          "type": "string",
+          "enum": ["observation_derived", "client_extraction", "live_validated"]
+        },
+        "limitations": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "generator": { "type": "string" }
+      }
+    },
+    "recordCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "classPath"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "integer" },
+          "classPath": {
+            "type": "string",
+            "pattern": "^/"
+          }
+        }
+      }
+    }
+  }
+}

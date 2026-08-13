@@ -1,0 +1,11 @@
+folder,id_min,id_max,files,real_icons,placeholder_files,pixel_sizes,dominant_class
+0,0,1150,1151,885,266,8/16/20/24/32/40/44/48/52/64/80/88/100/112/128/132/150/180/200/212/216/220/288/320/392/400/420/432/480/520,system-ui-cursors-class-guild-badges-race-face-portraits-target-ui
+1,10000,10300,301,192,109,32/128,status-effect-icons
+2,20000,20100,101,49,52,64/128/256,large-art-frames-and-stained-glass-emblems
+3,30000,30600,601,476,125,64/128,crest-and-rank-emblem-badges
+4,40000,42000,2001,876,1125,44/64/128,heraldry-shield-fields-and-charges-plus-emblem-badges
+5,50000,50000,1,0,1,128,empty-only-undefined-placeholder
+6,60000,62000,2001,1495,506,64/128,crafting-materials-and-reagents
+7,70000,70800,801,613,188,64/128,weapons
+8,80000,83000,3001,2529,472,64/128,armor-accessories-and-gear
+9,90000,90000,1,0,1,128,empty-only-undefined-placeholder

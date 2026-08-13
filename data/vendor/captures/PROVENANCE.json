@@ -1,0 +1,13 @@
+{
+  "files": [
+    {
+      "file": "content_samples.json",
+      "source": "xivl-captures:derived/content_samples.json",
+      "sha256": "20216c09ae92f0b1f614b6584c26436d907933987145afc9464b8b282a01a8a4",
+      "sourceSha256": "20216c09ae92f0b1f614b6584c26436d907933987145afc9464b8b282a01a8a4",
+      "evidenceTier": "packet captures",
+      "transformation": "none (byte-identical copy)"
+    }
+  ],
+  "note": "Consumed by tools/retail_inventory_crosscheck.py. Re-promotion is a deliberate explicit copy from xivl-captures; no promote script exists in this repo."
+}

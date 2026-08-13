@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/XIVLegacy/xivl-client-data/schemas/icons_1_23b.schema.json",
+  "title": "XIVLegacy Client Data 1.23b Icon Corpus",
+  "description": "Manifest for the cold-stored 1.23b client icon export under archive/icons-1.23b/; tools/validate_corpus.py re-verifies sha256 values against on-disk files and, when present, the gitignored archive; counts are recomputed from derived/icons-1.23b/file-inventory.csv.",
+  "type": "object",
+  "required": [
+    "_provenance",
+    "gameVersion",
+    "archive",
+    "fileCount",
+    "realIconCount",
+    "placeholderCount",
+    "bands",
+    "derivedArtifacts"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "_provenance": {
+      "type": "object",
+      "required": ["source_path", "method", "evidence_class", "limitations", "generator"],
+      "additionalProperties": false,
+      "properties": {
+        "source_path": { "type": "string" },
+        "method": { "type": "string" },
+        "evidence_class": {
+          "type": "string",
+          "enum": ["observation_derived", "client_extraction", "live_validated"]
+        },
+        "limitations": { "type": "array", "items": { "type": "string" } },
+        "generator": { "type": "string" }
+      }
+    },
+    "gameVersion": { "type": "string", "minLength": 1 },
+    "archive": {
+      "type": "object",
+      "required": ["path", "sha256", "bytes", "layout", "state"],
+      "additionalProperties": false,
+      "properties": {
+        "path": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "bytes": { "type": "integer", "minimum": 0 },
+        "layout": { "type": "string" },
+        "state": { "type": "string", "enum": ["cold-stored"] }
+      }
+    },
+    "fileCount": { "type": "integer", "minimum": 0 },
+    "realIconCount": { "type": "integer", "minimum": 0 },
+    "placeholderCount": { "type": "integer", "minimum": 0 },
+    "bands": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "folder",
+          "idMin",
+          "idMax",
+          "files",
+          "realIcons",
+          "placeholderFiles",
+          "pixelSizes",
+          "dominantClass"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "folder": { "type": "integer", "minimum": 0, "maximum": 9 },
+          "idMin": { "type": "integer", "minimum": 0 },
+          "idMax": { "type": "integer", "minimum": 0 },
+          "files": { "type": "integer", "minimum": 0 },
+          "realIcons": { "type": "integer", "minimum": 0 },
+          "placeholderFiles": { "type": "integer", "minimum": 0 },
+          "pixelSizes": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "integer", "minimum": 1 }
+          },
+          "dominantClass": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "derivedArtifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256", "bytes"],
+        "additionalProperties": false,
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "bytes": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }
+}

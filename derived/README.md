@@ -1,0 +1,50 @@
+# derived/
+
+Use these analysis artifacts alongside the as-imported CSV corpus. Repository
+tools generate the owned products under `derived/`; the corpus manifest covers
+only the source files under `csv/`.
+
+## Derived vs imported
+
+`csv/` is the extraction snapshot and nothing else: every file there is a
+byte-for-byte import of extraction 2012.09.19.0001, pinned by sha256 in
+`manifests/tables.json` and traceable to a `manifests/sheet_inventory.csv` row.
+A file whose bytes this repo's own tools produce cannot satisfy either
+invariant, so generated CSVs live here instead. The split is enforced, not just
+convention: `tools/validate_corpus.py` fails on any `csv/` file absent from
+`tables.json` or not derivable from a sheet-inventory row, and `manifest.json`
+`tableCount`/`totalBytes` count `csv/` alone.
+
+Consequence for consumers: a `csv/` row is client evidence; a `derived/` row is
+this repo's interpretation of it, and is only as good as the finding doc named
+in the table below.
+
+| File | Built by | Source | Finding |
+|---|---|---|---|
+| `command_battle_params.csv` | `tools/build_command_battle_params.py` | `csv/gameCommand.csv`, `csv/gameCommandBasic.csv`, `csv/xtx_command.csv` | `docs/command-battle-params.md` |
+| `icons-1.23b/` | imported, not regenerable here | `archive/icons-1.23b/xiv-icons-1.23b.zip` | `derived/icons-1.23b/README.md` |
+
+## command_battle_params.csv
+
+One row per command id (1611), joining the command trio's gameplay sidecars with
+client display names. Columns decode only what is verified against the client's
+own command getter evidence, cited by
+`docs/command-battle-params.md`. Raw sheet values
+are authoritative; speculative enum labels sit in separate `*_label` columns and
+never overwrite the raw value. See the finding doc for the full column ->
+getter:line map, the decoded element enum, and the list of quantities that
+require retail-capture validation (primary damage potency, the C++ combine step,
+native grow tables, and the 5-way command type).
+
+Regenerate: `python tools/build_command_battle_params.py`.
+
+## icons-1.23b/
+
+The 1.23b client icon export: four derived artifacts describing 9,960 decoded
+PNGs, and a gitignored 78 MB zip holding the images themselves at
+`archive/icons-1.23b/xiv-icons-1.23b.zip`. Unlike the row above, no tool here
+rebuilds these - they were computed over the imported image archive and
+imported with the corpus. `manifests/icons_1_23b.json` pins the zip's sha256
+and one per artifact, so what cannot be regenerated can at least be verified:
+`tools/validate_corpus.py` re-checks every hash and recomputes the counts.
+Orientation in [`icons-1.23b/README.md`](icons-1.23b/README.md).

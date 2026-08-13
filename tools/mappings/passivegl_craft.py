@@ -1,0 +1,42 @@
+"""Partial single-CSV mapping for the passivegl_craft seed table."""
+
+SQL_TABLE = "passivegl_craft"
+SOURCE_CSV = "passiveGL_craft.csv"
+
+COLUMNS = [
+    ("id", "row_id", "u32"),
+    ("plateId", "const:0", "u32"),
+    ("borderId", "const:0", "u32"),
+    ("recommendedClass", 1, "s32"),
+    ("issuingLocation", 2, "s32"),
+    ("guildleveLocation", 6, "s32"),
+    ("deliveryDisplayName", 7, "s32"),
+    ("unk1", 8, "s32"),
+    ("unk2", 9, "s32"),
+    ("unk3", 10, "s32"),
+    ("unk4", 11, "s32"),
+    ("objectiveItemId1", 13, "s32"),
+    ("objectiveQuantity1", 14, "s32"),
+    ("numberOfAttempts1", 15, "s32"),
+    ("recommendedLevel1", 16, "s32"),
+    ("rewardItemId1", 18, "s32"),
+    ("rewardQuantity1", 19, "s32"),
+    ("objectiveItemId2", 21, "s32"),
+    ("objectiveQuantity2", 22, "s32"),
+    ("numberOfAttempts2", 23, "s32"),
+    ("recommendedLevel2", 24, "s32"),
+    ("rewardItemId2", 26, "s32"),
+    ("rewardQuantity2", 27, "s32"),
+    ("objectiveItemId3", 29, "s32"),
+    ("objectiveQuantity3", 30, "s32"),
+    ("numberOfAttempts3", 31, "s32"),
+    ("recommendedLevel3", 32, "s32"),
+    ("rewardItemId3", 34, "s32"),
+    ("rewardQuantity3", 35, "s32"),
+    ("objectiveItemId4", 37, "s32"),
+    ("objectiveQuantity4", 38, "s32"),
+    ("numberOfAttempts4", 39, "s32"),
+    ("recommendedLevel4", 40, "s32"),
+    ("rewardItemId4", 42, "s32"),
+    ("rewardQuantity4", 43, "s32"),
+]

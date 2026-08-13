@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/XIVLegacy/xivl-client-data/schemas/zone_internal_names.schema.json",
+  "title": "XIVLegacy Client Data Zone Internal Names",
+  "description": "MapLayoutResourceData blob string pools joined to zone ids via _layout.csv slot positions and the _zoneParam.csv placeName bijection; tools/validate_corpus.py checks family keys against families and layoutId/placeNameId against layouts because JSON Schema cannot express these cross-references.",
+  "type": "object",
+  "required": [
+    "_provenance",
+    "families",
+    "blobs",
+    "layouts",
+    "zoneBindings"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "_provenance": {
+      "type": "object",
+      "required": [
+        "source_path",
+        "method",
+        "evidence_class",
+        "limitations",
+        "generator"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source_path": { "type": "string" },
+        "method": { "type": "string" },
+        "evidence_class": {
+          "type": "string",
+          "enum": ["observation_derived", "client_extraction", "live_validated"]
+        },
+        "limitations": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "generator": { "type": "string" }
+      }
+    },
+    "families": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z0-9_]+$": {
+          "type": "object",
+          "required": ["dataSubdir", "resourceBaseHex"],
+          "additionalProperties": false,
+          "properties": {
+            "dataSubdir": {
+              "type": "string",
+              "pattern": "^[0-9A-F]{2}/[0-9A-F]{2}/[0-9A-F]{2}$"
+            },
+            "resourceBaseHex": {
+              "type": "string",
+              "pattern": "^0x[0-9A-F]{8}$"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "blobs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["resourceIdHex", "family", "primaryName", "zoneNames"],
+        "additionalProperties": false,
+        "properties": {
+          "resourceIdHex": {
+            "type": "string",
+            "pattern": "^0x[0-9A-F]{8}$"
+          },
+          "family": { "type": "string" },
+          "primaryName": { "type": ["string", "null"] },
+          "zoneNames": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "layouts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["layoutId", "family", "usage", "placeNameId", "slotName", "blobShipped"],
+        "additionalProperties": false,
+        "properties": {
+          "layoutId": { "type": "integer" },
+          "family": { "type": "string" },
+          "usage": { "type": "integer" },
+          "placeNameId": { "type": "integer" },
+          "slotName": { "type": "string" },
+          "blobShipped": { "type": "boolean" }
+        }
+      }
+    },
+    "zoneBindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["zoneId", "layoutId", "zoneName", "placeNameId", "basis"],
+        "additionalProperties": false,
+        "properties": {
+          "zoneId": { "type": "integer" },
+          "layoutId": { "type": "integer" },
+          "zoneName": { "type": "string" },
+          "placeNameId": { "type": "integer" },
+          "basis": {
+            "type": "string",
+            "enum": ["blob_primary", "layout_slot"]
+          }
+        }
+      }
+    }
+  }
+}
