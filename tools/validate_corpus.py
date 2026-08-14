@@ -565,6 +565,9 @@ def validate_vendor_provenance() -> None:
             if not name or not expected:
                 errors.append(f"{label}: an entry is missing its file/sha256 key")
                 continue
+            for field in ("sourceLicense", "sourceLicenseUrl"):
+                if not isinstance(entry.get(field), str) or not entry[field]:
+                    errors.append(f"{label}: {name} is missing {field}")
             listed_files.add(Path(name).as_posix())
             target = prov_path.parent / name
             if not target.is_file():

@@ -33,17 +33,19 @@ corpus remains local and is not distributed by this repository.
 ## Community
 
 Join the [project Discord](https://discord.gg/PxK5RJYQjm) for questions and
-community support.
-Use [Issues](https://github.com/XIVLegacy/xivl-client-data/issues) for bugs and
-research findings that need a durable record.
+community support. Use [Issues](https://github.com/XIVLegacy/xivl-client-data/issues)
+to report bugs and durable research findings.
 
 ## Contributing
 
-Pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before you open one.
+Pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before you
+open one.
 
 ## License
 
-Authored project material uses the [MIT License](LICENSE). Products derived
-from retail client files are not covered. This project is unaffiliated with
-and unendorsed by the publisher. All trademarks belong to their respective
-owners.
+Project-authored material uses the [MIT License](LICENSE), including tools,
+schemas, documentation, manifests, derived products, and original arrangements.
+Retail client material is not covered.
+Vendored material retains the source license recorded in its provenance file.
+This project is unaffiliated with and unendorsed by the publisher. All
+trademarks belong to their respective owners.

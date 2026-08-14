@@ -3,6 +3,8 @@
     {
       "file": "content_samples.json",
       "source": "xivl-captures:derived/content_samples.json",
+      "sourceLicense": "CC-BY-4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
       "sha256": "20216c09ae92f0b1f614b6584c26436d907933987145afc9464b8b282a01a8a4",
       "sourceSha256": "20216c09ae92f0b1f614b6584c26436d907933987145afc9464b8b282a01a8a4",
       "evidenceTier": "packet captures",

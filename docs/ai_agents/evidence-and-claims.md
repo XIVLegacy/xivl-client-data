@@ -20,7 +20,8 @@ use:
   live in this repository.
 
 Packet-capture inputs are evidence artifacts in their own right. Their vendor
-provenance records state the evidence tier, source path, and sha256. A packet
+provenance records state the evidence tier, source path, source license, and
+sha256. A packet
 observation must not be presented as a client-extraction fact. A derived CSV
 is an interpretation of its inputs, not a new evidence class. Keep its raw
 inputs and finding document visible.
