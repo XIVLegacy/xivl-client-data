@@ -13,6 +13,7 @@ findings, and repository policy.
 
 - [inventory-cross-check.md](inventory-cross-check.md) - retail inventory observations matched against the three-source item catalog.
 - [command-battle-params.md](command-battle-params.md) - getter-verified command-parameter map backing `derived/command_battle_params.csv`.
+- [rank-cap-findings.md](rank-cap-findings.md) - rank-indexed BP, attribute-cap, derived-stat, and Cure-column findings.
 
 ## Repository policy
 
