@@ -15,6 +15,7 @@ findings, and repository policy.
 - [command-battle-params.md](command-battle-params.md) - getter-verified command-parameter map backing `derived/command_battle_params.csv`.
 - [rank-cap-findings.md](rank-cap-findings.md) - rank-indexed BP, attribute-cap, derived-stat, and Cure-column findings.
 - [quest-gating-findings.md](quest-gating-findings.md) - quest-offer level-field form and the bounded runtime-gating verdict.
+- [shop-catalogs.md](shop-catalogs.md) - GC seal catalog fields, generic shop joins, and the seven-sheet fidelity audit.
 
 ## Repository policy
 

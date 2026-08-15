@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 1,
+  "generatedOn": "2026-08-15",
+  "extractionVersion": "2012.09.19.0001",
+  "sourceEvidenceClass": "client_extraction",
+  "sheetAudit": [
+    {
+      "sheet": "gcSealShopItem.csv",
+      "evidenceClass": "client_extraction",
+      "source": "game_schema",
+      "resourceId": 16975220,
+      "resourceIdHex": "0x01030574",
+      "dataRowCount": 402,
+      "sheetColumnCount": 9,
+      "role": "GC seal inventory",
+      "verdict": "complete pinned extraction; no truncated rows",
+      "sha256": "8FA5976BED87F23364BD1BD86D5B6246E8D4AF6688466209B4511869B721FF9D"
+    },
+    {
+      "sheet": "populaceCompanyShop.csv",
+      "evidenceClass": "client_extraction",
+      "source": "extrasheets",
+      "resourceId": 60955229,
+      "resourceIdHex": "0x03A21A5D",
+      "dataRowCount": 140,
+      "sheetColumnCount": 5,
+      "role": "localized company-shop text",
+      "verdict": "complete pinned extraction; no truncated rows",
+      "sha256": "FC4F8675230FE1A586EC3CE4168AC3A234C3BDAED9D55329051632FCDC31FC6F"
+    },
+    {
+      "sheet": "populaceGuildShop.csv",
+      "evidenceClass": "client_extraction",
+      "source": "extrasheets",
+      "resourceId": 60950688,
+      "resourceIdHex": "0x03A208A0",
+      "dataRowCount": 129,
+      "sheetColumnCount": 5,
+      "role": "localized guild-shop text",
+      "verdict": "complete pinned extraction; no truncated rows",
+      "sha256": "7461A2F2C1D7CDF08D4D349A3F8A8AF56C5E1168D6DA7507055F8470BE0C1BA8"
+    },
+    {
+      "sheet": "populaceShopMateriaRemover.csv",
+      "evidenceClass": "client_extraction",
+      "source": "extrasheets",
+      "resourceId": 60956068,
+      "resourceIdHex": "0x03A21DA4",
+      "dataRowCount": 25,
+      "sheetColumnCount": 5,
+      "role": "localized materia-service text",
+      "verdict": "complete pinned extraction; no truncated rows",
+      "sha256": "304772607603906D67C06F149A7315B0E8D9C6B3ACD2698786427E57423F0757"
+    },
+    {
+      "sheet": "populaceShopSalesman.csv",
+      "evidenceClass": "client_extraction",
+      "source": "extrasheets",
+      "resourceId": 60949045,
+      "resourceIdHex": "0x03A20235",
+      "dataRowCount": 501,
+      "sheetColumnCount": 5,
+      "role": "localized salesman text",
+      "verdict": "complete pinned extraction; no truncated rows",
+      "sha256": "6E0B7CDEDFA91F9C4670F97534F4EF52335DD519966114671770D9CB7294C735"
+    },
+    {
+      "sheet": "shopBase.csv",
+      "evidenceClass": "client_extraction",
+      "source": "game_schema",
+      "resourceId": 16974519,
+      "resourceIdHex": "0x010302B7",
+      "dataRowCount": 240,
+      "sheetColumnCount": 2,
+      "role": "generic shop item-key ranges",
+      "verdict": "complete pinned extraction; no truncated rows",
+      "sha256": "E5258ED9A45B7A165777F1ADDB25D30C516423ABF0F2FDD15C68E5AE5FE7D0D2"
+    },
+    {
+      "sheet": "shopItem.csv",
+      "evidenceClass": "client_extraction",
+      "source": "game_schema",
+      "resourceId": 16974530,
+      "resourceIdHex": "0x010302C2",
+      "dataRowCount": 2543,
+      "sheetColumnCount": 3,
+      "role": "generic shop inventory",
+      "verdict": "complete pinned extraction; no truncated rows",
+      "sha256": "9ECE9EAD6E9283DCD423760925AD6AF17F0DC4B2EC270A67B0FC2A1DE725AA66"
+    }
+  ],
+  "sourceHeaders": {
+    "gcSealShopItem.csv": {
+      "columnIndices": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "columnTypes": [
+        "s32",
+        "u8",
+        "s32",
+        "s32",
+        "u8",
+        "s32",
+        "u8",
+        "u8",
+        "u8"
+      ]
+    },
+    "populaceCompanyShop.csv": {
+      "columnIndices": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "columnTypes": [
+        "str",
+        "str",
+        "str",
+        "str",
+        "str"
+      ]
+    },
+    "populaceGuildShop.csv": {
+      "columnIndices": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "columnTypes": [
+        "str",
+        "str",
+        "str",
+        "str",
+        "str"
+      ]
+    },
+    "populaceShopMateriaRemover.csv": {
+      "columnIndices": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "columnTypes": [
+        "str",
+        "str",
+        "str",
+        "str",
+        "str"
+      ]
+    },
+    "populaceShopSalesman.csv": {
+      "columnIndices": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "columnTypes": [
+        "str",
+        "str",
+        "str",
+        "str",
+        "str"
+      ]
+    },
+    "shopBase.csv": {
+      "columnIndices": [
+        "0",
+        "1"
+      ],
+      "columnTypes": [
+        "s32",
+        "s32"
+      ]
+    },
+    "shopItem.csv": {
+      "columnIndices": [
+        "0",
+        "1",
+        "2"
+      ],
+      "columnTypes": [
+        "s32",
+        "u8",
+        "s32"
+      ]
+    }
+  },
+  "joinSources": [
+    {
+      "sheet": "_item.csv",
+      "dataRowCount": 8403,
+      "sha256": "F41DBA38473A8A4014826C5B0CD639E12C6652700C9F760660FCB241D7469DDA"
+    },
+    {
+      "sheet": "itemData.csv",
+      "dataRowCount": 8403,
+      "sha256": "F17193D832B375761CD01A37B25FF7D2C2947967DDC5BA4C2B16C0507D422912"
+    },
+    {
+      "sheet": "xtx_itemName.csv",
+      "dataRowCount": 8403,
+      "sha256": "917C34EB0621B7D7A8261145023D0BB95CD8CA9EB52288CEB66E80D08F0D78C2"
+    }
+  ],
+  "gcSealShop": {
+    "source": "csv/gcSealShopItem.csv",
+    "itemJoins": [
+      "csv/_item.csv",
+      "csv/itemData.csv",
+      "csv/xtx_itemName.csv"
+    ],
+    "output": "derived/gc_seal_shop_catalog.csv",
+    "rowCount": 402,
+    "distinctItemCount": 328,
+    "reservedColumn7NonzeroCount": 0,
+    "sha256": "EE40A2ACB79FAFF4670FEEF12CDDF3E0E9AD3A097F786620657909A70EA8AC2B"
+  },
+  "genericShop": {
+    "sources": [
+      "csv/shopBase.csv",
+      "csv/shopItem.csv"
+    ],
+    "itemJoins": [
+      "csv/_item.csv",
+      "csv/xtx_itemName.csv"
+    ],
+    "output": "derived/shop_catalog.csv",
+    "shopCount": 239,
+    "associationCount": 1804,
+    "unownedShopItemRowCount": 750,
+    "multipleOwnerShopItemRowCount": 11,
+    "multipleOwnerShopItemRows": [
+      1064001,
+      1064002,
+      1064003,
+      1064004,
+      1064005,
+      1064006,
+      1064007,
+      1064008,
+      1064009,
+      1064010,
+      1064011
+    ],
+    "sha256": "E8B935E13D1A802075140762DE1B25E4B9D6405E5BFD502B3627570756632982"
+  },
+  "columnMappings": {
+    "gcSealShopItem.csv": {
+      "rowId": "shop_row_id",
+      "0": "item_id",
+      "1": "item_quality",
+      "2": "item_quantity",
+      "3": "seal_cost",
+      "4": "rank_requirement",
+      "5": "company_id",
+      "6": "event_flag_requirement",
+      "7": "reserved_zero",
+      "8": "item_category"
+    },
+    "shopBase.csv": {
+      "rowId": "shop_id",
+      "0": "shop_item_start_id",
+      "1": "shop_item_end_id"
+    },
+    "shopItem.csv": {
+      "rowId": "shop_item_row_id",
+      "0": "item_id",
+      "1": "item_quality",
+      "2": "price"
+    }
+  },
+  "residualCeilings": [
+    "The client getters do not assign a meaning to gcSealShopItem column 7; it is zero in all 402 rows.",
+    "The 750 unowned shopItem rows are preserved in the source corpus but omitted from the range-expanded generic catalog.",
+    "Eleven shopItem rows are intentionally emitted once for each of their two shopBase owners."
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Shop catalog provenance manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedOn",
+    "extractionVersion",
+    "sourceEvidenceClass",
+    "sheetAudit",
+    "sourceHeaders",
+    "joinSources",
+    "gcSealShop",
+    "genericShop",
+    "columnMappings",
+    "residualCeilings"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "generatedOn": { "type": "string", "format": "date" },
+    "extractionVersion": { "const": "2012.09.19.0001" },
+    "sourceEvidenceClass": { "const": "client_extraction" },
+    "sheetAudit": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sheet",
+          "evidenceClass",
+          "source",
+          "resourceId",
+          "resourceIdHex",
+          "dataRowCount",
+          "sheetColumnCount",
+          "role",
+          "verdict",
+          "sha256"
+        ],
+        "properties": {
+          "sheet": { "type": "string", "pattern": "^[A-Za-z].*\\.csv$" },
+          "evidenceClass": { "const": "client_extraction" },
+          "source": { "enum": ["game_schema", "extrasheets"] },
+          "resourceId": { "type": "integer", "minimum": 1 },
+          "resourceIdHex": { "type": "string", "pattern": "^0x[0-9A-F]{8}$" },
+          "dataRowCount": { "type": "integer", "minimum": 0 },
+          "sheetColumnCount": { "type": "integer", "minimum": 1 },
+          "role": { "type": "string", "minLength": 1 },
+          "verdict": { "type": "string", "minLength": 1 },
+          "sha256": { "type": "string", "pattern": "^[0-9A-F]{64}$" }
+        }
+      }
+    },
+    "sourceHeaders": {
+      "type": "object",
+      "minProperties": 7,
+      "maxProperties": 7,
+      "additionalProperties": { "$ref": "#/$defs/header" }
+    },
+    "joinSources": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["sheet", "dataRowCount", "sha256"],
+        "properties": {
+          "sheet": { "type": "string" },
+          "dataRowCount": { "type": "integer", "minimum": 1 },
+          "sha256": { "type": "string", "pattern": "^[0-9A-F]{64}$" }
+        }
+      }
+    },
+    "gcSealShop": { "$ref": "#/$defs/output" },
+    "genericShop": { "$ref": "#/$defs/output" },
+    "columnMappings": { "type": "object", "minProperties": 3 },
+    "residualCeilings": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "$defs": {
+    "header": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["columnIndices", "columnTypes"],
+      "properties": {
+        "columnIndices": { "type": "array", "items": { "type": "string" } },
+        "columnTypes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "output": {
+      "type": "object",
+      "required": ["output", "sha256"],
+      "properties": {
+        "output": { "type": "string", "pattern": "^derived/.*\\.csv$" },
+        "sha256": { "type": "string", "pattern": "^[0-9A-F]{64}$" }
+      }
+    }
+  }
+}

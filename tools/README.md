@@ -40,6 +40,9 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   `derived/command_battle_params.csv` from the `csv/gameCommand.csv` /
   `csv/gameCommandBasic.csv` / `csv/xtx_command.csv` trio. See
   `docs/command-battle-params.md` for the column map.
+- `build_shop_catalogs.py` regenerates the GC seal and generic range-expanded
+  shop catalogs plus `manifests/shop_catalogs.json`. Its `--check` mode verifies
+  all three artifacts without writing.
 - `build_zone_name_catalog.py` and `extract_staticactor_san.py` produce the
   zone-name and static-actor manifests from explicit client inputs.
 - `retail_inventory_crosscheck.py` checks vendored retail item observations.

@@ -22,6 +22,8 @@ in the table below.
 | File | Built by | Source | Finding |
 |---|---|---|---|
 | `command_battle_params.csv` | `tools/build_command_battle_params.py` | `csv/gameCommand.csv`, `csv/gameCommandBasic.csv`, `csv/xtx_command.csv` | `docs/command-battle-params.md` |
+| `gc_seal_shop_catalog.csv` | `tools/build_shop_catalogs.py` | `csv/gcSealShopItem.csv`, item catalog | `docs/shop-catalogs.md` |
+| `shop_catalog.csv` | `tools/build_shop_catalogs.py` | `csv/shopBase.csv`, `csv/shopItem.csv`, item catalog | `docs/shop-catalogs.md` |
 | `icons-1.23b/` | imported, not regenerable here | `archive/icons-1.23b/xiv-icons-1.23b.zip` | `derived/icons-1.23b/README.md` |
 
 ## command_battle_params.csv
@@ -37,6 +39,21 @@ require retail-capture validation (primary damage potency, the C++ combine step,
 native grow tables, and the 5-way command type).
 
 Regenerate: `python tools/build_command_battle_params.py`.
+
+## Shop catalogs
+
+`gc_seal_shop_catalog.csv` is a lossless named projection of all 402
+`gcSealShopItem` rows, joined to the item class and English name. It preserves
+the raw rank, company, event, unresolved, and category values.
+
+`shop_catalog.csv` expands each nonzero `shopBase` range against `shopItem`.
+Overlapping ranges produce one association per owner. Source rows outside all
+`shopBase` ranges remain in the source corpus and are not emitted here.
+
+`manifests/shop_catalogs.json` records the seven-sheet fidelity audit, source
+headers and hashes, output hashes, counts, column maps, and residual ceilings.
+Regenerate both tables and the manifest with
+`python tools/build_shop_catalogs.py`.
 
 ## icons-1.23b/
 

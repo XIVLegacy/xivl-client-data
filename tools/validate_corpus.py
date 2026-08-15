@@ -207,6 +207,11 @@ def validate_schemas() -> None:
             "icons_1_23b.schema.json",
             "icons_1_23b.json",
         ),
+        (
+            MANIFESTS / "shop_catalogs.json",
+            "shop_catalogs.schema.json",
+            "shop_catalogs.json",
+        ),
     ]
     for inst_path, schema_name, label in pairs:
         schema_path = SCHEMAS / schema_name
@@ -382,6 +387,18 @@ def validate_derived_counts() -> None:
         ids = [r["id"] for r in records]
         if len(set(ids)) != len(ids):
             errors.append("staticactor_class_paths.json: duplicate record ids")
+
+    shop_builder = REPO_ROOT / "tools" / "build_shop_catalogs.py"
+    if shop_builder.is_file() and not CORPUS_ABSENT:
+        result = subprocess.run(
+            [sys.executable, str(shop_builder), "--check"],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode:
+            detail = (result.stdout + result.stderr).strip()
+            errors.append(f"shop catalog artifacts are not reproducible: {detail}")
 
 
 def validate_zone_catalog() -> None:
