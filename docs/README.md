@@ -16,6 +16,7 @@ findings, and repository policy.
 - [rank-cap-findings.md](rank-cap-findings.md) - rank-indexed BP, attribute-cap, derived-stat, and Cure-column findings.
 - [quest-gating-findings.md](quest-gating-findings.md) - active-class quest-offer level form and class/job scope evidence.
 - [shop-catalogs.md](shop-catalogs.md) - GC seal catalog fields, generic shop joins, and the seven-sheet fidelity audit.
+- [shop-family-audit.md](shop-family-audit.md) - generic shop membership and price comparison plus the chocobo-fee evidence boundary.
 
 ## Repository policy
 
