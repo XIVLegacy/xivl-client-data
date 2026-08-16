@@ -1,54 +1,84 @@
 # Quest-offer level-gating findings
 
-Sweep date: 2026-08-14. Corpus: extraction `2012.09.19.0001`, game version
+Sweep date: 2026-08-15. Corpus: extraction `2012.09.19.0001`, game version
 `1.23b` (`xivl-client-data:manifests/manifest.json`). CSV column numbers below
-were zero-based sheet columns after the row id.
+are zero-based sheet columns after the row id.
 
-## Requirement fields
+## Verdict: (a), active class or current job
 
-The quest sheet exposed one scalar `s32` level-like field at column 51. The
-following fields were typed separately as `s32`, `s32`, `bool`, and `bool` at
-columns 52-55 (`xivl-client-data:csv/quest.csv:rows 0-1, columns 51-55`). The
-quest detail widget read columns 51-54, but its only later use of column 51
-passed that value to `calcSkillPoint` while rendering reward text
-(`xivl-client-scripts:lua/scripts/widget/ask/questdetailwidget.lua:584-615`,
-`xivl-client-scripts:lua/scripts/widget/ask/questdetailwidget.lua:761-790`).
-The condition path separately used columns 53-54 for condition/repeat and
-company-rank display state (`xivl-client-scripts:lua/scripts/widget/ask/questdetailwidget.lua:454-581`).
-Thus columns 52-55 did not provide a second class-level requirement matrix.
+Retail 1.23b quest data pairs one scalar level with an eligibility label that
+restricts the class or job currently undertaking the quest. The scope varies
+by row: ordinary quests can allow all classes or a discipline family, while
+class and job quests name one class or job. This is active-class/current-job
+level form, not highest-attained level across the character.
 
-The level interpretation was corroborated by the class labels in
-`xtx_quest`: the unrestricted row had `c51=1` and label `All`, while broad
-discipline rows had `c51=45`/`18` and labels `Disciples of War or Magic`,
-`Disciples of the Land`, and `Disciples of the Hand (Excluding Culinarians)`
-(`xivl-client-data:csv/quest.csv:rows 110001, 110627, 110813-110814, column 51`,
-`xivl-client-data:csv/xtx_quest.csv:rows 110001, 110627, 110813-110814, columns 40-41`).
+The strongest discriminator is the job-quest series. Quest `111201` has
+column 51 = `30` and the English eligibility text `Marauder, level 30 &
+Gladiator`. Quests `111202`-`111206` have column 51 = `35`, `40`, `45`, `45`,
+and `50`, paired with `Warrior, Level N & Gladiator`. The other job unlocks
+repeat the form for Pugilist, Conjurer, Thaumaturge, Gladiator, Archer, and
+Lancer at level 30 (`xivl-client-data:csv/quest.csv:rows 111201-111206,
+111221,111241,111261,111281,111301,111321, column 51`;
+`xivl-client-data:csv/xtx_quest.csv:same rows, columns 40-41`). A level held by
+an unrelated class cannot satisfy those named forms. That rules out (d).
 
-## Cross-discipline and named-class rows
+Discipline-wide rows use the same scalar but broaden the eligible current
+class. `Ifrit Bleeds, We Can Kill It` has column 51 = `45` and `Disciples of
+War or Magic`; `Joining the Spirit` and `Waking the Spirit` have column 51 =
+`18` and respectively `Disciples of the Land` and `Disciples of the Hand
+(Excluding Culinarians)` (`xivl-client-data:csv/quest.csv:rows 110627,
+110813-110814, column 51`; `xivl-client-data:csv/xtx_quest.csv:same rows,
+columns 40-41`). These are the discipline-scoped selector form described by
+(b), but they do not encode a separate discipline-level quantity. They select
+which active class may use the row's one level threshold. Named class and job
+rows similarly use the selector form described by (c), without changing the
+underlying level notion.
 
-The job-quest rows paired the same scalar with an explicit named class and
-level: Marauder level 30 (`111201`), Warrior levels 35, 40, 45, 45, and 50
-(`111202`-`111206`), and level-30 Pugilist, Conjurer, Thaumaturge,
-Gladiator, Archer, and Lancer rows with a named secondary class
-(`111221`, `111241`, `111261`, `111281`, `111301`, `111321`). Their quest-sheet
-values were `c51=30`, `35`, `40`, `45`, or `50`, matching the English labels
-(`xivl-client-data:csv/quest.csv:rows 111201-111206, 111221-111321, column 51`,
-`xivl-client-data:csv/xtx_quest.csv:rows 111201-111206, 111221-111321, columns 40-41`).
+The data therefore excludes both a character-wide highest level (d) and an
+absence of level data (e). A consumer implementing this form must use the
+active eligible class or current job level, with the row's discipline or
+named-class restriction applied where present.
 
-## Form verdict and limit
+## Candidate field sweep
 
-The extracted form was discipline-scoped for the broad labels and named-class
-for the job rows. It was not an active-class or highest-attained-class matrix:
-the sheet carried one scalar level and a text scope, not per-class level slots.
-The client scripts exposed only a generic quest getter
-(`xivl-client-scripts:lua/scripts/quest/questbaseclass.lua:17-29`); the inspected
-offer/detail path did not compare that scalar with an active class, a named
-class, or the player's highest attained level. The runtime choice between
-active-class and highest-attained semantics therefore remained insufficient-data.
+The quest-family sheets are `quest.csv`, `_quest.csv`, `quest_marker.csv`,
+`quest_new_reward.csv`, `quest_reward.csv`, `questcategory.csv`,
+`xtx_quest.csv`, `xtx_questCompleteText.csv`, and
+`xtx_quest_compkind.csv` (`xivl-client-data:manifests/sheet_inventory.csv:rows
+13,592-596,780-782`).
 
-The reward-side use was consistent with a level key: `calcSkillPoint` passed its
-first argument to `getSkillPointMax`, whose hardcoded tables were indexed by
-level (`xivl-client-scripts:lua/scripts/chara/player/player_work.lua:675-689`,
-`xivl-client-scripts:lua/scripts/chara/charabaseclass_battle.lua:1895-2027`).
-That corroborated the scalar's level role but did not establish offer
-eligibility semantics.
+Only this joined field pair carries a level plus a class/job scope:
+
+| Sheet field | Extracted type | Observed form |
+|---|---|---|
+| `quest` column 51 | `s32` | Scalar level; examples range from unrestricted level 1 through named level-50 job quests. |
+| `xtx_quest` columns 40-41 | `str`, `str` | Japanese and English eligibility labels: `All`, discipline families, or a named class/job plus the same level. |
+
+The adjacent typed quest fields are columns 52-55: `s32`, `s32`, `bool`, and
+`bool`. They do not form a class-level selector. Column 52 uses values such as
+`101`, `201`-`203`, and `329`-`336` while the paired eligibility label can
+remain unchanged; column 53 is predominantly zero; columns 54-55 are flags
+(`xivl-client-data:csv/quest.csv:rows 0-1, columns 51-55`). None supplies
+per-class level slots, a discipline-level array, or a highest-level flag.
+
+`_quest.csv` has only two typed trailing integers; `quest_marker.csv` is a
+marker payload; `quest_new_reward.csv` and `quest_reward.csv` are all-integer
+reward payloads; `questcategory.csv` is a two-integer category table; and the
+remaining `xtx` sheets contain completion/category text. None pairs a numeric
+field with class, job, discipline, level, offer, unlock, or acceptance text.
+No second quest-family sheet therefore supplies a competing level notion.
+
+## Offer versus acceptance limit
+
+The decoded sheets do not have separate offer-visible and accept-enabled
+level columns. The requirement pair describes eligibility for undertaking the
+quest, but static CSV alone cannot show whether the NPC hides an ineligible
+quest or shows it and rejects acceptance. That presentation distinction does
+not affect the FORM verdict: either behavior must evaluate the row's scalar
+against the eligible active class/current job, not the character's highest
+attained level.
+
+No Ghidra or decompilation evidence was used. No structured manifest was added:
+the source rows already preserve the complete scalar and localized selector,
+and converting free-form eligibility strings into an enum would exceed what
+the decoded schema proves.

@@ -14,7 +14,7 @@ findings, and repository policy.
 - [inventory-cross-check.md](inventory-cross-check.md) - retail inventory observations matched against the three-source item catalog.
 - [command-battle-params.md](command-battle-params.md) - getter-verified command-parameter map backing `derived/command_battle_params.csv`.
 - [rank-cap-findings.md](rank-cap-findings.md) - rank-indexed BP, attribute-cap, derived-stat, and Cure-column findings.
-- [quest-gating-findings.md](quest-gating-findings.md) - quest-offer level-field form and the bounded runtime-gating verdict.
+- [quest-gating-findings.md](quest-gating-findings.md) - active-class quest-offer level form and class/job scope evidence.
 - [shop-catalogs.md](shop-catalogs.md) - GC seal catalog fields, generic shop joins, and the seven-sheet fidelity audit.
 
 ## Repository policy
