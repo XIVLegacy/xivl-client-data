@@ -19,9 +19,9 @@ out/
 artifacts/
 build/
 *.log
-_safe/
+/_retail-staging/
 
-# Retail-input lane guards; raw SAN files and attestations stay local.
+# Raw retail SAN inputs must never be tracked.
 *.san
 
 # Python tooling

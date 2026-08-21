@@ -250,17 +250,17 @@ jobs:
           set -euo pipefail
           umask 077
           private_root="${RUNNER_TEMP}/retail-evidence-private"
-          safe_root="${GITHUB_WORKSPACE}/_safe"
+          staging_root="${GITHUB_WORKSPACE}/_retail-staging"
           product="${private_root}/staticactor_class_paths.json"
           mutated="${private_root}/staticactor_class_paths-mutated.json"
-          rm -rf -- "${safe_root}"
-          mkdir -p "${safe_root}"
+          rm -rf -- "${staging_root}"
+          mkdir -p "${staging_root}"
 
           timeout 120s python tools/extract_staticactor_san.py \
             "${private_root}/game" --out "${product}" \
             > "${private_root}/extract.log" 2>&1
           timeout 30s python tools/verify_retail_staticactor.py --input "${product}" \
-            > "${safe_root}/retail-evidence-attestation.json" \
+            > "${staging_root}/retail-evidence-attestation.json" \
             2> "${private_root}/verifier.log"
 
           PRODUCT="${product}" MUTATED="${mutated}" timeout 30s python - <<'PY'
@@ -303,13 +303,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          safe_root="${GITHUB_WORKSPACE}/_safe"
-          rm -rf -- "${safe_root}"
-          mkdir -p "${safe_root}"
+          staging_root="${GITHUB_WORKSPACE}/_retail-staging"
+          rm -rf -- "${staging_root}"
+          mkdir -p "${staging_root}"
           set +e
           timeout 30s python tools/verify_retail_staticactor.py \
             --input "${RUNNER_TEMP}/retail-evidence-private/missing-product.json" \
-            > "${safe_root}/retail-evidence-attestation.json" 2> /dev/null
+            > "${staging_root}/retail-evidence-attestation.json" 2> /dev/null
           status=$?
           set -e
           test "${status}" -ne 0
@@ -325,16 +325,16 @@ jobs:
 
       - name: Validate the only retained file
         id: retained
-        if: always() && !cancelled() && steps.cleanup.outcome == 'success' && hashFiles('_safe/retail-evidence-attestation.json') != ''
+        if: always() && !cancelled() && steps.cleanup.outcome == 'success' && hashFiles('_retail-staging/retail-evidence-attestation.json') != ''
         shell: bash
-        run: timeout 30s python tools/verify_retail_staticactor.py --validate-retained-output _safe
+        run: timeout 30s python tools/verify_retail_staticactor.py --validate-retained-output _retail-staging
 
       - name: Upload the sanitized attestation
         if: always() && !cancelled() && steps.cleanup.outcome == 'success' && steps.retained.outcome == 'success'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: retail-staticactor-attestation
-          path: _safe/retail-evidence-attestation.json
+          path: _retail-staging/retail-evidence-attestation.json
           if-no-files-found: error
           retention-days: 30
           compression-level: 0
