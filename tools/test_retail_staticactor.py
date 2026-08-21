@@ -166,6 +166,20 @@ def main() -> int:
             first.returncode == second.returncode == 0
             and first.stdout.encode() == second.stdout.encode(),
         )
+        raw = subprocess.run(
+            [sys.executable, str(VERIFY), "--input", str(PRODUCT)],
+            cwd=REPO,
+            capture_output=True,
+            text=False,
+            check=False,
+            timeout=30,
+        )
+        check(
+            "passing output has a literal LF terminator",
+            raw.returncode == 0
+            and raw.stdout.endswith(b"\n")
+            and b"\r" not in raw.stdout,
+        )
 
         retained = directory / "retained"
         retained.mkdir()

@@ -218,7 +218,10 @@ def main(argv: list[str] | None = None) -> int:
         except VerificationError:
             print("ERROR: public commit unavailable", file=sys.stderr)
             return 1
-    print(json.dumps(attestation, ensure_ascii=True, sort_keys=True, separators=(",", ":")))
+    payload = json.dumps(
+        attestation, ensure_ascii=True, sort_keys=True, separators=(",", ":")
+    ).encode("ascii") + b"\n"
+    sys.stdout.buffer.write(payload)
     for error in errors:
         print(f"ERROR: {error}", file=sys.stderr)
     return 1 if errors else 0
