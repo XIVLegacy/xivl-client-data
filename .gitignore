@@ -19,6 +19,10 @@ out/
 artifacts/
 build/
 *.log
+_safe/
+
+# Retail-input lane guards; raw SAN files and attestations stay local.
+*.san
 
 # Python tooling
 __pycache__/

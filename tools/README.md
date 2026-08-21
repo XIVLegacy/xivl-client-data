@@ -45,6 +45,8 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   all three artifacts without writing.
 - `build_zone_name_catalog.py` and `extract_staticactor_san.py` produce the
   zone-name and static-actor manifests from explicit client inputs.
+- `verify_retail_staticactor.py` checks the fixed retail SAN product contract;
+  `test_retail_staticactor.py` covers its mutation and sanitized-output cases.
 - `retail_inventory_crosscheck.py` checks vendored retail item observations.
 
 The remaining mapping helpers and shared readers are implementation details

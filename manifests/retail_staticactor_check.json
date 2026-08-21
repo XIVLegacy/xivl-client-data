@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "checkId": "staticactor-class-paths-v1",
+  "approvedInputId": "staticactor-san-1.23b",
+  "approvedInputSha256": "bb7306461b1728493242016a16d9dd5257d7512c60e423b017de5ec7aced3d14",
+  "inputInstallRelativePath": "client/script/rq9q1797qvs.san",
+  "generator": "tools/extract_staticactor_san.py",
+  "expectedProduct": {
+    "path": "manifests/staticactor_class_paths.json",
+    "bytes": 248434,
+    "sha256": "d612438827e5997422ab6f64a807e567ddf1b953c532e8a319d67b93c53c9db0",
+    "recordCount": 2812
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "inputs": [
+    {
+      "id": "staticactor-san-1.23b",
+      "filename": "rq9q1797qvs.san",
+      "installRelativePath": "client/script/rq9q1797qvs.san",
+      "size": 108911,
+      "sha256": "bb7306461b1728493242016a16d9dd5257d7512c60e423b017de5ec7aced3d14",
+      "source": {
+        "repository": "XIVLegacy/xivl-private-assets",
+        "commit": "aeb52f6dbde95a793ee6d52be28de9f28a885b15",
+        "path": "client-data/ffxiv-1.23b/client/script/rq9q1797qvs.san"
+      },
+      "allowedChecks": [
+        "staticactor-class-paths-v1"
+      ]
+    }
+  ]
+}

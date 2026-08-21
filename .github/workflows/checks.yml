@@ -31,5 +31,7 @@ jobs:
           python-version: "3.12"
       - name: Install Python dependencies
         run: pip install jsonschema
+      - name: Test retail static-actor contract
+        run: python tools/test_retail_staticactor.py
       - name: Run strict gate
         run: python tools/validate_corpus.py

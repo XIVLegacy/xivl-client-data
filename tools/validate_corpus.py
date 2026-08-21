@@ -212,6 +212,16 @@ def validate_schemas() -> None:
             "shop_catalogs.schema.json",
             "shop_catalogs.json",
         ),
+        (
+            MANIFESTS / "retail_inputs.json",
+            "retail_inputs.schema.json",
+            "retail_inputs.json",
+        ),
+        (
+            MANIFESTS / "retail_staticactor_check.json",
+            "retail_staticactor_check.schema.json",
+            "retail_staticactor_check.json",
+        ),
     ]
     for inst_path, schema_name, label in pairs:
         schema_path = SCHEMAS / schema_name
@@ -605,6 +615,23 @@ def validate_vendor_provenance() -> None:
             errors.append(f"{label}: {name} exists but has no files[] entry")
 
 
+def validate_retail_staticactor_contract() -> None:
+    """Check the asset-free static-actor retail contract and product hash."""
+    verifier_path = REPO_ROOT / "tools" / "verify_retail_staticactor.py"
+    if not verifier_path.is_file():
+        errors.append("retail static-actor verifier is missing")
+        return
+    try:
+        import verify_retail_staticactor as verifier
+
+        contract_errors = verifier.verify()
+    except (ImportError, OSError, TypeError, ValueError):
+        errors.append("retail static-actor verifier could not run")
+        return
+    for detail in contract_errors:
+        errors.append(f"retail static-actor contract: {detail}")
+
+
 def validate_docs_index() -> None:
     """Ensure each tracked docs shelf indexes its sibling Markdown files."""
     for docs_dir in (DOCS_DIR, DOCS_DIR / "ai_agents"):
@@ -652,6 +679,7 @@ def main() -> int:
     validate_zone_catalog()
     validate_icon_corpus()
     validate_vendor_provenance()
+    validate_retail_staticactor_contract()
     validate_docs_index()
     if errors:
         print(f"corpus validation FAILED ({len(errors)} problem(s)):", file=sys.stderr)
