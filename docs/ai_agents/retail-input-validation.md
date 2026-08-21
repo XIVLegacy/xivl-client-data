@@ -72,6 +72,19 @@ client install, two clean extractor runs must produce byte-identical products.
 The mutation suite rejects a changed record, output byte, grant, expected
 hash, extra attestation field, and retained-file violation.
 
+## Reproduced result
+
+[Retail Checks run 32513796625](https://github.com/XIVLegacy/xivl-client-data/actions/runs/32513796625)
+passed on 2026-08-21 for public commit
+`4dfe815a3268fa48f1e264d58d0bdc93e4f0d9b5`. Its evidence job completed in
+9 seconds. The downloaded pass attestation was byte-identical to a local
+regeneration for the same commit and is tracked as
+[`staticactor-class-paths-v1.json`](../../manifests/retail_evidence/staticactor-class-paths-v1.json).
+The retained file is 310 bytes with SHA-256
+`b3014faf9279e083acb1c66023b302685612ce4fabcb50d56a79252d7ef7f225`.
+Artifact allowlist, schema, cleanup, negative-control, and public-log leakage
+reviews passed.
+
 Stop on input, private-tree, product, determinism, cleanup, allowlist,
 protected-ref, artifact, or normal-CI drift. Do not retain SAN bytes, raw
 intermediate products, private API responses, or sensitive logs.

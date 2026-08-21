@@ -1,0 +1,1 @@
+{"approvedInputSha256":"bb7306461b1728493242016a16d9dd5257d7512c60e423b017de5ec7aced3d14","check":{"id":"staticactor-class-paths-v1","version":1},"publicRepositoryCommit":"4dfe815a3268fa48f1e264d58d0bdc93e4f0d9b5","result":{"status":"pass"},"schemaVersion":1,"toolVersions":{"python":"3.12","verifier":"1.0"}}
