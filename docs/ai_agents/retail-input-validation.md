@@ -15,7 +15,7 @@ manual retail-input workflow asks one narrow question: does the exact approved
 | Expected result | `manifests/retail_staticactor_check.json` |
 | Product | `manifests/staticactor_class_paths.json` |
 | Verifier | `tools/verify_retail_staticactor.py` |
-| Tracked pass attestation | `manifests/retail_evidence/staticactor-class-paths-v1.json` |
+| Tracked pass attestation | `manifests/retail_evidence/staticactor-class-paths.json` |
 | Protected environment | `retail-evidence` |
 | Private input repository | `XIVLegacy/xivl-private-assets` |
 
@@ -79,7 +79,7 @@ passed on 2026-08-21 for public commit
 `4dfe815a3268fa48f1e264d58d0bdc93e4f0d9b5`. Its evidence job completed in
 9 seconds. The downloaded pass attestation was byte-identical to a local
 regeneration for the same commit and is tracked as
-[`staticactor-class-paths-v1.json`](../../manifests/retail_evidence/staticactor-class-paths-v1.json).
+[`staticactor-class-paths.json`](../../manifests/retail_evidence/staticactor-class-paths.json).
 The retained file is 310 bytes with SHA-256
 `b3014faf9279e083acb1c66023b302685612ce4fabcb50d56a79252d7ef7f225`.
 Artifact allowlist, schema, cleanup, negative-control, and public-log leakage
