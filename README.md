@@ -26,7 +26,6 @@ corpus remains local and is not distributed by this repository.
 - [Command battle parameters](docs/command-battle-params.md)
 - [Icon evidence map](derived/icons-1.23b/evidence-map.md)
 - [Evidence and claims](docs/ai_agents/evidence-and-claims.md)
-- [Verification](docs/ai_agents/verification.md)
 - [Derived products](derived/README.md)
 - [Tooling and regeneration](tools/README.md)
 

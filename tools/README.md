@@ -11,6 +11,9 @@ the declarative modules in `mappings/` and writes `build/sql/<table>.sql`.
 A downstream consumer owns its DDL, server SQL, and import of these seed
 fragments.
 
+Use `csv_to_sql.py --list` to print the available mapping module names without
+writing output.
+
 `--all` excludes partial mappings that would fill curated server columns with
 placeholders. Run partial mappings with `--table actor_class` or `--table
 zones`.
@@ -48,6 +51,19 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
 - `verify_retail_staticactor.py` checks the fixed retail SAN product contract;
   `test_retail_staticactor.py` covers its mutation and sanitized-output cases.
 - `retail_inventory_crosscheck.py` checks vendored retail item observations.
+
+The verifier's `--input` is the artifact under test, while the separately
+named tracked product is the reference result; the defaults point to the same
+tracked file for the asset-free local check, and the retail workflow supplies a
+generated product as `--input`.
+
+The dependency-free checker in `_schema_check.py` validates the attestation
+schema's exact subset: `type`, `const`, `enum`, `pattern`, `minLength`,
+`minItems`, `uniqueItems`, `items`, `required`, `properties`, and boolean
+`additionalProperties`, with the standard annotation keys `$schema`, `$id`,
+`title`, and `description`. It supports object, array, string, integer,
+boolean, and null types. Any other keyword or schema form raises `SchemaError`
+instead of being silently ignored.
 
 The remaining mapping helpers and shared readers are implementation details
 of these entry points. See their `--help` output for flags and output paths.

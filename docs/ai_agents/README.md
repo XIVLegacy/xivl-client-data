@@ -2,8 +2,7 @@
 
 This policy governs changes to the tracked surface of the private decoded
 client-data catalog. AI-assisted work follows the same standard as any other
-change. The contributor owns the result, can explain the claim or edit, and can
-name the checks that support it.
+change. The contributor owns the result and can explain the claim or edit.
 
 ## Contribution policy
 
@@ -20,7 +19,6 @@ name the checks that support it.
   credentials, database dumps, or generated build output.
 
 Evidence and claim rules are in [Evidence and claims](evidence-and-claims.md).
-The repository checks and their limits are in [Verification](verification.md).
 
 ## Documentation policy
 
@@ -46,7 +44,6 @@ Read these pages when the change touches their subject:
 
 1. [Evidence and claims](evidence-and-claims.md)
 2. [Comments and prose](comments-and-prose.md)
-3. [Verification](verification.md)
 
 The repository README, `tools/README.md`, manifests, schemas, and finding
 documents remain canonical for their own surfaces.

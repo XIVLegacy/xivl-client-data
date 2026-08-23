@@ -20,7 +20,7 @@ findings, and repository policy.
 
 ## Repository policy
 
-- [ai_agents/README.md](ai_agents/README.md) - tracked contribution, documentation, evidence, comment, and verification policy.
+- [ai_agents/README.md](ai_agents/README.md) - tracked contribution, documentation, evidence, and comment policy.
 
 ## Products outside docs/
 

@@ -83,19 +83,11 @@ def _read_json(path: Path) -> Any:
         raise VerificationError("JSON input could not be read") from exc
 
 
-def _sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1 << 20), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
-
-
 def _git_commit() -> str:
     try:
         result = subprocess.run(
             ["git", "rev-parse", "HEAD"], cwd=REPO, check=True,
-            capture_output=True, text=True, timeout=10,
+            capture_output=True, text=True,
         )
         commit = result.stdout.strip()
     except (OSError, subprocess.SubprocessError) as exc:
@@ -110,7 +102,7 @@ def build_attestation(status: str) -> dict[str, Any]:
         "schemaVersion": SCHEMA_VERSION,
         "publicRepositoryCommit": _git_commit(),
         "approvedInputSha256": INPUT_SHA256,
-        "toolVersions": dict(TOOL_VERSIONS),
+        "toolVersions": TOOL_VERSIONS,
         "check": {"id": CHECK_ID, "version": 1},
         "result": {"status": status},
     }
@@ -119,12 +111,12 @@ def build_attestation(status: str) -> dict[str, Any]:
 def _product_errors(path: Path) -> list[str]:
     errors: list[str] = []
     try:
-        actual_size = path.stat().st_size
-        actual_hash = _sha256(path)
         actual_bytes = path.read_bytes()
         expected_bytes = DEFAULT_PRODUCT.read_bytes()
-    except (OSError, UnicodeError):
+    except OSError:
         return ["product could not be read"]
+    actual_size = len(actual_bytes)
+    actual_hash = hashlib.sha256(actual_bytes).hexdigest()
     if actual_size != PRODUCT_SIZE or actual_hash != PRODUCT_SHA256:
         errors.append("product size or SHA-256 differs")
     if actual_bytes != expected_bytes:

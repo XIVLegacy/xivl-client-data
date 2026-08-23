@@ -47,12 +47,15 @@ workflow has only `contents: read`; the environment variable is
 `RETAIL_INPUTS_REPOSITORY=XIVLegacy/xivl-private-assets` and the secret
 is `RETAIL_INPUTS_TOKEN`.
 
-The fetch step resolves only the manifest-pinned private commit, tree, path,
-size, and SHA-256. Raw input, API responses, and generated products remain
-under one disposable private root. Cleanup runs on every outcome. The only
-retained file is the schema-valid `retail-evidence-attestation.json`, uploaded
-as artifact `retail-staticactor-attestation` for 30 days. Failure attestations
-are reviewable artifacts and are never tracked.
+The fetch step resolves only the manifest-pinned private commit and an
+untruncated recursive tree response. It validates the authorized SAN entry's
+path, blob type, file mode, size, and SHA-256, then fetches that SAN blob only;
+other private assets are not selected. Raw input, API responses, and generated
+products remain under one disposable private root. Cleanup runs on every
+outcome. The only retained file is the schema-valid
+`retail-evidence-attestation.json`, uploaded as artifact
+`retail-staticactor-attestation` for 30 days. Failure attestations are
+reviewable artifacts and are never tracked.
 
 ## Local verification
 

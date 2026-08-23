@@ -102,7 +102,7 @@ def validate_json_tree() -> int:
         directories[:] = sorted(
             name
             for name in directories
-            if name not in {".git", "target"}
+            if name != ".git"
             and not (
                 CORPUS_ABSENT and root_path == REPO_ROOT and name == CSV_DIR.name
             )
@@ -336,14 +336,13 @@ def validate_sheet_inventory() -> None:
             return
         rows = list(reader)
 
-    if _HAVE_JSONSCHEMA:
-        schema_path = SCHEMAS / "sheet_inventory.schema.json"
-        if not schema_path.is_file():
-            errors.append(
-                "sheet_inventory.csv: schema sheet_inventory.schema.json missing"
-            )
-        else:
-            _check(rows, _validator_for(schema_path), "sheet_inventory.csv")
+    schema_path = SCHEMAS / "sheet_inventory.schema.json"
+    if not schema_path.is_file():
+        errors.append(
+            "sheet_inventory.csv: schema sheet_inventory.schema.json missing"
+        )
+    else:
+        _check(rows, _validator_for(schema_path), "sheet_inventory.csv")
 
     for row in rows:
         try:
@@ -617,10 +616,6 @@ def validate_vendor_provenance() -> None:
 
 def validate_retail_staticactor_contract() -> None:
     """Check the asset-free static-actor retail contract and product hash."""
-    verifier_path = REPO_ROOT / "tools" / "verify_retail_staticactor.py"
-    if not verifier_path.is_file():
-        errors.append("retail static-actor verifier is missing")
-        return
     try:
         import verify_retail_staticactor as verifier
 

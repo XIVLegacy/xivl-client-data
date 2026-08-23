@@ -123,13 +123,25 @@ COERCERS = {
 }
 
 
-def _validate_column_indices(columns: list, width: int, source_csv: str) -> None:
+ColumnIndexSpec = tuple[str, str | None, object]
+
+
+def _validate_column_indices(
+    columns: list[ColumnIndexSpec], source_widths: dict[str, int]
+) -> None:
     """Raise if a declared integer CSV column index exceeds the header width."""
-    for col in columns:
-        source = col[1]
-        if isinstance(source, int) and source >= width:
+    for output_col, source_csv, source in columns:
+        if not isinstance(source, int):
+            continue
+        if source_csv is None:
+            raise ValueError(f"{output_col!r}: integer source has no CSV source")
+        try:
+            width = source_widths[source_csv]
+        except KeyError as exc:
+            raise ValueError(f"column references unknown source: {source_csv!r}") from exc
+        if source >= width:
             raise ValueError(
-                f"{source_csv}: column index {source} for {col[0]!r} exceeds "
+                f"{source_csv}: column index {source} for {output_col!r} exceeds "
                 f"header width {width}"
             )
 
@@ -173,12 +185,16 @@ def write_single_csv_seed(
     """Generate one seed fragment from a single CSV source and column mapping."""
     csv_path = csv_dir / source_csv
     header, rows = read_csv(csv_path)
-    _validate_column_indices(columns, len(header.column_indices), source_csv)
+    _validate_column_indices(
+        [
+            (output_col, source_csv, source)
+            for output_col, source, _csv_type in columns
+        ],
+        {source_csv: len(header.column_indices)},
+    )
 
     inserts: list[str] = []
-    row_count = 0
     for row in rows:
-        row_count += 1
         values: list[str] = []
         for _output_col, source, csv_type in columns:
             if source == "row_id":
@@ -202,10 +218,10 @@ def write_single_csv_seed(
     return out_path
 
 
-def _seed_header(source_csv: str) -> str:
+def _seed_header(*sources: str) -> str:
     return "\n".join([
         SEED_MARKER,
-        f"-- Source: xivl-client-data/csv/{source_csv}",
+        *(f"-- Source: xivl-client-data/csv/{source}" for source in sources),
         "",
     ])
 
@@ -239,24 +255,19 @@ def write_multi_csv_seed(
             indexed[row.row_id] = row
         sources_data[csv_filename] = indexed
 
-    for output_col, csv_filename, source, _csv_type in columns:
-        if (
-            isinstance(source, int)
-            and csv_filename in source_widths
-            and source >= source_widths[csv_filename]
-        ):
-            raise ValueError(
-                f"{csv_filename}: column index {source} for {output_col!r} "
-                f"exceeds header width {source_widths[csv_filename]}"
-            )
+    _validate_column_indices(
+        [
+            (output_col, csv_filename, source)
+            for output_col, csv_filename, source, _csv_type in columns
+        ],
+        source_widths,
+    )
 
     driver = sources[0]
     join_keys = join_keys or {}
 
     inserts: list[str] = []
-    row_count = 0
     for iteration_index, row_id in enumerate(sources_data[driver]):
-        row_count += 1
         values: list[str] = []
         for _output_col, csv_filename, source, csv_type in columns:
             if source == "iteration_index":
@@ -303,19 +314,10 @@ def write_multi_csv_seed(
 
     out_path = out_dir / f"{sql_table}.sql"
     seed_content = (
-        _seed_header_multi(sources)
+        _seed_header(*sources)
         + "\n"
         + "\n".join(inserts)
         + "\n"
     )
     _write_seed_file(out_path, seed_content)
     return out_path
-
-
-def _seed_header_multi(sources: list[str]) -> str:
-    source_lines = [f"-- Source: xivl-client-data/csv/{s}" for s in sources]
-    return "\n".join([
-        SEED_MARKER,
-        *source_lines,
-        "",
-    ])

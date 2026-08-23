@@ -37,15 +37,15 @@ def load_table(path: Path) -> tuple[CsvHeader, list[CsvRow]]:
     return header, list(rows)
 
 
-def index_rows(path: Path) -> tuple[CsvHeader, dict[int, CsvRow]]:
-    header, rows = load_table(path)
+def index_rows(path: Path) -> dict[int, CsvRow]:
+    _header, rows = load_table(path)
     indexed: dict[int, CsvRow] = {}
     for row in rows:
         row_id = int(row.row_id)
         if row_id in indexed:
             raise ValueError(f"{path.name}: duplicate row id {row_id}")
         indexed[row_id] = row
-    return header, indexed
+    return indexed
 
 
 def render_csv(header: list[str], rows: list[list[object]]) -> bytes:
@@ -98,9 +98,9 @@ def build() -> dict[Path, bytes]:
             "columnTypes": header.column_types,
         }
 
-    _item_header, item_rows = index_rows(CSV_DIR / "_item.csv")
-    _item_data_header, item_data_rows = index_rows(CSV_DIR / "itemData.csv")
-    _item_name_header, item_name_rows = index_rows(CSV_DIR / "xtx_itemName.csv")
+    item_rows = index_rows(CSV_DIR / "_item.csv")
+    item_data_rows = index_rows(CSV_DIR / "itemData.csv")
+    item_name_rows = index_rows(CSV_DIR / "xtx_itemName.csv")
     join_sources = []
     for name, rows in (
         ("_item.csv", item_rows),
@@ -113,7 +113,7 @@ def build() -> dict[Path, bytes]:
             "sha256": table_manifest[name]["sha256"],
         })
 
-    _gc_header, gc_rows = index_rows(CSV_DIR / "gcSealShopItem.csv")
+    gc_rows = index_rows(CSV_DIR / "gcSealShopItem.csv")
     gc_output: list[list[object]] = []
     for shop_row_id, row in sorted(gc_rows.items()):
         values = [int(value) for value in row.values]
@@ -149,8 +149,8 @@ def build() -> dict[Path, bytes]:
         "item_name_en",
     ], gc_output)
 
-    _base_header, base_rows = index_rows(CSV_DIR / "shopBase.csv")
-    _shop_item_header, shop_item_rows = index_rows(CSV_DIR / "shopItem.csv")
+    base_rows = index_rows(CSV_DIR / "shopBase.csv")
+    shop_item_rows = index_rows(CSV_DIR / "shopItem.csv")
     owners: dict[int, list[int]] = {row_id: [] for row_id in shop_item_rows}
     shop_output: list[list[object]] = []
     for shop_id, row in sorted(base_rows.items()):
@@ -186,7 +186,10 @@ def build() -> dict[Path, bytes]:
 
     unowned = sorted(row_id for row_id, row_owners in owners.items() if not row_owners)
     multiple = sorted(row_id for row_id, row_owners in owners.items() if len(row_owners) > 1)
-    if any(int(row.values[7]) != 0 for row in gc_rows.values()):
+    reserved_column7_nonzero_count = sum(
+        int(row.values[7]) != 0 for row in gc_rows.values()
+    )
+    if reserved_column7_nonzero_count:
         raise ValueError("gcSealShopItem.csv column 7 is no longer uniformly zero")
 
     manifest = {
@@ -203,7 +206,7 @@ def build() -> dict[Path, bytes]:
             "output": "derived/gc_seal_shop_catalog.csv",
             "rowCount": len(gc_output),
             "distinctItemCount": len({row[1] for row in gc_output}),
-            "reservedColumn7NonzeroCount": 0,
+            "reservedColumn7NonzeroCount": reserved_column7_nonzero_count,
             "sha256": sha256(gc_bytes),
         },
         "genericShop": {

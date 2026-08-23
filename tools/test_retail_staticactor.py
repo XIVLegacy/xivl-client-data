@@ -17,6 +17,7 @@ import verify_retail_staticactor as verifier  # noqa: E402
 
 
 REPO = Path(__file__).resolve().parents[1]
+CHECKS_WORKFLOW = REPO / ".github" / "workflows" / "checks.yml"
 WORKFLOW = REPO / ".github" / "workflows" / "retail-checks.yml"
 PRODUCT = REPO / "manifests" / "staticactor_class_paths.json"
 CHECK = REPO / "manifests" / "retail_staticactor_check.json"
@@ -71,6 +72,14 @@ def _run_cli(path: Path) -> subprocess.CompletedProcess[str]:
 
 
 def main() -> int:
+    checks_workflow = CHECKS_WORKFLOW.read_text(encoding="utf-8")
+    check(
+        "whitespace check uses event revision",
+        "git diff --check" in checks_workflow
+        and 'case "${GITHUB_EVENT_NAME}" in' in checks_workflow
+        and "github.event.pull_request.base.sha" in checks_workflow
+        and "github.event.before" in checks_workflow,
+    )
     workflow = WORKFLOW.read_text(encoding="utf-8")
     check("retail preflight has a timeout", "timeout-minutes: 10" in workflow)
     check(
@@ -80,6 +89,23 @@ def main() -> int:
     check(
         "remote-main lookup is bounded",
         "timeout 30s git ls-remote origin refs/heads/main" in workflow,
+    )
+    check(
+        "retail tree response is untruncated",
+        'tree.get("truncated") is not False' in workflow,
+    )
+    check(
+        "retail fetch selects only the SAN",
+        all(name not in workflow for name in ("ffxivgame.exe", ".le.lpb", ".zip"))
+        and "EXPECTED_PATH" in workflow
+        and 'entry.get("type") != "blob"' in workflow
+        and 'entry.get("mode") != "100644"' in workflow,
+    )
+    check(
+        "retail fetch verifies the decoded SAN hash",
+        "hashlib.sha256(data).hexdigest()" in workflow
+        and "bb7306461b1728493242016a16d9dd5257d7512c60e423b017de5ec7aced3d14" in workflow
+        and "private blob hash failed" in workflow,
     )
     python_commands = [
         line for line in workflow.splitlines()
@@ -124,6 +150,20 @@ def main() -> int:
         schema = _schema_check.load_schema(SCHEMA)
         attestation = verifier.build_attestation("pass")
         check("passing attestation satisfies schema", not _schema_check.validate(attestation, schema))
+        try:
+            _schema_check.validate("value", {"type": "string", "minimum": 1})
+        except _schema_check.SchemaError:
+            unsupported_keyword_fails_closed = True
+        else:
+            unsupported_keyword_fails_closed = False
+        check("unsupported schema keyword fails closed", unsupported_keyword_fails_closed)
+        try:
+            _schema_check.validate("value", {"type": None})
+        except _schema_check.SchemaError:
+            invalid_type_fails_closed = True
+        else:
+            invalid_type_fails_closed = False
+        check("invalid schema type fails closed", invalid_type_fails_closed)
         zero_commit = copy.deepcopy(attestation)
         zero_commit["publicRepositoryCommit"] = "0" * 40
         check(
