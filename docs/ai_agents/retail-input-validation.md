@@ -1,10 +1,11 @@
 # Retail input validation
 
-The normal asset-free repository checks remain the merge gate. The additional
-manual retail-input workflow asks one narrow question: does the exact approved
-1.23b static-actor SAN file reproduce the already tracked class-path catalog?
+The normal asset-free repository checks remain the merge requirement. The
+additional manual retail-input workflow asks one narrow question: does the
+exact approved 1.23b static-actor SAN file reproduce the already tracked
+class-path catalog?
 
-## Fixed lane
+## Approved check
 
 | Contract | Value |
 |---|---|
@@ -30,8 +31,8 @@ The approved input is `staticactor-san-1.23b`: private path
 The workflow stages that one file at its expected install-relative path and
 runs `tools/extract_staticactor_san.py`. The generated product must be
 byte-identical to `manifests/staticactor_class_paths.json`: 248434 bytes,
-SHA-256 `d612438827e5997422ab6f64a807e567ddf1b953c532e8a319d67b93c53c9db0`,
-and exactly 2812 unique ID-to-class-path records.
+SHA-256 `d612438827e5997422ab6f64a807e567ddf1b953c532e8a319d67b93c9db0`.
+The catalog contains exactly 2812 unique ID-to-class-path records.
 
 This proves only exact reproduction of the tracked catalog from the named
 retail file. It does not prove NPC server bindings, actor behavior, catalog
@@ -43,16 +44,19 @@ class path.
 Execution is manual `workflow_dispatch` from the reviewed revision on
 protected `main`. A credential-free preflight rejects other events, refs, or
 checkout revisions before the environment-bearing job is eligible. The
-workflow has only `contents: read`; the environment variable is
-`RETAIL_INPUTS_REPOSITORY=XIVLegacy/xivl-private-assets` and the secret
-is `RETAIL_INPUTS_TOKEN`.
+workflow has only `contents: read`; the shared fetch action receives the
+`RETAIL_INPUTS_TOKEN` secret.
 
-The fetch step resolves only the manifest-pinned private commit and an
-untruncated recursive tree response. It validates the authorized SAN entry's
+The shared `fetch-retail-input` action is pinned to
+`XIVLegacy/xivl-tools/.github/actions/fetch-retail-input@4920dece45e88fcb14424de1f5c4fdee94ae6d02`.
+It receives this check's manifest-pinned private commit, SAN path, size,
+SHA-256, and output path. It validates the authorized SAN entry's
 path, blob type, file mode, size, and SHA-256, then fetches that SAN blob only;
-other private assets are not selected. Raw input, API responses, and generated
-products remain under one disposable private root. Cleanup runs on every
-outcome. The only retained file is the schema-valid
+other private assets are not selected. Raw input and generated products remain
+under one disposable private root. The shared `finalize-retail-attestation`
+action, pinned to
+`XIVLegacy/xivl-tools/.github/actions/finalize-retail-attestation@4920dece45e88fcb14424de1f5c4fdee94ae6d02`,
+removes that root on every outcome. The only retained file is the schema-valid
 `retail-evidence-attestation.json`, uploaded as artifact
 `retail-staticactor-attestation` for 30 days. Failure attestations are
 reviewable artifacts and are never tracked.
@@ -70,7 +74,7 @@ Remove-Item Env:XIVL_CORPUS_ABSENT -ErrorAction SilentlyContinue
 python tools\validate_corpus.py
 ```
 
-The SAN file is not required for the normal gate. With an approved local
+The SAN file is not required for the normal checks. With an approved local
 client install, two clean extractor runs must produce byte-identical products.
 The mutation suite rejects a changed record, output byte, grant, expected
 hash, extra attestation field, and retained-file violation.

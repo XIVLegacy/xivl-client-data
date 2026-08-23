@@ -91,21 +91,26 @@ def main() -> int:
         "timeout 30s git ls-remote origin refs/heads/main" in workflow,
     )
     check(
-        "retail tree response is untruncated",
-        'tree.get("truncated") is not False' in workflow,
+        "shared retail actions are pinned",
+        "XIVLegacy/xivl-tools/.github/actions/fetch-retail-input@4920dece45e88fcb14424de1f5c4fdee94ae6d02" in workflow
+        and "XIVLegacy/xivl-tools/.github/actions/finalize-retail-attestation@4920dece45e88fcb14424de1f5c4fdee94ae6d02" in workflow,
+    )
+    check(
+        "fetch passes the approved SAN identity",
+        "commit: aeb52f6dbde95a793ee6d52be28de9f28a885b15" in workflow
+        and "path: client-data/ffxiv-1.23b/client/script/rq9q1797qvs.san" in workflow
+        and "size: 108911" in workflow
+        and "sha256: bb7306461b1728493242016a16d9dd5257d7512c60e423b017de5ec7aced3d14" in workflow
+        and "output-path: ${{ runner.temp }}/retail-evidence-private/game/client/script/rq9q1797qvs.san" in workflow,
     )
     check(
         "retail fetch selects only the SAN",
         all(name not in workflow for name in ("ffxivgame.exe", ".le.lpb", ".zip"))
-        and "EXPECTED_PATH" in workflow
-        and 'entry.get("type") != "blob"' in workflow
-        and 'entry.get("mode") != "100644"' in workflow,
-    )
-    check(
-        "retail fetch verifies the decoded SAN hash",
-        "hashlib.sha256(data).hexdigest()" in workflow
-        and "bb7306461b1728493242016a16d9dd5257d7512c60e423b017de5ec7aced3d14" in workflow
-        and "private blob hash failed" in workflow,
+        and "RETAIL_INPUTS_" + "REPOSITORY" not in workflow
+        and "steps.fetch.outcome" in workflow
+        and "id: finalize" in workflow
+        and "steps.finalize.outcome" in workflow
+        and "hashFiles" not in workflow,
     )
     python_commands = [
         line for line in workflow.splitlines()
