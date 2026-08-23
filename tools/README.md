@@ -46,6 +46,14 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
 - `build_shop_catalogs.py` regenerates the GC seal and generic range-expanded
   shop catalogs plus `manifests/shop_catalogs.json`. Its `--check` mode verifies
   all three artifacts without writing.
+- `analyze_item_graphics_candidates.py` emits full distributions, correlations,
+  and packed-field profiles for the typed `weapon.csv` and `equipment.csv`
+  columns considered as item-graphics candidates. An optional historical SQL
+  input is used only for correlation and is never treated as retail authority.
+- `compare_sheet_inventory.py` compares `manifests/sheet_inventory.csv` with an
+  explicit retail client root, checks the game/var master references and every
+  named sheet document, and reports XML sheet documents carrying names outside
+  the inventory.
 - `build_zone_name_catalog.py` and `extract_staticactor_san.py` produce the
   zone-name and static-actor manifests from explicit client inputs.
 - `verify_retail_staticactor.py` checks the fixed retail SAN product contract;
