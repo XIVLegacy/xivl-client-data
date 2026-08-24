@@ -50,6 +50,9 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   and packed-field profiles for the typed `weapon.csv` and `equipment.csv`
   columns considered as item-graphics candidates. An optional historical SQL
   input is used only for correlation and is never treated as retail authority.
+- `verify_actor_appearance_crosswalk.py` checks the canonical names and `s32`
+  types for `actorclass_graphic` columns `0x19..0x1F`, then verifies the seven
+  zero packed words in rows `0x5A0700..0x5A0703`.
 - `compare_sheet_inventory.py` compares `manifests/sheet_inventory.csv` with an
   explicit retail client root, checks the game/var master references and every
   named sheet document, and reports XML sheet documents carrying names outside
