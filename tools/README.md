@@ -53,6 +53,10 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
 - `verify_actor_appearance_crosswalk.py` checks the canonical names and `s32`
   types for `actorclass_graphic` columns `0x19..0x1F`, then verifies the seven
   zero packed words in rows `0x5A0700..0x5A0703`.
+- `build_actor_appearance_census.py` regenerates the exhaustive nonzero-row
+  census and exact per-field packed-value distributions. Its `--check` mode
+  verifies both derived CSVs without writing. `test_actor_appearance_census.py`
+  mutation-tests the packing, joins, source types, and deterministic rendering.
 - `compare_sheet_inventory.py` compares `manifests/sheet_inventory.csv` with an
   explicit retail client root, checks the game/var master references and every
   named sheet document, and reports XML sheet documents carrying names outside

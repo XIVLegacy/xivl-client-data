@@ -11,7 +11,7 @@ findings, and repository policy.
 
 ## Evidence and derived findings
 
-- [actor-appearance-crosswalk.md](actor-appearance-crosswalk.md) - Canonical actor appearance columns for the seven packed equipment words.
+- [actor-appearance-crosswalk.md](actor-appearance-crosswalk.md) - Exhaustive census and canonical crosswalk for the seven packed actor appearance words.
 - [inventory-cross-check.md](inventory-cross-check.md) - retail inventory observations matched against the three-source item catalog.
 - [command-battle-params.md](command-battle-params.md) - getter-verified command-parameter map backing `derived/command_battle_params.csv`.
 - [rank-cap-findings.md](rank-cap-findings.md) - rank-indexed BP, attribute-cap, derived-stat, and Cure-column findings.

@@ -57,5 +57,7 @@ jobs:
         run: pip install jsonschema
       - name: Test retail static-actor contract
         run: python tools/test_retail_staticactor.py
+      - name: Test actor appearance census
+        run: python tools/test_actor_appearance_census.py
       - name: Run strict gate
         run: python tools/validate_corpus.py

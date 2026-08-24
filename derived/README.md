@@ -21,6 +21,8 @@ in the table below.
 
 | File | Built by | Source | Finding |
 |---|---|---|---|
+| `actor_appearance_census.csv` | `tools/build_actor_appearance_census.py` | `csv/actorclass_graphic.csv`, actor-class and display-name correlations | `docs/actor-appearance-crosswalk.md` |
+| `actor_appearance_value_counts.csv` | `tools/build_actor_appearance_census.py` | `csv/actorclass_graphic.csv` | `docs/actor-appearance-crosswalk.md` |
 | `command_battle_params.csv` | `tools/build_command_battle_params.py` | `csv/gameCommand.csv`, `csv/gameCommandBasic.csv`, `csv/xtx_command.csv` | `docs/command-battle-params.md` |
 | `gc_seal_shop_catalog.csv` | `tools/build_shop_catalogs.py` | `csv/gcSealShopItem.csv`, item catalog | `docs/shop-catalogs.md` |
 | `shop_catalog.csv` | `tools/build_shop_catalogs.py` | `csv/shopBase.csv`, `csv/shopItem.csv`, item catalog | `docs/shop-catalogs.md` |
