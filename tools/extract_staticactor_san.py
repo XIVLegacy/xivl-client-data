@@ -22,12 +22,16 @@ XOR_KEY = 0x73
 def parse_san(raw: bytes) -> list[dict]:
     if raw[:4] != b"sane":
         raise ValueError(f"bad magic {raw[:4]!r}; expected b'sane'")
+    if len(raw) < 13:
+        raise ValueError(f"truncated san header: {len(raw)} bytes")
     decoded = bytes(b ^ XOR_KEY for b in raw)
     count = struct.unpack(">I", decoded[9:13])[0]
     records: list[dict] = []
     pos = 13
-    while pos + 4 <= len(decoded):
-        actor_id = struct.unpack(">i", decoded[pos:pos + 4])[0]
+    for index in range(count):
+        if pos + 4 > len(decoded):
+            raise ValueError(f"truncated actor id for record {index} at offset {pos}")
+        actor_id = struct.unpack(">I", decoded[pos:pos + 4])[0]
         end = decoded.find(b"\x00", pos + 4)
         if end == -1:
             raise ValueError(f"unterminated classPath string at offset {pos}")
@@ -36,8 +40,8 @@ def parse_san(raw: bytes) -> list[dict]:
             raise ValueError(f"malformed classPath {class_path!r} at offset {pos}")
         records.append({"id": actor_id, "classPath": class_path})
         pos = end + 1
-    if len(records) != count:
-        raise ValueError(f"header declares {count} records, parsed {len(records)}")
+    if pos != len(decoded):
+        raise ValueError(f"unexpected trailing bytes at offset {pos}")
     if len({r["id"] for r in records}) != len(records):
         raise ValueError("duplicate actor ids in san table")
     records.sort(key=lambda r: r["id"])

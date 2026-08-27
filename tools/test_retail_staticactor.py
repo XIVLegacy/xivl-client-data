@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import copy
 import json
+import struct
 import subprocess
 import sys
 import tempfile
@@ -13,6 +14,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import _schema_check  # noqa: E402
+import extract_staticactor_san as extractor  # noqa: E402
 import verify_retail_staticactor as verifier  # noqa: E402
 
 
@@ -71,7 +73,37 @@ def _run_cli(path: Path) -> subprocess.CompletedProcess[str]:
     )
 
 
+def _san(records: list[tuple[int, bytes]], trailing: bytes = b"") -> bytes:
+    decoded_tail = b"\x00" * 5 + struct.pack(">I", len(records))
+    decoded_tail += b"".join(
+        struct.pack(">I", actor_id) + class_path + b"\x00"
+        for actor_id, class_path in records
+    )
+    decoded_tail += trailing
+    return b"sane" + bytes(byte ^ extractor.XOR_KEY for byte in decoded_tail)
+
+
 def main() -> int:
+    parsed = extractor.parse_san(_san([(0xF0000001, b"/Command/Test")]))
+    check(
+        "SAN actor ids decode as unsigned u32",
+        parsed == [{"id": 0xF0000001, "classPath": "/Command/Test"}],
+    )
+    try:
+        extractor.parse_san(_san([(12002, b"/Command/Test")], trailing=b"\x01"))
+    except ValueError as exc:
+        trailing_rejected = "trailing bytes" in str(exc)
+    else:
+        trailing_rejected = False
+    check("SAN trailing bytes fail closed", trailing_rejected)
+    try:
+        extractor.parse_san(b"sane")
+    except ValueError as exc:
+        short_header_rejected = "truncated san header" in str(exc)
+    else:
+        short_header_rejected = False
+    check("SAN truncated header fails closed", short_header_rejected)
+
     checks_workflow = CHECKS_WORKFLOW.read_text(encoding="utf-8")
     check(
         "whitespace check uses event revision",
