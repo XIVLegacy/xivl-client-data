@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Retail map-marker resource crosswalk manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedOn",
+    "extractionVersion",
+    "sourceEvidenceClass",
+    "sheetAudit",
+    "sourceHeaders",
+    "resourceColumns",
+    "propertyReferences",
+    "coordinateColumns",
+    "vocabularySearch",
+    "output",
+    "claimLimits"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "generatedOn": { "type": "string", "format": "date" },
+    "extractionVersion": { "const": "2012.09.19.0001" },
+    "sourceEvidenceClass": { "const": "client_extraction" },
+    "sheetAudit": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "$ref": "#/$defs/sheetAudit" }
+    },
+    "sourceHeaders": {
+      "type": "object",
+      "minProperties": 3,
+      "maxProperties": 3,
+      "additionalProperties": { "$ref": "#/$defs/header" }
+    },
+    "resourceColumns": {
+      "type": "object",
+      "minProperties": 3,
+      "maxProperties": 3,
+      "additionalProperties": { "$ref": "#/$defs/resourceColumns" }
+    },
+    "propertyReferences": {
+      "type": "object",
+      "minProperties": 2,
+      "maxProperties": 2,
+      "additionalProperties": { "$ref": "#/$defs/propertyReference" }
+    },
+    "coordinateColumns": {
+      "type": "object",
+      "minProperties": 3,
+      "maxProperties": 3,
+      "additionalProperties": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/coordinateColumn" }
+      }
+    },
+    "vocabularySearch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["domain", "tableCount", "normalization", "results"],
+      "properties": {
+        "domain": { "const": "decoded csv/*.csv raw UTF-8 text" },
+        "tableCount": { "const": 803 },
+        "normalization": { "type": "string", "minLength": 1 },
+        "results": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/searchResult" }
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "rowCount", "sha256"],
+      "properties": {
+        "path": { "const": "derived/map_marker_resource_crosswalk.csv" },
+        "rowCount": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[0-9A-F]{64}$" }
+      }
+    },
+    "claimLimits": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "$defs": {
+    "sheetAudit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sheet", "source", "resourceId", "resourceIdHex", "dataRowCount", "sheetColumnCount", "sha256"],
+      "properties": {
+        "sheet": { "type": "string", "pattern": "^[A-Za-z0-9_]+\\.csv$" },
+        "source": { "const": "game_schema" },
+        "resourceId": { "type": "integer", "minimum": 1 },
+        "resourceIdHex": { "type": "string", "pattern": "^0x[0-9A-F]{8}$" },
+        "dataRowCount": { "type": "integer", "minimum": 1 },
+        "sheetColumnCount": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[0-9A-F]{64}$" }
+      }
+    },
+    "header": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["columnIndices", "columnTypes"],
+      "properties": {
+        "columnIndices": { "type": "array", "items": { "type": "string" } },
+        "columnTypes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "resourceColumns": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resourcePathColumn", "resourceInstanceColumn", "uiClassColumn", "visibilityColumn", "resourcePaths", "resourceInstanceCount", "uiClasses", "visibilityValues"],
+      "properties": {
+        "resourcePathColumn": { "type": "string", "pattern": "^[0-9]+$" },
+        "resourceInstanceColumn": { "type": "string", "pattern": "^[0-9]+$" },
+        "uiClassColumn": { "type": ["string", "null"] },
+        "visibilityColumn": { "type": ["string", "null"] },
+        "resourcePaths": { "type": "array", "items": { "$ref": "#/$defs/valueCount" } },
+        "resourceInstanceCount": { "type": "integer", "minimum": 1 },
+        "uiClasses": { "type": "array", "items": { "$ref": "#/$defs/valueCount" } },
+        "visibilityValues": { "type": "array", "items": { "$ref": "#/$defs/valueCount" } }
+      }
+    },
+    "valueCount": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [
+        { "type": "string" },
+        { "type": "integer", "minimum": 1 }
+      ],
+      "items": false
+    },
+    "propertyReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["column", "expectedPrefix", "rowCount", "matchingRowCount", "distinctValueCount", "nonmatchingValues"],
+      "properties": {
+        "column": { "type": "string", "pattern": "^[0-9]+$" },
+        "expectedPrefix": { "type": "string", "minLength": 1 },
+        "rowCount": { "type": "integer", "minimum": 1 },
+        "matchingRowCount": { "type": "integer", "minimum": 0 },
+        "distinctValueCount": { "type": "integer", "minimum": 1 },
+        "nonmatchingValues": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "coordinateColumn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["column", "declaredType", "nonemptyCount", "distinctValueCount", "minimum", "maximum"],
+      "properties": {
+        "column": { "type": "string", "pattern": "^[0-9]+$" },
+        "declaredType": { "enum": ["s32", "float"] },
+        "nonemptyCount": { "type": "integer", "minimum": 1 },
+        "distinctValueCount": { "type": "integer", "minimum": 1 },
+        "minimum": { "type": "number" },
+        "maximum": { "type": "number" }
+      }
+    },
+    "searchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["term", "exactSubstringCount", "caseInsensitiveSubstringCount", "normalizedTokenCount", "caseInsensitiveMatchingFiles"],
+      "properties": {
+        "term": { "enum": ["MapScreenControl", "group_marker_data", "MapMarkerParty", "Update"] },
+        "exactSubstringCount": { "type": "integer", "minimum": 0 },
+        "caseInsensitiveSubstringCount": { "type": "integer", "minimum": 0 },
+        "normalizedTokenCount": { "type": "integer", "minimum": 0 },
+        "caseInsensitiveMatchingFiles": { "type": "array", "items": { "type": "string", "pattern": "^[^/]+\\.csv$" } }
+      }
+    }
+  }
+}

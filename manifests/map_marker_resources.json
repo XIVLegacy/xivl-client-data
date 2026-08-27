@@ -1,0 +1,361 @@
+{
+  "schemaVersion": 1,
+  "generatedOn": "2026-08-27",
+  "extractionVersion": "2012.09.19.0001",
+  "sourceEvidenceClass": "client_extraction",
+  "sheetAudit": [
+    {
+      "sheet": "2Dmap_actor_data.csv",
+      "source": "game_schema",
+      "resourceId": 16974300,
+      "resourceIdHex": "0x010301DC",
+      "dataRowCount": 19,
+      "sheetColumnCount": 3,
+      "sha256": "E2C42F76DC3BC4FE21A357176B110281BF1CB1D4438BE37F0E483F1069201E0E"
+    },
+    {
+      "sheet": "2Dmap_marker.csv",
+      "source": "game_schema",
+      "resourceId": 16974684,
+      "resourceIdHex": "0x0103035C",
+      "dataRowCount": 634,
+      "sheetColumnCount": 18,
+      "sha256": "EC907B8121BE1DFA274C8422F8431021C3C4AA1D74AE195652532A5398395215"
+    },
+    {
+      "sheet": "quest_marker.csv",
+      "source": "game_schema",
+      "resourceId": 16974636,
+      "resourceIdHex": "0x0103032C",
+      "dataRowCount": 7889,
+      "sheetColumnCount": 14,
+      "sha256": "920E93E6C1DD136ED758F22465BEA3644F2BBE53A6FF46F7D938DD51E3B514BE"
+    }
+  ],
+  "sourceHeaders": {
+    "2Dmap_actor_data.csv": {
+      "columnIndices": [
+        "0",
+        "1",
+        "2"
+      ],
+      "columnTypes": [
+        "s32",
+        "str",
+        "str"
+      ]
+    },
+    "2Dmap_marker.csv": {
+      "columnIndices": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17"
+      ],
+      "columnTypes": [
+        "str",
+        "s32",
+        "s32",
+        "",
+        "",
+        "",
+        "",
+        "s32",
+        "str",
+        "str",
+        "s32",
+        "s32",
+        "s32",
+        "str",
+        "str",
+        "str",
+        "s32",
+        "s32"
+      ]
+    },
+    "quest_marker.csv": {
+      "columnIndices": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "columnTypes": [
+        "",
+        "str",
+        "float",
+        "float",
+        "s32",
+        "s32",
+        "str",
+        "str",
+        "s32",
+        "s32",
+        "s32",
+        "str",
+        "str",
+        "str"
+      ]
+    }
+  },
+  "resourceColumns": {
+    "2Dmap_actor_data.csv": {
+      "resourcePathColumn": "1",
+      "resourceInstanceColumn": "2",
+      "uiClassColumn": null,
+      "visibilityColumn": null,
+      "resourcePaths": [
+        [
+          "common/mapMarker.le.spk",
+          19
+        ]
+      ],
+      "resourceInstanceCount": 19,
+      "uiClasses": [],
+      "visibilityValues": []
+    },
+    "2Dmap_marker.csv": {
+      "resourcePathColumn": "8",
+      "resourceInstanceColumn": "9",
+      "uiClassColumn": "13",
+      "visibilityColumn": "15",
+      "resourcePaths": [
+        [
+          "common/mapMarker.le.spk",
+          442
+        ],
+        [
+          "common/mapMarkerAetheryte.le.spk",
+          90
+        ],
+        [
+          "common/mapMarkerSymbol.le.spk",
+          79
+        ],
+        [
+          "debug/mark_anime_sample.le.spk",
+          23
+        ]
+      ],
+      "resourceInstanceCount": 93,
+      "uiClasses": [
+        [
+          "MapMarker",
+          184
+        ],
+        [
+          "MapMarkerAetheryte",
+          110
+        ],
+        [
+          "MapMarkerAetheryteUnder",
+          5
+        ],
+        [
+          "MapMarkerPoint",
+          246
+        ],
+        [
+          "MapMarkerRight",
+          1
+        ],
+        [
+          "MapMarkerSymbol",
+          67
+        ],
+        [
+          "MapMarkerSymbolLeft",
+          1
+        ],
+        [
+          "MapMarkerSymbolUnder",
+          11
+        ],
+        [
+          "MapMarkerUnder",
+          9
+        ]
+      ],
+      "visibilityValues": [
+        [
+          "Collapsed",
+          330
+        ],
+        [
+          "Visible",
+          304
+        ]
+      ]
+    },
+    "quest_marker.csv": {
+      "resourcePathColumn": "6",
+      "resourceInstanceColumn": "7",
+      "uiClassColumn": "11",
+      "visibilityColumn": "13",
+      "resourcePaths": [
+        [
+          "common/mapMarker.le.spk",
+          7889
+        ]
+      ],
+      "resourceInstanceCount": 3,
+      "uiClasses": [
+        [
+          "MapMarker",
+          6497
+        ],
+        [
+          "MapMarkerQuest",
+          1272
+        ],
+        [
+          "MapMarkerQuestArea",
+          120
+        ]
+      ],
+      "visibilityValues": [
+        [
+          "Visible",
+          7889
+        ]
+      ]
+    }
+  },
+  "propertyReferences": {
+    "2Dmap_marker.csv": {
+      "column": "14",
+      "expectedPrefix": "@5204/i",
+      "rowCount": 634,
+      "matchingRowCount": 634,
+      "distinctValueCount": 634,
+      "nonmatchingValues": []
+    },
+    "quest_marker.csv": {
+      "column": "12",
+      "expectedPrefix": "@5208/i",
+      "rowCount": 7889,
+      "matchingRowCount": 7886,
+      "distinctValueCount": 1430,
+      "nonmatchingValues": [
+        "\u3000"
+      ]
+    }
+  },
+  "coordinateColumns": {
+    "2Dmap_actor_data.csv": [],
+    "2Dmap_marker.csv": [
+      {
+        "column": "1",
+        "declaredType": "s32",
+        "nonemptyCount": 634,
+        "distinctValueCount": 448,
+        "minimum": 312.0,
+        "maximum": 6362.0
+      },
+      {
+        "column": "2",
+        "declaredType": "s32",
+        "nonemptyCount": 634,
+        "distinctValueCount": 450,
+        "minimum": 247.0,
+        "maximum": 5653.0
+      }
+    ],
+    "quest_marker.csv": [
+      {
+        "column": "2",
+        "declaredType": "float",
+        "nonemptyCount": 7889,
+        "distinctValueCount": 895,
+        "minimum": -2584.95,
+        "maximum": 2632.2
+      },
+      {
+        "column": "3",
+        "declaredType": "float",
+        "nonemptyCount": 7889,
+        "distinctValueCount": 893,
+        "minimum": -2972.18,
+        "maximum": 1825.51
+      }
+    ]
+  },
+  "vocabularySearch": {
+    "domain": "decoded csv/*.csv raw UTF-8 text",
+    "tableCount": 803,
+    "normalization": "Unicode casefold, then remove non-ASCII-alphanumeric characters",
+    "results": [
+      {
+        "term": "MapScreenControl",
+        "exactSubstringCount": 0,
+        "caseInsensitiveSubstringCount": 0,
+        "normalizedTokenCount": 0,
+        "caseInsensitiveMatchingFiles": []
+      },
+      {
+        "term": "group_marker_data",
+        "exactSubstringCount": 0,
+        "caseInsensitiveSubstringCount": 0,
+        "normalizedTokenCount": 0,
+        "caseInsensitiveMatchingFiles": []
+      },
+      {
+        "term": "MapMarkerParty",
+        "exactSubstringCount": 0,
+        "caseInsensitiveSubstringCount": 0,
+        "normalizedTokenCount": 0,
+        "caseInsensitiveMatchingFiles": []
+      },
+      {
+        "term": "Update",
+        "exactSubstringCount": 67,
+        "caseInsensitiveSubstringCount": 121,
+        "normalizedTokenCount": 121,
+        "caseInsensitiveMatchingFiles": [
+          "aetheryteParent.csv",
+          "man200.csv",
+          "worldMaster.csv",
+          "xtx__text_error(2).csv",
+          "xtx__text_error.csv",
+          "xtx__text_ui(2).csv",
+          "xtx__text_ui.csv"
+        ]
+      }
+    ]
+  },
+  "output": {
+    "path": "derived/map_marker_resource_crosswalk.csv",
+    "rowCount": 129,
+    "sha256": "41E19B6CF6AC9AF1E6AA454F35C3D87DBDC1D05C383294086AB1FCF40F35C692"
+  },
+  "claimLimits": [
+    "The crosswalk establishes static resource and UI-property vocabulary, not a runtime call relationship to s2c 0x018D.",
+    "Numeric source columns remain raw positions; their order does not assign any 0x018D wire offset.",
+    "The corpus types coordinate-bearing columns but does not by itself identify a world-to-map transform.",
+    "Generic localized uses of Update do not establish the exact runtime Update property operation."
+  ]
+}

@@ -27,19 +27,19 @@ in the table below.
 | `substat_status_crosswalk.csv` | `tools/analyze_substat_status.py` | `csv/status.csv` | `docs/substat-status-join.md` |
 | `gc_seal_shop_catalog.csv` | `tools/build_shop_catalogs.py` | `csv/gcSealShopItem.csv`, item catalog | `docs/shop-catalogs.md` |
 | `shop_catalog.csv` | `tools/build_shop_catalogs.py` | `csv/shopBase.csv`, `csv/shopItem.csv`, item catalog | `docs/shop-catalogs.md` |
+| `map_marker_resource_crosswalk.csv` | `tools/build_map_marker_resources.py` | `csv/2Dmap_actor_data.csv`, `csv/2Dmap_marker.csv`, `csv/quest_marker.csv` | `docs/map-marker-resources.md` |
 | `icons-1.23b/` | imported, not regenerable here | `archive/icons-1.23b/xiv-icons-1.23b.zip` | `derived/icons-1.23b/README.md` |
 
 ## command_battle_params.csv
 
 One row per command id (1611), joining the command trio's gameplay sidecars with
 client display names. Columns decode only what is verified against the client's
-own command getter evidence, cited by
-`docs/command-battle-params.md`. Raw sheet values
-are authoritative; speculative enum labels sit in separate `*_label` columns and
-never overwrite the raw value. See the finding doc for the full column ->
-getter:line map, the decoded element enum, and the list of quantities that
-require retail-capture validation (primary damage potency, the C++ combine step,
-native grow tables, and the 5-way command type).
+own command getter evidence, cited by `docs/command-battle-params.md`. Raw sheet
+values are authoritative; speculative enum labels sit in separate `*_label`
+columns and never overwrite the raw value. See the finding doc for the full
+column -> getter:line map, the decoded element enum, and the list of quantities
+that require retail-capture validation (primary damage potency, the C++ combine
+step, native grow tables, and the 5-way command type).
 
 Regenerate: `python tools/build_command_battle_params.py`.
 
@@ -55,8 +55,7 @@ Overlapping ranges produce one association per owner. Source rows outside all
 
 `manifests/shop_catalogs.json` records the seven-sheet fidelity audit, source
 headers and hashes, output hashes, counts, column maps, and residual ceilings.
-Regenerate both tables and the manifest with
-`python tools/build_shop_catalogs.py`.
+Regenerate both tables and the manifest with `python tools/build_shop_catalogs.py`.
 
 ## SubStat status crosswalk
 
@@ -65,13 +64,21 @@ read by the retail SubStat and Object paths. It records only numeric bit
 domains. No names for the nibble values are established by the source corpus.
 Regenerate it with `python tools/analyze_substat_status.py`.
 
+## Map-marker resource crosswalk
+
+`map_marker_resource_crosswalk.csv` groups the complete marker-bearing sheet
+rows by resource path, resource instance, UI class, and visibility. Its
+manifest preserves raw column positions and claim limits so the grouped names
+cannot be mistaken for a runtime call relationship or a wire-field map.
+Regenerate it with `python tools/build_map_marker_resources.py`.
+
 ## icons-1.23b/
 
 The 1.23b client icon export: four derived artifacts describing 9,960 decoded
-PNGs, and a gitignored 78 MB zip holding the images themselves at
+PNGs, plus a gitignored 78 MB zip holding the images at
 `archive/icons-1.23b/xiv-icons-1.23b.zip`. Unlike the row above, no tool here
-rebuilds these - they were computed over the imported image archive and
-imported with the corpus. `manifests/icons_1_23b.json` pins the zip's sha256
-and one per artifact, so what cannot be regenerated can at least be verified:
+rebuilds these; they were computed over the imported image archive and imported
+with the corpus. `manifests/icons_1_23b.json` pins the zip's sha256 and records
+one digest per artifact. What cannot be regenerated can at least be verified:
 `tools/validate_corpus.py` re-checks every hash and recomputes the counts.
 Orientation in [`icons-1.23b/README.md`](icons-1.23b/README.md).

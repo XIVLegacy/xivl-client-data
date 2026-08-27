@@ -61,5 +61,7 @@ jobs:
         run: python tools/test_actor_appearance_census.py
       - name: Test SubStat status join
         run: python tools/test_substat_status.py
+      - name: Test map-marker resource crosswalk
+        run: python tools/test_map_marker_resources.py
       - name: Run strict gate
         run: python tools/validate_corpus.py

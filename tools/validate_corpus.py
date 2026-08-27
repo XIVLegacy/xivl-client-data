@@ -213,6 +213,11 @@ def validate_schemas() -> None:
             "shop_catalogs.json",
         ),
         (
+            MANIFESTS / "map_marker_resources.json",
+            "map_marker_resources.schema.json",
+            "map_marker_resources.json",
+        ),
+        (
             MANIFESTS / "retail_inputs.json",
             "retail_inputs.schema.json",
             "retail_inputs.json",
@@ -432,6 +437,20 @@ def validate_derived_counts() -> None:
         if result.returncode:
             detail = (result.stdout + result.stderr).strip()
             errors.append(f"SubStat status crosswalk is not reproducible: {detail}")
+
+    marker_builder = REPO_ROOT / "tools" / "build_map_marker_resources.py"
+    if marker_builder.is_file() and not CORPUS_ABSENT:
+        result = subprocess.run(
+            [sys.executable, str(marker_builder), "--check"],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode:
+            detail = (result.stdout + result.stderr).strip()
+            errors.append(
+                f"map-marker resource artifacts are not reproducible: {detail}"
+            )
 
 
 def validate_zone_catalog() -> None:

@@ -62,6 +62,13 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   packed-word crosswalk. Its `--check` mode verifies the derived CSV without
   writing. `test_substat_status.py` mutation-tests translation, joining, bit
   projections, failure cases, and deterministic rendering.
+- `build_map_marker_resources.py` groups the complete `2Dmap_actor_data.csv`,
+  `2Dmap_marker.csv`, and `quest_marker.csv` resource/template, UI-class, and
+  visibility vocabulary into a reproducible crosswalk. Its manifest also pins
+  property-reference coverage, coordinate domains, and exact/case-folded/
+  normalized searches across all 803 decoded CSVs. `test_map_marker_resources.py`
+  mutation-tests width, truncation, grouping, prefix coverage, and deterministic
+  rendering.
 - `compare_sheet_inventory.py` compares `manifests/sheet_inventory.csv` with an
   explicit retail client root, checks the game/var master references and every
   named sheet document, and reports XML sheet documents carrying names outside
