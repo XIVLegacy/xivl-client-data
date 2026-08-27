@@ -24,6 +24,7 @@ in the table below.
 | `actor_appearance_census.csv` | `tools/build_actor_appearance_census.py` | `csv/actorclass_graphic.csv`, actor-class and display-name correlations | `docs/actor-appearance-crosswalk.md` |
 | `actor_appearance_value_counts.csv` | `tools/build_actor_appearance_census.py` | `csv/actorclass_graphic.csv` | `docs/actor-appearance-crosswalk.md` |
 | `command_battle_params.csv` | `tools/build_command_battle_params.py` | `csv/gameCommand.csv`, `csv/gameCommandBasic.csv`, `csv/xtx_command.csv` | `docs/command-battle-params.md` |
+| `substat_status_crosswalk.csv` | `tools/analyze_substat_status.py` | `csv/status.csv` | `docs/substat-status-join.md` |
 | `gc_seal_shop_catalog.csv` | `tools/build_shop_catalogs.py` | `csv/gcSealShopItem.csv`, item catalog | `docs/shop-catalogs.md` |
 | `shop_catalog.csv` | `tools/build_shop_catalogs.py` | `csv/shopBase.csv`, `csv/shopItem.csv`, item catalog | `docs/shop-catalogs.md` |
 | `icons-1.23b/` | imported, not regenerable here | `archive/icons-1.23b/xiv-icons-1.23b.zip` | `derived/icons-1.23b/README.md` |
@@ -56,6 +57,13 @@ Overlapping ranges produce one association per owner. Source rows outside all
 headers and hashes, output hashes, counts, column maps, and residual ceilings.
 Regenerate both tables and the manifest with
 `python tools/build_shop_catalogs.py`.
+
+## SubStat status crosswalk
+
+`substat_status_crosswalk.csv` projects every status row id as the packed word
+read by the retail SubStat and Object paths. It records only numeric bit
+domains. No names for the nibble values are established by the source corpus.
+Regenerate it with `python tools/analyze_substat_status.py`.
 
 ## icons-1.23b/
 

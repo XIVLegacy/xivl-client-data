@@ -421,6 +421,18 @@ def validate_derived_counts() -> None:
             detail = (result.stdout + result.stderr).strip()
             errors.append(f"actor appearance census is not reproducible: {detail}")
 
+    substat_builder = REPO_ROOT / "tools" / "analyze_substat_status.py"
+    if substat_builder.is_file() and not CORPUS_ABSENT:
+        result = subprocess.run(
+            [sys.executable, str(substat_builder), "--check"],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode:
+            detail = (result.stdout + result.stderr).strip()
+            errors.append(f"SubStat status crosswalk is not reproducible: {detail}")
+
 
 def validate_zone_catalog() -> None:
     """Validate cross-references in the zone-name catalog."""

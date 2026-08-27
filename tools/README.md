@@ -57,6 +57,11 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   census and exact per-field packed-value distributions. Its `--check` mode
   verifies both derived CSVs without writing. `test_actor_appearance_census.py`
   mutation-tests the packing, joins, source types, and deterministic rendering.
+- `analyze_substat_status.py` applies the retail `0x0179` status-id transform,
+  joins the status and status-text sheets, and regenerates the complete numeric
+  packed-word crosswalk. Its `--check` mode verifies the derived CSV without
+  writing. `test_substat_status.py` mutation-tests translation, joining, bit
+  projections, failure cases, and deterministic rendering.
 - `compare_sheet_inventory.py` compares `manifests/sheet_inventory.csv` with an
   explicit retail client root, checks the game/var master references and every
   named sheet document, and reports XML sheet documents carrying names outside
