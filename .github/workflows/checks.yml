@@ -63,5 +63,7 @@ jobs:
         run: python tools/test_substat_status.py
       - name: Test map-marker resource crosswalk
         run: python tools/test_map_marker_resources.py
+      - name: Test zone-name evidence boundary
+        run: python tools/test_zone_name_bindings.py
       - name: Run strict gate
         run: python tools/validate_corpus.py
