@@ -150,21 +150,18 @@ def report(join: StatusJoin) -> dict[str, object]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--wire-id", type=parse_wire_id, default=0x5ADF)
-    parser.add_argument("--status", type=Path, default=STATUS_CSV)
-    parser.add_argument("--status-text", type=Path, default=STATUS_TEXT_CSV)
-    parser.add_argument("--output", type=Path, default=CROSSWALK)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
 
-    rendered = build_crosswalk(args.status)
+    rendered = build_crosswalk(STATUS_CSV)
     if args.check:
-        if not args.output.is_file() or args.output.read_bytes() != rendered:
-            raise SystemExit(f"{args.output}: stale or missing")
+        if not CROSSWALK.is_file() or CROSSWALK.read_bytes() != rendered:
+            raise SystemExit(f"{CROSSWALK}: stale or missing")
     else:
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_bytes(rendered)
+        CROSSWALK.parent.mkdir(parents=True, exist_ok=True)
+        CROSSWALK.write_bytes(rendered)
 
-    print(json.dumps(report(resolve(args.wire_id, args.status, args.status_text)), indent=2))
+    print(json.dumps(report(resolve(args.wire_id, STATUS_CSV, STATUS_TEXT_CSV)), indent=2))
     return 0
 
 

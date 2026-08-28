@@ -48,10 +48,6 @@ SOURCE_SPECS = {
 }
 
 
-def sha256(data: bytes) -> str:
-    return hashlib.sha256(data).hexdigest().upper()
-
-
 def load_source(path: Path, spec: SourceSpec) -> tuple[CsvHeader, list[CsvRow]]:
     header, iterator = read_csv(path)
     rows = list(iterator)
@@ -265,7 +261,7 @@ def build() -> dict[Path, bytes]:
         "output": {
             "path": "derived/map_marker_resource_crosswalk.csv",
             "rowCount": len(crosswalk_rows),
-            "sha256": sha256(crosswalk),
+            "sha256": hashlib.sha256(crosswalk).hexdigest().upper(),
         },
         "claimLimits": [
             "The crosswalk establishes static resource and UI-property vocabulary, not a runtime call relationship to s2c 0x018D.",
