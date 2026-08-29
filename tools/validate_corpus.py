@@ -452,6 +452,22 @@ def validate_derived_counts() -> None:
                 f"map-marker resource artifacts are not reproducible: {detail}"
             )
 
+    item_equipment_builder = (
+        REPO_ROOT / "tools" / "build_item_equipment_crosswalk.py"
+    )
+    if item_equipment_builder.is_file() and not CORPUS_ABSENT:
+        result = subprocess.run(
+            [sys.executable, str(item_equipment_builder), "--check"],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode:
+            detail = (result.stdout + result.stderr).strip()
+            errors.append(
+                "item/equipment column crosswalk is not reproducible: " + detail
+            )
+
 
 def validate_zone_catalog() -> None:
     """Validate cross-references in the zone-name catalog."""

@@ -22,8 +22,8 @@ zones`.
 
 Each module under `mappings/` exports `SQL_TABLE`, `COLUMNS`, and either
 `SOURCE_CSV` or `SOURCES`. For multiple sources, the first source defines the
-output rows and order. `JOIN_KEYS` maps a lookup source to a driver source and
-column. Without it, sources join by row ID. `REQUIRE_JOIN_MATCH = False`
+output rows and order. `JOIN_KEYS` maps a lookup source to a driver
+source and column. Without it, sources join by row ID. `REQUIRE_JOIN_MATCH = False`
 declares an intentionally partial join. `INCLUDE_IN_ALL = False` keeps an
 incomplete table mapping explicit-only.
 
@@ -35,10 +35,10 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
 
 ## Maintenance scripts
 
-- `validate_corpus.py` is the repo gate for the tracked public boundary,
+- `validate_corpus.py` checks the tracked public boundary,
   JSON parsing, schema, checksum, referential-integrity, and docs-index checks.
-- `build-manifest.ps1` rebuilds `manifests/manifest.json` and
-  `manifests/tables.json` from the as-imported CSVs.
+- `build-manifest.ps1` rebuilds these manifests from the as-imported CSVs:
+  `manifests/manifest.json` and `manifests/tables.json`.
 - `build_command_battle_params.py` regenerates
   `derived/command_battle_params.csv` from the `csv/gameCommand.csv` /
   `csv/gameCommandBasic.csv` / `csv/xtx_command.csv` trio. See
@@ -46,9 +46,9 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
 - `build_shop_catalogs.py` regenerates the GC seal and generic range-expanded
   shop catalogs plus `manifests/shop_catalogs.json`. Its `--check` mode verifies
   all three artifacts without writing.
-- `analyze_item_graphics_candidates.py` emits full distributions, correlations,
-  and packed-field profiles for the typed `weapon.csv` and `equipment.csv`
-  columns considered as item-graphics candidates. An optional historical SQL
+- `analyze_item_graphics_candidates.py` emits full distributions and correlations
+  plus packed-field profiles for typed `weapon.csv` and `equipment.csv` columns
+  considered as item-graphics candidates. An optional historical SQL
   input is used only for correlation and is never treated as retail authority.
 - `verify_actor_appearance_crosswalk.py` checks the canonical names and `s32`
   types for `actorclass_graphic` columns `0x19..0x1F`, then verifies the seven
@@ -62,12 +62,20 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   packed-word crosswalk. Its `--check` mode verifies the derived CSV without
   writing. `test_substat_status.py` mutation-tests translation, joining, bit
   projections, failure cases, and deterministic rendering.
-- `build_map_marker_resources.py` groups the complete `2Dmap_actor_data.csv`,
-  `2Dmap_marker.csv`, and `quest_marker.csv` resource/template, UI-class, and
-  visibility vocabulary into a reproducible crosswalk. Its manifest also pins
+- `build_map_marker_resources.py` groups the complete resource/template,
+  UI-class, and visibility vocabulary from `2Dmap_actor_data.csv`,
+  `2Dmap_marker.csv`, and `quest_marker.csv` into a reproducible crosswalk. Its
+  manifest also pins
   property-reference coverage, coordinate domains, and exact/case-folded/
   normalized searches across all 803 decoded CSVs. `test_map_marker_resources.py`
   mutation-tests width, truncation, grouping, prefix coverage, and deterministic
+  rendering.
+- `build_item_equipment_crosswalk.py` regenerates the canonical census for
+  `itemData.csv` columns 49-60 and `equipment.csv` columns 71-90, verifies the
+  supported `xtx_text_paramName.csv` joins, and retains the bounded grow-table
+  negative. Its `--check` mode verifies the tracked document without writing.
+  `test_item_equipment_crosswalk.py` mutation-tests source types, blank-vs-zero
+  handling, parameter-key rules, row widths, retail anchors, and deterministic
   rendering.
 - `compare_sheet_inventory.py` compares `manifests/sheet_inventory.csv` with an
   explicit retail client root, checks the game/var master references and every

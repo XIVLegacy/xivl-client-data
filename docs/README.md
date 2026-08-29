@@ -20,6 +20,7 @@ findings, and repository policy.
 - [shop-catalogs.md](shop-catalogs.md) - GC seal catalog fields, generic shop joins, and the seven-sheet fidelity audit.
 - [shop-family-audit.md](shop-family-audit.md) - generic shop membership and price comparison plus the chocobo-fee evidence boundary.
 - [map-marker-resources.md](map-marker-resources.md) - static map-marker resource, UI-class, property-reference, and coordinate-domain crosswalk.
+- [item-equipment-columns.md](item-equipment-columns.md) - retail item/equipment formula-column census, parameter-name joins, and grow-table boundary.
 
 ## Repository policy
 
