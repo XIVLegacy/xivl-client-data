@@ -47,17 +47,15 @@ checkout revisions before the environment-bearing job is eligible. The
 workflow has only `contents: read`; the shared fetch action receives the
 `RETAIL_INPUTS_TOKEN` secret.
 
-The shared `fetch-retail-input` action is pinned to
-`XIVLegacy/xivl-tools/.github/actions/fetch-retail-input@4920dece45e88fcb14424de1f5c4fdee94ae6d02`.
+The workflow invokes the shared `fetch-retail-input` action from
+`XIVLegacy/xivl-tools` at an immutable commit.
 It receives this check's manifest-pinned private commit, SAN path, size,
 SHA-256, and output path. It validates the authorized SAN entry's
 path, blob type, file mode, size, and SHA-256, then fetches that SAN blob only;
 other private assets are not selected. Raw input and generated products remain
 under one disposable private root. The shared `finalize-retail-attestation`
-action, pinned to
-`XIVLegacy/xivl-tools/.github/actions/finalize-retail-attestation@4920dece45e88fcb14424de1f5c4fdee94ae6d02`,
-removes that root on every outcome. The only retained file is the schema-valid
-`retail-evidence-attestation.json`, uploaded as artifact
+action removes that root on every outcome. The only retained file is the
+schema-valid `retail-evidence-attestation.json`, uploaded as artifact
 `retail-staticactor-attestation` for 30 days. Failure attestations are
 reviewable artifacts and are never tracked.
 
