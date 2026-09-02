@@ -33,10 +33,10 @@ inventories into several documents. Use paths that exist in this repository.
 Do not cite sibling checkouts, departed trees, or machine-local paths in
 tracked prose.
 
-The root `docs/README.md` indexes every direct Markdown document under `docs/`
-in both directions. This policy shelf indexes every page in this directory.
-Add a policy page only when a real repository surface needs a durable rule.
-Do not keep empty shells for subjects this repository does not have.
+The root `docs/README.md` and this policy shelf provide navigation to their
+main subjects. Add a policy page only when a real repository surface needs a
+durable rule. Do not keep empty shells for subjects this repository does not
+have.
 
 ## Policy shelf
 

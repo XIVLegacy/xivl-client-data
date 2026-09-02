@@ -622,7 +622,7 @@ def validate_icon_corpus() -> None:
 
 
 def validate_vendor_provenance() -> None:
-    """Verify vendored inputs under docs/ai_agents/verification.md."""
+    """Verify vendored files against each provenance manifest."""
     vendor_dir = REPO_ROOT / "data" / "vendor"
     if not vendor_dir.is_dir():
         return
@@ -687,7 +687,7 @@ def validate_retail_staticactor_contract() -> None:
 
 
 def validate_docs_index() -> None:
-    """Ensure each tracked docs shelf indexes its sibling Markdown files."""
+    """Check local Markdown paths listed by each documentation index."""
     for docs_dir in (DOCS_DIR, DOCS_DIR / "ai_agents"):
         readme = docs_dir / "README.md"
         label = readme.relative_to(REPO_ROOT).as_posix()
@@ -706,8 +706,6 @@ def validate_docs_index() -> None:
             errors.append(
                 f"{label}: indexes {missing} but no such file under {directory}/"
             )
-        for orphan in sorted(on_disk - linked):
-            errors.append(f"{directory}/{orphan}: present but unindexed in {label}")
 
 
 def main() -> int:
@@ -746,7 +744,7 @@ def main() -> int:
         f"{json_count} JSON files, schemas, {corpus_check}, "
         "sheet-inventory "
         "referential integrity, derived counts, zone-catalog cross-references, "
-        "icon corpus, vendor provenance + docs-index sync)."
+        "icon corpus, vendor provenance + docs-index links)."
     )
     return 0
 

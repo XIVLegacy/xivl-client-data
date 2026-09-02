@@ -36,7 +36,7 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
 ## Maintenance scripts
 
 - `validate_corpus.py` checks the tracked public boundary,
-  JSON parsing, schema, checksum, referential-integrity, and docs-index checks.
+  JSON parsing, schema, checksum, referential integrity, and docs-index links.
 - `build-manifest.ps1` rebuilds these manifests from the as-imported CSVs:
   `manifests/manifest.json` and `manifests/tables.json`.
 - `build_command_battle_params.py` regenerates
