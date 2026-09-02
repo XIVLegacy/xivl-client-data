@@ -9,7 +9,7 @@ class-path catalog?
 
 | Contract | Value |
 |---|---|
-| Branch | `retail-staticactor-ci` |
+| Branch | `main` |
 | Workflow | `.github/workflows/retail-checks.yml` |
 | Check | `staticactor-class-paths-v1` |
 | Input declaration | `manifests/retail_inputs.json` |
@@ -31,7 +31,7 @@ The approved input is `staticactor-san-1.23b`: private path
 The workflow stages that one file at its expected install-relative path and
 runs `tools/extract_staticactor_san.py`. The generated product must be
 byte-identical to `manifests/staticactor_class_paths.json`: 248434 bytes,
-SHA-256 `d612438827e5997422ab6f64a807e567ddf1b953c532e8a319d67b93c9db0`.
+SHA-256 `d612438827e5997422ab6f64a807e567ddf1b953c532e8a319d67b93c53c9db0`.
 The catalog contains exactly 2812 unique ID-to-class-path records.
 
 This proves only exact reproduction of the tracked catalog from the named
