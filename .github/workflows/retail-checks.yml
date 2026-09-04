@@ -81,7 +81,7 @@ jobs:
       - name: Fetch the immutable private SAN blob
         id: fetch
         continue-on-error: true
-        uses: XIVLegacy/xivl-tools/.github/actions/fetch-retail-input@43606fd7111140d70930810f02978d8a09c12efb
+        uses: XIVLegacy/xivl-tools/.github/actions/fetch-retail-input@c15266b4be27ca7b60ad669921015e0746b2b162
         with:
           token: ${{ secrets.RETAIL_INPUTS_TOKEN }}
           commit: aeb52f6dbde95a793ee6d52be28de9f28a885b15
@@ -167,7 +167,7 @@ jobs:
         id: finalize
         if: always()
         continue-on-error: true
-        uses: XIVLegacy/xivl-tools/.github/actions/finalize-retail-attestation@43606fd7111140d70930810f02978d8a09c12efb
+        uses: XIVLegacy/xivl-tools/.github/actions/finalize-retail-attestation@c15266b4be27ca7b60ad669921015e0746b2b162
         with:
           scratch-root: ${{ runner.temp }}/retail-evidence-private
           staging-root: ${{ github.workspace }}/_retail-staging
@@ -214,7 +214,7 @@ jobs:
       - name: Fetch the immutable private CSV archive
         id: fetch
         continue-on-error: true
-        uses: XIVLegacy/xivl-tools/.github/actions/fetch-retail-input@43606fd7111140d70930810f02978d8a09c12efb
+        uses: XIVLegacy/xivl-tools/.github/actions/fetch-retail-input@c15266b4be27ca7b60ad669921015e0746b2b162
         with:
           token: ${{ secrets.RETAIL_INPUTS_TOKEN }}
           commit: db5f74e7480a162081820b2079f67bf0d6ddc5d4
@@ -291,7 +291,7 @@ jobs:
         id: finalize
         if: always()
         continue-on-error: true
-        uses: XIVLegacy/xivl-tools/.github/actions/finalize-retail-attestation@43606fd7111140d70930810f02978d8a09c12efb
+        uses: XIVLegacy/xivl-tools/.github/actions/finalize-retail-attestation@c15266b4be27ca7b60ad669921015e0746b2b162
         with:
           scratch-root: ${{ runner.temp }}/retail-csv-corpus
           staging-root: ${{ github.workspace }}/_retail-staging
