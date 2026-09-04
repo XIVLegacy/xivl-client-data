@@ -208,6 +208,10 @@ def workflow_tests() -> None:
         and "path: _retail-staging/retail-evidence-attestation.json" in workflow,
     )
     check(
+        "CSV corpus installs its schema validator",
+        workflow.count("run: pip install jsonschema") == 1,
+    )
+    check(
         "CSV workflow retains no private archive or hydrated files",
         "RETAIL_INPUTS_" + "REPOSITORY" not in workflow
         and "upload-artifact" in workflow
