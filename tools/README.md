@@ -37,6 +37,13 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
 
 - `validate_corpus.py` checks the tracked public boundary,
   JSON parsing, schema, checksum, referential integrity, and docs-index links.
+- `private_csv_corpus.py` packages the ignored `csv/*.csv` corpus into a
+  deterministic ZIP, verifies archive members read-only, and hydrates only
+  into an absent or empty directory. Archive members are the safe ASCII CSV
+  basenames. Use `package --output <archive>`, `verify <archive>`, or
+  `hydrate <archive> <destination>`; all modes check `manifest.json` and
+  `tables.json` identities. Run `python tools/test_private_csv_corpus.py` for
+  the focused mutation suite.
 - `build-manifest.ps1` rebuilds these manifests from the as-imported CSVs:
   `manifests/manifest.json` and `manifests/tables.json`.
 - `build_command_battle_params.py` regenerates
