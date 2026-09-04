@@ -62,7 +62,8 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   writes `manifests/manifest.json` and `manifests/tables.json`.
 - `build_command_battle_params.py` regenerates
   `derived/command_battle_params.csv` from the `gameCommand.csv` /
-  `gameCommandBasic.csv` / `xtx_command.csv` trio in the selected CSV root. See
+  `gameCommandBasic.csv` / `xtx_command.csv` trio in the selected CSV root,
+  joining command ids to the local `manifests/staticactor_class_paths.json`. See
   `docs/command-battle-params.md` for the column map. Its `--check` mode verifies
   the tracked catalog without writing; `test_command_battle_params.py`
   mutation-tests formula-input projection and deterministic rendering.

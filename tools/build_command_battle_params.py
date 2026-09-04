@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import io
+import json
 from pathlib import Path
 
 from _csv_reader import read_csv
@@ -13,6 +14,7 @@ from _csv_root import add_csv_dir_argument, default_csv_dir
 REPO = Path(__file__).resolve().parent.parent
 CSV = default_csv_dir()
 OUT = REPO / "derived" / "command_battle_params.csv"
+CLASS_PATHS = REPO / "manifests" / "staticactor_class_paths.json"
 
 # Getter evidence: xivl-client-scripts:lua/scripts/command/game/gamecommandbaseclass.lua
 # Dispatch evidence: xivl-client-scripts:lua/scripts/command/game/battlecommandbaseclass.lua
@@ -62,7 +64,7 @@ HEADER = [
     "p2_base", "p2_grow", "p2_compat_adjust", "p2_tp_adjust",
     "p3_base", "p3_grow", "p3_compat_adjust", "p3_tp_adjust",
     "p4_base", "p4_grow", "p4_compat_adjust", "p4_tp_adjust",
-    "effect_block_raw",
+    "effect_block_raw", "lua_class_path",
 ]
 
 
@@ -98,10 +100,25 @@ def dmg_class(attr: str) -> str:
     return "other"
 
 
-def render(csv_dir: Path) -> tuple[str, int]:
+def command_class_paths(path: Path) -> dict[int, str]:
+    document = json.loads(path.read_text(encoding="utf-8"))
+    records = document["records"]
+    if document["recordCount"] != len(records):
+        raise ValueError("static-actor record count differs")
+    result: dict[int, str] = {}
+    for record in records:
+        actor_id, class_path = record["id"], record["classPath"]
+        if actor_id in result:
+            raise ValueError(f"duplicate static-actor id {actor_id}")
+        result[actor_id] = class_path
+    return result
+
+
+def render(csv_dir: Path, class_paths: Path = CLASS_PATHS) -> tuple[str, int]:
     gc = index(csv_dir / "gameCommand.csv")
     gb = index(csv_dir / "gameCommandBasic.csv")
     xc = index(csv_dir / "xtx_command.csv")
+    paths = command_class_paths(class_paths)
     output = io.StringIO(newline="")
     writer = csv.writer(output, lineterminator="\n")
     writer.writerow(HEADER)
@@ -135,7 +152,7 @@ def render(csv_dir: Path) -> tuple[str, int]:
             get(g, 48), get(g, 47), get(g, 49), get(g, 50),
             get(g, 53), get(g, 52), get(g, 54), get(g, 55),
             get(g, 58), get(g, 57), get(g, 59), get(g, 60),
-            effect,
+            effect, paths.get(cid, "") if paths.get(cid, "").startswith("/Command/") else "",
         ])
     return output.getvalue(), len(gc)
 

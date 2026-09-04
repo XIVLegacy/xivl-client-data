@@ -10,6 +10,9 @@ the limits of the static client CSVs.
   `csv/gameCommandBasic.csv`, `csv/xtx_command.csv`,
   `csv/xtx_text_attrName.csv`, `csv/compatibility.csv`, extraction
   2012.09.19.0001.
+- Script identity: `manifests/staticactor_class_paths.json`, joined by command
+  row id. `lua_class_path` is blank when no `/Command/` record matches. See
+  [Command script identity](command-script-identity.md) for evidence and coverage.
 - Authority for every column claim: the client's own command getter evidence
   at extraction `2012.09.19.0001`. The stable source paths are recorded
   beside the owning mappings in `tools/build_command_battle_params.py`. Getter
@@ -40,7 +43,7 @@ columns, matching the numbers the client getters pass to
 | 79 | recast time | `getRecastTime` :667 |
 | 114 | MP cost (raw, before `calculateCommandCost`) | `getCommandMPCost` :1947 |
 | 115 | TP cost (raw) | `getCommandTPCost` :1996 |
-| 36 | command-class registry id (30000-band); selects the Lua subclass | (loader-side; see section 5) |
+| 36 | unresolved numeric field; not used for script identity | See [Command script identity](command-script-identity.md). |
 
 HP cost has no sheet column: `getCommandHPCost` (:1906) returns a constant 0 in
 the base class. HP cost exists only where a subclass overrides it.
@@ -248,12 +251,12 @@ observations or native-client analysis beyond this catalog:
 4. **Command type (Attack / MagicMissile / Ability / Magic / WeaponSkill,
    1-5).** Determined by which Lua subclass a command instantiates
    (`isAttackCommand` etc. are set per-subclass; `getCommandType` in
-   `battlecommandbaseclass.lua:65` dispatches on them). The id -> subclass
-   binding is native (the loader reads a command-class registry id, the
-   gameCommandBasic 30000-band col 36, and instantiates the matching
-   `_defineClass` stub). It is not a decodable CSV column. The derived table
-   ships `dmg_class` (physical/magical/none, from the damage attribute) as a
-   CSV-derivable proxy, and the id band, but not the authoritative 5-way type.
+   `battlecommandbaseclass.lua:65` dispatches on them). The static-actor
+   catalog supplies the class path through the command id, exposed as
+   `lua_class_path`. Determining the effective method still requires the
+   script and its inheritance chain. The derived table ships `dmg_class`
+   (physical/magical/none, from the damage attribute) as a CSV-derived proxy,
+   not the authoritative 5-way type.
 
 ## 6. Additional verified mappings
 
@@ -270,7 +273,7 @@ observations or native-client analysis beyond this catalog:
 
 ## 7. Confidence
 
-Confirmed (getter-verified): the full column map in section 1; the four-param
+Confirmed (getter-verified): the named getter mappings in section 1; the four-param
 column layout; MP/TP/HP cost reality; col 82; Param4 grow col 57; the
 compatibility.csv role. High confidence (name-calibrated from the decoded
 command rows and their distributions): the element enum 5-13, attribute enum

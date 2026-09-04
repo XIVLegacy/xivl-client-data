@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import io
+import json
 import tempfile
 from pathlib import Path
 
@@ -29,6 +30,11 @@ def parse_rendered(content: str) -> list[dict[str, str]]:
 def main() -> None:
     with tempfile.TemporaryDirectory(prefix="xivl-command-params-") as raw_root:
         root = Path(raw_root)
+        paths = root / "class_paths.json"
+        paths.write_text(json.dumps({"recordCount": 2, "records": [
+            {"id": 20, "classPath": "/Command/Game/SyntheticMagic"},
+            {"id": 30001, "classPath": "/Command/Game/WrongColumnJoin"},
+        ]}), encoding="utf-8")
         write_sheet(
             root / "gameCommand.csv",
             121,
@@ -45,7 +51,7 @@ def main() -> None:
         write_sheet(
             root / "gameCommandBasic.csv",
             116,
-            [(20, {38: "22", 39: "10", 40: "3", 76: "3", 79: "8",
+            [(20, {36: "30001", 38: "22", 39: "10", 40: "3", 76: "3", 79: "8",
                    114: "105", 115: "1000"})],
         )
         write_sheet(
@@ -55,11 +61,13 @@ def main() -> None:
                    23: "EN description"})],
         )
 
-        content, count = subject.render(root)
+        content, count = subject.render(root, paths)
         assert count == 2
         rows = parse_rendered(content)
         assert [row["id"] for row in rows] == ["10", "20"]
         fire = rows[1]
+        assert fire["lua_class_path"] == "/Command/Game/SyntheticMagic"
+        assert rows[0]["lua_class_path"] == ""
         assert fire["name_en"] == "Fire"
         assert fire["description_en"] == "EN description"
         assert fire["description_jp"] == "JP description"
@@ -84,11 +92,22 @@ def main() -> None:
 
         write_sheet(root / "gameCommand.csv", 121, [(20, {}), (20, {})])
         try:
-            subject.render(root)
+            subject.render(root, paths)
         except ValueError as exc:
             assert "duplicate row id 20" in str(exc)
         else:
             raise AssertionError("duplicate command id was accepted")
+
+        paths.write_text(json.dumps({"recordCount": 2, "records": [
+            {"id": 20, "classPath": "/Command/Game/First"},
+            {"id": 20, "classPath": "/Command/Game/Second"},
+        ]}), encoding="utf-8")
+        try:
+            subject.command_class_paths(paths)
+        except ValueError as exc:
+            assert "duplicate static-actor id 20" in str(exc)
+        else:
+            raise AssertionError("ambiguous static-actor identity was accepted")
 
     print("command battle-parameter tests passed")
 
