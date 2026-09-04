@@ -17,15 +17,22 @@ This page groups the FFXIV 1.23b CSV corpus from extraction
 - A verified retail re-extraction produced 803 files from 803 sheet documents
   and 183,678 rows. All 803 files matched the tracked corpus byte-for-byte.
 - The complete byte-identical snapshot is stored privately as one deterministic
-  ZIP. Maintainers can verify or hydrate an explicitly supplied archive with:
+  ZIP. Maintainers normally hydrate it outside the checkout, set
+  `XIVL_CSV_DIR`, and run the repository checks against that root:
 
   ```powershell
+  $csvDir = Join-Path $env:TEMP "xivl-client-data-csv"
   python tools\private_csv_corpus.py verify <path-to-csv.zip>
-  python tools\private_csv_corpus.py hydrate <path-to-csv.zip> csv
+  python tools\private_csv_corpus.py hydrate <path-to-csv.zip> $csvDir
+  $env:XIVL_CSV_DIR = $csvDir
+  python tools\validate_corpus.py
   ```
 
-  Hydration requires `csv/` to be absent or empty. Normal public checks do not
-  fetch the archive.
+  Hydration requires the destination to be absent or empty. Every corpus
+  consumer also accepts `--csv-dir <path>`; the environment variable is the
+  convenient default for a maintainer session. An existing repository-local
+  `csv/` directory is only a backward-compatible cache, and normal public
+  checks do not fetch the archive.
 - The extractor reported 639 missing trailing values, 195 absent blocks, and
   57 conflicting values. These counts are the reproducibility fingerprint.
 - Record a future extraction as a new versioned corpus with its own provenance,

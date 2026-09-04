@@ -2,13 +2,15 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 from pathlib import Path
 
 from _csv_reader import read_csv
+from _csv_root import add_csv_dir_argument, default_csv_dir
 
 REPO = Path(__file__).resolve().parent.parent
-CSV = REPO / "csv"
+CSV = default_csv_dir()
 OUT = REPO / "derived" / "command_battle_params.csv"
 
 # Getter evidence: xivl-client-scripts:lua/scripts/command/game/gamecommandbaseclass.lua
@@ -77,9 +79,13 @@ def dmg_class(attr: str) -> str:
 
 
 def main() -> None:
-    gc = index(CSV / "gameCommand.csv")
-    gb = index(CSV / "gameCommandBasic.csv")
-    xc = index(CSV / "xtx_command.csv")
+    parser = argparse.ArgumentParser(description=__doc__)
+    add_csv_dir_argument(parser)
+    args = parser.parse_args()
+
+    gc = index(args.csv_dir / "gameCommand.csv")
+    gb = index(args.csv_dir / "gameCommandBasic.csv")
+    xc = index(args.csv_dir / "xtx_command.csv")
 
     header = [
         "id", "name_en", "name_jp", "id_band",

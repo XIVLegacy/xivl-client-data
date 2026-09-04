@@ -8,6 +8,8 @@ import re
 import sys
 from pathlib import Path
 
+from _csv_root import add_csv_dir_argument
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TOOLS_DIR = REPO_ROOT / "tools"
 if str(TOOLS_DIR) not in sys.path:
@@ -187,7 +189,7 @@ def build(game_dir: Path, csv_dir: Path) -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build manifests/zone_internal_names.json from the client install")
     parser.add_argument("game_dir", type=Path, help="FFXIV 1.x install root (parent of data/)")
-    parser.add_argument("--csv-dir", type=Path, default=REPO_ROOT / "csv")
+    add_csv_dir_argument(parser)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = parser.parse_args()
 

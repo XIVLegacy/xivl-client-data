@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import io
@@ -13,10 +14,25 @@ import subprocess
 import sys
 from pathlib import Path
 
+try:
+    from _csv_root import (
+        CsvRootError,
+        add_csv_dir_argument,
+        default_csv_dir,
+        validate_csv_dir,
+    )
+except ModuleNotFoundError:  # pragma: no cover - package import path
+    from ._csv_root import (
+        CsvRootError,
+        add_csv_dir_argument,
+        default_csv_dir,
+        validate_csv_dir,
+    )
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCHEMAS = REPO_ROOT / "schemas"
 MANIFESTS = REPO_ROOT / "manifests"
-CSV_DIR = Path(os.environ.get("XIVL_CSV_DIR", REPO_ROOT / "csv"))
+CSV_DIR = default_csv_dir()
 DOCS_DIR = REPO_ROOT / "docs"
 CORPUS_ABSENT = os.environ.get("XIVL_CORPUS_ABSENT") == "1"
 PERMITTED_TOP_LEVEL_GROUPS = {
@@ -50,6 +66,14 @@ except ImportError:
     _HAVE_JSONSCHEMA = False
 
 errors: list[str] = []
+
+
+def _csv_display_path(path: Path) -> str:
+    """Keep local diagnostics concise while supporting roots outside the repo."""
+    try:
+        return path.relative_to(REPO_ROOT).as_posix()
+    except ValueError:
+        return str(path)
 
 
 def _tracked_paths() -> list[str]:
@@ -125,7 +149,7 @@ def validate_csv_contract() -> None:
     """Check corpus metadata and, when present, the CSV layout and totals."""
     if not CORPUS_ABSENT and CSV_DIR.is_dir():
         subdirectories = sorted(
-            path.relative_to(REPO_ROOT).as_posix()
+            _csv_display_path(path)
             for path in CSV_DIR.rglob("*")
             if path.is_dir()
         )
@@ -293,7 +317,10 @@ def validate_checksums() -> None:
             continue
         csv_path = CSV_DIR / name
         if not csv_path.is_file():
-            errors.append(f"tables.json: {name} listed but missing under csv/")
+            errors.append(
+                f"tables.json: {name} listed but missing under "
+                f"{_csv_display_path(CSV_DIR)}/"
+            )
             continue
         data = csv_path.read_bytes()
         if "bytes" not in entry or "sha256" not in entry:
@@ -312,7 +339,8 @@ def validate_checksums() -> None:
         for csv_path in sorted(CSV_DIR.glob("*.csv")):
             if csv_path.name not in by_name:
                 errors.append(
-                    f"csv/{csv_path.name}: present on disk but absent from tables.json"
+                    f"{_csv_display_path(csv_path)}: present on disk but absent "
+                    "from tables.json"
                 )
 
     manifest_path = MANIFESTS / "manifest.json"
@@ -379,7 +407,10 @@ def validate_sheet_inventory() -> None:
     expected_files = {name.replace("/", "_") + ".csv" for name in names}
     on_disk = {p.name for p in CSV_DIR.glob("*.csv")}
     for missing in sorted(expected_files - on_disk):
-        errors.append(f"sheet_inventory.csv: {missing} expected under csv/ but missing")
+        errors.append(
+            f"sheet_inventory.csv: {missing} expected under "
+            f"{_csv_display_path(CSV_DIR)}/ but missing"
+        )
     for extra in sorted(on_disk - expected_files):
         if (
             extra.endswith("(2).csv")
@@ -387,7 +418,7 @@ def validate_sheet_inventory() -> None:
         ):
             continue
         errors.append(
-            f"csv/{extra}: present on disk but not derivable from any "
+            f"{_csv_display_path(CSV_DIR / extra)}: present on disk but not derivable from any "
             f"sheet_inventory.csv row"
         )
 
@@ -410,7 +441,13 @@ def validate_derived_counts() -> None:
     shop_builder = REPO_ROOT / "tools" / "build_shop_catalogs.py"
     if shop_builder.is_file() and not CORPUS_ABSENT:
         result = subprocess.run(
-            [sys.executable, str(shop_builder), "--check"],
+            [
+                sys.executable,
+                str(shop_builder),
+                "--check",
+                "--csv-dir",
+                str(CSV_DIR),
+            ],
             cwd=REPO_ROOT,
             capture_output=True,
             text=True,
@@ -422,7 +459,13 @@ def validate_derived_counts() -> None:
     appearance_builder = REPO_ROOT / "tools" / "build_actor_appearance_census.py"
     if appearance_builder.is_file() and not CORPUS_ABSENT:
         result = subprocess.run(
-            [sys.executable, str(appearance_builder), "--check"],
+            [
+                sys.executable,
+                str(appearance_builder),
+                "--check",
+                "--csv-dir",
+                str(CSV_DIR),
+            ],
             cwd=REPO_ROOT,
             capture_output=True,
             text=True,
@@ -434,7 +477,13 @@ def validate_derived_counts() -> None:
     substat_builder = REPO_ROOT / "tools" / "analyze_substat_status.py"
     if substat_builder.is_file() and not CORPUS_ABSENT:
         result = subprocess.run(
-            [sys.executable, str(substat_builder), "--check"],
+            [
+                sys.executable,
+                str(substat_builder),
+                "--check",
+                "--csv-dir",
+                str(CSV_DIR),
+            ],
             cwd=REPO_ROOT,
             capture_output=True,
             text=True,
@@ -446,7 +495,13 @@ def validate_derived_counts() -> None:
     marker_builder = REPO_ROOT / "tools" / "build_map_marker_resources.py"
     if marker_builder.is_file() and not CORPUS_ABSENT:
         result = subprocess.run(
-            [sys.executable, str(marker_builder), "--check"],
+            [
+                sys.executable,
+                str(marker_builder),
+                "--check",
+                "--csv-dir",
+                str(CSV_DIR),
+            ],
             cwd=REPO_ROOT,
             capture_output=True,
             text=True,
@@ -462,7 +517,13 @@ def validate_derived_counts() -> None:
     )
     if item_equipment_builder.is_file() and not CORPUS_ABSENT:
         result = subprocess.run(
-            [sys.executable, str(item_equipment_builder), "--check"],
+            [
+                sys.executable,
+                str(item_equipment_builder),
+                "--check",
+                "--csv-dir",
+                str(CSV_DIR),
+            ],
             cwd=REPO_ROOT,
             capture_output=True,
             text=True,
@@ -727,6 +788,19 @@ def validate_docs_index() -> None:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    add_csv_dir_argument(parser)
+    args = parser.parse_args()
+    global CSV_DIR
+    CSV_DIR = args.csv_dir
+
+    if not CORPUS_ABSENT:
+        try:
+            CSV_DIR = validate_csv_dir(CSV_DIR)
+        except CsvRootError as exc:
+            print(f"corpus validation FAILED (1 problem):\n  - {exc}", file=sys.stderr)
+            return 1
+
     tracked_count = validate_repository_boundary()
     json_count = validate_json_tree()
     if errors:

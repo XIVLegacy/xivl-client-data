@@ -8,9 +8,13 @@ import pkgutil
 import sys
 from pathlib import Path
 
+try:
+    from _csv_root import add_csv_dir_argument, default_csv_dir
+except ModuleNotFoundError:  # pragma: no cover - package import path
+    from ._csv_root import add_csv_dir_argument, default_csv_dir
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_CSV_DIR = REPO_ROOT / "csv"
+DEFAULT_CSV_DIR = default_csv_dir()
 DEFAULT_OUT_DIR = REPO_ROOT / "build" / "sql"
 
 # Add tools/ to sys.path so mappings resolve from any working directory.
@@ -60,7 +64,7 @@ def main() -> int:
         help="Run complete CSV mappings",
     )
     group.add_argument("--list", action="store_true", help="List available mappings and exit")
-    parser.add_argument("--csv-dir", type=Path, default=DEFAULT_CSV_DIR)
+    add_csv_dir_argument(parser)
     parser.add_argument("--out-dir", type=Path, default=DEFAULT_OUT_DIR)
     args = parser.parse_args()
 

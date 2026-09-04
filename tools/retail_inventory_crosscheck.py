@@ -9,11 +9,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from _csv_reader import read_csv  # type: ignore
+from _csv_root import default_csv_dir  # type: ignore
 
 
 REPO_ROOT = Path(__file__).parent.parent
 DEFAULT_CONTENT = REPO_ROOT / "data" / "vendor" / "captures" / "content_samples.json"
-DEFAULT_CSV_DIR = REPO_ROOT / "csv"
+DEFAULT_CSV_DIR = default_csv_dir()
 DEFAULT_OUT = REPO_ROOT / "docs" / "inventory-cross-check.md"
 
 

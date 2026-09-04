@@ -1,13 +1,24 @@
 # Tooling
 
 The tools have two parts: the CSV-to-SQL promotion pipeline and maintenance
-scripts. All canonical inputs and outputs stay in this repository. Generated
-seed fragments are untracked.
+scripts. The private CSV input may be hydrated outside the checkout; canonical
+metadata and generated outputs stay in this repository. Generated seed
+fragments are untracked.
+
+Every corpus-consuming command accepts `--csv-dir <path>`. If omitted, the
+default is `XIVL_CSV_DIR` when set, otherwise the ignored repository-local
+`csv/` compatibility cache. This makes an external hydrated root the normal
+maintainer input without changing existing commands.
+
+For safety, the selected root must be a real directory whose descendants are
+regular files; symlinks, junctions, reparse points, nested directories, and
+other special filesystem entries are rejected before any CSV bytes are read.
 
 ## CSV-to-SQL promotion pipeline
 
-`csv_to_sql.py --table <family>` or `csv_to_sql.py --all` reads `csv/` through
-the declarative modules in `mappings/` and writes `build/sql/<table>.sql`.
+`csv_to_sql.py --table <family>` or `csv_to_sql.py --all` reads the selected
+CSV root through the declarative modules in `mappings/` and writes
+`build/sql/<table>.sql`.
 A downstream consumer owns its DDL, server SQL, and import of these seed
 fragments.
 
@@ -35,22 +46,23 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
 
 ## Maintenance scripts
 
-- `validate_corpus.py` checks the tracked public boundary,
-  JSON parsing, schema, checksum, referential integrity, and docs-index links.
-  Set `XIVL_CSV_DIR` only when validating an explicitly hydrated corpus outside
-  the checkout; the default remains the ignored repository-local `csv/`.
-- `private_csv_corpus.py` packages the ignored `csv/*.csv` corpus into a
-  deterministic ZIP, verifies archive members read-only, and hydrates only
-  into an absent or empty directory. Archive members are the safe ASCII CSV
-  basenames. Use `package --output <archive>`, `verify <archive>`, or
+- `validate_corpus.py` checks the tracked public boundary, JSON parsing, schema,
+  checksum, referential integrity, and docs-index links. Set `XIVL_CSV_DIR` for
+  an externally hydrated corpus, or pass `--csv-dir` for a one-off invocation.
+  The default remains the ignored repository-local `csv/` compatibility cache.
+- `private_csv_corpus.py` packages the selected CSV root into a deterministic
+  ZIP, verifies archive members read-only, and hydrates only into an absent or
+  empty directory. Archive members are the safe ASCII CSV basenames. Use
+  `package --csv-dir <root> --output <archive>`, `verify <archive>`, or
   `hydrate <archive> <destination>`; all modes check `manifest.json` and
   `tables.json` identities. Run `python tools/test_private_csv_corpus.py` for
   the focused mutation suite.
-- `build-manifest.ps1` rebuilds these manifests from the as-imported CSVs:
-  `manifests/manifest.json` and `manifests/tables.json`.
+- `build-manifest.ps1` rebuilds these manifests from the selected CSV root;
+  pass `-CsvDir <root>` or set `XIVL_CSV_DIR` when the corpus is external. It
+  writes `manifests/manifest.json` and `manifests/tables.json`.
 - `build_command_battle_params.py` regenerates
-  `derived/command_battle_params.csv` from the `csv/gameCommand.csv` /
-  `csv/gameCommandBasic.csv` / `csv/xtx_command.csv` trio. See
+  `derived/command_battle_params.csv` from the `gameCommand.csv` /
+  `gameCommandBasic.csv` / `xtx_command.csv` trio in the selected CSV root. See
   `docs/command-battle-params.md` for the column map.
 - `build_shop_catalogs.py` regenerates the GC seal and generic range-expanded
   shop catalogs plus `manifests/shop_catalogs.json`. Its `--check` mode verifies

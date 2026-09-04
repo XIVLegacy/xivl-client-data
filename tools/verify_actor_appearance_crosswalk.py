@@ -3,15 +3,18 @@
 
 from __future__ import annotations
 
+import argparse
 import sys
 from pathlib import Path
 
 from _csv_reader import read_csv
+from _csv_root import add_csv_dir_argument, default_csv_dir
 from mappings import actor_appearance
 
 
 REPO = Path(__file__).resolve().parents[1]
-SOURCE = REPO / "csv" / actor_appearance.SOURCE_CSV
+CSV_DIR = default_csv_dir()
+SOURCE = CSV_DIR / actor_appearance.SOURCE_CSV
 TARGET_IDS = tuple(range(0x5A0700, 0x5A0704))
 EXPECTED_COLUMNS = (
     ("mainHand", 0x19, "s32"),
@@ -35,7 +38,7 @@ def unpack_2_10_10_10(value: int) -> tuple[int, int, int, int]:
     )
 
 
-def verify() -> list[tuple[int, list[int]]]:
+def verify(source: Path = SOURCE) -> list[tuple[int, list[int]]]:
     mapping = tuple(
         entry for entry in actor_appearance.COLUMNS if isinstance(entry[1], int)
     )
@@ -43,7 +46,7 @@ def verify() -> list[tuple[int, list[int]]]:
     if mapped != EXPECTED_COLUMNS:
         raise ValueError(f"actor appearance mapping drift: {mapped!r}")
 
-    header, rows = read_csv(SOURCE)
+    header, rows = read_csv(source)
     for name, position, csv_type in EXPECTED_COLUMNS:
         if header.column_indices[position] != str(position):
             raise ValueError(
@@ -80,8 +83,11 @@ def verify() -> list[tuple[int, list[int]]]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    add_csv_dir_argument(parser)
+    args = parser.parse_args()
     try:
-        rows = verify()
+        rows = verify(args.csv_dir / actor_appearance.SOURCE_CSV)
     except (IndexError, OSError, ValueError) as exc:
         print(f"FAIL: {exc}", file=sys.stderr)
         return 1

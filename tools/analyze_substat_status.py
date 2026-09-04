@@ -11,11 +11,13 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from _csv_reader import CsvRow, read_csv
+from _csv_root import add_csv_dir_argument, default_csv_dir
 
 
 REPO = Path(__file__).resolve().parents[1]
-STATUS_CSV = REPO / "csv" / "status.csv"
-STATUS_TEXT_CSV = REPO / "csv" / "xtx_status.csv"
+CSV_DIR = default_csv_dir()
+STATUS_CSV = CSV_DIR / "status.csv"
+STATUS_TEXT_CSV = CSV_DIR / "xtx_status.csv"
 CROSSWALK = REPO / "derived" / "substat_status_crosswalk.csv"
 WIRE_BASE = 200000
 HIGH_WIRE_ADJUSTMENT = 0x4350
@@ -149,11 +151,14 @@ def report(join: StatusJoin) -> dict[str, object]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    add_csv_dir_argument(parser)
     parser.add_argument("--wire-id", type=parse_wire_id, default=0x5ADF)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
 
-    rendered = build_crosswalk(STATUS_CSV)
+    status_path = args.csv_dir / "status.csv"
+    status_text_path = args.csv_dir / "xtx_status.csv"
+    rendered = build_crosswalk(status_path)
     if args.check:
         if not CROSSWALK.is_file() or CROSSWALK.read_bytes() != rendered:
             raise SystemExit(f"{CROSSWALK}: stale or missing")
@@ -161,7 +166,7 @@ def main() -> int:
         CROSSWALK.parent.mkdir(parents=True, exist_ok=True)
         CROSSWALK.write_bytes(rendered)
 
-    print(json.dumps(report(resolve(args.wire_id, STATUS_CSV, STATUS_TEXT_CSV)), indent=2))
+    print(json.dumps(report(resolve(args.wire_id, status_path, status_text_path)), indent=2))
     return 0
 
 

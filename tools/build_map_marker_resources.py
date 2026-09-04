@@ -14,9 +14,10 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from _csv_reader import CsvHeader, CsvRow, read_csv
+from _csv_root import add_csv_dir_argument, default_csv_dir
 
 REPO = Path(__file__).resolve().parent.parent
-CSV_DIR = REPO / "csv"
+CSV_DIR = default_csv_dir()
 DERIVED_OUT = REPO / "derived" / "map_marker_resource_crosswalk.csv"
 MANIFEST_OUT = REPO / "manifests" / "map_marker_resources.json"
 TABLES = REPO / "manifests" / "tables.json"
@@ -166,7 +167,7 @@ def _coordinate_summary(
     return output
 
 
-def build() -> dict[Path, bytes]:
+def build(csv_dir: Path = CSV_DIR) -> dict[Path, bytes]:
     tables = {
         entry["name"]: entry for entry in json.loads(TABLES.read_text(encoding="utf-8"))
     }
@@ -174,7 +175,7 @@ def build() -> dict[Path, bytes]:
         inventory = {row["name"] + ".csv": row for row in csv.DictReader(handle)}
 
     loaded = {
-        name: load_source(CSV_DIR / name, spec) for name, spec in SOURCE_SPECS.items()
+        name: load_source(csv_dir / name, spec) for name, spec in SOURCE_SPECS.items()
     }
     crosswalk_rows = grouped_rows(loaded)
     crosswalk = render_crosswalk(crosswalk_rows)
@@ -234,7 +235,7 @@ def build() -> dict[Path, bytes]:
         }
         coordinates[name] = _coordinate_summary(header, rows, spec.coordinate_columns)
 
-    table_count, searches = vocabulary_search(CSV_DIR)
+    table_count, searches = vocabulary_search(csv_dir)
     manifest = {
         "schemaVersion": 1,
         "generatedOn": GENERATED_ON,
@@ -278,11 +279,12 @@ def build() -> dict[Path, bytes]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    add_csv_dir_argument(parser)
     parser.add_argument(
         "--check", action="store_true", help="verify generated files without writing"
     )
     args = parser.parse_args()
-    outputs = build()
+    outputs = build(args.csv_dir)
     if args.check:
         mismatches = [
             path

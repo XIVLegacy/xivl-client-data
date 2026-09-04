@@ -11,10 +11,11 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from _csv_reader import CsvHeader, CsvRow, read_csv
+from _csv_root import add_csv_dir_argument, default_csv_dir
 
 
 REPO = Path(__file__).resolve().parents[1]
-CSV_DIR = REPO / "csv"
+CSV_DIR = default_csv_dir()
 OUTPUT = REPO / "docs" / "item-equipment-columns.md"
 INVENTORY = REPO / "manifests" / "sheet_inventory.csv"
 EXPECTED_INVENTORY = {
@@ -533,9 +534,10 @@ def build(csv_dir: Path = CSV_DIR, inventory: Path = INVENTORY) -> bytes:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    add_csv_dir_argument(parser)
     parser.add_argument("--check", action="store_true", help="verify the canonical document")
     args = parser.parse_args()
-    rendered = build()
+    rendered = build(args.csv_dir)
     if args.check:
         if not OUTPUT.is_file() or OUTPUT.read_bytes() != rendered:
             print(f"out of date: {OUTPUT.relative_to(REPO)}")

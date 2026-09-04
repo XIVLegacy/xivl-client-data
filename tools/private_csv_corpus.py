@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Package, verify, and safely hydrate the private CSV corpus.
 
-The CSV corpus is intentionally ignored by git.  This tool gives maintainers
+The CSV corpus is intentionally ignored by git. This tool gives maintainers
 one reproducible ZIP representation without making the data part of the
-repository's public surface.  Archive members are the ASCII basenames from
-``csv/*.csv``; the destination passed to ``hydrate`` is therefore the CSV
+repository's public surface. Archive members are the ASCII basenames from the
+selected CSV root; the destination passed to ``hydrate`` is therefore the CSV
 directory itself.
 """
 
@@ -22,9 +22,13 @@ import zipfile
 from pathlib import Path, PurePosixPath
 from typing import Any
 
+try:
+    from _csv_root import default_csv_dir
+except ModuleNotFoundError:  # pragma: no cover - package import path
+    from ._csv_root import default_csv_dir
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CSV_DIR = REPO_ROOT / "csv"
+DEFAULT_CSV_DIR = default_csv_dir()
 DEFAULT_MANIFEST = REPO_ROOT / "manifests" / "manifest.json"
 DEFAULT_TABLES = REPO_ROOT / "manifests" / "tables.json"
 CHUNK_SIZE = 1024 * 1024
@@ -518,7 +522,7 @@ def main(argv: list[str] | None = None) -> int:
 
     package_parser = commands.add_parser("package", help="create the deterministic ZIP")
     _path_option(package_parser, "--output", "--archive", dest="output", required=True)
-    _path_option(package_parser, "--csv-dir", default=DEFAULT_CSV_DIR)
+    _path_option(package_parser, "--csv-dir", default=default_csv_dir())
     _path_option(package_parser, "--manifest", default=DEFAULT_MANIFEST)
     _path_option(package_parser, "--tables", default=DEFAULT_TABLES)
 

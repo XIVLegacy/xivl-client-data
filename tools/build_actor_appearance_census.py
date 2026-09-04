@@ -11,11 +11,12 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from _csv_reader import CsvHeader, CsvRow, read_csv
+from _csv_root import add_csv_dir_argument, default_csv_dir
 from mappings import actor_appearance
 
 
 REPO = Path(__file__).resolve().parents[1]
-CSV_DIR = REPO / "csv"
+CSV_DIR = default_csv_dir()
 CENSUS_OUT = REPO / "derived" / "actor_appearance_census.csv"
 DISTRIBUTIONS_OUT = REPO / "derived" / "actor_appearance_value_counts.csv"
 FIELDS = (
@@ -214,10 +215,15 @@ def build(
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    add_csv_dir_argument(parser)
     parser.add_argument("--check", action="store_true", help="verify generated files")
     args = parser.parse_args()
     try:
-        outputs, stats = build()
+        outputs, stats = build(
+            args.csv_dir / "actorclass_graphic.csv",
+            args.csv_dir / "actorclass.csv",
+            args.csv_dir / "xtx_displayName.csv",
+        )
     except (IndexError, OSError, TypeError, ValueError) as exc:
         print(f"FAIL: {exc}")
         return 1

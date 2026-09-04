@@ -6,8 +6,10 @@ change. The contributor owns the result and can explain the claim or edit.
 
 ## Contribution policy
 
-- Keep `csv/` as the as-imported extraction. Never hand-edit, re-emit, or normalize
-  its rows.
+- When the optional repository-local `csv/` cache is present, keep it as the
+  as-imported extraction. Never hand-edit, re-emit, or normalize its rows. The
+  normal maintainer input is an externally hydrated private corpus selected with
+  `XIVL_CSV_DIR` or `--csv-dir`.
 - Keep generated manifests, derived tables, and seed fragments under the
   ownership of their generators. Imported reference products keep their
   provenance instead of being presented as generated client data.

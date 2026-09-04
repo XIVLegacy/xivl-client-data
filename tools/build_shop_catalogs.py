@@ -11,9 +11,10 @@ import json
 from pathlib import Path
 
 from _csv_reader import CsvHeader, CsvRow, read_csv
+from _csv_root import add_csv_dir_argument, default_csv_dir
 
 REPO = Path(__file__).resolve().parent.parent
-CSV_DIR = REPO / "csv"
+CSV_DIR = default_csv_dir()
 DERIVED_DIR = REPO / "derived"
 MANIFESTS = REPO / "manifests"
 GC_OUT = DERIVED_DIR / "gc_seal_shop_catalog.csv"
@@ -60,7 +61,7 @@ def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest().upper()
 
 
-def build() -> dict[Path, bytes]:
+def build(csv_dir: Path = CSV_DIR) -> dict[Path, bytes]:
     table_manifest = {
         entry["name"]: entry
         for entry in json.loads((MANIFESTS / "tables.json").read_text(encoding="utf-8"))
@@ -71,7 +72,7 @@ def build() -> dict[Path, bytes]:
     audit = []
     source_headers: dict[str, dict[str, list[str]]] = {}
     for name, (width, role) in SHOP_SHEETS.items():
-        header, rows = load_table(CSV_DIR / name)
+        header, rows = load_table(csv_dir / name)
         if len(header.column_indices) != width or len(header.column_types) != width:
             raise ValueError(f"{name}: declared width is not {width}")
         bad_rows = [row.row_id for row in rows if len(row.values) != width]
@@ -98,9 +99,9 @@ def build() -> dict[Path, bytes]:
             "columnTypes": header.column_types,
         }
 
-    item_rows = index_rows(CSV_DIR / "_item.csv")
-    item_data_rows = index_rows(CSV_DIR / "itemData.csv")
-    item_name_rows = index_rows(CSV_DIR / "xtx_itemName.csv")
+    item_rows = index_rows(csv_dir / "_item.csv")
+    item_data_rows = index_rows(csv_dir / "itemData.csv")
+    item_name_rows = index_rows(csv_dir / "xtx_itemName.csv")
     join_sources = []
     for name, rows in (
         ("_item.csv", item_rows),
@@ -113,7 +114,7 @@ def build() -> dict[Path, bytes]:
             "sha256": table_manifest[name]["sha256"],
         })
 
-    gc_rows = index_rows(CSV_DIR / "gcSealShopItem.csv")
+    gc_rows = index_rows(csv_dir / "gcSealShopItem.csv")
     gc_output: list[list[object]] = []
     for shop_row_id, row in sorted(gc_rows.items()):
         values = [int(value) for value in row.values]
@@ -149,8 +150,8 @@ def build() -> dict[Path, bytes]:
         "item_name_en",
     ], gc_output)
 
-    base_rows = index_rows(CSV_DIR / "shopBase.csv")
-    shop_item_rows = index_rows(CSV_DIR / "shopItem.csv")
+    base_rows = index_rows(csv_dir / "shopBase.csv")
+    shop_item_rows = index_rows(csv_dir / "shopItem.csv")
     owners: dict[int, list[int]] = {row_id: [] for row_id in shop_item_rows}
     shop_output: list[list[object]] = []
     for shop_id, row in sorted(base_rows.items()):
@@ -248,9 +249,10 @@ def build() -> dict[Path, bytes]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    add_csv_dir_argument(parser)
     parser.add_argument("--check", action="store_true", help="verify generated files without writing")
     args = parser.parse_args()
-    outputs = build()
+    outputs = build(args.csv_dir)
     if args.check:
         mismatches = [path for path, data in outputs.items() if not path.is_file() or path.read_bytes() != data]
         if mismatches:

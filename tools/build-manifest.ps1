@@ -1,3 +1,7 @@
+param(
+    [string] $CsvDir
+)
+
 $ErrorActionPreference = "Stop"
 
 function Count-Terminators([string] $s)
@@ -9,13 +13,21 @@ function Count-Terminators([string] $s)
 }
 
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
-$csvDir = Join-Path $repoRoot "csv"
-$manifestDir = Join-Path $repoRoot "manifests"
-
-if (-not (Test-Path $csvDir))
-{
-    throw "Decoded CSV folder does not exist: $csvDir"
+$configuredCsvDir = if ([string]::IsNullOrWhiteSpace($CsvDir)) {
+    $env:XIVL_CSV_DIR
+} else {
+    $CsvDir
 }
+if ([string]::IsNullOrWhiteSpace($configuredCsvDir))
+{
+    $configuredCsvDir = Join-Path $repoRoot "csv"
+}
+if (-not (Test-Path -LiteralPath $configuredCsvDir -PathType Container))
+{
+    throw "Decoded CSV folder does not exist: $configuredCsvDir"
+}
+$csvDir = (Resolve-Path -LiteralPath $configuredCsvDir).Path
+$manifestDir = Join-Path $repoRoot "manifests"
 
 New-Item -ItemType Directory -Path $manifestDir -Force | Out-Null
 

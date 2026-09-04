@@ -11,9 +11,12 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+try:
+    from _csv_root import add_csv_dir_argument, default_csv_dir
+except ModuleNotFoundError:  # pragma: no cover - package import path
+    from ._csv_root import add_csv_dir_argument, default_csv_dir
 
-ROOT = Path(__file__).resolve().parents[1]
-CSV_ROOT = ROOT / "csv"
+CSV_ROOT = default_csv_dir()
 
 CANDIDATES = {
     "weapon.csv": list(range(92, 112)) + [135, 136, 141],
@@ -29,6 +32,7 @@ GRAPHICS_ROW = re.compile(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
+    add_csv_dir_argument(parser)
     parser.add_argument(
         "--graphics-sql",
         type=Path,
@@ -48,8 +52,11 @@ def parse_value(raw: str, type_name: str) -> int | float | None:
     return int(raw)
 
 
-def read_candidates(filename: str) -> tuple[dict[int, str], dict[int, dict[int, int | float | None]]]:
-    path = CSV_ROOT / filename
+def read_candidates(
+    filename: str,
+    csv_dir: Path = CSV_ROOT,
+) -> tuple[dict[int, str], dict[int, dict[int, int | float | None]]]:
+    path = csv_dir / filename
     with path.open(encoding="utf-8", newline="") as handle:
         reader = csv.reader(handle)
         labels = next(reader)[1:]
@@ -181,7 +188,10 @@ def reference_profile(
     return {"overlapCount": len(overlap), "correlations": correlations}
 
 
-def analyze(graphics_path: Path | None) -> dict[str, Any]:
+def analyze(
+    graphics_path: Path | None,
+    csv_dir: Path = CSV_ROOT,
+) -> dict[str, Any]:
     graphics = parse_graphics_sql(graphics_path) if graphics_path else None
     report: dict[str, Any] = {
         "scope": {name: CANDIDATES[name] for name in CANDIDATES},
@@ -189,7 +199,7 @@ def analyze(graphics_path: Path | None) -> dict[str, Any]:
         "sheets": {},
     }
     for filename in CANDIDATES:
-        type_map, rows = read_candidates(filename)
+        type_map, rows = read_candidates(filename, csv_dir)
         ids = sorted(rows)
         columns = {
             str(column): column_profile([rows[row_id][column] for row_id in ids], type_map[column])
@@ -219,7 +229,7 @@ def analyze(graphics_path: Path | None) -> dict[str, Any]:
 
 def main() -> int:
     args = parse_args()
-    report = analyze(args.graphics_sql)
+    report = analyze(args.graphics_sql, args.csv_dir)
     rendered = json.dumps(report, indent=2, sort_keys=True) + "\n"
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
