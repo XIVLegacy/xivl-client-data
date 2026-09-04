@@ -37,6 +37,8 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
 
 - `validate_corpus.py` checks the tracked public boundary,
   JSON parsing, schema, checksum, referential integrity, and docs-index links.
+  Set `XIVL_CSV_DIR` only when validating an explicitly hydrated corpus outside
+  the checkout; the default remains the ignored repository-local `csv/`.
 - `private_csv_corpus.py` packages the ignored `csv/*.csv` corpus into a
   deterministic ZIP, verifies archive members read-only, and hydrates only
   into an absent or empty directory. Archive members are the safe ASCII CSV
@@ -94,6 +96,12 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   client bindings and curated zone-name fallbacks.
 - `verify_retail_staticactor.py` checks the fixed retail SAN product contract;
   `test_retail_staticactor.py` covers its mutation and sanitized-output cases.
+- `verify_retail_csv_corpus.py` checks the fixed private CSV archive grant and,
+  when given `--archive`, verifies its size, SHA-256, expanded member
+  identities, and tree digest through `private_csv_corpus.py`. It emits only a
+  schema-valid pass/fail attestation and can validate a retained output with
+  `--validate-retained-output`. `test_retail_csv_corpus.py` covers grant and
+  archive mutations, failure sanitization, and retained-output isolation.
 - `retail_inventory_crosscheck.py` checks vendored retail item observations.
 
 The verifier's `--input` is the artifact under test, while the separately

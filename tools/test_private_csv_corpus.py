@@ -155,6 +155,12 @@ class PrivateCsvCorpusTests(unittest.TestCase):
         with self.assertRaises(corpus.CorpusValidationError):
             self._package(self.root / "non-file.zip")
 
+    def test_archive_output_inside_source_is_rejected_without_mutation(self) -> None:
+        original = (self.csv_dir / "a.csv").read_bytes()
+        with self.assertRaises(corpus.CorpusValidationError):
+            self._package(self.csv_dir / "a.csv")
+        self.assertEqual((self.csv_dir / "a.csv").read_bytes(), original)
+
     def test_nonempty_destination_is_rejected_without_mutation(self) -> None:
         archive = self.root / "corpus.zip"
         destination = self.root / "nonempty"
@@ -170,6 +176,21 @@ class PrivateCsvCorpusTests(unittest.TestCase):
                 tables_path=self.tables,
             )
         self.assertEqual(sentinel.read_bytes(), b"keep")
+
+    def test_empty_destination_is_atomically_replaced(self) -> None:
+        archive = self.root / "corpus.zip"
+        destination = self.root / "empty"
+        destination.mkdir()
+        self._package(archive)
+        corpus.hydrate_archive(
+            archive,
+            destination,
+            manifest_path=self.manifest,
+            tables_path=self.tables,
+        )
+        self.assertEqual(
+            {path.name for path in destination.iterdir()}, set(self.files)
+        )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "inputId": "decoded-csv-corpus-1.23b",
+  "checkId": "decoded-csv-corpus-v1",
+  "target": "csv",
+  "source": {
+    "repository": "XIVLegacy/xivl-private-assets",
+    "commit": "db5f74e7480a162081820b2079f67bf0d6ddc5d4",
+    "path": "extracted/ffxiv-1.23b/client-data/csv.zip"
+  },
+  "archive": {
+    "path": "csv.zip",
+    "bytes": 70110686,
+    "sha256": "006f9438a8cfd9277376f0ab28474500c67e4665050aa631cae64c9e6f38a5b0"
+  },
+  "expanded": {
+    "fileCount": 803,
+    "totalBytes": 70029056,
+    "treeSha256": "33e51c468b85b3d27b628ca4f5ff49e0bd10a8778812085f2bcdfdfd0cbd84bb"
+  }
+}

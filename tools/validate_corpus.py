@@ -16,7 +16,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCHEMAS = REPO_ROOT / "schemas"
 MANIFESTS = REPO_ROOT / "manifests"
-CSV_DIR = REPO_ROOT / "csv"
+CSV_DIR = Path(os.environ.get("XIVL_CSV_DIR", REPO_ROOT / "csv"))
 DOCS_DIR = REPO_ROOT / "docs"
 CORPUS_ABSENT = os.environ.get("XIVL_CORPUS_ABSENT") == "1"
 PERMITTED_TOP_LEVEL_GROUPS = {
@@ -226,6 +226,11 @@ def validate_schemas() -> None:
             MANIFESTS / "retail_staticactor_check.json",
             "retail_staticactor_check.schema.json",
             "retail_staticactor_check.json",
+        ),
+        (
+            MANIFESTS / "private_csv_corpus.json",
+            "private_csv_corpus.schema.json",
+            "private_csv_corpus.json",
         ),
     ]
     for inst_path, schema_name, label in pairs:
@@ -686,6 +691,19 @@ def validate_retail_staticactor_contract() -> None:
         errors.append(f"retail static-actor contract: {detail}")
 
 
+def validate_retail_csv_contract() -> None:
+    """Check the asset-free private decoded-CSV grant contract."""
+    try:
+        import verify_retail_csv_corpus as verifier
+
+        contract_errors = verifier.contract_errors()
+    except (ImportError, OSError, TypeError, ValueError):
+        errors.append("retail CSV corpus verifier could not run")
+        return
+    for detail in contract_errors:
+        errors.append(f"retail CSV corpus contract: {detail}")
+
+
 def validate_docs_index() -> None:
     """Check local Markdown paths listed by each documentation index."""
     for docs_dir in (DOCS_DIR, DOCS_DIR / "ai_agents"):
@@ -732,6 +750,7 @@ def main() -> int:
     validate_icon_corpus()
     validate_vendor_provenance()
     validate_retail_staticactor_contract()
+    validate_retail_csv_contract()
     validate_docs_index()
     if errors:
         print(f"corpus validation FAILED ({len(errors)} problem(s)):", file=sys.stderr)

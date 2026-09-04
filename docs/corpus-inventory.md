@@ -16,6 +16,16 @@ This page groups the FFXIV 1.23b CSV corpus from extraction
   blocks were verified.
 - A verified retail re-extraction produced 803 files from 803 sheet documents
   and 183,678 rows. All 803 files matched the tracked corpus byte-for-byte.
+- The complete byte-identical snapshot is stored privately as one deterministic
+  ZIP. Maintainers can verify or hydrate an explicitly supplied archive with:
+
+  ```powershell
+  python tools\private_csv_corpus.py verify <path-to-csv.zip>
+  python tools\private_csv_corpus.py hydrate <path-to-csv.zip> csv
+  ```
+
+  Hydration requires `csv/` to be absent or empty. Normal public checks do not
+  fetch the archive.
 - The extractor reported 639 missing trailing values, 195 absent blocks, and
   57 conflicting values. These counts are the reproducibility fingerprint.
 - Record a future extraction as a new versioned corpus with its own provenance,

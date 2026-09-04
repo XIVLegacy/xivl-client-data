@@ -116,7 +116,7 @@ def main() -> int:
     check("retail preflight has a timeout", "timeout-minutes: 10" in workflow)
     check(
         "hosted Python patch is pinned",
-        workflow.count('python-version: "3.12.14"') == 2,
+        workflow.count('python-version: "3.12.14"') == 3,
     )
     check(
         "remote-main lookup is bounded",
@@ -133,14 +133,14 @@ def main() -> int:
     shared_revision = next(iter(shared_revisions), "")
     check(
         "shared retail actions use one immutable pin",
-        len(shared_actions) == 2
+        len(shared_actions) == 4
         and len(shared_revisions) == 1
         and len(shared_revision) == 40
         and all(char in "0123456789abcdef" for char in shared_revision)
-        and sum("/fetch-retail-input@" in action for action in shared_actions) == 1
+        and sum("/fetch-retail-input@" in action for action in shared_actions) == 2
         and sum(
             "/finalize-retail-attestation@" in action for action in shared_actions
-        ) == 1,
+        ) == 2,
     )
     check(
         "fetch passes the approved SAN identity",
@@ -151,8 +151,9 @@ def main() -> int:
         and "output-path: ${{ runner.temp }}/retail-evidence-private/game/client/script/rq9q1797qvs.san" in workflow,
     )
     check(
-        "retail fetch selects only the SAN",
-        all(name not in workflow for name in ("ffxivgame.exe", ".le.lpb", ".zip"))
+        "retail fetch selects only the approved client-data inputs",
+        all(name not in workflow for name in ("ffxivgame.exe", ".le.lpb"))
+        and workflow.count("extracted/ffxiv-1.23b/client-data/csv.zip") == 1
         and "RETAIL_INPUTS_" + "REPOSITORY" not in workflow
         and "steps.fetch.outcome" in workflow
         and "id: finalize" in workflow

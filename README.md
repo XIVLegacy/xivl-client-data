@@ -14,7 +14,9 @@ Preservation and evidence for Final Fantasy XIV 1.23b.
 
 This repository preserves metadata and research products derived from the
 decoded static client data corpus for Final Fantasy XIV 1.23b. The decoded CSV
-corpus remains local and is not distributed by this repository.
+corpus remains local and is not distributed by this repository. Authorized
+maintainers can restore its private snapshot with the explicit hydration
+workflow documented in `docs/corpus-inventory.md`.
 
 ## Documentation
 

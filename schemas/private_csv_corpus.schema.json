@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/XIVLegacy/xivl-client-data/schemas/private_csv_corpus.schema.json",
+  "title": "Private decoded CSV corpus grant",
+  "description": "Fixed public contract for the restricted 1.23b CSV archive. The archive is never tracked or emitted by the verifier.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "inputId", "checkId", "target", "source", "archive", "expanded"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "inputId": {"const": "decoded-csv-corpus-1.23b"},
+    "checkId": {"const": "decoded-csv-corpus-v1"},
+    "target": {"const": "csv"},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit", "path"],
+      "properties": {
+        "repository": {"const": "XIVLegacy/xivl-private-assets"},
+        "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "path": {"type": "string", "pattern": "^[^/].*[^/]$"}
+      }
+    },
+    "archive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "bytes", "sha256"],
+      "properties": {
+        "path": {"const": "csv.zip"},
+        "bytes": {"type": "integer"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "expanded": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fileCount", "totalBytes", "treeSha256"],
+      "properties": {
+        "fileCount": {"type": "integer"},
+        "totalBytes": {"type": "integer"},
+        "treeSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  }
+}

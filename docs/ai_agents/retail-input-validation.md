@@ -1,24 +1,20 @@
 # Retail input validation
 
 The normal asset-free repository checks remain the merge requirement. The
-additional manual retail-input workflow asks one narrow question: does the
-exact approved 1.23b static-actor SAN file reproduce the already tracked
-class-path catalog?
+additional manual retail-input workflow verifies two independently granted
+private inputs: the static-actor SAN reproduces its tracked class-path catalog,
+and the decoded CSV archive reproduces the complete tracked corpus identity.
 
-## Approved check
+## Approved checks
 
-| Contract | Value |
-|---|---|
-| Branch | `main` |
-| Workflow | `.github/workflows/retail-checks.yml` |
-| Check | `staticactor-class-paths-v1` |
-| Input declaration | `manifests/retail_inputs.json` |
-| Expected result | `manifests/retail_staticactor_check.json` |
-| Product | `manifests/staticactor_class_paths.json` |
-| Verifier | `tools/verify_retail_staticactor.py` |
-| Tracked pass attestation | `manifests/retail_evidence/staticactor-class-paths.json` |
-| Protected environment | `retail-evidence` |
-| Private input repository | `XIVLegacy/xivl-private-assets` |
+| Check | Input declaration | Verifier | Assertion |
+|---|---|---|---|
+| `staticactor-class-paths-v1` | `manifests/retail_inputs.json` | `tools/verify_retail_staticactor.py` | Exact tracked class-path catalog |
+| `decoded-csv-corpus-v1` | `manifests/private_csv_corpus.json` | `tools/verify_retail_csv_corpus.py` | 803 files, 70029056 expanded bytes, and the complete tree digest |
+
+Both checks run from protected `main` through
+`.github/workflows/retail-checks.yml`, use the `retail-evidence` environment,
+and read only from `XIVLegacy/xivl-private-assets`.
 
 The approved input is `staticactor-san-1.23b`: private path
 `client-data/ffxiv-1.23b/client/script/rq9q1797qvs.san` at immutable commit
@@ -39,6 +35,23 @@ retail file. It does not prove NPC server bindings, actor behavior, catalog
 completeness outside the decoder's limitations, or semantic correctness of a
 class path.
 
+## Decoded CSV assertion
+
+The approved input `decoded-csv-corpus-1.23b` is private path
+`extracted/ffxiv-1.23b/client-data/csv.zip` at immutable commit
+`db5f74e7480a162081820b2079f67bf0d6ddc5d4`. It is 70110686 bytes with
+SHA-256
+`006f9438a8cfd9277376f0ab28474500c67e4665050aa631cae64c9e6f38a5b0`.
+
+The verifier checks the archive identity and every member against
+`manifests/manifest.json` and `manifests/tables.json`. Its expanded identity is
+803 files, 70029056 bytes, and tree SHA-256
+`33e51c468b85b3d27b628ca4f5ff49e0bd10a8778812085f2bcdfdfd0cbd84bb`.
+The workflow hydrates the archive only inside disposable runner storage and
+runs the complete corpus validator against that directory. This proves the
+stored snapshot matches the canonical static-data corpus; it does not rerun the
+client DAT extractor or establish new semantic claims.
+
 ## Credential and output boundary
 
 Execution is manual `workflow_dispatch` from the reviewed revision on
@@ -49,15 +62,13 @@ workflow has only `contents: read`; the shared fetch action receives the
 
 The workflow invokes the shared `fetch-retail-input` action from
 `XIVLegacy/xivl-tools` at an immutable commit.
-It receives this check's manifest-pinned private commit, SAN path, size,
-SHA-256, and output path. It validates the authorized SAN entry's
-path, blob type, file mode, size, and SHA-256, then fetches that SAN blob only;
-other private assets are not selected. Raw input and generated products remain
-under one disposable private root. The shared `finalize-retail-attestation`
-action removes that root on every outcome. The only retained file is the
-schema-valid `retail-evidence-attestation.json`, uploaded as artifact
-`retail-staticactor-attestation` for 30 days. Failure attestations are
-reviewable artifacts and are never tracked.
+It receives each job's manifest-pinned private commit, path, size, SHA-256, and
+output path. It validates that one authorized blob's path, type, mode, size,
+and SHA-256, then fetches only that blob. Raw inputs and generated products
+remain under a disposable private root. The shared
+`finalize-retail-attestation` action removes that root on every outcome. Each
+job retains only its schema-valid `retail-evidence-attestation.json`; failure
+attestations are reviewable artifacts and are never tracked.
 
 ## Local verification
 
@@ -65,6 +76,8 @@ Run the mutation suite and both repository modes before a credentialed run:
 
 ```powershell
 python tools\test_retail_staticactor.py
+python tools\test_private_csv_corpus.py
+python tools\test_retail_csv_corpus.py
 python tools\validate_corpus.py
 $env:XIVL_CORPUS_ABSENT = "1"
 python tools\validate_corpus.py
@@ -72,10 +85,11 @@ Remove-Item Env:XIVL_CORPUS_ABSENT -ErrorAction SilentlyContinue
 python tools\validate_corpus.py
 ```
 
-The SAN file is not required for the normal checks. With an approved local
-client install, two clean extractor runs must produce byte-identical products.
-The mutation suite rejects a changed record, output byte, grant, expected
-hash, extra attestation field, and retained-file violation.
+Neither private input is required for normal checks. To exercise the complete
+archive locally, set `XIVL_PRIVATE_CSV_ARCHIVE` to an explicitly supplied ZIP
+before running `test_retail_csv_corpus.py`. The mutation suites reject changed
+records, archive identities, expanded-tree identities, grants, extra
+attestation fields, and retained-file violations.
 
 ## Reproduced result
 

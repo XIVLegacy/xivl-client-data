@@ -260,6 +260,13 @@ def package_archive(
     """Create a deterministic, stored ZIP of all manifest CSVs."""
     expected, total_bytes = _manifest_identity(manifest_path, tables_path)
     source = _source_files(csv_dir, expected)
+    try:
+        source_root = csv_dir.resolve(strict=True)
+        resolved_output = output.resolve(strict=False)
+    except OSError as exc:
+        raise CorpusValidationError("archive output path unavailable") from exc
+    if resolved_output == source_root or source_root in resolved_output.parents:
+        _fail("archive output must be outside the CSV source")
     _output_path(output)
     try:
         output.parent.mkdir(parents=True, exist_ok=True)
@@ -395,7 +402,7 @@ def inspect_archive(
 
 
 def _destination_is_safe(path: Path) -> bool:
-    """Allow hydration only into an absent or genuinely empty directory."""
+    """Return whether a safe hydration destination already exists."""
     if os.path.lexists(path):
         _directory(path, "hydration destination")
         try:
@@ -403,12 +410,13 @@ def _destination_is_safe(path: Path) -> bool:
                 _fail("hydration destination is not empty")
         except OSError as exc:
             raise CorpusValidationError("hydration destination unreadable") from exc
-        return False
+        return True
     try:
-        path.mkdir(parents=True, mode=0o700)
+        path.parent.mkdir(parents=True, exist_ok=True)
     except OSError as exc:
-        raise CorpusValidationError("hydration destination could not be created") from exc
-    return True
+        raise CorpusValidationError("hydration destination parent unavailable") from exc
+    _directory(path.parent, "hydration destination parent")
+    return False
 
 
 def _hydrated_files(
@@ -447,38 +455,50 @@ def hydrate_archive(
     shape = inspect_archive(
         archive_path, manifest_path=manifest_path, tables_path=tables_path
     )
-    created_destination = _destination_is_safe(destination)
-    created_files: list[Path] = []
+    destination_existed = _destination_is_safe(destination)
+    staging: Path | None = None
     try:
-        # inspect_archive completed the complete byte/hash pass before this
-        # write phase.  Files are opened exclusively so a race cannot replace
-        # an existing path silently.
+        staging = Path(
+            tempfile.mkdtemp(
+                prefix=f".{destination.name}.",
+                suffix=".tmp",
+                dir=destination.parent,
+            )
+        )
+        os.chmod(staging, 0o700)
         with zipfile.ZipFile(archive_path, "r") as archive:
             for info in archive.infolist():
                 _safe_member_name(info.filename)
-                target = destination / info.filename
+                target = staging / info.filename
                 try:
                     with archive.open(info, "r") as source:
-                        sink = target.open("xb")
-                        created_files.append(target)
-                        with sink:
+                        with target.open("xb") as sink:
                             shutil.copyfileobj(source, sink, CHUNK_SIZE)
                     os.chmod(target, 0o600)
                 except (OSError, RuntimeError, zipfile.BadZipFile) as exc:
                     raise CorpusValidationError("archive hydration failed") from exc
-        _hydrated_files(destination, expected)
+        _hydrated_files(staging, expected)
+
+        # Recheck after all writes. Publication renames the verified staging
+        # directory; no archive member is ever written through the caller's
+        # destination path.
+        destination_now_exists = _destination_is_safe(destination)
+        if destination_now_exists:
+            destination.rmdir()
+        os.replace(staging, destination)
+        staging = None
     except CorpusValidationError:
-        for target in reversed(created_files):
-            try:
-                target.unlink()
-            except OSError:
-                pass
-        if created_destination:
-            try:
-                destination.rmdir()
-            except OSError:
-                pass
         raise
+    except (OSError, RuntimeError, zipfile.BadZipFile) as exc:
+        raise CorpusValidationError("archive hydration failed") from exc
+    finally:
+        if staging is not None:
+            shutil.rmtree(staging, ignore_errors=True)
+        if destination_existed and not os.path.lexists(destination):
+            try:
+                destination.mkdir(mode=0o700)
+            except OSError:
+                pass
     return shape
 
 
