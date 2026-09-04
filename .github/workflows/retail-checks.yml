@@ -81,7 +81,7 @@ jobs:
       - name: Fetch the immutable private SAN blob
         id: fetch
         continue-on-error: true
-        uses: XIVLegacy/xivl-tools/.github/actions/fetch-retail-input@c15266b4be27ca7b60ad669921015e0746b2b162
+        uses: XIVLegacy/xivl-tools/.github/actions/fetch-retail-input@caeb4eef2f15cbc47a5fab0afc94ddaff77c065d
         with:
           token: ${{ secrets.RETAIL_INPUTS_TOKEN }}
           commit: aeb52f6dbde95a793ee6d52be28de9f28a885b15
@@ -167,7 +167,7 @@ jobs:
         id: finalize
         if: always()
         continue-on-error: true
-        uses: XIVLegacy/xivl-tools/.github/actions/finalize-retail-attestation@c15266b4be27ca7b60ad669921015e0746b2b162
+        uses: XIVLegacy/xivl-tools/.github/actions/finalize-retail-attestation@caeb4eef2f15cbc47a5fab0afc94ddaff77c065d
         with:
           scratch-root: ${{ runner.temp }}/retail-evidence-private
           staging-root: ${{ github.workspace }}/_retail-staging
@@ -217,10 +217,10 @@ jobs:
       - name: Fetch the immutable private CSV archive
         id: fetch
         continue-on-error: true
-        uses: XIVLegacy/xivl-tools/.github/actions/fetch-retail-input@c15266b4be27ca7b60ad669921015e0746b2b162
+        uses: XIVLegacy/xivl-tools/.github/actions/fetch-retail-input@caeb4eef2f15cbc47a5fab0afc94ddaff77c065d
         with:
           token: ${{ secrets.RETAIL_INPUTS_TOKEN }}
-          commit: db5f74e7480a162081820b2079f67bf0d6ddc5d4
+          commit: 8b38a02ce8ebf662b931092e46273251b38c58f0
           path: extracted/ffxiv-1.23b/client-data/csv.zip
           size: 70110686
           sha256: 006f9438a8cfd9277376f0ab28474500c67e4665050aa631cae64c9e6f38a5b0
@@ -294,7 +294,7 @@ jobs:
         id: finalize
         if: always()
         continue-on-error: true
-        uses: XIVLegacy/xivl-tools/.github/actions/finalize-retail-attestation@c15266b4be27ca7b60ad669921015e0746b2b162
+        uses: XIVLegacy/xivl-tools/.github/actions/finalize-retail-attestation@caeb4eef2f15cbc47a5fab0afc94ddaff77c065d
         with:
           scratch-root: ${{ runner.temp }}/retail-csv-corpus
           staging-root: ${{ github.workspace }}/_retail-staging

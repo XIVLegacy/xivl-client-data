@@ -5,7 +5,7 @@
   "target": "csv",
   "source": {
     "repository": "XIVLegacy/xivl-private-assets",
-    "commit": "db5f74e7480a162081820b2079f67bf0d6ddc5d4",
+    "commit": "8b38a02ce8ebf662b931092e46273251b38c58f0",
     "path": "extracted/ffxiv-1.23b/client-data/csv.zip"
   },
   "archive": {

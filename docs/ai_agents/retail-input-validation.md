@@ -39,7 +39,7 @@ class path.
 
 The approved input `decoded-csv-corpus-1.23b` is private path
 `extracted/ffxiv-1.23b/client-data/csv.zip` at immutable commit
-`db5f74e7480a162081820b2079f67bf0d6ddc5d4`. It is 70110686 bytes with
+`8b38a02ce8ebf662b931092e46273251b38c58f0`. It is 70110686 bytes with
 SHA-256
 `006f9438a8cfd9277376f0ab28474500c67e4665050aa631cae64c9e6f38a5b0`.
 
