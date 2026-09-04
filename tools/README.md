@@ -63,7 +63,9 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
 - `build_command_battle_params.py` regenerates
   `derived/command_battle_params.csv` from the `gameCommand.csv` /
   `gameCommandBasic.csv` / `xtx_command.csv` trio in the selected CSV root. See
-  `docs/command-battle-params.md` for the column map.
+  `docs/command-battle-params.md` for the column map. Its `--check` mode verifies
+  the tracked catalog without writing; `test_command_battle_params.py`
+  mutation-tests formula-input projection and deterministic rendering.
 - `build_shop_catalogs.py` regenerates the GC seal and generic range-expanded
   shop catalogs plus `manifests/shop_catalogs.json`. Its `--check` mode verifies
   all three artifacts without writing.

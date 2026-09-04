@@ -249,6 +249,9 @@ jobs:
             > "${private_root}/hydrate.log" 2>&1
           XIVL_CSV_DIR="${hydrated}" timeout 120s python tools/validate_corpus.py \
             > "${private_root}/validation.log" 2>&1
+          timeout 120s python tools/build_command_battle_params.py \
+            --csv-dir "${hydrated}" --check \
+            > "${private_root}/command-params.log" 2>&1
 
           printf 'not-the-approved-archive' > "${private_root}/mutated.zip"
           set +e

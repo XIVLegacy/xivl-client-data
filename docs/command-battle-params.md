@@ -14,6 +14,10 @@ the limits of the static client CSVs.
   at extraction `2012.09.19.0001`. The stable source paths are recorded
   beside the owning mappings in `tools/build_command_battle_params.py`. Getter
   names and line numbers below refer to those sources.
+- Display text: `xtx_command.csv` cols 1/2 provide Japanese/English names and
+  cols 22/23 provide Japanese/English descriptions. The derived table retains
+  both languages so a command query carries its client explanation beside the
+  numeric inputs.
 
 This finding derives the column map from the client getters and cites the
 getter and line that reads each column.
@@ -78,6 +82,21 @@ base   = getCommandLevelAdjust(base, ParamN_grow, lowAdj, highAdj, actor, ...)
 return base * compat * tp
 ```
 
+The compatibility adjustment is meaningful client-side input. The recovered
+base implementation returns 1 when the raw adjustment is 0; otherwise it
+interpolates from 1 toward the hand compatibility value:
+
+```
+compatibilityFactor = 1 - (1 - compatibilityByHand) * rawCompatibilityAdjust
+```
+
+The recovered base implementation of `getCommandTPPowerWithAdjust` returns 1
+for every raw input. Its intermediate delta starts at `1 - 1`, so the raw TP
+adjustment is multiplied by zero. A complete search of the frozen 2,671-script
+Lua snapshot found calls and this base definition, but no override. The catalog
+therefore preserves `pN_tp_adjust` as evidence without claiming that it scales
+power in this client build.
+
 `getCommandLevelAdjust` (:1375) resolves the grow curve as
 `base * actor:getGrowData(actorLvl, growCol) / actor:getGrowData(cmdLvl, growCol)`
 then applies the high/low-level fudge factors. The defaults are 0.7 high and
@@ -91,9 +110,12 @@ The four-param schema exists in the getters, but the data is sparse:
 
 - **Param1, Param2, Param4 columns (42-50, 57-60) are blank across all 1611
   rows.** No potency, no grow curve.
-- **Only Param3 (grow col 52, base col 53) carries data.** 1590/1611 rows have
-  grow = -1 (flat); 21 rows carry a real native grow-curve index (7, 23, 69,
-  77, 119). Param3 base col 53 is the secondary-effect / DoT magnitude:
+- **Only Param3 (cols 52-55) carries data.** 1590/1611 rows have grow = -1
+  (flat); 21 rows carry a real native grow-curve index (7, 23, 69, 77, 119).
+  Compatibility adjustment col 54 is 1 on 806 rows and 0 on 805. Raw TP
+  adjustment col 55 is 1 on 152 rows and 0 on 1459; as described above, the
+  recovered base function still returns a TP factor of 1. Param3 base col 53
+  is the secondary-effect / DoT magnitude:
   Bio/Bio II/III = -9/-19/-30 (grow 77 Dia = -8/-18/-28), Sacrifice I-IV =
   53/94/179/252, Ferocity/Invigorate buff tiers, etc. Negative = drain/DoT.
 
@@ -106,6 +128,11 @@ The per-command differentiation that *is* present lives in cast/recast/MP/TP
 (gameCommandBasic), range block (64-68), damage attribute/element (108/110),
 base magnitude (84), and the rest of the structured effect block at cols
 84-120 (see section 4).
+
+`derived/command_battle_params.csv` emits every raw base, grow,
+compatibility-adjustment, and TP-adjustment field rather than only the
+currently populated base/grow pair. This preserves the getter-shaped formula
+inputs and makes future build comparisons lossless.
 
 ## 3. Decoded enums
 

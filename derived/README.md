@@ -39,9 +39,12 @@ values are authoritative; speculative enum labels sit in separate `*_label`
 columns and never overwrite the raw value. See the finding doc for the full
 column -> getter:line map, the decoded element enum, and the list of quantities
 that require retail-capture validation (primary damage potency, the C++ combine
-step, native grow tables, and the 5-way command type).
+step, native grow tables, and the 5-way command type). English/Japanese command
+descriptions and all four raw base/grow/compatibility/TP parameter groups are
+retained for formula research and agent queries.
 
-Regenerate: `python tools/build_command_battle_params.py`.
+Regenerate: `python tools/build_command_battle_params.py`. Verify without
+writing: `python tools/build_command_battle_params.py --check`.
 
 ## Shop catalogs
 

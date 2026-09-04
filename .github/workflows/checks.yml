@@ -69,6 +69,8 @@ jobs:
         run: python tools/test_map_marker_resources.py
       - name: Test item/equipment column crosswalk
         run: python tools/test_item_equipment_crosswalk.py
+      - name: Test command battle parameters
+        run: python tools/test_command_battle_params.py
       - name: Test zone-name evidence boundary
         run: python tools/test_zone_name_bindings.py
       - name: Run strict gate
