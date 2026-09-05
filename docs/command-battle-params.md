@@ -10,6 +10,9 @@ the limits of the static client CSVs.
   `csv/gameCommandBasic.csv`, `csv/xtx_command.csv`,
   `csv/xtx_text_attrName.csv`, `csv/compatibility.csv`, extraction
   2012.09.19.0001.
+- The imported source identities are pinned by `manifests/tables.json` and
+  `manifests/sheet_inventory.csv`; the derived catalog is a projection of
+  those local extraction rows.
 - Script identity: `manifests/staticactor_class_paths.json`, joined by command
   row id. `lua_class_path` is blank when no `/Command/` record matches. See
   [Command script identity](command-script-identity.md) for evidence and coverage.
@@ -25,7 +28,25 @@ the limits of the static client CSVs.
 This finding derives the column map from the client getters and cites the
 getter and line that reads each column.
 
-## 1. Verified column -> semantic map
+## 1. Compatibility projection
+
+`compatibility_percent_by_skill` is emitted after `lua_class_path`. For a
+command whose `gameCommandBasic.csv` column 40 is nonblank, the generator
+joins the exact key to `compatibility.csv` and serializes skill ids 1 through
+44 in order as `1=value;...;44=value`. Skill id `N` reads compatibility column
+`8+(N-1)`. A command without a compatibility key retains a blank projection;
+the generator fails when a selected row or cell is missing or blank, when a
+selected value is not a signed 8-bit integer, or when it falls outside the
+signed 8-bit range.
+
+These are raw integer percentages consumed by `getCommandCompatibilityData`
+and divided by 100. `getCommandCompatibility` can return special-case `0` or
+`1` and caps matrix values at `1`, so this column does not claim actor-effective
+compatibility. The key and column semantics are verified by
+`getCommandCompatibilityKey` (:969), `getCommandCompatibilityData` (:980),
+and `getCommandCompatibility` in the client command getter source.
+
+## 2. Verified column -> semantic map
 
 Sheet column indexing: a corpus CSV's first field is the row id. Sheet column N
 is `CsvRow.values[N]` (see `tools/_csv_reader.py`). All indices below are sheet
@@ -107,7 +128,7 @@ then applies the high/low-level fudge factors. The defaults are 0.7 high and
 is `< 0` the param is flat and the raw base is used directly
 (`getCommandParamNLevelAdjustGrow` returns nil, e.g. :1514).
 
-## 2. What is actually populated in extraction 2012.09.19.0001
+## 3. What is actually populated in extraction 2012.09.19.0001
 
 The four-param schema exists in the getters, but the data is sparse:
 
@@ -124,20 +145,20 @@ The four-param schema exists in the getters, but the data is sparse:
 
 So the Lua-visible Param1 base (col 43) carries no potency in this snapshot.
 The base magnitude does exist in the sheet, but in the native-read effect
-block instead: **col 84** (section 4.1). What the corpus lacks is the scale --
+block instead: **col 84** (section 5.1). What the corpus lacks is the scale --
 how a magnitude of 950 becomes hit points -- which is the native combine step.
 
 The per-command differentiation that *is* present lives in cast/recast/MP/TP
 (gameCommandBasic), range block (64-68), damage attribute/element (108/110),
 base magnitude (84), and the rest of the structured effect block at cols
-84-120 (see section 4).
+84-120 (see section 5).
 
 `derived/command_battle_params.csv` emits every raw base, grow,
 compatibility-adjustment, and TP-adjustment field rather than only the
 currently populated base/grow pair. This preserves the getter-shaped formula
 inputs and makes future build comparisons lossless.
 
-## 3. Decoded enums
+## 4. Decoded enums
 
 **Damage element (col 110)** -- calibrated against named spells in xtx_command.
 High confidence:
@@ -177,7 +198,7 @@ extraction's distribution supports that reading: col 109 is
 pole semantics. Emitted as `dmg_attr_weight` / `dmg_elem_weight`. The 0-vs-1
 split on single-element rows in col 111 is not yet understood.
 
-## 4. Residual unknown columns
+## 5. Residual unknown columns
 
 - **Effect block, gameCommand cols 84-120** (`effect_block_raw` in the table):
   a structured per-command payload of which cols 84 (base magnitude, section
@@ -194,7 +215,7 @@ split on single-element rows in col 111 is not yet understood.
   regardless of the status it applies, so NOT a status duration). Dumped raw
   and lossless. It is not promoted.
 
-### 4.1 Effect block decode: base magnitude at col 84 and absent status data
+### 5.1 Effect block decode: base magnitude at col 84 and absent status data
 
 **Col 84 = base magnitude (damage/heal power).** No Lua getter reads it. The
 decode is empirical, pinned by tier ladders that only potency explains:
@@ -203,7 +224,7 @@ Flare/Holy 2000 < Thundaga 2150 < Burst 2200; Cure/Cura/Curaga =
 1000/2000/4000; ability-heals Second Wind 1550 / Holy Succor 1500; monster
 breaths 1300-1350; Stone Throw 50; non-damaging buffs 0. Emitted as
 `magnitude`. The magnitude -> hit-point scale is the native combine step
-(section 5). The number itself is client data.
+(section 6). The number itself is client data.
 
 **Status id, duration, and chance are NOT in gameCommand.csv.** An exhaustive
 scan found no cell in cols 84-139 across all 1611 rows holding a status.csv-band
@@ -220,13 +241,13 @@ investigation.
   populated, all flags/one s32). It carries no class path or type column, so it
   contributes nothing beyond confirming the id exists.
 
-## 5. Known gaps -- what this table cannot answer
+## 6. Known gaps -- what this table cannot answer
 
 The following are **not** in the client CSV corpus. They require runtime
 observations or native-client analysis beyond this catalog:
 
 1. **The magnitude scale.** The base magnitude per command IS client data
-   (effect-block col 84, section 4.1), but the mapping from magnitude to hit
+   (effect-block col 84, section 5.1), but the mapping from magnitude to hit
    points -- and whether the col 85/86 floats and the 87-94 stat-scaling pairs
    weight it -- is native. Retail combat-log / video magnitudes are the
    calibration source: observed damage vs col-84 value across known
@@ -238,7 +259,7 @@ observations or native-client analysis beyond this catalog:
    `calcPotencial` level-adjust (`sqrt(1 + (|lvldiff|-10)*0.4)`), damage
    attribute/element + weights.
 2a. **Command -> status linkage, and status apply chance.** Not in
-   gameCommand.csv at all (section 4.1). The link is native and the chance is
+   gameCommand.csv at all (section 5.1). The link is native and the chance is
    not client data. Which status a command applies, and at what rate, must
    come from retail observation. Status duration/power then come from status.csv
    (cols 47/49 and 27/28), not from captures.
@@ -258,7 +279,7 @@ observations or native-client analysis beyond this catalog:
    (physical/magical/none, from the damage attribute) as a CSV-derived proxy,
    not the authoritative 5-way type.
 
-## 6. Additional verified mappings
+## 7. Additional verified mappings
 
 - basicSheet 114 is MP cost and 115 is TP cost. HP cost has no column.
 - Col 82 is `isRecastSeparationHands`; `isRegistable` (:2160) reads no sheet
@@ -271,9 +292,9 @@ observations or native-client analysis beyond this catalog:
   indexed by skill id, value/100 (`getCommandCompatibilityData` :980). The
   param grow curves are the native `getGrowData` tables, a different axis.
 
-## 7. Confidence
+## 8. Confidence
 
-Confirmed (getter-verified): the named getter mappings in section 1; the four-param
+Confirmed (getter-verified): the named getter mappings in section 2; the four-param
 column layout; MP/TP/HP cost reality; col 82; Param4 grow col 57; the
 compatibility.csv role. High confidence (name-calibrated from the decoded
 command rows and their distributions): the element enum 5-13, attribute enum

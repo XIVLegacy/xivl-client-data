@@ -50,6 +50,9 @@ ATTR_LABEL = {
 
 # Preserve the getter-verified effect block raw. Status timing is not in this sheet.
 EFFECT_COLS = list(range(84, 117)) + [120]
+COMPATIBILITY_COLS = range(8, 52)
+COMPATIBILITY_MIN = -128
+COMPATIBILITY_MAX = 127
 
 HEADER = [
     "id", "name_en", "name_jp", "description_en", "description_jp", "id_band",
@@ -65,6 +68,7 @@ HEADER = [
     "p3_base", "p3_grow", "p3_compat_adjust", "p3_tp_adjust",
     "p4_base", "p4_grow", "p4_compat_adjust", "p4_tp_adjust",
     "effect_block_raw", "lua_class_path",
+    "compatibility_percent_by_skill",
 ]
 
 
@@ -114,10 +118,50 @@ def command_class_paths(path: Path) -> dict[int, str]:
     return result
 
 
+def compatibility_percent_by_skill(
+    compatibility: dict[int, list[str]], key: str, path: Path
+) -> str:
+    """Render the selected compatibility row as skill-id percentages."""
+    try:
+        row_id = int(key)
+    except ValueError as exc:
+        raise ValueError(f"{path}: non-integer compatibility key {key!r}") from exc
+
+    values = compatibility.get(row_id)
+    if values is None:
+        raise ValueError(f"{path}: missing compatibility row for key {key!r}")
+
+    rendered: list[str] = []
+    for skill_id, column in enumerate(COMPATIBILITY_COLS, start=1):
+        value = get(values, column)
+        if value == "":
+            raise ValueError(
+                f"{path}: compatibility row {row_id} has blank skill {skill_id} "
+                f"at column {column}"
+            )
+        try:
+            numeric_value = int(value)
+        except ValueError as exc:
+            raise ValueError(
+                f"{path}: compatibility row {row_id} has non-integer skill "
+                f"{skill_id} value {value!r} at column {column}"
+            ) from exc
+        if not COMPATIBILITY_MIN <= numeric_value <= COMPATIBILITY_MAX:
+            raise ValueError(
+                f"{path}: compatibility row {row_id} has out-of-range skill "
+                f"{skill_id} value {value!r} at column {column}; expected "
+                f"signed s8 range [{COMPATIBILITY_MIN}, {COMPATIBILITY_MAX}]"
+            )
+        rendered.append(f"{skill_id}={value}")
+    return ";".join(rendered)
+
+
 def render(csv_dir: Path, class_paths: Path = CLASS_PATHS) -> tuple[str, int]:
     gc = index(csv_dir / "gameCommand.csv")
     gb = index(csv_dir / "gameCommandBasic.csv")
     xc = index(csv_dir / "xtx_command.csv")
+    compatibility_path = csv_dir / "compatibility.csv"
+    compatibility = index(compatibility_path)
     paths = command_class_paths(class_paths)
     output = io.StringIO(newline="")
     writer = csv.writer(output, lineterminator="\n")
@@ -126,6 +170,7 @@ def render(csv_dir: Path, class_paths: Path = CLASS_PATHS) -> tuple[str, int]:
         g = gc[cid]
         b = gb.get(cid, [])
         x = xc.get(cid, [])
+        compatibility_key = get(b, 40)
         attr = get(g, 108)
         elem = get(g, 110)
         effect = ";".join(
@@ -152,7 +197,13 @@ def render(csv_dir: Path, class_paths: Path = CLASS_PATHS) -> tuple[str, int]:
             get(g, 48), get(g, 47), get(g, 49), get(g, 50),
             get(g, 53), get(g, 52), get(g, 54), get(g, 55),
             get(g, 58), get(g, 57), get(g, 59), get(g, 60),
-            effect, paths.get(cid, "") if paths.get(cid, "").startswith("/Command/") else "",
+            effect,
+            paths.get(cid, "") if paths.get(cid, "").startswith("/Command/") else "",
+            compatibility_percent_by_skill(
+                compatibility, compatibility_key, compatibility_path
+            )
+            if compatibility_key != ""
+            else "",
         ])
     return output.getvalue(), len(gc)
 

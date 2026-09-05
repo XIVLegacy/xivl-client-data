@@ -23,7 +23,7 @@ in the table below.
 |---|---|---|---|
 | `actor_appearance_census.csv` | `tools/build_actor_appearance_census.py` | `csv/actorclass_graphic.csv`, actor-class and display-name correlations | `docs/actor-appearance-crosswalk.md` |
 | `actor_appearance_value_counts.csv` | `tools/build_actor_appearance_census.py` | `csv/actorclass_graphic.csv` | `docs/actor-appearance-crosswalk.md` |
-| `command_battle_params.csv` | `tools/build_command_battle_params.py` | `csv/gameCommand.csv`, `csv/gameCommandBasic.csv`, `csv/xtx_command.csv`, `manifests/staticactor_class_paths.json` | `docs/command-battle-params.md` |
+| `command_battle_params.csv` | `tools/build_command_battle_params.py` | `csv/gameCommand.csv`, `csv/gameCommandBasic.csv`, `csv/compatibility.csv`, `csv/xtx_command.csv`, `manifests/staticactor_class_paths.json` | `docs/command-battle-params.md` |
 | `substat_status_crosswalk.csv` | `tools/analyze_substat_status.py` | `csv/status.csv` | `docs/substat-status-join.md` |
 | `gc_seal_shop_catalog.csv` | `tools/build_shop_catalogs.py` | `csv/gcSealShopItem.csv`, item catalog | `docs/shop-catalogs.md` |
 | `shop_catalog.csv` | `tools/build_shop_catalogs.py` | `csv/shopBase.csv`, `csv/shopItem.csv`, item catalog | `docs/shop-catalogs.md` |
@@ -41,7 +41,9 @@ column -> getter:line map, the decoded element enum, and the list of quantities
 that require retail-capture validation (primary damage potency, the C++ combine
 step, native grow tables, and the 5-way command type). English/Japanese command
 descriptions and all four raw base/grow/compatibility/TP parameter groups are
-retained for formula research and agent queries.
+retained for formula research and agent queries. The
+`compatibility_percent_by_skill` field projects the selected compatibility
+matrix row as ordered raw integer percentages for skill ids 1-44.
 
 Regenerate: `python tools/build_command_battle_params.py`. Verify without
 writing: `python tools/build_command_battle_params.py --check`.
