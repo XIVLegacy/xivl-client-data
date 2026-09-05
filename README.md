@@ -33,12 +33,6 @@ in `docs/corpus-inventory.md`.
 - [Derived products](derived/README.md)
 - [Tooling and regeneration](tools/README.md)
 
-## Community
-
-Join the [project Discord](https://discord.gg/PxK5RJYQjm) for questions and
-community support. Use [Issues](https://github.com/XIVLegacy/xivl-client-data/issues)
-to report bugs and durable research findings.
-
 ## Contributing
 
 Pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before you
