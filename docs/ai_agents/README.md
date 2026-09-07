@@ -51,4 +51,5 @@ The repository README, `tools/README.md`, manifests, schemas, and finding
 documents remain canonical for their own surfaces.
 
 [Retail input validation](retail-input-validation.md) describes the optional
-credentialed SAN reproduction check and its exact claim boundary.
+credentialed SAN and decoded-CSV reproduction checks and their exact claim
+boundaries.
