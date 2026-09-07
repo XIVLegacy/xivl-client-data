@@ -86,10 +86,6 @@ class PrivateCsvCorpusTests(unittest.TestCase):
         self._package(first)
         self._package(second)
         self.assertEqual(first.read_bytes(), second.read_bytes())
-        self.assertEqual(
-            hashlib.sha256(first.read_bytes()).hexdigest(),
-            hashlib.sha256(second.read_bytes()).hexdigest(),
-        )
         with zipfile.ZipFile(first) as archive:
             infos = archive.infolist()
             self.assertEqual([info.filename for info in infos], ["a.csv", "b.csv"])
