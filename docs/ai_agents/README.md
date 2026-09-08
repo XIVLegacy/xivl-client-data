@@ -1,7 +1,8 @@
 # Contribution and documentation policy
 
-This policy governs changes to the tracked surface of the private decoded
-client-data catalog. AI-assisted work follows the same standard as any other
+This policy governs changes to the tracked public decoded client-data catalog.
+The optional ignored `csv/` cache and hydrated corpus inputs are private and
+are never committed. AI-assisted work follows the same standard as any other
 change. The contributor owns the result and can explain the claim or edit.
 
 ## Contribution policy

@@ -72,17 +72,31 @@ attestations are reviewable artifacts and are never tracked.
 
 ## Local verification
 
-Run the mutation suite and both repository modes before a credentialed run:
+Run the mutation suite without a private input:
 
 ```powershell
 python tools\test_retail_staticactor.py
 python tools\test_private_csv_corpus.py
 python tools\test_retail_csv_corpus.py
-python tools\validate_corpus.py
+```
+
+For a public-tree-only check, do not provide a `csv/` directory or external
+corpus. Set the absence flag before importing the validator:
+
+```powershell
 $env:XIVL_CORPUS_ABSENT = "1"
 python tools\validate_corpus.py
 Remove-Item Env:XIVL_CORPUS_ABSENT -ErrorAction SilentlyContinue
+```
+
+For a hydrated-corpus check, provide an explicit plain directory containing
+the imported CSV files. Leave the absence flag unset and select that directory
+with `XIVL_CSV_DIR`:
+
+```powershell
+$env:XIVL_CSV_DIR = "C:\path\to\csv"
 python tools\validate_corpus.py
+Remove-Item Env:XIVL_CSV_DIR -ErrorAction SilentlyContinue
 ```
 
 Neither private input is required for normal checks. To exercise the complete

@@ -18,6 +18,9 @@ longer contract to the owning documentation page or declaration and leave a
 short pointer. When unsure, keep one line and flag it in the maintainer review
 record.
 
+Comment length and punctuation are style guidelines. Clarity, correctness,
+source quotations, licensing, and provenance justify exceptions.
+
 This rule applies to the Python and PowerShell tools, the tracked Rust
 extractor sources, JSON Schema descriptions, and workflow comments. Generated
 comments are generated output: preserve them exactly, or update the owning

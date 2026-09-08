@@ -50,8 +50,11 @@ Removing one destroys evidence.
 Remove incidental figures without weakening the claim. A count that does not
 support the finding creates maintenance work without adding evidence.
 
-Do not use approximate figures when an exact source exists. Cite the source
-instead of restating a number that does not carry the claim.
+Useful rounded figures and bounded estimates may remain when they carry the
+claim. State the measurement method, resolution, or bound. Use an exact value
+when precision affects correctness, and do not turn uncertain evidence into a
+precise value by inference. When the number is incidental, cite the source
+instead of restating it.
 
 This governs prose the repository authors. A figure inside a quoted or
 transcribed source is source content and stays verbatim, hedge included.
@@ -66,7 +69,7 @@ repository-name:path/to/file
 
 Add a row, symbol, or section locator when useful. When byte identity matters,
 record a sha256 in the local provenance or checksum record rather than in the
-citation string. Commit hashes and date pins are not citations: repository
+citation string. Commit hashes and date pins do not replace source locators: repository
 histories are rewritten before publication, and dated "as of" claims rot.
 Branch names, live working tree paths, and sibling paths are not citations.
 For the client CSV extraction, preserve version `2012.09.19.0001` and rely on
