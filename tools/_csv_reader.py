@@ -138,7 +138,9 @@ def _validate_column_indices(
         try:
             width = source_widths[source_csv]
         except KeyError as exc:
-            raise ValueError(f"column references unknown source: {source_csv!r}") from exc
+            raise ValueError(
+                f"column references unknown source: {source_csv!r}"
+            ) from exc
         if source >= width:
             raise ValueError(
                 f"{source_csv}: column index {source} for {output_col!r} exceeds "
@@ -156,7 +158,7 @@ def coerce(value: str, type_hint: str) -> str:
 
 def _const_literal(source: str, csv_type: str) -> str:
     """Resolve a ``const:N`` column source to its typed SQL literal."""
-    literal = source[len("const:"):]
+    literal = source[len("const:") :]
     if literal == "NULL":
         return "NULL"
     return coerce(literal, csv_type)
@@ -186,10 +188,7 @@ def write_single_csv_seed(
     csv_path = csv_dir / source_csv
     header, rows = read_csv(csv_path)
     _validate_column_indices(
-        [
-            (output_col, source_csv, source)
-            for output_col, source, _csv_type in columns
-        ],
+        [(output_col, source_csv, source) for output_col, source, _csv_type in columns],
         {source_csv: len(header.column_indices)},
     )
 
@@ -208,25 +207,24 @@ def write_single_csv_seed(
         inserts.append(f"INSERT INTO {sql_table} VALUES ({', '.join(values)});")
 
     out_path = out_dir / f"{sql_table}.sql"
-    seed_content = (
-        _seed_header(source_csv)
-        + "\n"
-        + "\n".join(inserts)
-        + "\n"
-    )
+    seed_content = _seed_header(source_csv) + "\n" + "\n".join(inserts) + "\n"
     _write_seed_file(out_path, seed_content)
     return out_path
 
 
 def _seed_header(*sources: str) -> str:
-    return "\n".join([
-        SEED_MARKER,
-        *(f"-- Source: xivl-client-data/csv/{source}" for source in sources),
-        "",
-    ])
+    return "\n".join(
+        [
+            SEED_MARKER,
+            *(f"-- Source: xivl-client-data/csv/{source}" for source in sources),
+            "",
+        ]
+    )
 
 
-MultiColumnSpec = tuple[str, object, object, str]  # (output_col, csv_filename_or_None, source, csv_type)
+MultiColumnSpec = tuple[
+    str, object, object, str
+]  # (output_col, csv_filename_or_None, source, csv_type)
 
 
 def write_multi_csv_seed(
@@ -278,7 +276,9 @@ def write_multi_csv_seed(
                 continue
             if callable(source):
                 resolved = source(row_id, sources_data)
-                values.append("NULL" if resolved is None else coerce(resolved, csv_type))
+                values.append(
+                    "NULL" if resolved is None else coerce(resolved, csv_type)
+                )
                 continue
             if csv_filename not in sources_data:
                 raise ValueError(f"column references unknown source: {csv_filename!r}")
@@ -313,11 +313,6 @@ def write_multi_csv_seed(
         inserts.append(f"INSERT INTO {sql_table} VALUES ({', '.join(values)});")
 
     out_path = out_dir / f"{sql_table}.sql"
-    seed_content = (
-        _seed_header(*sources)
-        + "\n"
-        + "\n".join(inserts)
-        + "\n"
-    )
+    seed_content = _seed_header(*sources) + "\n" + "\n".join(inserts) + "\n"
     _write_seed_file(out_path, seed_content)
     return out_path

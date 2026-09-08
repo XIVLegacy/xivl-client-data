@@ -125,9 +125,7 @@ def main() -> int:
     shared_actions = [
         line.strip().removeprefix("uses: ")
         for line in workflow.splitlines()
-        if line.strip().startswith(
-            "uses: XIVLegacy/xivl-tools/.github/actions/"
-        )
+        if line.strip().startswith("uses: XIVLegacy/xivl-tools/.github/actions/")
     ]
     shared_revisions = {action.rsplit("@", 1)[-1] for action in shared_actions}
     shared_revision = next(iter(shared_revisions), "")
@@ -138,17 +136,18 @@ def main() -> int:
         and len(shared_revision) == 40
         and all(char in "0123456789abcdef" for char in shared_revision)
         and sum("/fetch-retail-input@" in action for action in shared_actions) == 2
-        and sum(
-            "/finalize-retail-attestation@" in action for action in shared_actions
-        ) == 2,
+        and sum("/finalize-retail-attestation@" in action for action in shared_actions)
+        == 2,
     )
     check(
         "fetch passes the approved SAN identity",
         "commit: aeb52f6dbde95a793ee6d52be28de9f28a885b15" in workflow
         and "path: client-data/ffxiv-1.23b/client/script/rq9q1797qvs.san" in workflow
         and "size: 108911" in workflow
-        and "sha256: bb7306461b1728493242016a16d9dd5257d7512c60e423b017de5ec7aced3d14" in workflow
-        and "output-path: ${{ runner.temp }}/retail-evidence-private/game/client/script/rq9q1797qvs.san" in workflow,
+        and "sha256: bb7306461b1728493242016a16d9dd5257d7512c60e423b017de5ec7aced3d14"
+        in workflow
+        and "output-path: ${{ runner.temp }}/retail-evidence-private/game/client/script/rq9q1797qvs.san"
+        in workflow,
     )
     check(
         "retail fetch selects only the approved client-data inputs",
@@ -161,7 +160,8 @@ def main() -> int:
         and "hashFiles" not in workflow,
     )
     python_commands = [
-        line for line in workflow.splitlines()
+        line
+        for line in workflow.splitlines()
         if "python" in line
         and "python-version" not in line
         and "setup-python" not in line
@@ -184,7 +184,11 @@ def main() -> int:
         mutated["records"][0]["classPath"] = "/Mutation/Not/Approved"
         check(
             "mutated expected record fails",
-            _fails(directory, product=json.dumps(mutated, ensure_ascii=False, indent=2).encode() + b"\n"),
+            _fails(
+                directory,
+                product=json.dumps(mutated, ensure_ascii=False, indent=2).encode()
+                + b"\n",
+            ),
         )
 
         original = PRODUCT.read_bytes()
@@ -202,14 +206,19 @@ def main() -> int:
 
         schema = _schema_check.load_schema(SCHEMA)
         attestation = verifier.build_attestation("pass")
-        check("passing attestation satisfies schema", not _schema_check.validate(attestation, schema))
+        check(
+            "passing attestation satisfies schema",
+            not _schema_check.validate(attestation, schema),
+        )
         try:
             _schema_check.validate("value", {"type": "string", "minimum": 1})
         except _schema_check.SchemaError:
             unsupported_keyword_fails_closed = True
         else:
             unsupported_keyword_fails_closed = False
-        check("unsupported schema keyword fails closed", unsupported_keyword_fails_closed)
+        check(
+            "unsupported schema keyword fails closed", unsupported_keyword_fails_closed
+        )
         try:
             _schema_check.validate("value", {"type": None})
         except _schema_check.SchemaError:
@@ -224,7 +233,10 @@ def main() -> int:
             bool(_schema_check.validate(zero_commit, schema)),
         )
         attestation["observations"] = []
-        check("unexpected attestation field fails", bool(_schema_check.validate(attestation, schema)))
+        check(
+            "unexpected attestation field fails",
+            bool(_schema_check.validate(attestation, schema)),
+        )
 
         failed_path = directory / "failed.json"
         failed = copy.deepcopy(baseline)
@@ -276,10 +288,19 @@ def main() -> int:
 
         retained = directory / "retained"
         retained.mkdir()
-        _write_json(retained / "retail-evidence-attestation.json", verifier.build_attestation("pass"))
-        check("retained pass attestation validates", not verifier._validate_retained_output(retained))
+        _write_json(
+            retained / "retail-evidence-attestation.json",
+            verifier.build_attestation("pass"),
+        )
+        check(
+            "retained pass attestation validates",
+            not verifier._validate_retained_output(retained),
+        )
         (retained / "extra.json").write_text("{}\n", encoding="ascii")
-        check("retained-file violation fails", bool(verifier._validate_retained_output(retained)))
+        check(
+            "retained-file violation fails",
+            bool(verifier._validate_retained_output(retained)),
+        )
 
     if FAILED:
         print("FAIL: " + "; ".join(FAILED))

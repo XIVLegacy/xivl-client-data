@@ -40,7 +40,10 @@ def raises_value_error(callable_) -> bool:
 
 
 def main() -> int:
-    check("captured id translates to status row", analyzer.decode_wire_id(0x5ADF) == 223263)
+    check(
+        "captured id translates to status row",
+        analyzer.decode_wire_id(0x5ADF) == 223263,
+    )
     check("zero remains the empty sentinel", analyzer.decode_wire_id(0) == 0)
     check("high wire adjustment is applied", analyzer.decode_wire_id(0x8001) == 215537)
     check(
@@ -77,7 +80,10 @@ def main() -> int:
         first = analyzer.build_crosswalk(status)
         second = analyzer.build_crosswalk(status)
         check("crosswalk rendering is deterministic", first == second)
-        check("crosswalk is ASCII with literal LF", first.endswith(b"\n") and b"\r" not in first)
+        check(
+            "crosswalk is ASCII with literal LF",
+            first.endswith(b"\n") and b"\r" not in first,
+        )
 
         missing = write_sheet(directory / "missing.csv", 1, [(223264, {})])
         check(

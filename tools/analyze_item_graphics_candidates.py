@@ -70,7 +70,9 @@ def read_candidates(
             row_id = int(raw_row[0])
             values = raw_row[1:]
             rows[row_id] = {
-                column: parse_value(values[column] if column < len(values) else "", type_map[column])
+                column: parse_value(
+                    values[column] if column < len(values) else "", type_map[column]
+                )
                 for column in wanted
             }
     if labels != [str(index) for index in range(len(labels))]:
@@ -139,7 +141,9 @@ def column_profile(values: list[int | float | None], type_name: str) -> dict[str
         "minimum": min(present) if present else None,
         "maximum": max(present) if present else None,
         "distinctCount": len(frequencies),
-        "nonSentinelDistinctCount": len({value for value in present if value not in {0, -1}}),
+        "nonSentinelDistinctCount": len(
+            {value for value in present if value not in {0, -1}}
+        ),
         "frequencies": {str(key): frequencies[key] for key in sorted(frequencies)},
     }
     if type_name in INTEGER_TYPES:
@@ -176,14 +180,20 @@ def reference_profile(
             ]
             exact = sum(left == right for left, right in pairs)
             non_sentinel_pairs = [
-                (left, right) for left, right in pairs if left not in {0, -1} and right not in {0, -1}
+                (left, right)
+                for left, right in pairs
+                if left not in {0, -1} and right not in {0, -1}
             ]
             correlations[str(column)][field] = {
                 "pairCount": len(pairs),
                 "exactCount": exact,
                 "nonSentinelPairCount": len(non_sentinel_pairs),
-                "nonSentinelExactCount": sum(left == right for left, right in non_sentinel_pairs),
-                "pearson": None if (value := pearson(pairs)) is None else round(value, 6),
+                "nonSentinelExactCount": sum(
+                    left == right for left, right in non_sentinel_pairs
+                ),
+                "pearson": None
+                if (value := pearson(pairs)) is None
+                else round(value, 6),
             }
     return {"overlapCount": len(overlap), "correlations": correlations}
 
@@ -202,7 +212,9 @@ def analyze(
         type_map, rows = read_candidates(filename, csv_dir)
         ids = sorted(rows)
         columns = {
-            str(column): column_profile([rows[row_id][column] for row_id in ids], type_map[column])
+            str(column): column_profile(
+                [rows[row_id][column] for row_id in ids], type_map[column]
+            )
             for column in CANDIDATES[filename]
         }
         correlations: dict[str, dict[str, float | None]] = {}
@@ -212,10 +224,13 @@ def analyze(
                 pairs = [
                     (float(rows[row_id][left]), float(rows[row_id][right]))
                     for row_id in ids
-                    if rows[row_id][left] is not None and rows[row_id][right] is not None
+                    if rows[row_id][left] is not None
+                    and rows[row_id][right] is not None
                 ]
                 value = pearson(pairs)
-                correlations[str(left)][str(right)] = None if value is None else round(value, 6)
+                correlations[str(left)][str(right)] = (
+                    None if value is None else round(value, 6)
+                )
         sheet: dict[str, Any] = {
             "rowCount": len(rows),
             "columns": columns,

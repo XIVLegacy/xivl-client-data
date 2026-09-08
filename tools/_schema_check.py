@@ -12,21 +12,25 @@ class SchemaError(Exception):
     """The schema cannot be interpreted by this checker."""
 
 
-_SUPPORTED_KEYWORDS = frozenset({
-    "type",
-    "const",
-    "enum",
-    "pattern",
-    "minLength",
-    "minItems",
-    "uniqueItems",
-    "items",
-    "required",
-    "properties",
-    "additionalProperties",
-})
+_SUPPORTED_KEYWORDS = frozenset(
+    {
+        "type",
+        "const",
+        "enum",
+        "pattern",
+        "minLength",
+        "minItems",
+        "uniqueItems",
+        "items",
+        "required",
+        "properties",
+        "additionalProperties",
+    }
+)
 _ANNOTATION_KEYWORDS = frozenset({"$schema", "$id", "title", "description"})
-_SUPPORTED_TYPES = frozenset({"object", "array", "string", "integer", "boolean", "null"})
+_SUPPORTED_TYPES = frozenset(
+    {"object", "array", "string", "integer", "boolean", "null"}
+)
 
 
 def load_schema(path: Path) -> dict[str, Any]:
@@ -43,7 +47,8 @@ def _check_schema_node(node: Any) -> None:
     if not isinstance(node, dict):
         raise SchemaError("schema node is not an object")
     unsupported = sorted(
-        key for key in node
+        key
+        for key in node
         if key not in _SUPPORTED_KEYWORDS and key not in _ANNOTATION_KEYWORDS
     )
     if unsupported:
@@ -55,7 +60,10 @@ def _check_schema_node(node: Any) -> None:
         if (
             not isinstance(names, list)
             or not names
-            or any(not isinstance(name, str) or name not in _SUPPORTED_TYPES for name in names)
+            or any(
+                not isinstance(name, str) or name not in _SUPPORTED_TYPES
+                for name in names
+            )
         ):
             raise SchemaError("unsupported schema type")
     if "enum" in node and not isinstance(node["enum"], list):
@@ -64,7 +72,8 @@ def _check_schema_node(node: Any) -> None:
         raise SchemaError("schema pattern is not a string")
     for keyword in ("minLength", "minItems"):
         if keyword in node and (
-            not isinstance(node[keyword], int) or isinstance(node[keyword], bool)
+            not isinstance(node[keyword], int)
+            or isinstance(node[keyword], bool)
             or node[keyword] < 0
         ):
             raise SchemaError(f"schema {keyword} is not a non-negative integer")
@@ -82,7 +91,9 @@ def _check_schema_node(node: Any) -> None:
         raise SchemaError("schema properties is not an object")
     for child in properties.values():
         _check_schema_node(child)
-    if "additionalProperties" in node and not isinstance(node["additionalProperties"], bool):
+    if "additionalProperties" in node and not isinstance(
+        node["additionalProperties"], bool
+    ):
         raise SchemaError("schema additionalProperties is not a boolean")
 
 
@@ -127,7 +138,9 @@ def validate(value: Any, schema: dict[str, Any]) -> list[str]:
         if isinstance(current, list):
             if len(current) < node.get("minItems", 0):
                 errors.append(f"{location}: too few items")
-            if node.get("uniqueItems") and len({json.dumps(item, sort_keys=True) for item in current}) != len(current):
+            if node.get("uniqueItems") and len(
+                {json.dumps(item, sort_keys=True) for item in current}
+            ) != len(current):
                 errors.append(f"{location}: duplicate items")
             item_schema = node.get("items")
             if isinstance(item_schema, dict):

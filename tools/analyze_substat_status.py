@@ -166,7 +166,11 @@ def main() -> int:
         CROSSWALK.parent.mkdir(parents=True, exist_ok=True)
         CROSSWALK.write_bytes(rendered)
 
-    print(json.dumps(report(resolve(args.wire_id, status_path, status_text_path)), indent=2))
+    print(
+        json.dumps(
+            report(resolve(args.wire_id, status_path, status_text_path)), indent=2
+        )
+    )
     return 0
 
 

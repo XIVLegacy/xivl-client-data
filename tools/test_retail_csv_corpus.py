@@ -33,7 +33,10 @@ def check(label: str, condition: bool) -> None:
 
 def write_json(path: Path, value: object, *, canonical: bool = False) -> None:
     if canonical:
-        raw = json.dumps(value, ensure_ascii=True, sort_keys=True, separators=(",", ":")) + "\n"
+        raw = (
+            json.dumps(value, ensure_ascii=True, sort_keys=True, separators=(",", ":"))
+            + "\n"
+        )
     else:
         raw = json.dumps(value, ensure_ascii=True, indent=2) + "\n"
     path.write_text(raw, encoding="ascii", newline="")
@@ -53,7 +56,10 @@ def run_verifier(*args: str) -> subprocess.CompletedProcess[str]:
 def contract_tests(root: Path) -> None:
     manifest = json.loads(MANIFEST.read_text(encoding="ascii"))
     schema = _schema_check.load_schema(SCHEMA)
-    check("public CSV grant satisfies schema", not _schema_check.validate(manifest, schema))
+    check(
+        "public CSV grant satisfies schema",
+        not _schema_check.validate(manifest, schema),
+    )
     check("public grant passes", not verifier.contract_errors())
 
     for field, label in (
@@ -66,7 +72,9 @@ def contract_tests(root: Path) -> None:
     ):
         mutated = copy.deepcopy(manifest)
         current = mutated[field[0]][field[1]]
-        mutated[field[0]][field[1]] = (current + 1) if isinstance(current, int) else "0" * len(current)
+        mutated[field[0]][field[1]] = (
+            (current + 1) if isinstance(current, int) else "0" * len(current)
+        )
         path = root / f"mutated-{label.replace(' ', '-')}.json"
         write_json(path, mutated)
         check(f"mutated {label} grant fails", bool(verifier.contract_errors(path)))
@@ -85,16 +93,23 @@ def archive_logic_tests(root: Path) -> None:
         ("treeSha256", "content tree"),
     ):
         mutated = dict(expected)
-        mutated[field] = mutated[field] + 1 if isinstance(mutated[field], int) else "0" * 64
+        mutated[field] = (
+            mutated[field] + 1 if isinstance(mutated[field], int) else "0" * 64
+        )
         check(f"mutated {label} fails", bool(verifier._shape_errors(mutated)))
 
     short_archive = root / "short.zip"
     short_archive.write_bytes(b"x")
-    check("archive size failure is reported", bool(verifier.archive_errors(short_archive)))
+    check(
+        "archive size failure is reported", bool(verifier.archive_errors(short_archive))
+    )
     original_size = verifier.ARCHIVE_SIZE
     try:
         verifier.ARCHIVE_SIZE = 1
-        check("archive hash failure is reported", bool(verifier.archive_errors(short_archive)))
+        check(
+            "archive hash failure is reported",
+            bool(verifier.archive_errors(short_archive)),
+        )
     finally:
         verifier.ARCHIVE_SIZE = original_size
 
@@ -107,13 +122,22 @@ def archive_logic_tests(root: Path) -> None:
             raise verifier.corpus.ArchiveValidationError("member content rejected")
 
         verifier.corpus.inspect_archive = reject
-        check("archive content failure is reported", bool(verifier.archive_errors(Path("private.csv.zip"))))
+        check(
+            "archive content failure is reported",
+            bool(verifier.archive_errors(Path("private.csv.zip"))),
+        )
 
         verifier.corpus.inspect_archive = lambda _path: dict(expected)
-        check("archive content baseline passes", not verifier.archive_errors(Path("private.csv.zip")))
+        check(
+            "archive content baseline passes",
+            not verifier.archive_errors(Path("private.csv.zip")),
+        )
         bad_tree = dict(expected, treeSha256="0" * 64)
         verifier.corpus.inspect_archive = lambda _path: bad_tree
-        check("archive tree failure is reported", bool(verifier.archive_errors(Path("private.csv.zip"))))
+        check(
+            "archive tree failure is reported",
+            bool(verifier.archive_errors(Path("private.csv.zip"))),
+        )
     finally:
         verifier._archive_identity_errors = original_identity
         verifier.corpus.inspect_archive = original_inspect
@@ -122,16 +146,27 @@ def archive_logic_tests(root: Path) -> None:
 def output_tests(root: Path) -> None:
     schema = _schema_check.load_schema(ATTESTATION_SCHEMA)
     attestation = verifier.build_attestation("pass", "1" * 40)
-    check("passing attestation satisfies schema", not _schema_check.validate(attestation, schema))
+    check(
+        "passing attestation satisfies schema",
+        not _schema_check.validate(attestation, schema),
+    )
     mutated = copy.deepcopy(attestation)
     mutated["archive"] = "forbidden"
-    check("attestation additional field fails", bool(_schema_check.validate(mutated, schema)))
+    check(
+        "attestation additional field fails",
+        bool(_schema_check.validate(mutated, schema)),
+    )
     mutated = copy.deepcopy(attestation)
     mutated["approvedInputSha256"] = "0" * 64
-    check("attestation input hash mutation fails", bool(_schema_check.validate(mutated, schema)))
+    check(
+        "attestation input hash mutation fails",
+        bool(_schema_check.validate(mutated, schema)),
+    )
     mutated = copy.deepcopy(attestation)
     mutated["publicRepositoryCommit"] = "0" * 40
-    check("attestation zero commit fails", bool(_schema_check.validate(mutated, schema)))
+    check(
+        "attestation zero commit fails", bool(_schema_check.validate(mutated, schema))
+    )
 
     failed = run_verifier("--archive", str(root / "missing-private-archive.zip"))
     try:
@@ -161,20 +196,31 @@ def output_tests(root: Path) -> None:
         "repeated attestations are byte-identical",
         first.returncode == second.returncode == 0 and first.stdout == second.stdout,
     )
-    check("attestation output has LF terminator", first.stdout.endswith("\n") and "\r" not in first.stdout)
+    check(
+        "attestation output has LF terminator",
+        first.stdout.endswith("\n") and "\r" not in first.stdout,
+    )
 
     retained = root / "retained"
     retained.mkdir()
     write_json(retained / verifier.ATTESTATION_FILENAME, attestation, canonical=True)
-    check("single retained attestation passes", not verifier.retained_output_errors(retained))
+    check(
+        "single retained attestation passes",
+        not verifier.retained_output_errors(retained),
+    )
     (retained / "extra.log").write_text("forbidden\n", encoding="ascii")
     check("extra retained file fails", bool(verifier.retained_output_errors(retained)))
     (retained / "extra.log").unlink()
     (retained / "nested").mkdir()
-    check("nested retained entry fails", bool(verifier.retained_output_errors(retained)))
+    check(
+        "nested retained entry fails", bool(verifier.retained_output_errors(retained))
+    )
     (retained / "nested").rmdir()
     (retained / verifier.ATTESTATION_FILENAME).write_bytes(b"{}\r\n")
-    check("CRLF retained attestation fails", bool(verifier.retained_output_errors(retained)))
+    check(
+        "CRLF retained attestation fails",
+        bool(verifier.retained_output_errors(retained)),
+    )
 
 
 def private_archive_test() -> None:

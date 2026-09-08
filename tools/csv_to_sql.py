@@ -41,14 +41,20 @@ def run_mapping(name: str, csv_dir: Path, out_dir: Path) -> Path:
     module = importlib.import_module(f"mappings.{name}")
     if hasattr(module, "SOURCES"):
         return write_multi_csv_seed(
-            module.SQL_TABLE, module.SOURCES,
-            module.COLUMNS, csv_dir, out_dir,
+            module.SQL_TABLE,
+            module.SOURCES,
+            module.COLUMNS,
+            csv_dir,
+            out_dir,
             join_keys=getattr(module, "JOIN_KEYS", None),
             require_join_match=getattr(module, "REQUIRE_JOIN_MATCH", True),
         )
     return write_single_csv_seed(
-        module.SQL_TABLE, module.SOURCE_CSV,
-        module.COLUMNS, csv_dir, out_dir,
+        module.SQL_TABLE,
+        module.SOURCE_CSV,
+        module.COLUMNS,
+        csv_dir,
+        out_dir,
     )
 
 
@@ -63,7 +69,9 @@ def main() -> int:
         action="store_true",
         help="Run complete CSV mappings",
     )
-    group.add_argument("--list", action="store_true", help="List available mappings and exit")
+    group.add_argument(
+        "--list", action="store_true", help="List available mappings and exit"
+    )
     add_csv_dir_argument(parser)
     parser.add_argument("--out-dir", type=Path, default=DEFAULT_OUT_DIR)
     args = parser.parse_args()
@@ -85,7 +93,10 @@ def main() -> int:
                 print(f"skipped {name}: partial mapping; run --table {name} explicitly")
     else:
         if args.table not in available:
-            print(f"unknown table: {args.table}; available: {', '.join(available)}", file=sys.stderr)
+            print(
+                f"unknown table: {args.table}; available: {', '.join(available)}",
+                file=sys.stderr,
+            )
             return 1
         targets = [args.table]
 

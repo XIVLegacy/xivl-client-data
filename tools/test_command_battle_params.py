@@ -35,28 +35,75 @@ def main() -> None:
     with tempfile.TemporaryDirectory(prefix="xivl-command-params-") as raw_root:
         root = Path(raw_root)
         paths = root / "class_paths.json"
-        paths.write_text(json.dumps({"recordCount": 2, "records": [
-            {"id": 20, "classPath": "/Command/Game/SyntheticMagic"},
-            {"id": 30001, "classPath": "/Command/Game/WrongColumnJoin"},
-        ]}), encoding="utf-8")
+        paths.write_text(
+            json.dumps(
+                {
+                    "recordCount": 2,
+                    "records": [
+                        {"id": 20, "classPath": "/Command/Game/SyntheticMagic"},
+                        {"id": 30001, "classPath": "/Command/Game/WrongColumnJoin"},
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
         write_sheet(
             root / "gameCommand.csv",
             121,
             [
-                (20, {37: "2", 42: "7", 43: "11", 44: "1", 45: "3",
-                      47: "8", 48: "12", 49: "4", 50: "5", 52: "9",
-                      53: "13", 54: "0", 55: "1", 57: "10", 58: "14",
-                      59: "6", 60: "2", 64: "20", 67: "8", 75: "250",
-                      82: "true", 84: "950", 108: "13", 109: "1",
-                      110: "5", 111: "0"}),
+                (
+                    20,
+                    {
+                        37: "2",
+                        42: "7",
+                        43: "11",
+                        44: "1",
+                        45: "3",
+                        47: "8",
+                        48: "12",
+                        49: "4",
+                        50: "5",
+                        52: "9",
+                        53: "13",
+                        54: "0",
+                        55: "1",
+                        57: "10",
+                        58: "14",
+                        59: "6",
+                        60: "2",
+                        64: "20",
+                        67: "8",
+                        75: "250",
+                        82: "true",
+                        84: "950",
+                        108: "13",
+                        109: "1",
+                        110: "5",
+                        111: "0",
+                    },
+                ),
                 (10, {84: "100"}),
             ],
         )
         write_sheet(
             root / "gameCommandBasic.csv",
             116,
-            [(20, {36: "30001", 38: "22", 39: "10", 40: "3", 76: "3", 79: "8",
-                   114: "105", 115: "1000"}), (10, {})],
+            [
+                (
+                    20,
+                    {
+                        36: "30001",
+                        38: "22",
+                        39: "10",
+                        40: "3",
+                        76: "3",
+                        79: "8",
+                        114: "105",
+                        115: "1000",
+                    },
+                ),
+                (10, {}),
+            ],
         )
         write_sheet(
             root / "compatibility.csv",
@@ -66,8 +113,17 @@ def main() -> None:
         write_sheet(
             root / "xtx_command.csv",
             26,
-            [(20, {1: "Fire JP", 2: "Fire", 22: "JP description",
-                   23: "EN description"})],
+            [
+                (
+                    20,
+                    {
+                        1: "Fire JP",
+                        2: "Fire",
+                        22: "JP description",
+                        23: "EN description",
+                    },
+                )
+            ],
         )
 
         content, count = subject.render(root, paths)
@@ -81,10 +137,16 @@ def main() -> None:
         assert fire["description_en"] == "EN description"
         assert fire["description_jp"] == "JP description"
         assert [fire[f"p{index}_compat_adjust"] for index in range(1, 5)] == [
-            "1", "4", "0", "6"
+            "1",
+            "4",
+            "0",
+            "6",
         ]
         assert [fire[f"p{index}_tp_adjust"] for index in range(1, 5)] == [
-            "3", "5", "1", "2"
+            "3",
+            "5",
+            "1",
+            "2",
         ]
         assert fire["effect_block_raw"].startswith("84=950")
         assert fire["compatibility_percent_by_skill"] == ";".join(
@@ -170,10 +232,18 @@ def main() -> None:
         else:
             raise AssertionError("duplicate command id was accepted")
 
-        paths.write_text(json.dumps({"recordCount": 2, "records": [
-            {"id": 20, "classPath": "/Command/Game/First"},
-            {"id": 20, "classPath": "/Command/Game/Second"},
-        ]}), encoding="utf-8")
+        paths.write_text(
+            json.dumps(
+                {
+                    "recordCount": 2,
+                    "records": [
+                        {"id": 20, "classPath": "/Command/Game/First"},
+                        {"id": 20, "classPath": "/Command/Game/Second"},
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
         try:
             subject.command_class_paths(paths)
         except ValueError as exc:

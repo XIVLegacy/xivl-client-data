@@ -54,12 +54,65 @@ def main() -> int:
             for row_id in builder.KNOWN_GEAR
         ]
         equipment_rows = [
-            (8030423, {71: "16007", 72: "2", 73: "-1", 74: "0", 75: "-1", 76: "0", 77: "-1", 78: "0", 79: "15001", 80: "4", 81: "-1", 82: "0", 83: "-1", 84: "0", 85: "-1", 86: "0", 87: "-1", 88: "0", 89: "-1", 90: "0"}),
-            (8011608, {71: "-1", 72: "0", 73: "-1", 74: "0", 75: "-1", 76: "0", 77: "-1", 78: "5", 79: "1015001", 80: "3", 81: "-1", 82: "0", 83: "-1", 84: "0", 85: "-1", 86: "0", 87: "-1", 88: "0", 89: "-1", 90: "0"}),
-            (4030013, {column: ("-1" if column % 2 else "0") for column in range(71, 91)}),
+            (
+                8030423,
+                {
+                    71: "16007",
+                    72: "2",
+                    73: "-1",
+                    74: "0",
+                    75: "-1",
+                    76: "0",
+                    77: "-1",
+                    78: "0",
+                    79: "15001",
+                    80: "4",
+                    81: "-1",
+                    82: "0",
+                    83: "-1",
+                    84: "0",
+                    85: "-1",
+                    86: "0",
+                    87: "-1",
+                    88: "0",
+                    89: "-1",
+                    90: "0",
+                },
+            ),
+            (
+                8011608,
+                {
+                    71: "-1",
+                    72: "0",
+                    73: "-1",
+                    74: "0",
+                    75: "-1",
+                    76: "0",
+                    77: "-1",
+                    78: "5",
+                    79: "1015001",
+                    80: "3",
+                    81: "-1",
+                    82: "0",
+                    83: "-1",
+                    84: "0",
+                    85: "-1",
+                    86: "0",
+                    87: "-1",
+                    88: "0",
+                    89: "-1",
+                    90: "0",
+                },
+            ),
+            (
+                4030013,
+                {column: ("-1" if column % 2 else "0") for column in range(71, 91)},
+            ),
         ]
         item = write_sheet(directory / "itemData.csv", 141, item_types, item_rows)
-        equipment = write_sheet(directory / "equipment.csv", 140, equipment_types, equipment_rows)
+        equipment = write_sheet(
+            directory / "equipment.csv", 140, equipment_types, equipment_rows
+        )
         write_sheet(
             directory / "xtx_text_paramName.csv",
             10,
@@ -82,35 +135,61 @@ def main() -> int:
         header, rows = builder.load_sheet(item)
         builder.validate_requested_types("itemData.csv", header)
         blank = builder.summarize(builder.COLUMN_SPECS[0], header, rows)
-        check("blank selector is not coerced to zero", blank.blank_count == 3 and blank.zero_count == 0)
+        check(
+            "blank selector is not coerced to zero",
+            blank.blank_count == 3 and blank.zero_count == 0,
+        )
         check("blank selector has no active values", blank.active_count == 0)
-        check("direct parameter row-id join resolves", builder.parameter_join(15001, {15001: "HP"}) == ("direct row-id", 15001, "HP"))
-        check("bounded offset join resolves", builder.parameter_join(1015001, {15001: "HP"}) == ("minus-1000000", 15001, "HP"))
-        check("offset join does not generalize", builder.parameter_join(2015001, {1015001: "wrong"}) is None)
+        check(
+            "direct parameter row-id join resolves",
+            builder.parameter_join(15001, {15001: "HP"})
+            == ("direct row-id", 15001, "HP"),
+        )
+        check(
+            "bounded offset join resolves",
+            builder.parameter_join(1015001, {15001: "HP"})
+            == ("minus-1000000", 15001, "HP"),
+        )
+        check(
+            "offset join does not generalize",
+            builder.parameter_join(2015001, {1015001: "wrong"}) is None,
+        )
         pairs = builder.pair_audit(builder.load_sheet(equipment)[1])
         check(
             "pair audit distinguishes residual values beside -1",
-            next(pair for pair in pairs if pair["idColumn"] == 77)[
-                "minusOneNonzero"
-            ]
+            next(pair for pair in pairs if pair["idColumn"] == 77)["minusOneNonzero"]
             == 1,
         )
 
         first = builder.build(directory, inventory)
         second = builder.build(directory, inventory)
         check("document rendering is deterministic", first == second)
-        check("document is ASCII with literal LF", first.endswith(b"\n") and b"\r" not in first)
-        check("known gear anchors are rendered", all(f"row `{row_id}`".encode() in first for row_id in builder.KNOWN_GEAR))
+        check(
+            "document is ASCII with literal LF",
+            first.endswith(b"\n") and b"\r" not in first,
+        )
+        check(
+            "known gear anchors are rendered",
+            all(f"row `{row_id}`".encode() in first for row_id in builder.KNOWN_GEAR),
+        )
 
         bad_types = dict(item_types)
         bad_types[49] = "s32"
         mutated = write_sheet(directory / "bad-type.csv", 141, bad_types, item_rows)
         bad_header, _bad_rows = builder.load_sheet(mutated)
-        check("selector type mutation fails closed", raises_value_error(lambda: builder.validate_requested_types("itemData.csv", bad_header)))
+        check(
+            "selector type mutation fails closed",
+            raises_value_error(
+                lambda: builder.validate_requested_types("itemData.csv", bad_header)
+            ),
+        )
 
         with equipment.open("a", encoding="utf-8", newline="") as handle:
             handle.write("999,-1\n")
-        check("truncated row mutation fails closed", raises_value_error(lambda: builder.load_sheet(equipment)))
+        check(
+            "truncated row mutation fails closed",
+            raises_value_error(lambda: builder.load_sheet(equipment)),
+        )
 
     for name in PASSED:
         print(f"PASS: {name}")

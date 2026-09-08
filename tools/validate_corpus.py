@@ -104,8 +104,7 @@ def validate_repository_boundary() -> int:
             errors.append(f"absolute maintainer path in tracked file: {path}")
 
     ignore_text = (
-        (REPO_ROOT / ".gitignore").read_text(encoding="utf-8")
-        .replace("\r\n", "\n")
+        (REPO_ROOT / ".gitignore").read_text(encoding="utf-8").replace("\r\n", "\n")
     )
     ignore_lines = set(ignore_text.split("\n"))
     for required in sorted(REQUIRED_AGENT_TOOLING_IGNORE_LINES):
@@ -127,9 +126,7 @@ def validate_json_tree() -> int:
             name
             for name in directories
             if name != ".git"
-            and not (
-                CORPUS_ABSENT and root_path == REPO_ROOT and name == CSV_DIR.name
-            )
+            and not (CORPUS_ABSENT and root_path == REPO_ROOT and name == CSV_DIR.name)
             and not os.path.isjunction(root_path / name)
         )
         for filename in sorted(filenames):
@@ -149,9 +146,7 @@ def validate_csv_contract() -> None:
     """Check corpus metadata and, when present, the CSV layout and totals."""
     if not CORPUS_ABSENT and CSV_DIR.is_dir():
         subdirectories = sorted(
-            _csv_display_path(path)
-            for path in CSV_DIR.rglob("*")
-            if path.is_dir()
+            _csv_display_path(path) for path in CSV_DIR.rglob("*") if path.is_dir()
         )
         if subdirectories:
             errors.append(
@@ -376,9 +371,7 @@ def validate_sheet_inventory() -> None:
 
     schema_path = SCHEMAS / "sheet_inventory.schema.json"
     if not schema_path.is_file():
-        errors.append(
-            "sheet_inventory.csv: schema sheet_inventory.schema.json missing"
-        )
+        errors.append("sheet_inventory.csv: schema sheet_inventory.schema.json missing")
     else:
         _check(rows, _validator_for(schema_path), "sheet_inventory.csv")
 
@@ -512,9 +505,7 @@ def validate_derived_counts() -> None:
                 f"map-marker resource artifacts are not reproducible: {detail}"
             )
 
-    item_equipment_builder = (
-        REPO_ROOT / "tools" / "build_item_equipment_crosswalk.py"
-    )
+    item_equipment_builder = REPO_ROOT / "tools" / "build_item_equipment_crosswalk.py"
     if item_equipment_builder.is_file() and not CORPUS_ABSENT:
         result = subprocess.run(
             [
@@ -667,7 +658,9 @@ def validate_icon_corpus() -> None:
             icon_ids = [int(row["icon_id"]) for row in band_rows]
             pixel_sizes = sorted({int(row["width"]) for row in band_rows})
         except (KeyError, TypeError, ValueError) as exc:
-            errors.append(f"{label}: band {folder} has malformed inventory data ({exc})")
+            errors.append(
+                f"{label}: band {folder} has malformed inventory data ({exc})"
+            )
             continue
         for key, actual in (
             ("realIcons", len(band_rows) - band_placeholders),

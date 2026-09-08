@@ -59,9 +59,7 @@ def validate_csv_dir(path: Path) -> Path:
     for child in children:
         info = _lstat(child, "CSV root descendant")
         if not stat.S_ISREG(info.st_mode):
-            raise CsvRootError(
-                f"CSV root descendant is not a regular file: {child}"
-            )
+            raise CsvRootError(f"CSV root descendant is not a regular file: {child}")
     return root
 
 

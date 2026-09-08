@@ -55,19 +55,54 @@ COMPATIBILITY_MIN = -128
 COMPATIBILITY_MAX = 127
 
 HEADER = [
-    "id", "name_en", "name_jp", "description_en", "description_jp", "id_band",
-    "class_job", "req_level", "compat_key", "caster_state_req",
-    "dmg_attr", "dmg_attr_label", "dmg_attr_weight",
-    "dmg_elem", "dmg_elem_label", "dmg_elem_weight", "dmg_class",
+    "id",
+    "name_en",
+    "name_jp",
+    "description_en",
+    "description_jp",
+    "id_band",
+    "class_job",
+    "req_level",
+    "compat_key",
+    "caster_state_req",
+    "dmg_attr",
+    "dmg_attr_label",
+    "dmg_attr_weight",
+    "dmg_elem",
+    "dmg_elem_label",
+    "dmg_elem_weight",
+    "dmg_class",
     "magnitude",
-    "hp_cost", "mp_cost", "tp_cost", "cast_time", "recast_time",
-    "action_gauge", "range", "best_range", "min_range", "effect_range",
-    "recast_sep_hands", "target_state_gate",
-    "p1_base", "p1_grow", "p1_compat_adjust", "p1_tp_adjust",
-    "p2_base", "p2_grow", "p2_compat_adjust", "p2_tp_adjust",
-    "p3_base", "p3_grow", "p3_compat_adjust", "p3_tp_adjust",
-    "p4_base", "p4_grow", "p4_compat_adjust", "p4_tp_adjust",
-    "effect_block_raw", "lua_class_path",
+    "hp_cost",
+    "mp_cost",
+    "tp_cost",
+    "cast_time",
+    "recast_time",
+    "action_gauge",
+    "range",
+    "best_range",
+    "min_range",
+    "effect_range",
+    "recast_sep_hands",
+    "target_state_gate",
+    "p1_base",
+    "p1_grow",
+    "p1_compat_adjust",
+    "p1_tp_adjust",
+    "p2_base",
+    "p2_grow",
+    "p2_compat_adjust",
+    "p2_tp_adjust",
+    "p3_base",
+    "p3_grow",
+    "p3_compat_adjust",
+    "p3_tp_adjust",
+    "p4_base",
+    "p4_grow",
+    "p4_compat_adjust",
+    "p4_tp_adjust",
+    "effect_block_raw",
+    "lua_class_path",
     "compatibility_percent_by_skill",
 ]
 
@@ -178,33 +213,68 @@ def render(csv_dir: Path, class_paths: Path = CLASS_PATHS) -> tuple[str, int]:
             for column in EFFECT_COLS
             if get(g, column) != ""
         )
-        writer.writerow([
-            cid,
-            get(x, 2), get(x, 1), get(x, 23), get(x, 22), band(cid),
-            get(b, 38), get(b, 39), get(b, 40), get(g, 37),
-            # Columns 109/111 are attribute/element weights. The poles use 0.33.
-            attr, ATTR_LABEL.get(attr, ""), get(g, 109),
-            elem, ELEM_LABEL.get(elem, ""), get(g, 111),
-            dmg_class(attr),
-            # Column 84 is client magnitude data. Its damage/HP scale is native.
-            get(g, 84),
-            # HP cost is absent from the sheet. The base getter returns 0.
-            "0",
-            get(b, 114), get(b, 115), get(b, 76), get(b, 79),
-            get(g, 75), get(g, 64), get(g, 65), get(g, 66), get(g, 67),
-            get(g, 82), get(g, 68),
-            get(g, 43), get(g, 42), get(g, 44), get(g, 45),
-            get(g, 48), get(g, 47), get(g, 49), get(g, 50),
-            get(g, 53), get(g, 52), get(g, 54), get(g, 55),
-            get(g, 58), get(g, 57), get(g, 59), get(g, 60),
-            effect,
-            paths.get(cid, "") if paths.get(cid, "").startswith("/Command/") else "",
-            compatibility_percent_by_skill(
-                compatibility, compatibility_key, compatibility_path
-            )
-            if compatibility_key != ""
-            else "",
-        ])
+        writer.writerow(
+            [
+                cid,
+                get(x, 2),
+                get(x, 1),
+                get(x, 23),
+                get(x, 22),
+                band(cid),
+                get(b, 38),
+                get(b, 39),
+                get(b, 40),
+                get(g, 37),
+                # Columns 109/111 are attribute/element weights. The poles use 0.33.
+                attr,
+                ATTR_LABEL.get(attr, ""),
+                get(g, 109),
+                elem,
+                ELEM_LABEL.get(elem, ""),
+                get(g, 111),
+                dmg_class(attr),
+                # Column 84 is client magnitude data. Its damage/HP scale is native.
+                get(g, 84),
+                # HP cost is absent from the sheet. The base getter returns 0.
+                "0",
+                get(b, 114),
+                get(b, 115),
+                get(b, 76),
+                get(b, 79),
+                get(g, 75),
+                get(g, 64),
+                get(g, 65),
+                get(g, 66),
+                get(g, 67),
+                get(g, 82),
+                get(g, 68),
+                get(g, 43),
+                get(g, 42),
+                get(g, 44),
+                get(g, 45),
+                get(g, 48),
+                get(g, 47),
+                get(g, 49),
+                get(g, 50),
+                get(g, 53),
+                get(g, 52),
+                get(g, 54),
+                get(g, 55),
+                get(g, 58),
+                get(g, 57),
+                get(g, 59),
+                get(g, 60),
+                effect,
+                paths.get(cid, "")
+                if paths.get(cid, "").startswith("/Command/")
+                else "",
+                compatibility_percent_by_skill(
+                    compatibility, compatibility_key, compatibility_path
+                )
+                if compatibility_key != ""
+                else "",
+            ]
+        )
     return output.getvalue(), len(gc)
 
 

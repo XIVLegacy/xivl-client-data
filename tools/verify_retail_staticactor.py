@@ -42,19 +42,21 @@ TOOL_VERSIONS = {"python": "3.12", "verifier": "1.0"}
 
 EXPECTED_RETAIL_INPUTS = {
     "schemaVersion": 1,
-    "inputs": [{
-        "id": INPUT_ID,
-        "filename": INPUT_FILENAME,
-        "installRelativePath": INPUT_INSTALL_PATH,
-        "size": INPUT_SIZE,
-        "sha256": INPUT_SHA256,
-        "source": {
-            "repository": PRIVATE_REPOSITORY,
-            "commit": PRIVATE_COMMIT,
-            "path": PRIVATE_PATH,
-        },
-        "allowedChecks": [CHECK_ID],
-    }],
+    "inputs": [
+        {
+            "id": INPUT_ID,
+            "filename": INPUT_FILENAME,
+            "installRelativePath": INPUT_INSTALL_PATH,
+            "size": INPUT_SIZE,
+            "sha256": INPUT_SHA256,
+            "source": {
+                "repository": PRIVATE_REPOSITORY,
+                "commit": PRIVATE_COMMIT,
+                "path": PRIVATE_PATH,
+            },
+            "allowedChecks": [CHECK_ID],
+        }
+    ],
 }
 EXPECTED_CHECK = {
     "schemaVersion": 1,
@@ -86,8 +88,11 @@ def _read_json(path: Path) -> Any:
 def _git_commit() -> str:
     try:
         result = subprocess.run(
-            ["git", "rev-parse", "HEAD"], cwd=REPO, check=True,
-            capture_output=True, text=True,
+            ["git", "rev-parse", "HEAD"],
+            cwd=REPO,
+            check=True,
+            capture_output=True,
+            text=True,
         )
         commit = result.stdout.strip()
     except (OSError, subprocess.SubprocessError) as exc:
@@ -132,7 +137,9 @@ def _product_errors(path: Path) -> list[str]:
     records = document.get("records")
     if not isinstance(records, list) or len(records) != PRODUCT_RECORD_COUNT:
         errors.append("product records are malformed")
-    elif len({record.get("id") for record in records if isinstance(record, dict)}) != len(records):
+    elif len(
+        {record.get("id") for record in records if isinstance(record, dict)}
+    ) != len(records):
         errors.append("product contains duplicate record IDs")
     return errors
 
@@ -163,7 +170,11 @@ def _validate_retained_output(directory: Path) -> list[str]:
     if len(entries) != 1:
         return ["retained output allowlist differs"]
     path = entries[0]
-    if path.name != "retail-evidence-attestation.json" or not path.is_file() or path.is_symlink():
+    if (
+        path.name != "retail-evidence-attestation.json"
+        or not path.is_file()
+        or path.is_symlink()
+    ):
         return ["retained output allowlist differs"]
     try:
         document = _read_json(path)
@@ -210,9 +221,12 @@ def main(argv: list[str] | None = None) -> int:
         except VerificationError:
             print("ERROR: public commit unavailable", file=sys.stderr)
             return 1
-    payload = json.dumps(
-        attestation, ensure_ascii=True, sort_keys=True, separators=(",", ":")
-    ).encode("ascii") + b"\n"
+    payload = (
+        json.dumps(
+            attestation, ensure_ascii=True, sort_keys=True, separators=(",", ":")
+        ).encode("ascii")
+        + b"\n"
+    )
     sys.stdout.buffer.write(payload)
     for error in errors:
         print(f"ERROR: {error}", file=sys.stderr)

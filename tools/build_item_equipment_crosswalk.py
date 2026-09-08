@@ -57,8 +57,15 @@ def _specs() -> tuple[ColumnSpec, ...]:
     for number, start in enumerate((49, 52, 55, 58), 1):
         specs.extend(
             (
-                ColumnSpec("itemData.csv", start, f"parameter {number} grow selector", "blank"),
-                ColumnSpec("itemData.csv", start + 1, f"parameter {number} base value", "scalar"),
+                ColumnSpec(
+                    "itemData.csv", start, f"parameter {number} grow selector", "blank"
+                ),
+                ColumnSpec(
+                    "itemData.csv",
+                    start + 1,
+                    f"parameter {number} base value",
+                    "scalar",
+                ),
                 ColumnSpec(
                     "itemData.csv",
                     start + 2,
@@ -79,9 +86,8 @@ def _specs() -> tuple[ColumnSpec, ...]:
     }
     for column in range(79, 91):
         pair = (column - 79) // 2 + 1
-        equipment_roles[column] = (
-            f"append-parameter pair {pair} "
-            + ("ID" if column % 2 else "value")
+        equipment_roles[column] = f"append-parameter pair {pair} " + (
+            "ID" if column % 2 else "value"
         )
     for column in range(71, 91):
         specs.append(
@@ -139,11 +145,15 @@ def load_sheet(path: Path) -> tuple[CsvHeader, list[CsvRow]]:
     if len(header.column_types) != width:
         raise ValueError(f"{path.name}: label/type header widths differ")
     if header.column_indices != [str(index) for index in range(width)]:
-        raise ValueError(f"{path.name}: column labels are not contiguous zero-based indices")
+        raise ValueError(
+            f"{path.name}: column labels are not contiguous zero-based indices"
+        )
     seen: set[str] = set()
     for row in rows:
         if len(row.values) != width:
-            raise ValueError(f"{path.name}: row {row.row_id} has width {len(row.values)} != {width}")
+            raise ValueError(
+                f"{path.name}: row {row.row_id} has width {len(row.values)} != {width}"
+            )
         if row.row_id in seen:
             raise ValueError(f"{path.name}: duplicate row id {row.row_id}")
         seen.add(row.row_id)
@@ -157,12 +167,19 @@ def _numeric_key(value: str) -> tuple[float, str]:
 def _domain(values: list[str]) -> str:
     counts = Counter(values)
     if len(counts) <= 12:
-        ordered = sorted(counts, key=lambda value: (-1, "") if value == "" else _numeric_key(value))
-        return ", ".join(("blank" if value == "" else value) + f" ({counts[value]})" for value in ordered)
+        ordered = sorted(
+            counts, key=lambda value: (-1, "") if value == "" else _numeric_key(value)
+        )
+        return ", ".join(
+            ("blank" if value == "" else value) + f" ({counts[value]})"
+            for value in ordered
+        )
     numeric = [value for value in counts if value != ""]
     low = min(numeric, key=_numeric_key)
     high = max(numeric, key=_numeric_key)
-    frequent = sorted(counts.items(), key=lambda item: (-item[1], _numeric_key(item[0])))[:4]
+    frequent = sorted(
+        counts.items(), key=lambda item: (-item[1], _numeric_key(item[0]))
+    )[:4]
     top = ", ".join(f"{value} ({count})" for value, count in frequent)
     return f"{low}..{high}; {len(counts)} distinct; top {top}"
 
@@ -177,7 +194,9 @@ def _examples(rows: list[CsvRow], column: int, value_kind: str) -> str:
     ]
     if not candidates:
         return "none"
-    by_value = sorted(candidates, key=lambda row: (_numeric_key(row.values[column]), int(row.row_id)))
+    by_value = sorted(
+        candidates, key=lambda row: (_numeric_key(row.values[column]), int(row.row_id))
+    )
     chosen = [by_value[0], by_value[-1]]
     first = min(candidates, key=lambda row: int(row.row_id))
     chosen.append(first)
@@ -228,7 +247,9 @@ def load_param_names(path: Path) -> dict[int, str]:
     return {int(row.row_id): row.values[1] for row in rows}
 
 
-def parameter_join(parameter_id: int, names: dict[int, str]) -> tuple[str, int, str] | None:
+def parameter_join(
+    parameter_id: int, names: dict[int, str]
+) -> tuple[str, int, str] | None:
     if parameter_id in names:
         return "direct row-id", parameter_id, names[parameter_id]
     base_id = parameter_id - 1_000_000
@@ -285,7 +306,9 @@ def join_audit(
         )
     covered = sum(int(row["occurrences"]) for row in output)
     if covered != len(active):
-        unsupported = sorted(set(active) - {value for value in active if parameter_join(value, names)})
+        unsupported = sorted(
+            set(active) - {value for value in active if parameter_join(value, names)}
+        )
         raise ValueError(f"unsupported equipment parameter ids: {unsupported}")
     return output
 
@@ -299,8 +322,7 @@ def pair_audit(rows: list[CsvRow]) -> list[dict[str, int]]:
                 "idColumn": id_column,
                 "valueColumn": value_column,
                 "minusOneZero": sum(
-                    row.values[id_column] == "-1"
-                    and row.values[value_column] == "0"
+                    row.values[id_column] == "-1" and row.values[value_column] == "0"
                     for row in rows
                 ),
                 "minusOneNonzero": sum(
@@ -309,8 +331,7 @@ def pair_audit(rows: list[CsvRow]) -> list[dict[str, int]]:
                     for row in rows
                 ),
                 "liveIdZero": sum(
-                    row.values[id_column] != "-1"
-                    and row.values[value_column] == "0"
+                    row.values[id_column] != "-1" and row.values[value_column] == "0"
                     for row in rows
                 ),
             }
@@ -330,10 +351,14 @@ def _inventory_search(path: Path) -> tuple[int, list[str], list[str]]:
     for name, expected in EXPECTED_INVENTORY.items():
         row = indexed.get(name)
         actual = (
-            row["resource_id"],
-            row["resource_id_hex"],
-            row["source"],
-        ) if row else None
+            (
+                row["resource_id"],
+                row["resource_id_hex"],
+                row["source"],
+            )
+            if row
+            else None
+        )
         if actual != expected:
             raise ValueError(f"sheet inventory mismatch for {name}: {actual!r}")
     names = list(indexed)
@@ -375,7 +400,9 @@ def render(
         "scalar columns, and not `-1` for data-shaped ID columns. `Examples` are deterministic "
         "`row_id=value` locators, not semantic labels.\n\n"
     )
-    out.write("| Sheet.column | Consumer role | Stored type | Blank | Zero | -1 | Active | Domain | Examples |\n")
+    out.write(
+        "| Sheet.column | Consumer role | Stored type | Blank | Zero | -1 | Active | Domain | Examples |\n"
+    )
     out.write("|---|---|---:|---:|---:|---:|---:|---|---|\n")
     for summary in summaries:
         spec = summary.spec
@@ -458,7 +485,9 @@ def render(
         "columns in source order and do not assign meaning to the observed "
         "`generalParameter[18]` changes.\n\n"
     )
-    out.write("| Evidence anchor | Client item name | itemData 49-60 | equipment 71-90 |\n")
+    out.write(
+        "| Evidence anchor | Client item name | itemData 49-60 | equipment 71-90 |\n"
+    )
     out.write("|---|---|---|---|\n")
     item_rows = {int(row.row_id): row for row in sheets["itemData.csv"]}
     equipment_rows = {int(row.row_id): row for row in sheets["equipment.csv"]}
@@ -504,13 +533,21 @@ def render(
 def build(csv_dir: Path = CSV_DIR, inventory: Path = INVENTORY) -> bytes:
     loaded = {
         name: load_sheet(csv_dir / name)
-        for name in ("itemData.csv", "equipment.csv", "xtx_text_paramName.csv", "xtx_itemName.csv")
+        for name in (
+            "itemData.csv",
+            "equipment.csv",
+            "xtx_text_paramName.csv",
+            "xtx_itemName.csv",
+        )
     }
     sheets = {name: rows for name, (_header, rows) in loaded.items()}
     headers = {name: header for name, (header, _rows) in loaded.items()}
     for sheet in EXPECTED_TYPES:
         validate_requested_types(sheet, headers[sheet])
-    summaries = [summarize(spec, headers[spec.sheet], sheets[spec.sheet]) for spec in COLUMN_SPECS]
+    summaries = [
+        summarize(spec, headers[spec.sheet], sheets[spec.sheet])
+        for spec in COLUMN_SPECS
+    ]
     names = load_param_names(csv_dir / "xtx_text_paramName.csv")
     joins = join_audit(sheets["equipment.csv"], names)
     formula_ids = _active_ids(sheets["equipment.csv"], FORMULA_ID_COLUMNS)
@@ -535,7 +572,9 @@ def build(csv_dir: Path = CSV_DIR, inventory: Path = INVENTORY) -> bytes:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     add_csv_dir_argument(parser)
-    parser.add_argument("--check", action="store_true", help="verify the canonical document")
+    parser.add_argument(
+        "--check", action="store_true", help="verify the canonical document"
+    )
     args = parser.parse_args()
     rendered = build(args.csv_dir)
     if args.check:

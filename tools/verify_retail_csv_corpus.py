@@ -39,11 +39,14 @@ ARCHIVE_SIZE = 70110686
 ARCHIVE_SHA256 = "006f9438a8cfd9277376f0ab28474500c67e4665050aa631cae64c9e6f38a5b0"
 EXPANDED_FILE_COUNT = 803
 EXPANDED_TOTAL_BYTES = 70029056
-EXPANDED_TREE_SHA256 = "33e51c468b85b3d27b628ca4f5ff49e0bd10a8778812085f2bcdfdfd0cbd84bb"
+EXPANDED_TREE_SHA256 = (
+    "33e51c468b85b3d27b628ca4f5ff49e0bd10a8778812085f2bcdfdfd0cbd84bb"
+)
 TARGET = "csv"
 SCHEMA_VERSION = 1
 TOOL_VERSIONS = {"python": "3.12", "verifier": "1.0"}
 COMMIT_LENGTH = 40
+
 
 class VerificationError(Exception):
     """Malformed input that is safe to report without its contents."""
@@ -244,7 +247,9 @@ def retained_output_errors(directory: Path) -> list[str]:
         text = raw.decode("ascii")
         document = json.loads(text)
         canonical = (
-            json.dumps(document, ensure_ascii=True, sort_keys=True, separators=(",", ":"))
+            json.dumps(
+                document, ensure_ascii=True, sort_keys=True, separators=(",", ":")
+            )
             + "\n"
         ).encode("ascii")
         if raw != canonical:
@@ -273,7 +278,9 @@ def _emit_attestation(status: str) -> None:
     if _schema_errors(attestation):
         raise VerificationError("attestation schema rejected output")
     payload = (
-        json.dumps(attestation, ensure_ascii=True, sort_keys=True, separators=(",", ":"))
+        json.dumps(
+            attestation, ensure_ascii=True, sort_keys=True, separators=(",", ":")
+        )
         + "\n"
     ).encode("ascii")
     sys.stdout.buffer.write(payload)

@@ -86,9 +86,7 @@ def _read_json(path: Path, label: str) -> Any:
 
     try:
         raw = path.read_bytes()
-        return json.loads(
-            raw.decode("utf-8"), object_pairs_hook=reject_duplicates
-        )
+        return json.loads(raw.decode("utf-8"), object_pairs_hook=reject_duplicates)
     except CorpusValidationError:
         raise
     except (OSError, UnicodeError, ValueError) as exc:
@@ -297,7 +295,10 @@ def package_archive(
                 for name in sorted(source):
                     data = source[name].read_bytes()
                     # Recheck after the source snapshot and before packaging.
-                    if len(data) != expected[name][0] or _sha256_bytes(data) != expected[name][1]:
+                    if (
+                        len(data) != expected[name][0]
+                        or _sha256_bytes(data) != expected[name][1]
+                    ):
                         _fail(f"CSV source {name} changed during packaging")
                     archive.writestr(_new_zip_info(name), data)
             temporary.flush()
@@ -315,7 +316,9 @@ def package_archive(
             except OSError:
                 pass
 
-    shape = inspect_archive(output, manifest_path=manifest_path, tables_path=tables_path)
+    shape = inspect_archive(
+        output, manifest_path=manifest_path, tables_path=tables_path
+    )
     if shape["totalBytes"] != total_bytes:
         _fail("packaged total bytes mismatch")
     return shape

@@ -31,7 +31,9 @@ def parse_args() -> argparse.Namespace:
 
 def resource_path(data_root: Path, resource_id: int) -> Path:
     parts = resource_id.to_bytes(4, "big")
-    return data_root.joinpath(*(f"{part:02X}" for part in parts[:-1]), f"{parts[-1]:02X}.DAT")
+    return data_root.joinpath(
+        *(f"{part:02X}" for part in parts[:-1]), f"{parts[-1]:02X}.DAT"
+    )
 
 
 def path_resource_id(path: Path) -> int:
@@ -72,13 +74,20 @@ def parse_document(path: Path) -> ET.Element:
     decoded = raw if raw.startswith(BYTE_ORDER_MARK) else decode_document(raw)
     if decoded is None:
         raise ValueError(f"{path}: not a plaintext or scrambled XML document")
-    body = decoded[len(BYTE_ORDER_MARK) :] if decoded.startswith(BYTE_ORDER_MARK) else decoded
+    body = (
+        decoded[len(BYTE_ORDER_MARK) :]
+        if decoded.startswith(BYTE_ORDER_MARK)
+        else decoded
+    )
     return ET.fromstring(body.decode("utf-8"))
 
 
 def sheet_entries(root: ET.Element) -> list[tuple[str, int | None]]:
     return [
-        (sheet.get("name", ""), int(value) if (value := sheet.get("infofile")) else None)
+        (
+            sheet.get("name", ""),
+            int(value) if (value := sheet.get("infofile")) else None,
+        )
         for sheet in root.findall("sheet")
     ]
 
@@ -128,7 +137,11 @@ def analyze(client_root: Path, inventory_path: Path) -> dict[str, Any]:
     referenced_names: set[str] = set()
     for source, master_id in MASTER_SOURCES.items():
         entries = sheet_entries(parse_document(resource_path(data_root, master_id)))
-        references = {(name, resource_id) for name, resource_id in entries if resource_id is not None}
+        references = {
+            (name, resource_id)
+            for name, resource_id in entries
+            if resource_id is not None
+        }
         expected = {
             (row["name"], row["resourceId"])
             for row in inventory
@@ -157,7 +170,12 @@ def analyze(client_root: Path, inventory_path: Path) -> dict[str, Any]:
 
     name_mismatches = []
     for row in inventory:
-        names = [name for name, _ in sheet_entries(parse_document(resource_path(data_root, row["resourceId"])))]
+        names = [
+            name
+            for name, _ in sheet_entries(
+                parse_document(resource_path(data_root, row["resourceId"]))
+            )
+        ]
         if row["name"] not in names:
             name_mismatches.append({**row, "documentSheetNames": names})
 
@@ -179,8 +197,12 @@ def analyze(client_root: Path, inventory_path: Path) -> dict[str, Any]:
         "inventoryDistinctNames": len(inventory_names),
         "inventoryDistinctResourceIds": len(inventory_ids),
         "masterComparisons": master_results,
-        "masterReferencedIdsAbsentFromInventory": sorted(referenced_ids - inventory_ids),
-        "masterReferencedNamesAbsentFromInventory": sorted(referenced_names - inventory_names),
+        "masterReferencedIdsAbsentFromInventory": sorted(
+            referenced_ids - inventory_ids
+        ),
+        "masterReferencedNamesAbsentFromInventory": sorted(
+            referenced_names - inventory_names
+        ),
         "inventoryDocumentNameMismatches": name_mismatches,
         "retailXmlDocumentCount": len(documents),
         "retailXmlDocumentsOutsideInventoryAndNamedMasters": len(extra_document_ids),

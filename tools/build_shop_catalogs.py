@@ -66,7 +66,9 @@ def build(csv_dir: Path = CSV_DIR) -> dict[Path, bytes]:
         entry["name"]: entry
         for entry in json.loads((MANIFESTS / "tables.json").read_text(encoding="utf-8"))
     }
-    with (MANIFESTS / "sheet_inventory.csv").open(encoding="utf-8", newline="") as handle:
+    with (MANIFESTS / "sheet_inventory.csv").open(
+        encoding="utf-8", newline=""
+    ) as handle:
         sheet_inventory = {row["name"] + ".csv": row for row in csv.DictReader(handle)}
 
     audit = []
@@ -82,18 +84,20 @@ def build(csv_dir: Path = CSV_DIR) -> dict[Path, bytes]:
         if len(rows) != expected_rows:
             raise ValueError(f"{name}: {len(rows)} rows != manifest {expected_rows}")
         inventory = sheet_inventory[name]
-        audit.append({
-            "sheet": name,
-            "evidenceClass": "client_extraction",
-            "source": inventory["source"],
-            "resourceId": int(inventory["resource_id"]),
-            "resourceIdHex": inventory["resource_id_hex"],
-            "dataRowCount": len(rows),
-            "sheetColumnCount": width,
-            "role": role,
-            "verdict": "complete pinned extraction; no truncated rows",
-            "sha256": table_manifest[name]["sha256"],
-        })
+        audit.append(
+            {
+                "sheet": name,
+                "evidenceClass": "client_extraction",
+                "source": inventory["source"],
+                "resourceId": int(inventory["resource_id"]),
+                "resourceIdHex": inventory["resource_id_hex"],
+                "dataRowCount": len(rows),
+                "sheetColumnCount": width,
+                "role": role,
+                "verdict": "complete pinned extraction; no truncated rows",
+                "sha256": table_manifest[name]["sha256"],
+            }
+        )
         source_headers[name] = {
             "columnIndices": header.column_indices,
             "columnTypes": header.column_types,
@@ -108,47 +112,60 @@ def build(csv_dir: Path = CSV_DIR) -> dict[Path, bytes]:
         ("itemData.csv", item_data_rows),
         ("xtx_itemName.csv", item_name_rows),
     ):
-        join_sources.append({
-            "sheet": name,
-            "dataRowCount": len(rows),
-            "sha256": table_manifest[name]["sha256"],
-        })
+        join_sources.append(
+            {
+                "sheet": name,
+                "dataRowCount": len(rows),
+                "sha256": table_manifest[name]["sha256"],
+            }
+        )
 
     gc_rows = index_rows(csv_dir / "gcSealShopItem.csv")
     gc_output: list[list[object]] = []
     for shop_row_id, row in sorted(gc_rows.items()):
         values = [int(value) for value in row.values]
         item_id = values[0]
-        if item_id not in item_rows or item_id not in item_data_rows or item_id not in item_name_rows:
-            raise ValueError(f"gcSealShopItem.csv row {shop_row_id}: item {item_id} has no complete item-catalog join")
-        gc_output.append([
-            shop_row_id,
-            item_id,
-            values[1],
-            values[2],
-            values[3],
-            values[4],
-            values[5],
-            values[6],
-            values[7],
-            values[8],
-            item_rows[item_id].values[0],
-            item_name_rows[item_id].values[6],
-        ])
-    gc_bytes = render_csv([
-        "shop_row_id",
-        "item_id",
-        "item_quality",
-        "item_quantity",
-        "seal_cost",
-        "rank_requirement",
-        "company_id",
-        "event_flag_requirement",
-        "reserved_zero",
-        "item_category",
-        "item_class_path",
-        "item_name_en",
-    ], gc_output)
+        if (
+            item_id not in item_rows
+            or item_id not in item_data_rows
+            or item_id not in item_name_rows
+        ):
+            raise ValueError(
+                f"gcSealShopItem.csv row {shop_row_id}: item {item_id} has no complete item-catalog join"
+            )
+        gc_output.append(
+            [
+                shop_row_id,
+                item_id,
+                values[1],
+                values[2],
+                values[3],
+                values[4],
+                values[5],
+                values[6],
+                values[7],
+                values[8],
+                item_rows[item_id].values[0],
+                item_name_rows[item_id].values[6],
+            ]
+        )
+    gc_bytes = render_csv(
+        [
+            "shop_row_id",
+            "item_id",
+            "item_quality",
+            "item_quantity",
+            "seal_cost",
+            "rank_requirement",
+            "company_id",
+            "event_flag_requirement",
+            "reserved_zero",
+            "item_category",
+            "item_class_path",
+            "item_name_en",
+        ],
+        gc_output,
+    )
 
     base_rows = index_rows(csv_dir / "shopBase.csv")
     shop_item_rows = index_rows(csv_dir / "shopItem.csv")
@@ -161,32 +178,43 @@ def build(csv_dir: Path = CSV_DIR) -> dict[Path, bytes]:
         for item_row_id in range(start_id, end_id + 1):
             item_row = shop_item_rows.get(item_row_id)
             if item_row is None:
-                raise ValueError(f"shopBase.csv row {shop_id}: missing shopItem row {item_row_id}")
+                raise ValueError(
+                    f"shopBase.csv row {shop_id}: missing shopItem row {item_row_id}"
+                )
             owners[item_row_id].append(shop_id)
             item_id, quality, price = (int(value) for value in item_row.values)
             if item_id not in item_rows or item_id not in item_name_rows:
-                raise ValueError(f"shopItem.csv row {item_row_id}: item {item_id} has no item-catalog join")
-            shop_output.append([
-                shop_id,
-                item_row_id,
-                item_id,
-                quality,
-                price,
-                item_rows[item_id].values[0],
-                item_name_rows[item_id].values[6],
-            ])
-    shop_bytes = render_csv([
-        "shop_id",
-        "shop_item_row_id",
-        "item_id",
-        "item_quality",
-        "price",
-        "item_class_path",
-        "item_name_en",
-    ], shop_output)
+                raise ValueError(
+                    f"shopItem.csv row {item_row_id}: item {item_id} has no item-catalog join"
+                )
+            shop_output.append(
+                [
+                    shop_id,
+                    item_row_id,
+                    item_id,
+                    quality,
+                    price,
+                    item_rows[item_id].values[0],
+                    item_name_rows[item_id].values[6],
+                ]
+            )
+    shop_bytes = render_csv(
+        [
+            "shop_id",
+            "shop_item_row_id",
+            "item_id",
+            "item_quality",
+            "price",
+            "item_class_path",
+            "item_name_en",
+        ],
+        shop_output,
+    )
 
     unowned = sorted(row_id for row_id, row_owners in owners.items() if not row_owners)
-    multiple = sorted(row_id for row_id, row_owners in owners.items() if len(row_owners) > 1)
+    multiple = sorted(
+        row_id for row_id, row_owners in owners.items() if len(row_owners) > 1
+    )
     reserved_column7_nonzero_count = sum(
         int(row.values[7]) != 0 for row in gc_rows.values()
     )
@@ -214,7 +242,9 @@ def build(csv_dir: Path = CSV_DIR) -> dict[Path, bytes]:
             "sources": ["csv/shopBase.csv", "csv/shopItem.csv"],
             "itemJoins": ["csv/_item.csv", "csv/xtx_itemName.csv"],
             "output": "derived/shop_catalog.csv",
-            "shopCount": sum(1 for row in base_rows.values() if row.values != ["0", "0"]),
+            "shopCount": sum(
+                1 for row in base_rows.values() if row.values != ["0", "0"]
+            ),
             "associationCount": len(shop_output),
             "unownedShopItemRowCount": len(unowned),
             "multipleOwnerShopItemRowCount": len(multiple),
@@ -234,8 +264,17 @@ def build(csv_dir: Path = CSV_DIR) -> dict[Path, bytes]:
                 "7": "reserved_zero",
                 "8": "item_category",
             },
-            "shopBase.csv": {"rowId": "shop_id", "0": "shop_item_start_id", "1": "shop_item_end_id"},
-            "shopItem.csv": {"rowId": "shop_item_row_id", "0": "item_id", "1": "item_quality", "2": "price"},
+            "shopBase.csv": {
+                "rowId": "shop_id",
+                "0": "shop_item_start_id",
+                "1": "shop_item_end_id",
+            },
+            "shopItem.csv": {
+                "rowId": "shop_item_row_id",
+                "0": "item_id",
+                "1": "item_quality",
+                "2": "price",
+            },
         },
         "residualCeilings": [
             "The client getters do not assign a meaning to gcSealShopItem column 7; it is zero in all 402 rows.",
@@ -243,18 +282,26 @@ def build(csv_dir: Path = CSV_DIR) -> dict[Path, bytes]:
             "Eleven shopItem rows are intentionally emitted once for each of their two shopBase owners.",
         ],
     }
-    manifest_bytes = (json.dumps(manifest, ensure_ascii=True, indent=2) + "\n").encode("ascii")
+    manifest_bytes = (json.dumps(manifest, ensure_ascii=True, indent=2) + "\n").encode(
+        "ascii"
+    )
     return {GC_OUT: gc_bytes, SHOP_OUT: shop_bytes, MANIFEST_OUT: manifest_bytes}
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     add_csv_dir_argument(parser)
-    parser.add_argument("--check", action="store_true", help="verify generated files without writing")
+    parser.add_argument(
+        "--check", action="store_true", help="verify generated files without writing"
+    )
     args = parser.parse_args()
     outputs = build(args.csv_dir)
     if args.check:
-        mismatches = [path for path, data in outputs.items() if not path.is_file() or path.read_bytes() != data]
+        mismatches = [
+            path
+            for path, data in outputs.items()
+            if not path.is_file() or path.read_bytes() != data
+        ]
         if mismatches:
             for path in mismatches:
                 print(f"out of date: {path.relative_to(REPO)}")

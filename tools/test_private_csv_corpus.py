@@ -76,7 +76,9 @@ class PrivateCsvCorpusTests(unittest.TestCase):
     def _write_archive(self, output: Path, members: list[tuple[str, bytes]]) -> None:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", UserWarning)
-            with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_STORED) as archive:
+            with zipfile.ZipFile(
+                output, "w", compression=zipfile.ZIP_STORED
+            ) as archive:
                 for name, data in members:
                     archive.writestr(name, data)
 
@@ -107,27 +109,31 @@ class PrivateCsvCorpusTests(unittest.TestCase):
         )
         self.assertEqual(shape["tableCount"], len(self.files))
         self.assertRegex(shape["treeSha256"], r"^[0-9a-f]{64}$")
-        self.assertEqual(
-            {path.name for path in destination.iterdir()}, set(self.files)
-        )
+        self.assertEqual({path.name for path in destination.iterdir()}, set(self.files))
         for name, data in self.files.items():
             self.assertEqual((destination / name).read_bytes(), data)
 
     def test_traversal_member_is_rejected(self) -> None:
         archive = self.root / "traversal.zip"
-        self._write_archive(archive, [("../a.csv", self.files["a.csv"]), ("b.csv", self.files["b.csv"])])
+        self._write_archive(
+            archive, [("../a.csv", self.files["a.csv"]), ("b.csv", self.files["b.csv"])]
+        )
         with self.assertRaises(corpus.CorpusValidationError):
             self._verify(archive)
 
     def test_duplicate_member_is_rejected(self) -> None:
         archive = self.root / "duplicate.zip"
-        self._write_archive(archive, [("a.csv", self.files["a.csv"]), ("a.csv", self.files["a.csv"])])
+        self._write_archive(
+            archive, [("a.csv", self.files["a.csv"]), ("a.csv", self.files["a.csv"])]
+        )
         with self.assertRaises(corpus.CorpusValidationError):
             self._verify(archive)
 
     def test_corrupt_member_is_rejected(self) -> None:
         archive = self.root / "corrupt.zip"
-        self._write_archive(archive, [("a.csv", b"changed\n"), ("b.csv", self.files["b.csv"])])
+        self._write_archive(
+            archive, [("a.csv", b"changed\n"), ("b.csv", self.files["b.csv"])]
+        )
         with self.assertRaises(corpus.CorpusValidationError):
             self._verify(archive)
 
@@ -184,9 +190,7 @@ class PrivateCsvCorpusTests(unittest.TestCase):
             manifest_path=self.manifest,
             tables_path=self.tables,
         )
-        self.assertEqual(
-            {path.name for path in destination.iterdir()}, set(self.files)
-        )
+        self.assertEqual({path.name for path in destination.iterdir()}, set(self.files))
 
 
 if __name__ == "__main__":

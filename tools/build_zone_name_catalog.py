@@ -38,7 +38,9 @@ SERIES_FAMILY = {1: "sea", 2: "roc", 3: "fst", 4: "wil", 5: "lak"}
 
 MAGIC = b"MapLayoutResourceData"
 RESIDENT = b"Bk_resident\x00"
-NAME_RE = re.compile(rb"(?:sea|fst|wil|roc|lak|ocn|prv|jal|cru)\d[A-Z][a-zA-Z]+\d+[a-z]?")
+NAME_RE = re.compile(
+    rb"(?:sea|fst|wil|roc|lak|ocn|prv|jal|cru)\d[A-Z][a-zA-Z]+\d+[a-z]?"
+)
 PLACEHOLDER_PLACE_NAME = 1501
 
 
@@ -68,7 +70,7 @@ def scan_blobs(game_dir: Path) -> list[dict]:
             i = data.find(RESIDENT)
             if i != -1:
                 j = i + len(RESIDENT)
-                raw = data[j:data.find(b"\x00", j)].decode(errors="replace")
+                raw = data[j : data.find(b"\x00", j)].decode(errors="replace")
                 if NAME_RE.fullmatch(raw.encode()):
                     primary = raw
             if primary is None and len(names) == 1:
@@ -76,12 +78,14 @@ def scan_blobs(game_dir: Path) -> list[dict]:
                 primary = names[0]
             if primary is None and not names:
                 continue  # divider / shared-object blob, no zone evidence
-            blobs.append({
-                "resourceIdHex": f"0x{subdir.replace('/', '')}{dat.stem}",
-                "family": family,
-                "primaryName": primary,
-                "zoneNames": names,
-            })
+            blobs.append(
+                {
+                    "resourceIdHex": f"0x{subdir.replace('/', '')}{dat.stem}",
+                    "family": family,
+                    "primaryName": primary,
+                    "zoneNames": names,
+                }
+            )
     return blobs
 
 
@@ -116,19 +120,19 @@ def build(game_dir: Path, csv_dir: Path) -> dict:
         if name is None:
             continue
         family = SERIES_FAMILY[layout_id // 100]
-        layouts.append({
-            "layoutId": layout_id,
-            "family": family,
-            "usage": usage,
-            "placeNameId": place_name_id,
-            "slotName": name,
-            "blobShipped": name in primaries.get(family, set()),
-        })
+        layouts.append(
+            {
+                "layoutId": layout_id,
+                "family": family,
+                "usage": usage,
+                "placeNameId": place_name_id,
+                "slotName": name,
+                "blobShipped": name in primaries.get(family, set()),
+            }
+        )
 
     zone_place = {
-        int(r[0]): int(r[1])
-        for r in read_corpus_csv(csv_dir, "_zoneParam.csv")
-        if r[1]
+        int(r[0]): int(r[1]) for r in read_corpus_csv(csv_dir, "_zoneParam.csv") if r[1]
     }
     zones_by_place: dict[int, list[int]] = {}
     for zone_id, place_id in zone_place.items():
@@ -145,13 +149,15 @@ def build(game_dir: Path, csv_dir: Path) -> dict:
         if len(candidates) != 1:
             continue
         layout = candidates[0]
-        bindings.append({
-            "zoneId": zone_ids[0],
-            "layoutId": layout["layoutId"],
-            "zoneName": layout["slotName"],
-            "placeNameId": place_id,
-            "basis": "blob_primary" if layout["blobShipped"] else "layout_slot",
-        })
+        bindings.append(
+            {
+                "zoneId": zone_ids[0],
+                "layoutId": layout["layoutId"],
+                "zoneName": layout["slotName"],
+                "placeNameId": place_id,
+                "basis": "blob_primary" if layout["blobShipped"] else "layout_slot",
+            }
+        )
     bindings.sort(key=lambda b: b["zoneId"])
 
     return {
@@ -187,8 +193,12 @@ def build(game_dir: Path, csv_dir: Path) -> dict:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build manifests/zone_internal_names.json from the client install")
-    parser.add_argument("game_dir", type=Path, help="FFXIV 1.x install root (parent of data/)")
+    parser = argparse.ArgumentParser(
+        description="Build manifests/zone_internal_names.json from the client install"
+    )
+    parser.add_argument(
+        "game_dir", type=Path, help="FFXIV 1.x install root (parent of data/)"
+    )
     add_csv_dir_argument(parser)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = parser.parse_args()
