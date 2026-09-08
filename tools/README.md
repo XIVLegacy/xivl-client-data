@@ -14,6 +14,10 @@ For safety, the selected root must be a real directory whose descendants are
 regular files; symlinks, junctions, reparse points, nested directories, and
 other special filesystem entries are rejected before any CSV bytes are read.
 
+Ruff 0.15.21 is the formatter and linter for authored Python. Run
+`ruff format --check --no-cache tools` and `ruff check --no-cache tools` before
+submitting tool changes.
+
 ## CSV-to-SQL promotion pipeline
 
 `csv_to_sql.py --table <family>` or `csv_to_sql.py --all` reads the selected
