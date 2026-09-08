@@ -20,6 +20,9 @@ working material.
 
 ## Evidence and citations
 
+Follow the [repository style guide](docs/style-guide.md) for authored code,
+structured data, and documentation.
+
 Follow the [evidence and claims doctrine](docs/ai_agents/evidence-and-claims.md).
 Use the narrowest claim the identified artifact supports, keep raw evidence
 distinct from interpretation, and place durable citations with the manifest,

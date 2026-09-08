@@ -24,6 +24,8 @@ findings, and repository policy.
 
 ## Repository policy
 
+- [style-guide.md](style-guide.md) - authored code, structured-data, and
+  documentation conventions.
 - [ai_agents/README.md](ai_agents/README.md) - tracked contribution, documentation, evidence, and comment policy.
 
 ## Products outside docs/
