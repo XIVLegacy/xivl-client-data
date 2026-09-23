@@ -16,6 +16,12 @@ English name but are different catalog rows and appear in different journal
 instructions. The journal does not establish their server effects or whether
 an interaction was used in a historical retail session.
 
+The quest-to-journal association is direct rather than a title guess:
+`xtx_quest.csv` rows `111427`, `111627`, and `111827` contain rich-string
+sheet selectors for `xtx/journalxtxSea`, `xtx/journalxtxFst`, and
+`xtx/journalxtxWil`, respectively, as well as item-name lookups for
+`11000423`, `11000422`, and `11000421` in columns 23-26.
+
 Follow-up rows preserve separate narrative phases: Sea `319-320` describe
 the operative defeat and return to R'ashaht Rhiki; Fst `386-389` describe
 the Garlean defeat, Pfrymloef Echo, and Gridanian airship-landing report;
@@ -30,5 +36,6 @@ Sources: `csv/xtx_journalxtxSea.csv` rows `318-320` (SHA-256
 `80da9c607d81f58dc7c7a9625ecd4f6cefaba32bb3448c73f85c3c8082bdd694`),
 `csv/xtx_itemName.csv` rows `11000421-11000423` (SHA-256
 `917c34eb0621b7d7a8261145023d0bb95cd8ca9eb52288ceb66e80d08f0d78c2`),
-and `csv/xtx_quest.csv` rows `111427`, `111627`, and `111827` in
-`manifests/tables.json`.
+and `csv/xtx_quest.csv` rows `111427`, `111627`, and `111827` (SHA-256
+`938640466b314242916f1f8877a90154c4f4db7aa63de6223e6af4aa194e6719`)
+in `manifests/tables.json`.
