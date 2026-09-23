@@ -33,7 +33,8 @@ findings, and repository policy.
 - [mor-dhona-map-identity.md](mor-dhona-map-identity.md) - Mor Dhona place-name, layout, and four map-navigation rows.
 - [job-quest-marker-joins.md](job-quest-marker-joins.md) - job-quest marker display IDs and bounded actor-class joins.
 - [job-journal-phase-text.md](job-journal-phase-text.md) - Bounded job journal objective text and localization conflict.
-- [alc200-journal-phase-text.md](alc200-journal-phase-text.md) - Alc200 quest-to-journal rich-text links and unresolved expression semantics.
+- [quest-110420-journal-references.md](quest-110420-journal-references.md) - Quest 110420 journal selector keys and unresolved condition meanings.
+- [quest-110016-journal-references.md](quest-110016-journal-references.md) - Quest 110016 journal selector keys and the separate plain-reference list.
 - [grand-company-enlistment-notices.md](grand-company-enlistment-notices.md) - Paired city-variant enlistment notices and their runtime boundary.
 - [grand-company-journal-text.md](grand-company-journal-text.md) - Distinct campaign interaction-item instructions and later journal phases.
 - [grand-company-reward-rows.md](grand-company-reward-rows.md) - Literal seal-item IDs and count-shaped values in selected quest reward rows.
