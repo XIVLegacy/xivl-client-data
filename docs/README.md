@@ -18,6 +18,7 @@ findings, and repository policy.
 - [hamlet-supply-rows.md](hamlet-supply-rows.md) - Hamlet supply-list keys, item IDs, and quantities.
 - [ifrit-appearance-boundary.md](ifrit-appearance-boundary.md) - Ifrit Bowl candidate IDs, appearance bases, and missing NPC class-path join.
 - [substat-status-join.md](substat-status-join.md) - Retail status-table join for the two numeric SubStat status-word nibbles.
+- [status-row-absence.md](status-row-absence.md) - Exact-key coverage check for one ID in both status tables.
 - [inventory-cross-check.md](inventory-cross-check.md) - retail inventory observations matched against the three-source item catalog.
 - [command-battle-params.md](command-battle-params.md) - getter-verified command-parameter map backing `derived/command_battle_params.csv`.
 - [rank-cap-findings.md](rank-cap-findings.md) - rank-indexed BP, attribute-cap, derived-stat, and Cure-column findings.
