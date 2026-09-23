@@ -23,6 +23,7 @@ findings, and repository policy.
 - [shop-catalogs.md](shop-catalogs.md) - GC seal catalog fields, generic shop joins, and the seven-sheet fidelity audit.
 - [shop-family-audit.md](shop-family-audit.md) - generic shop membership and price comparison plus the chocobo-fee evidence boundary.
 - [map-marker-resources.md](map-marker-resources.md) - static map-marker resource, UI-class, property-reference, and coordinate-domain crosswalk.
+- [shposhae-map-identity.md](shposhae-map-identity.md) - Shposhae zone, place-name, and five-page layout join.
 - [job-quest-marker-joins.md](job-quest-marker-joins.md) - job-quest marker display IDs and bounded actor-class joins.
 - [job-journal-phase-text.md](job-journal-phase-text.md) - Bounded job journal objective text and localization conflict.
 - [grand-company-journal-text.md](grand-company-journal-text.md) - Distinct campaign interaction-item instructions and later journal phases.
