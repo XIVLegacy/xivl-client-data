@@ -19,7 +19,7 @@ Source: `xivl-client-data:csv/cutReplay.csv` rows `11042001`-`11042003`,
 SHA-256 `2553b82e1f983025e0ee23b2a8fd27e8ea44e228cda1fe3e45d743b48c584e37`
 in `manifests/tables.json`.
 
-The same table has these eight consecutive fishing-quest rows. Column values
+The same table has these eight consecutive `fsh300` rows. Column values
 are literal sheet columns after the row ID.
 
 | Row | Scene key, sheet column 0 / CSV field 1 | Sheet columns 6/7 | Sheet column 8 | Sheet columns 9-15 |
@@ -33,12 +33,25 @@ are literal sheet columns after the row ID.
 | `11050107` | `fsh30060` | `1`, `1` | `-200` | all `-200` |
 | `11050108` | `fsh30070` | `1`, `1` | `-200` | all `-200` |
 
-These raw rows do not establish a corresponding recovered Lua call, the
-meaning of `-207`, replay eligibility, or runtime playback. The client replay
-consumer of sheet columns 8-15 is documented in
-`xivl-client-scripts:docs/cutscene-replay-skip-contract.md`.
+The next six rows name literal `fsh306` scene keys:
 
-Source: `xivl-client-data:csv/cutReplay.csv` rows `11050101`-`11050108`,
+| Row | Scene key, sheet column 0 / CSV field 1 | Sheet columns 6/7 | Sheet column 8 | Sheet columns 9-15 |
+| ---: | --- | --- | --- | --- |
+| `11050201` | `fsh30610` | `1`, `1` | `-200` | all `-200` |
+| `11050202` | `fsh30620` | `1`, `1` | `-200` | all `-200` |
+| `11050203` | `fsh30630` | `1`, `1` | `-200` | all `-200` |
+| `11050204` | `fsh30640` | `1`, `1` | `-200` | all `-200` |
+| `11050205` | `fsh30650` | `1`, `1` | `-200` | all `-200` |
+| `11050206` | `fsh30660` | `1`, `1` | `-200` | all `-200` |
+
+These literal rows do not establish replay eligibility or runtime playback.
+The meaning of `-207` remains unknown. The client replay consumer of sheet
+columns 8-15 is documented in
+`xivl-client-scripts:docs/cutscene-replay-skip-contract.md`.
+The corresponding canonical Lua call sites for both families are listed in
+`xivl-client-scripts:docs/quest-scene-replay-joins.md`.
+
+Source: `xivl-client-data:csv/cutReplay.csv` rows `11050101`-`11050206`,
 SHA-256 `2553b82e1f983025e0ee23b2a8fd27e8ea44e228cda1fe3e45d743b48c584e37`
 in `manifests/tables.json`.
 
