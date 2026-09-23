@@ -12,6 +12,7 @@ findings, and repository policy.
 ## Evidence and derived findings
 
 - [actor-appearance-crosswalk.md](actor-appearance-crosswalk.md) - Exhaustive census and canonical crosswalk for the seven packed actor appearance words.
+- [ifrit-appearance-boundary.md](ifrit-appearance-boundary.md) - Ifrit Bowl candidate IDs, appearance bases, and missing NPC class-path join.
 - [substat-status-join.md](substat-status-join.md) - Retail status-table join for the two numeric SubStat status-word nibbles.
 - [inventory-cross-check.md](inventory-cross-check.md) - retail inventory observations matched against the three-source item catalog.
 - [command-battle-params.md](command-battle-params.md) - getter-verified command-parameter map backing `derived/command_battle_params.csv`.
