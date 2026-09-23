@@ -36,6 +36,13 @@ row IDs and identical map point do not establish whether either refers to
 the same physical Darkhold coffer, two coffers, an interaction actor, or only
 a shared quest-area destination. Neither row binds an armor item to a chest.
 
+Two further generic marker rows in region 103, map 311 are distinct:
+`11221202` stores `(-784.71, -2289.16)` and resource `m00029`, while
+`11221203` stores `(-751.64, -2287.66)` and resource `m00013` in
+`quest_marker.csv`. Both use display ID `4000257`. They are separate stored
+points, not duplicate coordinates. Neither row identifies the measurement
+interaction actor, a terrain height, or a complete quest route.
+
 The three CSV copies used for this join matched their pinned
 `manifests/tables.json` SHA-256 values:
 

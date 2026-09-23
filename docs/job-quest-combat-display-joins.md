@@ -19,6 +19,7 @@ uses it as a kill target. Source rows are
 | `2203001` | `3203001` | antling worker |
 | `2204318` | `3204321` | wandering bogy |
 | `2204511` | `3204512` | crabfisher |
+| `2204610` | `3204607` | firebound wrath |
 | `2206306` | `3206306` | Qiqirn shirrer |
 | `2206901` | `3206901` | Ascian |
 | `2207612` | `3207612` | ironshell |
