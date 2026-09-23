@@ -14,6 +14,7 @@ findings, and repository policy.
 - [actor-appearance-crosswalk.md](actor-appearance-crosswalk.md) - Exhaustive census and canonical crosswalk for the seven packed actor appearance words.
 - [deepvoid-class-appearance.md](deepvoid-class-appearance.md) - Distinct Deepvoid class, display, and appearance rows behind one English label.
 - [quest-replay-rows.md](quest-replay-rows.md) - Selected cutscene replay keys and literal argument rows.
+- [hamlet-supply-rows.md](hamlet-supply-rows.md) - Hamlet supply-list keys, item IDs, and quantities.
 - [ifrit-appearance-boundary.md](ifrit-appearance-boundary.md) - Ifrit Bowl candidate IDs, appearance bases, and missing NPC class-path join.
 - [substat-status-join.md](substat-status-join.md) - Retail status-table join for the two numeric SubStat status-word nibbles.
 - [inventory-cross-check.md](inventory-cross-check.md) - retail inventory observations matched against the three-source item catalog.

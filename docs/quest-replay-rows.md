@@ -18,3 +18,17 @@ consumer of columns 8-15 is documented in
 Source: `xivl-client-data:csv/cutReplay.csv` rows `11042001`-`11042003`,
 SHA-256 `2553b82e1f983025e0ee23b2a8fd27e8ea44e228cda1fe3e45d743b48c584e37`
 in `manifests/tables.json`.
+
+The same pinned table contains these Hamlet scene keys:
+
+| Row | Scene key, data column 0 |
+| ---: | --- |
+| `11082008` | `ham0s201` |
+| `11082009` | `ham0s202` |
+| `11082010` | `ham0f301` |
+| `11082011` | `ham0f302` |
+| `11082012` | `ham0w201` |
+| `11082013` | `ham0w202` |
+
+These literal row-to-key values do not establish unlock state, a live duty
+trigger, a server route, or physical scene-asset presence.
