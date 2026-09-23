@@ -68,3 +68,35 @@ The same pinned table contains these Hamlet scene keys:
 
 These literal row-to-key values do not establish unlock state, a live duty
 trigger, a server route, or physical scene-asset presence.
+
+## Man402 and Man406
+
+The pinned table also contains these rows. Column values are literal sheet
+columns after the row ID.
+
+| Row | Scene key, sheet column 0 / CSV field 1 | Sheet columns 6/7 | Sheet columns 8-15 |
+| ---: | --- | --- | --- |
+| `11001801` | `man40200` | `1`, `1` | `-201`, `-202`, `-203`, `-204`, `-205`, `-217`, `-200`, `-200` |
+| `11001802` | `man40210` | `1`, `1` | `-201`, `-202`, `-203`, `-204`, `-205`, `1`, `1`, `-200` |
+| `11001803` | `man40220` | `1`, `1` | `-201`, `-202`, `-203`, `-204`, `-205`, `-200`, `-200`, `-200` |
+| `11001804` | `man40230` | `1`, `1` | `-201`, `-202`, `-203`, `-204`, `-205`, `-200`, `-200`, `-200` |
+| `11001901` | `man40600` | `1`, `1` | `-201`, `-202`, `-203`, `-204`, `-205`, `-200`, `-200`, `-200` |
+| `11001902` | `man40610` | `1`, `1` | `-201`, `-202`, `-203`, `-204`, `-205`, `-200`, `-200`, `-200` |
+| `11001903` | `man40615` | `1`, `1` | `-201`, `-202`, `-203`, `-204`, `-205`, `-200`, `-200`, `-200` |
+| `11001904` | `man40620` | `1`, `1` | all `-200` |
+| `11001905` | `man40625` | `1`, `1` | all `-200` |
+| `11001906` | `man40630` | `1`, `1` | `-201`, `-202`, `-203`, `-204`, `-205`, `-200`, `-200`, `-200` |
+| `11001907` | `man40635` | `2`, `1` | `-201`, `-202`, `-203`, `-204`, `-205`, `-200`, `-200`, `-200` |
+| `11001908` | `man40650` | `1`, `1` | `-201`, `-202`, `-203`, `-204`, `-205`, `-205`, `-200`, `-200` |
+| `11001909` | `man40660` | `1`, `1` | `-201`, `-202`, `-203`, `-204`, `-205`, `-217`, `-200`, `-200` |
+
+These are static row-to-key and payload values. The negative values remain
+uninterpreted sentinels; the rows do not establish replay eligibility, a
+server route, or historical playback. Client-side call sites for Man406 and
+Man402 are indexed in `xivl-client-scripts:docs/quest-scene-replay-joins.md`;
+that crosswalk does not make the sheet values runtime state.
+
+Source: `xivl-client-data:csv/cutReplay.csv` rows `11001801`-`11001804` and
+`11001901`-`11001909`, SHA-256
+`2553b82e1f983025e0ee23b2a8fd27e8ea44e228cda1fe3e45d743b48c584e37` in
+`manifests/tables.json`.
