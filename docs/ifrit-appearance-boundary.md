@@ -19,7 +19,7 @@ generic carrier candidate `1001481` (size 2, HEAD 0, BODY 1024).
 Across all 7,831 `actorclass_graphic.csv` rows, 715 have base 10999;
 708 of those have size 2, HEAD 0, and BODY 1024. This appearance
 shape is therefore not unique to an Ifrit-related actor ID. The
-installed m999/e001 state resources and their limits are documented in
+m999/e001 state resources and their limits are documented in
 `xivl-decomp:docs/actor/model-state-color-transitions.md`, under the
 state-4/state-5 graph findings. Appearance-row similarity alone does
 not establish which owner, if any, selected those resources in a
@@ -29,7 +29,7 @@ The source is extraction `2012.09.19.0001`:
 `manifests/tables.json` pins `actorclass_graphic.csv` at 892,164 bytes,
 SHA-256 `7DA8241400530885E0A28DED04A03ACF2771B0580A79C1F49F46EE0861010611`.
 The matching `actorclass.csv` rows provide display-name IDs, not NPC
-class paths. The installed static-actor SAN and
+class paths. The static-actor SAN and
 `manifests/staticactor_class_paths.json` cover script actors but omit
 NPC actor-class bindings. The candidate labels from an external
 actor-class table cannot turn these appearance rows into retail-proven
