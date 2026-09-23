@@ -6,6 +6,8 @@ proof that a phase was reached in a historical session.
 
 | Wil row | Bounded English-text observation |
 | ---: | --- |
+| `470` | The Warrior Sirocco exercise recommends three accompanying party members. This is phrased as a recommendation, not a cap. |
+| `505` | The Warrior Audhumbla challenge recommends seven accompanying party members, again without defining a server admission rule. |
 | `510` | After Curious Gorge regains control, the English text directs another conversation at the Silver Bazaar. The French text instead says to return to his cave, so the destination is not consistent across localizations. |
 | `541` | The player is instructed to defeat Gluttonous Gertrude before safely using a dynamically named measuring item south of Cedarwood. The row itself does not prove item consumption or the exact use point. |
 | `545` | The Prince of Pestilence is described as an obstacle to measurements near the Mun-Tuy Cellars. |
@@ -29,7 +31,7 @@ enemy counts, allied AI, combat coordinates, a server trigger, or a return
 warp. The journal's companion allowance does not itself prescribe encounter
 population.
 
-Source: `xivl-client-data:csv/xtx_journalxtxWil.csv` rows `510`, `514`, `527`,
+Source: `xivl-client-data:csv/xtx_journalxtxWil.csv` rows `470`, `505`, `510`, `514`, `527`,
 `531`, `532`, `541`, `545`, and `546`, SHA-256
 `80da9c607d81f58dc7c7a9625ecd4f6cefaba32bb3448c73f85c3c8082bdd694`
 in `manifests/tables.json`.
