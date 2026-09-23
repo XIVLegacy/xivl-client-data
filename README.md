@@ -33,11 +33,6 @@ in `docs/corpus-inventory.md`.
 - [Derived products](derived/README.md)
 - [Tooling and regeneration](tools/README.md)
 
-## Contributing
-
-Pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before you
-open one.
-
 ## License
 
 Project-authored material uses the [MIT License](LICENSE), including tools,
