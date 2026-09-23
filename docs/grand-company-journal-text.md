@@ -28,9 +28,15 @@ the Garlean defeat, Pfrymloef Echo, and Gridanian airship-landing report;
 Wil `450-452` describe the surviving Garlean, Echo, and Ul'dahn landing.
 Text order is not proof of client-method dispatch or authoritative quest state.
 
-Sources: `csv/xtx_journalxtxSea.csv` rows `318-320` (SHA-256
+Other Fst text row `279` reports that the conjurers and guards are absent
+after the battle; it does not state a cause or establish an allied health
+condition. Sea `246` and Fst `292`/`297` contain additional city-variant
+restriction wording. These journal strings do not establish active-state
+gating or the server's acceptance checks.
+
+Sources: `csv/xtx_journalxtxSea.csv` rows `246` and `318-320` (SHA-256
 `051c2501dc9d362e7ffc1c6ec3c840ae9458c95e583fde517ba4a610297d198d`),
-`csv/xtx_journalxtxFst.csv` rows `385-389` (SHA-256
+`csv/xtx_journalxtxFst.csv` rows `279`, `292`, `297`, and `385-389` (SHA-256
 `82dfee149d4571e83e85db585f8ae6415fe55b4273764ca0c59d37dd10367189`),
 `csv/xtx_journalxtxWil.csv` rows `449-452` (SHA-256
 `80da9c607d81f58dc7c7a9625ecd4f6cefaba32bb3448c73f85c3c8082bdd694`),

@@ -30,6 +30,7 @@ findings, and repository policy.
 - [job-quest-marker-joins.md](job-quest-marker-joins.md) - job-quest marker display IDs and bounded actor-class joins.
 - [job-journal-phase-text.md](job-journal-phase-text.md) - Bounded job journal objective text and localization conflict.
 - [alc200-journal-phase-text.md](alc200-journal-phase-text.md) - Alc200 quest-to-journal rich-text links and unresolved expression semantics.
+- [grand-company-enlistment-notices.md](grand-company-enlistment-notices.md) - Paired city-variant enlistment notices and their runtime boundary.
 - [grand-company-journal-text.md](grand-company-journal-text.md) - Distinct campaign interaction-item instructions and later journal phases.
 - [grand-company-reward-rows.md](grand-company-reward-rows.md) - Literal seal-item IDs and count-shaped values in selected quest reward rows.
 - [raid-message-rows.md](raid-message-rows.md) - Dzemael progression and terminal text rows with dispatch unknowns.
