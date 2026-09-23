@@ -16,6 +16,7 @@ findings, and repository policy.
 - [quest-replay-rows.md](quest-replay-rows.md) - Selected cutscene replay keys and literal argument rows.
 - [quest-marker-rows.md](quest-marker-rows.md) - Selected quest marker row fields and bounded interpretation.
 - [hamlet-supply-rows.md](hamlet-supply-rows.md) - Hamlet supply-list keys, item IDs, and quantities.
+- [hamlet-quartermaster-name-rows.md](hamlet-quartermaster-name-rows.md) - Static quartermaster actor/display-name and localized text rows.
 - [ifrit-appearance-boundary.md](ifrit-appearance-boundary.md) - Ifrit Bowl candidate IDs, appearance bases, and missing NPC class-path join.
 - [substat-status-join.md](substat-status-join.md) - Retail status-table join for the two numeric SubStat status-word nibbles.
 - [status-row-absence.md](status-row-absence.md) - Exact-key coverage check for one ID in both status tables.
