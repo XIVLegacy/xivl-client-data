@@ -29,6 +29,13 @@ sheet supplies neither terrain height, facing, a unique spawn, nor an event
 dispatcher. Its property-reference column is also not a universal row-ID
 identity: row `11222501` stores `@5208/i11222301` in column 13.
 
+Rows `11221401` and `11222401` also use display
+ID `4000257`. Both store floats `(-74.51, 392.07)` in columns 3/4 and
+region/area `102/201` in columns 9/10 of `quest_marker.csv`. Their distinct
+row IDs and identical map point do not establish whether either refers to
+the same physical Darkhold coffer, two coffers, an interaction actor, or only
+a shared quest-area destination. Neither row binds an armor item to a chest.
+
 The three CSV copies used for this join matched their pinned
 `manifests/tables.json` SHA-256 values:
 
