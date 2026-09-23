@@ -36,6 +36,7 @@ findings, and repository policy.
 - [quest-110420-journal-references.md](quest-110420-journal-references.md) - Quest 110420 journal selector keys and unresolved condition meanings.
 - [quest-110016-journal-references.md](quest-110016-journal-references.md) - Quest 110016 journal selector keys and the separate plain-reference list.
 - [grand-company-enlistment-notices.md](grand-company-enlistment-notices.md) - Paired city-variant enlistment notices and their runtime boundary.
+- [grand-company-dialogue-variants.md](grand-company-dialogue-variants.md) - Selected Grand Company localized dialogue row differences and the unresolved selector boundary.
 - [grand-company-journal-text.md](grand-company-journal-text.md) - Distinct campaign interaction-item instructions and later journal phases.
 - [grand-company-reward-rows.md](grand-company-reward-rows.md) - Literal seal-item IDs and count-shaped values in selected quest reward rows.
 - [raid-message-rows.md](raid-message-rows.md) - Dzemael progression and terminal text rows with dispatch unknowns.
