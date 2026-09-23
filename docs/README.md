@@ -27,6 +27,7 @@ findings, and repository policy.
 - [job-quest-marker-joins.md](job-quest-marker-joins.md) - job-quest marker display IDs and bounded actor-class joins.
 - [job-journal-phase-text.md](job-journal-phase-text.md) - Bounded job journal objective text and localization conflict.
 - [grand-company-journal-text.md](grand-company-journal-text.md) - Distinct campaign interaction-item instructions and later journal phases.
+- [grand-company-reward-rows.md](grand-company-reward-rows.md) - Literal seal-item IDs and count-shaped values in selected quest reward rows.
 - [raid-message-rows.md](raid-message-rows.md) - Dzemael progression and terminal text rows with dispatch unknowns.
 - [job-quest-combat-display-joins.md](job-quest-combat-display-joins.md) - selected job-fight actor-class and display-name joins.
 - [item-equipment-columns.md](item-equipment-columns.md) - retail item/equipment formula-column census, parameter-name joins, and grow-table boundary.
