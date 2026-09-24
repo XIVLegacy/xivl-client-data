@@ -31,6 +31,7 @@ findings, and repository policy.
 - [seeker-disappearance-message-rows.md](seeker-disappearance-message-rows.md) - Localized Seeker disappearance text and its actor, location, and event boundary.
 - [copperbell-map-identity.md](copperbell-map-identity.md) - Copperbell Mines zone, layout, and two map-page rows.
 - [coerthas-central-lowlands-map-identity.md](coerthas-central-lowlands-map-identity.md) - Central Lowlands zone, layout, and four map-navigation rows.
+- [zone-group-place-rows.md](zone-group-place-rows.md) - Selected zone-group and place-key row relationships.
 - [mor-dhona-map-identity.md](mor-dhona-map-identity.md) - Mor Dhona place-name, layout, and four map-navigation rows.
 - [job-quest-marker-joins.md](job-quest-marker-joins.md) - job-quest marker display IDs and bounded actor-class joins.
 - [job-journal-phase-text.md](job-journal-phase-text.md) - Bounded job journal objective text and localization conflict.
