@@ -44,6 +44,19 @@ These are row-identity and display-name correlations only. They do not turn a
 display-name ID into an appearance ID and do not establish an item-catalog
 mapping.
 
+## Selected actor-class row
+
+`csv/actorclass.csv` row `2303401` references display-name ID `3203405`. The
+matching `csv/actorclass_graphic.csv` row has base `10049`, size `2`, head `0`,
+and body `1024`. These are static row values, not a resolved display name,
+client resource pathname, Lua class path, or runtime appearance selection.
+
+The source identities are pinned in `manifests/tables.json`: `actorclass.csv`
+has SHA-256
+`3AC9F8D1812D49101F367E2A41356BE96B5D64B1FC5CA29949195F50EBE1D984` and
+`actorclass_graphic.csv` has SHA-256
+`7DA8241400530885E0A28DED04A03ACF2771B0580A79C1F49F46EE0861010611`.
+
 ## Exact field summary
 
 The full per-value counts are in
