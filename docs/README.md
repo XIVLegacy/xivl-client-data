@@ -36,6 +36,7 @@ findings, and repository policy.
 - [job-journal-phase-text.md](job-journal-phase-text.md) - Bounded job journal objective text and localization conflict.
 - [quest-110420-journal-references.md](quest-110420-journal-references.md) - Quest 110420 journal selector keys and unresolved condition meanings.
 - [quest-110016-journal-references.md](quest-110016-journal-references.md) - Quest 110016 journal selector keys and the separate plain-reference list.
+- [guildleve-selected-row-values.md](guildleve-selected-row-values.md) - Selected retail guildleve row values with unresolved runtime interpretation.
 - [grand-company-enlistment-notices.md](grand-company-enlistment-notices.md) - Paired city-variant enlistment notices and their runtime boundary.
 - [grand-company-dialogue-variants.md](grand-company-dialogue-variants.md) - Selected Grand Company localized dialogue row differences and the unresolved selector boundary.
 - [grand-company-journal-text.md](grand-company-journal-text.md) - Distinct campaign interaction-item instructions and later journal phases.
