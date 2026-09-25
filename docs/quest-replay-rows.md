@@ -100,3 +100,36 @@ Source: `xivl-client-data:csv/cutReplay.csv` rows `11001801`-`11001804` and
 `11001901`-`11001909`, SHA-256
 `2553b82e1f983025e0ee23b2a8fd27e8ea44e228cda1fe3e45d743b48c584e37` in
 `manifests/tables.json`.
+
+## Additional replay row keys
+
+These 47 rows add literal row-to-key pairs from the same pinned table.
+Ranges with matching row and key ranges are paired in ascending order.
+
+| Row IDs | Scene key, sheet column 0 / CSV field 1 |
+| --- | --- |
+| `11082101`-`11082109` | `rad0f300`-`rad0f308` |
+| `11082201`-`11082207` | `rad0r100`-`rad0r106` |
+| `11082301`-`11082304` | `rad0r400`-`rad0r403` |
+| `11082401`-`11082404` | `rad0w500`-`rad0w503` |
+| `11087001` | `sum6w010` |
+| `11087002` | `sum6w020` |
+| `11141601`, `11161601`, `11181601` | `gc010105` |
+| `11141602`, `11161602`, `11181602` | `sum6a000` |
+| `11141603`, `11161603`, `11181603` | `gc010110` |
+| `11143304`, `11163304`, `11183304` | `gc010715` |
+| `11143305`, `11163305`, `11183305` | `gc010720` |
+| `11143306`, `11163306`, `11183306` | `gc010730` |
+| `11143307`, `11163307`, `11183307` | `gc010740` |
+
+These are static values from column 0. The row-to-key pairs do not establish
+replay eligibility, a caller, content ownership, asset identity, or runtime
+playback.
+
+Source: `xivl-client-data:csv/cutReplay.csv` rows `11082101`-`11082109`,
+`11082201`-`11082207`, `11082301`-`11082304`, `11082401`-`11082404`,
+`11087001`-`11087002`, `11141601`-`11141603`, `11143304`-`11143307`,
+`11161601`-`11161603`, `11163304`-`11163307`, `11181601`-`11181603`, and
+`11183304`-`11183307`, SHA-256
+`2553b82e1f983025e0ee23b2a8fd27e8ea44e228cda1fe3e45d743b48c584e37` in
+`manifests/tables.json`.
