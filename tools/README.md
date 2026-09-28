@@ -1,0 +1,144 @@
+# Tooling
+
+The tools have two parts: the CSV-to-SQL promotion pipeline and maintenance
+scripts. The private CSV input may be hydrated outside the checkout; canonical
+metadata and generated outputs stay in this repository. Generated seed
+fragments are untracked.
+
+Every corpus-consuming command accepts `--csv-dir <path>`. If omitted, the
+default is `XIVL_CSV_DIR` when set, otherwise the ignored repository-local
+`csv/` compatibility cache. This makes an external hydrated root the normal
+maintainer input without changing existing commands.
+
+For safety, the selected root must be a real directory whose descendants are
+regular files; symlinks, junctions, reparse points, nested directories, and
+other special filesystem entries are rejected before any CSV bytes are read.
+
+Ruff 0.15.21 is the formatter and linter for authored Python. Run
+`ruff format --check --no-cache tools` and `ruff check --no-cache tools` before
+submitting tool changes.
+
+## CSV-to-SQL promotion pipeline
+
+`csv_to_sql.py --table <family>` or `csv_to_sql.py --all` reads the selected
+CSV root through the declarative modules in `mappings/` and writes
+`build/sql/<table>.sql`.
+A downstream consumer owns its DDL, server SQL, and import of these seed
+fragments.
+
+Use `csv_to_sql.py --list` to print the available mapping module names without
+writing output.
+
+`--all` excludes `actor_class`, `zones`, and `passivegl_craft`; run those
+partial mappings with `--table <name>`. The explicit `passivegl_craft` export
+keeps zero placeholders for its unsupported plate and border columns.
+
+### Mapping module contract
+
+Each module under `mappings/` exports `SQL_TABLE`, `COLUMNS`, and either
+`SOURCE_CSV` or `SOURCES`. For multiple sources, the first source defines the
+output rows and order. `JOIN_KEYS` maps a lookup source to a driver
+source and column. Without it, sources join by row ID. `REQUIRE_JOIN_MATCH = False`
+declares an intentionally partial join. `INCLUDE_IN_ALL = False` keeps an
+incomplete table mapping explicit-only.
+
+Every CSV data row must match its header width. An explicitly empty cell keeps
+its typed empty-value convention; a missing cell is an input error and does
+not produce a seed file.
+
+Single-source column entries contain the SQL column, value source, and CSV
+type. Multi-source entries also name the source CSV. A value source may be
+`row_id`, a CSV column index, `iteration_index`, `const:N`, `const:NULL`,
+`const:` for an empty string, or a resolver callable. Resolvers receive the
+driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
+
+## Maintenance scripts
+
+- `validate_corpus.py` checks the tracked public boundary, JSON parsing, schema,
+  checksum, referential integrity, and docs-index links. Set `XIVL_CSV_DIR` for
+  an externally hydrated corpus, or pass `--csv-dir` for a one-off invocation.
+  The default remains the ignored repository-local `csv/` compatibility cache.
+- `private_csv_corpus.py` packages the selected CSV root into a deterministic
+  ZIP, verifies archive members read-only, and hydrates only into an absent or
+  empty directory. Archive members are the safe ASCII CSV basenames. Use
+  `package --csv-dir <root> --output <archive>`, `verify <archive>`, or
+  `hydrate <archive> <destination>`; all modes check `manifest.json` and
+  `tables.json` identities. Run `python tools/test_private_csv_corpus.py` for
+  the focused mutation suite.
+- `build-manifest.ps1` rebuilds these manifests from the selected CSV root;
+  pass `-CsvDir <root>` or set `XIVL_CSV_DIR` when the corpus is external. It
+  writes `manifests/manifest.json` and `manifests/tables.json`.
+- `build_command_battle_params.py` regenerates
+  `derived/command_battle_params.csv` from the `gameCommand.csv` /
+  `gameCommandBasic.csv` / `xtx_command.csv` trio in the selected CSV root,
+  joining command ids to the local `manifests/staticactor_class_paths.json`. See
+  `docs/command-battle-params.md` for the column map. Its `--check` mode verifies
+  the tracked catalog without writing; `test_command_battle_params.py`
+  mutation-tests formula-input projection and deterministic rendering.
+- `build_shop_catalogs.py` regenerates the GC seal and generic range-expanded
+  shop catalogs plus `manifests/shop_catalogs.json`. Its `--check` mode verifies
+  all three artifacts without writing.
+- `analyze_item_graphics_candidates.py` emits full distributions and correlations
+  plus packed-field profiles for typed `weapon.csv` and `equipment.csv` columns
+  considered as item-graphics candidates. An optional historical SQL
+  input is used only for correlation and is never treated as retail authority.
+- `verify_actor_appearance_crosswalk.py` checks the canonical names and `s32`
+  types for `actorclass_graphic` columns `0x19..0x1F`, then verifies the seven
+  zero packed words in rows `0x5A0700..0x5A0703`.
+- `build_actor_appearance_census.py` regenerates the exhaustive nonzero-row
+  census and exact per-field packed-value distributions. Its `--check` mode
+  verifies both derived CSVs without writing. `test_actor_appearance_census.py`
+  mutation-tests the packing, joins, source types, and deterministic rendering.
+- `analyze_substat_status.py` applies the retail `0x0179` status-id transform,
+  joins the status and status-text sheets, and regenerates the complete numeric
+  packed-word crosswalk. Its `--check` mode verifies the derived CSV without
+  writing. `test_substat_status.py` mutation-tests translation, joining, bit
+  projections, failure cases, and deterministic rendering.
+- `build_map_marker_resources.py` groups the complete resource/template,
+  UI-class, and visibility vocabulary from `2Dmap_actor_data.csv`,
+  `2Dmap_marker.csv`, and `quest_marker.csv` into a reproducible crosswalk. Its
+  manifest also pins
+  property-reference coverage, coordinate domains, and exact/case-folded/
+  normalized searches across all 803 decoded CSVs. `test_map_marker_resources.py`
+  mutation-tests width, truncation, grouping, prefix coverage, and deterministic
+  rendering.
+- `build_item_equipment_crosswalk.py` regenerates the canonical census for
+  `itemData.csv` columns 49-60 and `equipment.csv` columns 71-90, verifies the
+  supported `xtx_text_paramName.csv` joins, and retains the bounded grow-table
+  negative. Its `--check` mode verifies the tracked document without writing.
+  `test_item_equipment_crosswalk.py` mutation-tests source types, blank-vs-zero
+  handling, parameter-key rules, row widths, retail anchors, and deterministic
+  rendering.
+- `compare_sheet_inventory.py` compares `manifests/sheet_inventory.csv` with an
+  explicit retail client root, checks the game/var master references and every
+  named sheet document, and reports XML sheet documents carrying names outside
+  the inventory.
+- `build_zone_name_catalog.py` and `extract_staticactor_san.py` produce the
+  zone-name and static-actor manifests from explicit client inputs.
+- `test_zone_name_bindings.py` mutation-tests the boundary between generated
+  client bindings and curated zone-name fallbacks.
+- `verify_retail_staticactor.py` checks the fixed retail SAN product contract;
+  `test_retail_staticactor.py` covers its mutation and sanitized-output cases.
+- `verify_retail_csv_corpus.py` checks the fixed private CSV archive grant and,
+  when given `--archive`, verifies its size, SHA-256, expanded member
+  identities, and tree digest through `private_csv_corpus.py`. It emits only a
+  schema-valid pass/fail attestation and can validate a retained output with
+  `--validate-retained-output`. `test_retail_csv_corpus.py` covers grant and
+  archive mutations, failure sanitization, and retained-output isolation.
+- `retail_inventory_crosscheck.py` checks vendored retail item observations.
+
+The verifier's `--input` is the artifact under test, while the separately
+named tracked product is the reference result; the defaults point to the same
+tracked file for the asset-free local check, and the retail workflow supplies a
+generated product as `--input`.
+
+The dependency-free checker in `_schema_check.py` validates the attestation
+schema's exact subset: `type`, `const`, `enum`, `pattern`, `minLength`,
+`minItems`, `uniqueItems`, `items`, `required`, `properties`, and boolean
+`additionalProperties`, with the standard annotation keys `$schema`, `$id`,
+`title`, and `description`. It supports object, array, string, integer,
+boolean, and null types. Any other keyword or schema form raises `SchemaError`
+instead of being silently ignored.
+
+The remaining mapping helpers and shared readers are implementation details
+of these entry points. See their `--help` output for flags and output paths.
