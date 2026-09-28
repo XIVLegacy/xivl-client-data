@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/XIVLegacy/xivl-client-data/schemas/retail_csv_corpus_attestation.schema.json",
+  "title": "Retail CSV corpus verification attestation, version 1",
+  "description": "Strict sanitized output of the private decoded CSV corpus check. It contains no archive member names or contents.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "publicRepositoryCommit", "approvedInputSha256", "toolVersions", "check", "result"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "publicRepositoryCommit": {"type": "string", "pattern": "^(?!0{40}$)[0-9a-f]{40}$"},
+    "approvedInputSha256": {"const": "006f9438a8cfd9277376f0ab28474500c67e4665050aa631cae64c9e6f38a5b0"},
+    "toolVersions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["python", "verifier"],
+      "properties": {
+        "python": {"const": "3.12"},
+        "verifier": {"const": "1.0"}
+      }
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {"const": "decoded-csv-corpus-v1"},
+        "version": {"const": 1}
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["pass", "fail"]}
+      }
+    }
+  }
+}

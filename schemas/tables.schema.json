@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/XIVLegacy/xivl-client-data/schemas/tables.schema.json",
+  "title": "XIVLegacy Client Data Table Manifest",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "name",
+      "relativePath",
+      "bytes",
+      "sha256",
+      "lineCount",
+      "dataRowCount"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "relativePath": {
+        "type": "string"
+      },
+      "bytes": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "sha256": {
+        "type": "string",
+        "pattern": "^[0-9A-Fa-f]{64}$"
+      },
+      "lineCount": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "dataRowCount": {
+        "type": "integer",
+        "minimum": 0
+      }
+    }
+  }
+}

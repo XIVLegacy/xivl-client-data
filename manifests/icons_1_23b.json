@@ -1,0 +1,206 @@
+{
+    "_provenance": {
+        "source_path": "archive/icons-1.23b/xiv-icons-1.23b.zip",
+        "method": "full icon texture export from the retail FFXIV 1.23b client, decoded to PNG; band content classes from visual sampling, placeholder flag from a size-invariant perceptual signature match against the client's shared red Undefined image",
+        "evidence_class": "client_extraction",
+        "limitations": [
+            "no per-id entity labels; band -> content class is a dominant-content claim, not per-icon",
+            "supersedes an earlier sparse 7,089-file xiv_icons.rar dump and is a strict ID superset of it",
+            "the archive is gitignored cold storage; checksum verification is skipped when it is absent"
+        ],
+        "generator": "xivl-client-data icon catalog built from the full client icon export inventory"
+    },
+    "gameVersion": "1.23b",
+    "archive": {
+        "path": "archive/icons-1.23b/xiv-icons-1.23b.zip",
+        "sha256": "5d465a486cccf67eaa3f5d4bb7ad159acdd064595d01a54e36976bd90d95ab3e",
+        "bytes": 81219028,
+        "layout": "<folder>/icon<NNNNN>.png, folder = floor(icon_id / 10000)",
+        "state": "cold-stored"
+    },
+    "fileCount": 9960,
+    "realIconCount": 7115,
+    "placeholderCount": 2845,
+    "bands": [
+        {
+            "folder": 0,
+            "idMin": 0,
+            "idMax": 1150,
+            "files": 1151,
+            "realIcons": 885,
+            "placeholderFiles": 266,
+            "pixelSizes": [
+                8,
+                16,
+                20,
+                24,
+                32,
+                40,
+                44,
+                48,
+                52,
+                64,
+                80,
+                88,
+                100,
+                112,
+                128,
+                132,
+                150,
+                180,
+                200,
+                212,
+                216,
+                220,
+                288,
+                320,
+                392,
+                400,
+                420,
+                432,
+                480,
+                520
+            ],
+            "dominantClass": "system-ui-cursors-class-guild-badges-race-face-portraits-target-ui"
+        },
+        {
+            "folder": 1,
+            "idMin": 10000,
+            "idMax": 10300,
+            "files": 301,
+            "realIcons": 192,
+            "placeholderFiles": 109,
+            "pixelSizes": [
+                32,
+                128
+            ],
+            "dominantClass": "status-effect-icons"
+        },
+        {
+            "folder": 2,
+            "idMin": 20000,
+            "idMax": 20100,
+            "files": 101,
+            "realIcons": 49,
+            "placeholderFiles": 52,
+            "pixelSizes": [
+                64,
+                128,
+                256
+            ],
+            "dominantClass": "large-art-frames-and-stained-glass-emblems"
+        },
+        {
+            "folder": 3,
+            "idMin": 30000,
+            "idMax": 30600,
+            "files": 601,
+            "realIcons": 476,
+            "placeholderFiles": 125,
+            "pixelSizes": [
+                64,
+                128
+            ],
+            "dominantClass": "crest-and-rank-emblem-badges"
+        },
+        {
+            "folder": 4,
+            "idMin": 40000,
+            "idMax": 42000,
+            "files": 2001,
+            "realIcons": 876,
+            "placeholderFiles": 1125,
+            "pixelSizes": [
+                44,
+                64,
+                128
+            ],
+            "dominantClass": "heraldry-shield-fields-and-charges-plus-emblem-badges"
+        },
+        {
+            "folder": 5,
+            "idMin": 50000,
+            "idMax": 50000,
+            "files": 1,
+            "realIcons": 0,
+            "placeholderFiles": 1,
+            "pixelSizes": [
+                128
+            ],
+            "dominantClass": "empty-only-undefined-placeholder"
+        },
+        {
+            "folder": 6,
+            "idMin": 60000,
+            "idMax": 62000,
+            "files": 2001,
+            "realIcons": 1495,
+            "placeholderFiles": 506,
+            "pixelSizes": [
+                64,
+                128
+            ],
+            "dominantClass": "crafting-materials-and-reagents"
+        },
+        {
+            "folder": 7,
+            "idMin": 70000,
+            "idMax": 70800,
+            "files": 801,
+            "realIcons": 613,
+            "placeholderFiles": 188,
+            "pixelSizes": [
+                64,
+                128
+            ],
+            "dominantClass": "weapons"
+        },
+        {
+            "folder": 8,
+            "idMin": 80000,
+            "idMax": 83000,
+            "files": 3001,
+            "realIcons": 2529,
+            "placeholderFiles": 472,
+            "pixelSizes": [
+                64,
+                128
+            ],
+            "dominantClass": "armor-accessories-and-gear"
+        },
+        {
+            "folder": 9,
+            "idMin": 90000,
+            "idMax": 90000,
+            "files": 1,
+            "realIcons": 0,
+            "placeholderFiles": 1,
+            "pixelSizes": [
+                128
+            ],
+            "dominantClass": "empty-only-undefined-placeholder"
+        }
+    ],
+    "derivedArtifacts": [
+        {
+            "path": "derived/icons-1.23b/evidence-map.md",
+            "sha256": "e5d11c7100522dfb8fd4121f9fafa640baa51310ba1ad91c0d4953350124e4f9",
+            "bytes": 5200
+        },
+        {
+            "path": "derived/icons-1.23b/file-inventory.csv",
+            "sha256": "7687bae7c5964dcc0d8b760c95d9e0e06f9ad240e18b79aa79425b4fe561da2f",
+            "bytes": 376659
+        },
+        {
+            "path": "derived/icons-1.23b/id-ranges.csv",
+            "sha256": "ec88ce7a5196c814d0d4166c2052ec0595f016495dd45a97e3bb731d531e174f",
+            "bytes": 848
+        },
+        {
+            "path": "derived/icons-1.23b/range-samples.png",
+            "sha256": "4c78991ba89a14682f79ac42ef3d3ad20eee370ae504428961f9cb74b389ce9d",
+            "bytes": 75864
+        }
+    ]
+}

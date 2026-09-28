@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/XIVLegacy/xivl-client-data/schemas/retail_staticactor_check.schema.json",
+  "title": "Static-actor retail check",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "checkId", "approvedInputId", "approvedInputSha256", "inputInstallRelativePath", "generator", "expectedProduct"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "checkId": {"type": "string", "minLength": 1},
+    "approvedInputId": {"type": "string", "minLength": 1},
+    "approvedInputSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "inputInstallRelativePath": {"type": "string", "pattern": "^[^/].*[^/]$"},
+    "generator": {"type": "string", "minLength": 1},
+    "expectedProduct": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "bytes", "sha256", "recordCount"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "recordCount": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,1283 @@
+{
+  "_provenance": {
+    "source_path": "FFXIV 1.x client install, game.ver 2012.09.19.0001",
+    "method": "MapLayoutResourceData blob string pools (Bk_resident primaries) joined to zone ids via _layout.csv region-series slot positions and bijective _zoneParam.csv placeName ids; a sole zone name stands in when Bk_resident is a stage alias, while shared placeName ids remain unbound.",
+    "evidence_class": "client_extraction",
+    "limitations": [
+      "zoneBindings covers only placeName-bijective zones; instanced copies and sub-area variants sharing a placeName with a sibling are not client-discriminable and stay unbound.",
+      "Slot names for unshipped layouts (blobShipped false) come from the series slot rule, not from a blob string.",
+      "Market/ocn/inn/roc1 family blobs carry name evidence but no series slots, so they contribute vocabulary only."
+    ],
+    "generator": "tools/build_zone_name_catalog.py"
+  },
+  "families": {
+    "sea": {
+      "dataSubdir": "29/D9/00",
+      "resourceBaseHex": "0x29D90000"
+    },
+    "fst": {
+      "dataSubdir": "29/B0/00",
+      "resourceBaseHex": "0x29B00000"
+    },
+    "roc": {
+      "dataSubdir": "28/D9/00",
+      "resourceBaseHex": "0x28D90000"
+    },
+    "wil": {
+      "dataSubdir": "61/5A/00",
+      "resourceBaseHex": "0x615A0000"
+    },
+    "lak": {
+      "dataSubdir": "03/E7/00",
+      "resourceBaseHex": "0x03E70000"
+    },
+    "mkt_sea": {
+      "dataSubdir": "72/42/00",
+      "resourceBaseHex": "0x72420000"
+    },
+    "mkt_fst": {
+      "dataSubdir": "72/9F/00",
+      "resourceBaseHex": "0x729F0000"
+    },
+    "mkt_wil": {
+      "dataSubdir": "72/A6/00",
+      "resourceBaseHex": "0x72A60000"
+    },
+    "ocn": {
+      "dataSubdir": "2B/03/00",
+      "resourceBaseHex": "0x2B030000"
+    },
+    "inn": {
+      "dataSubdir": "A0/9B/00",
+      "resourceBaseHex": "0xA09B0000"
+    },
+    "roc1": {
+      "dataSubdir": "AB/F4/00",
+      "resourceBaseHex": "0xABF40000"
+    }
+  },
+  "blobs": [
+    {
+      "resourceIdHex": "0x29D90001",
+      "family": "sea",
+      "primaryName": "sea0Town01",
+      "zoneNames": [
+        "sea0Town01",
+        "sea0Town01a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29D90002",
+      "family": "sea",
+      "primaryName": "sea0Town01",
+      "zoneNames": [
+        "sea0Town01",
+        "sea0Town01a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29D90003",
+      "family": "sea",
+      "primaryName": "sea0Field01",
+      "zoneNames": [
+        "sea0Field01",
+        "sea0Field01a",
+        "sea0Field02",
+        "sea0Field03",
+        "sea0Town01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29D90004",
+      "family": "sea",
+      "primaryName": "sea0Field02",
+      "zoneNames": [
+        "sea0Field02",
+        "sea0Field02a",
+        "sea0Hamlet01",
+        "sea0Hamlet01a",
+        "sea0Hamlet01b"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29D90005",
+      "family": "sea",
+      "primaryName": "sea0Field03",
+      "zoneNames": [
+        "sea0Field03",
+        "sea0Field03a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29D90006",
+      "family": "sea",
+      "primaryName": "sea0Field04",
+      "zoneNames": [
+        "sea0Dungeon06",
+        "sea0Field02",
+        "sea0Field03",
+        "sea0Field04"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29D90007",
+      "family": "sea",
+      "primaryName": "sea0Field05",
+      "zoneNames": [
+        "sea0Field05"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29D90008",
+      "family": "sea",
+      "primaryName": null,
+      "zoneNames": [
+        "sea0Dungeon01",
+        "sea0Field02"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29D90009",
+      "family": "sea",
+      "primaryName": "sea0Dungeon02",
+      "zoneNames": [
+        "sea0Dungeon02"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29D9000A",
+      "family": "sea",
+      "primaryName": "sea0Dungeon03",
+      "zoneNames": [
+        "sea0Dungeon03",
+        "sea0Field03"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29D9000B",
+      "family": "sea",
+      "primaryName": "sea0Dungeon04",
+      "zoneNames": [
+        "sea0Dungeon04",
+        "sea0Field01a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29D9000C",
+      "family": "sea",
+      "primaryName": "sea0Dungeon05",
+      "zoneNames": [
+        "sea0Dungeon05"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29D9000D",
+      "family": "sea",
+      "primaryName": "sea0Dungeon06",
+      "zoneNames": [
+        "sea0Dungeon06"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B00001",
+      "family": "fst",
+      "primaryName": "fst0Town01a",
+      "zoneNames": [
+        "fst0Town01",
+        "fst0Town01a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B00002",
+      "family": "fst",
+      "primaryName": "fst0Town01a",
+      "zoneNames": [
+        "fst0Town01",
+        "fst0Town01a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B00003",
+      "family": "fst",
+      "primaryName": "fst0Field01",
+      "zoneNames": [
+        "fst0Battle01",
+        "fst0Battle02",
+        "fst0Battle03",
+        "fst0Battle04",
+        "fst0Battle05",
+        "fst0Field01",
+        "fst0Field01a",
+        "fst0Field02",
+        "fst0Field03",
+        "fst0Field04",
+        "fst0Field05",
+        "fst0Town01",
+        "fst0Town01a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B00004",
+      "family": "fst",
+      "primaryName": "fst0Field02",
+      "zoneNames": [
+        "fst0Field02"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B00005",
+      "family": "fst",
+      "primaryName": "fst0Field03",
+      "zoneNames": [
+        "fst0Field03",
+        "fst0Field03a",
+        "fst0Hamlet01",
+        "fst0Hamlet01a",
+        "fst0Hamlet01b"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B00006",
+      "family": "fst",
+      "primaryName": "fst0Field04",
+      "zoneNames": [
+        "fst0Field04",
+        "fst0Field04a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B00007",
+      "family": "fst",
+      "primaryName": "fst0Field05",
+      "zoneNames": [
+        "fst0Field05",
+        "fst0Field05a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B00008",
+      "family": "fst",
+      "primaryName": "fst0Dungeon01",
+      "zoneNames": [
+        "fst0Dungeon01",
+        "fst0Field03"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B00009",
+      "family": "fst",
+      "primaryName": "fst0Dungeon02",
+      "zoneNames": [
+        "fst0Dungeon02",
+        "fst0Field01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B0000A",
+      "family": "fst",
+      "primaryName": "fst0Dungeon03",
+      "zoneNames": [
+        "fst0Dungeon03",
+        "fst0Field05a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B0000B",
+      "family": "fst",
+      "primaryName": "fst0Dungeon04",
+      "zoneNames": [
+        "fst0Dungeon04",
+        "fst0Field02"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B0000C",
+      "family": "fst",
+      "primaryName": "fst0Dungeon05",
+      "zoneNames": [
+        "fst0Dungeon05",
+        "fst0Field03"
+      ]
+    },
+    {
+      "resourceIdHex": "0x29B0000D",
+      "family": "fst",
+      "primaryName": "fst0Dungeon06",
+      "zoneNames": [
+        "fst0Dungeon06",
+        "fst0Field04"
+      ]
+    },
+    {
+      "resourceIdHex": "0x28D90001",
+      "family": "roc",
+      "primaryName": "roc0Field01",
+      "zoneNames": [
+        "roc0Field01",
+        "roc0Field03",
+        "roc0Field04",
+        "roc0Field05"
+      ]
+    },
+    {
+      "resourceIdHex": "0x28D90002",
+      "family": "roc",
+      "primaryName": "roc0Field02",
+      "zoneNames": [
+        "roc0Field01",
+        "roc0Field02",
+        "roc0Field02a",
+        "roc0Field02b",
+        "roc0Field02c"
+      ]
+    },
+    {
+      "resourceIdHex": "0x28D90003",
+      "family": "roc",
+      "primaryName": "roc0Field03",
+      "zoneNames": [
+        "roc0Field01",
+        "roc0Field03"
+      ]
+    },
+    {
+      "resourceIdHex": "0x28D90004",
+      "family": "roc",
+      "primaryName": "roc0Field04",
+      "zoneNames": [
+        "roc0Field04"
+      ]
+    },
+    {
+      "resourceIdHex": "0x28D90005",
+      "family": "roc",
+      "primaryName": "roc0Field05",
+      "zoneNames": [
+        "roc0Field01",
+        "roc0Field05"
+      ]
+    },
+    {
+      "resourceIdHex": "0x28D90009",
+      "family": "roc",
+      "primaryName": "roc0Dungeon04",
+      "zoneNames": [
+        "roc0Dungeon04",
+        "roc0Field04"
+      ]
+    },
+    {
+      "resourceIdHex": "0x28D9000B",
+      "family": "roc",
+      "primaryName": "roc0Dungeon06",
+      "zoneNames": [
+        "roc0Dungeon06"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A0001",
+      "family": "wil",
+      "primaryName": "wil0Town01",
+      "zoneNames": [
+        "wil0Battle01",
+        "wil0Battle02",
+        "wil0Battle03",
+        "wil0Battle04",
+        "wil0Battle05",
+        "wil0Field01",
+        "wil0Town01",
+        "wil0Town01a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A0003",
+      "family": "wil",
+      "primaryName": "wil0Town01a",
+      "zoneNames": [
+        "wil0Battle01",
+        "wil0Battle02",
+        "wil0Battle03",
+        "wil0Battle04",
+        "wil0Battle05",
+        "wil0Town01",
+        "wil0Town01a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A0004",
+      "family": "wil",
+      "primaryName": "wil0Field01",
+      "zoneNames": [
+        "wil0Field01",
+        "wil0Field01a",
+        "wil0Field03",
+        "wil0Town01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A0005",
+      "family": "wil",
+      "primaryName": "wil0Field02",
+      "zoneNames": [
+        "wil0Field01",
+        "wil0Field02",
+        "wil0Field02a",
+        "wil0Hamlet01",
+        "wil0Hamlet01a",
+        "wil0Hamlet01b"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A0006",
+      "family": "wil",
+      "primaryName": "wil0Field03",
+      "zoneNames": [
+        "wil0Dungeon04",
+        "wil0Field03",
+        "wil0Field03a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A0007",
+      "family": "wil",
+      "primaryName": "wil0Field04",
+      "zoneNames": [
+        "wil0Field01",
+        "wil0Field04"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A0008",
+      "family": "wil",
+      "primaryName": "wil0Field05",
+      "zoneNames": [
+        "wil0Field02a",
+        "wil0Field05",
+        "wil0Field05a",
+        "wil0Field05b"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A0009",
+      "family": "wil",
+      "primaryName": "wil0Dungeon01",
+      "zoneNames": [
+        "wil0Dungeon01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A000A",
+      "family": "wil",
+      "primaryName": "wil0Dungeon02",
+      "zoneNames": [
+        "wil0Dungeon02",
+        "wil0Field01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A000B",
+      "family": "wil",
+      "primaryName": "wil0Dungeon03",
+      "zoneNames": [
+        "wil0Dungeon03",
+        "wil0Field02a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A000C",
+      "family": "wil",
+      "primaryName": "wil0Dungeon04",
+      "zoneNames": [
+        "wil0Dungeon04",
+        "wil0Field03"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A000D",
+      "family": "wil",
+      "primaryName": "wil0Dungeon05",
+      "zoneNames": [
+        "wil0Dungeon05"
+      ]
+    },
+    {
+      "resourceIdHex": "0x615A000E",
+      "family": "wil",
+      "primaryName": "wil0Dungeon06",
+      "zoneNames": [
+        "wil0Dungeon06"
+      ]
+    },
+    {
+      "resourceIdHex": "0x03E70001",
+      "family": "lak",
+      "primaryName": "lak0Field01",
+      "zoneNames": [
+        "lak0Field01",
+        "lak0Field01a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x03E7000B",
+      "family": "lak",
+      "primaryName": "lak0Dungeon01",
+      "zoneNames": [
+        "lak0Dungeon01",
+        "lak0Dungeon01a"
+      ]
+    },
+    {
+      "resourceIdHex": "0x72420000",
+      "family": "mkt_sea",
+      "primaryName": "sea0Event01",
+      "zoneNames": [
+        "sea0Event01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x72420001",
+      "family": "mkt_sea",
+      "primaryName": "sea0Event01",
+      "zoneNames": [
+        "sea0Event01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x72420002",
+      "family": "mkt_sea",
+      "primaryName": "sea0Market01",
+      "zoneNames": [
+        "sea0Market01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x72420007",
+      "family": "mkt_sea",
+      "primaryName": "sea0Event01",
+      "zoneNames": [
+        "sea0Event01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x72420008",
+      "family": "mkt_sea",
+      "primaryName": "sea0Event01",
+      "zoneNames": [
+        "sea0Event01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x72420009",
+      "family": "mkt_sea",
+      "primaryName": "sea0Market01",
+      "zoneNames": [
+        "sea0Market01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x7242000A",
+      "family": "mkt_sea",
+      "primaryName": "sea0Market01",
+      "zoneNames": [
+        "sea0Market01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x729F0000",
+      "family": "mkt_fst",
+      "primaryName": "fst0Event01",
+      "zoneNames": [
+        "fst0Event01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x729F0001",
+      "family": "mkt_fst",
+      "primaryName": "fst0Event01",
+      "zoneNames": [
+        "fst0Event01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x729F0007",
+      "family": "mkt_fst",
+      "primaryName": "sea0Market01",
+      "zoneNames": [
+        "fst0Market01",
+        "sea0Market01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x729F0008",
+      "family": "mkt_fst",
+      "primaryName": "fst0Market01",
+      "zoneNames": [
+        "fst0Market01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x72A60000",
+      "family": "mkt_wil",
+      "primaryName": "wil0Event01",
+      "zoneNames": [
+        "wil0Event01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x72A60001",
+      "family": "mkt_wil",
+      "primaryName": "wil0Event01",
+      "zoneNames": [
+        "wil0Event01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x72A60007",
+      "family": "mkt_wil",
+      "primaryName": "wil0Event01",
+      "zoneNames": [
+        "wil0Event01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x72A60008",
+      "family": "mkt_wil",
+      "primaryName": "wil0Market01",
+      "zoneNames": [
+        "wil0Market01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x72A60009",
+      "family": "mkt_wil",
+      "primaryName": "sea0Market01",
+      "zoneNames": [
+        "sea0Market01",
+        "wil0Market01"
+      ]
+    },
+    {
+      "resourceIdHex": "0x2B030001",
+      "family": "ocn",
+      "primaryName": "ocn0Battle01",
+      "zoneNames": [
+        "ocn0Battle01",
+        "ocn0Battle02",
+        "ocn0Battle03",
+        "ocn0Battle04",
+        "ocn0Battle05"
+      ]
+    },
+    {
+      "resourceIdHex": "0xA09B0000",
+      "family": "inn",
+      "primaryName": "prv0Inn01",
+      "zoneNames": [
+        "prv0Inn01"
+      ]
+    },
+    {
+      "resourceIdHex": "0xA09B0001",
+      "family": "inn",
+      "primaryName": "prv0Inn01",
+      "zoneNames": [
+        "prv0Inn01"
+      ]
+    },
+    {
+      "resourceIdHex": "0xA09B0002",
+      "family": "inn",
+      "primaryName": "prv0Inn01",
+      "zoneNames": [
+        "prv0Inn01"
+      ]
+    },
+    {
+      "resourceIdHex": "0xABF40000",
+      "family": "roc1",
+      "primaryName": null,
+      "zoneNames": [
+        "roc1Field01",
+        "roc1Field01a",
+        "roc1Field01b"
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "layoutId": 101,
+      "family": "sea",
+      "usage": 1,
+      "placeNameId": 1001,
+      "slotName": "sea0Field01",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 102,
+      "family": "sea",
+      "usage": 1,
+      "placeNameId": 1002,
+      "slotName": "sea0Field02",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 103,
+      "family": "sea",
+      "usage": 1,
+      "placeNameId": 1003,
+      "slotName": "sea0Field03",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 104,
+      "family": "sea",
+      "usage": 1,
+      "placeNameId": 1004,
+      "slotName": "sea0Field04",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 105,
+      "family": "sea",
+      "usage": 1,
+      "placeNameId": 115,
+      "slotName": "sea0Field05",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 111,
+      "family": "sea",
+      "usage": 2,
+      "placeNameId": 1101,
+      "slotName": "sea0Dungeon01",
+      "blobShipped": false
+    },
+    {
+      "layoutId": 112,
+      "family": "sea",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "sea0Dungeon02",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 113,
+      "family": "sea",
+      "usage": 2,
+      "placeNameId": 1113,
+      "slotName": "sea0Dungeon03",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 114,
+      "family": "sea",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "sea0Dungeon04",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 115,
+      "family": "sea",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "sea0Dungeon05",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 116,
+      "family": "sea",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "sea0Dungeon06",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 121,
+      "family": "sea",
+      "usage": 2,
+      "placeNameId": 1051,
+      "slotName": "sea0Town01",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 131,
+      "family": "sea",
+      "usage": 2,
+      "placeNameId": 1051,
+      "slotName": "sea0Town01a",
+      "blobShipped": false
+    },
+    {
+      "layoutId": 201,
+      "family": "roc",
+      "usage": 1,
+      "placeNameId": 4004,
+      "slotName": "roc0Field01",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 202,
+      "family": "roc",
+      "usage": 1,
+      "placeNameId": 4005,
+      "slotName": "roc0Field02",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 203,
+      "family": "roc",
+      "usage": 1,
+      "placeNameId": 4006,
+      "slotName": "roc0Field03",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 204,
+      "family": "roc",
+      "usage": 1,
+      "placeNameId": 4007,
+      "slotName": "roc0Field04",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 205,
+      "family": "roc",
+      "usage": 1,
+      "placeNameId": 4008,
+      "slotName": "roc0Field05",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 206,
+      "family": "roc",
+      "usage": 1,
+      "placeNameId": 4073,
+      "slotName": "roc0Field06",
+      "blobShipped": false
+    },
+    {
+      "layoutId": 211,
+      "family": "roc",
+      "usage": 2,
+      "placeNameId": 4102,
+      "slotName": "roc0Dungeon01",
+      "blobShipped": false
+    },
+    {
+      "layoutId": 212,
+      "family": "roc",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "roc0Dungeon02",
+      "blobShipped": false
+    },
+    {
+      "layoutId": 213,
+      "family": "roc",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "roc0Dungeon03",
+      "blobShipped": false
+    },
+    {
+      "layoutId": 214,
+      "family": "roc",
+      "usage": 2,
+      "placeNameId": 4104,
+      "slotName": "roc0Dungeon04",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 215,
+      "family": "roc",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "roc0Dungeon05",
+      "blobShipped": false
+    },
+    {
+      "layoutId": 216,
+      "family": "roc",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "roc0Dungeon06",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 221,
+      "family": "roc",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "roc0Town01",
+      "blobShipped": false
+    },
+    {
+      "layoutId": 231,
+      "family": "roc",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "roc0Town01a",
+      "blobShipped": false
+    },
+    {
+      "layoutId": 301,
+      "family": "fst",
+      "usage": 1,
+      "placeNameId": 2007,
+      "slotName": "fst0Field01",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 302,
+      "family": "fst",
+      "usage": 1,
+      "placeNameId": 2008,
+      "slotName": "fst0Field02",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 303,
+      "family": "fst",
+      "usage": 1,
+      "placeNameId": 2009,
+      "slotName": "fst0Field03",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 304,
+      "family": "fst",
+      "usage": 1,
+      "placeNameId": 2010,
+      "slotName": "fst0Field04",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 305,
+      "family": "fst",
+      "usage": 1,
+      "placeNameId": 2011,
+      "slotName": "fst0Field05",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 311,
+      "family": "fst",
+      "usage": 2,
+      "placeNameId": 2101,
+      "slotName": "fst0Dungeon01",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 312,
+      "family": "fst",
+      "usage": 2,
+      "placeNameId": 2113,
+      "slotName": "fst0Dungeon02",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 313,
+      "family": "fst",
+      "usage": 2,
+      "placeNameId": 2123,
+      "slotName": "fst0Dungeon03",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 314,
+      "family": "fst",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "fst0Dungeon04",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 315,
+      "family": "fst",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "fst0Dungeon05",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 316,
+      "family": "fst",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "fst0Dungeon06",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 321,
+      "family": "fst",
+      "usage": 2,
+      "placeNameId": 2001,
+      "slotName": "fst0Town01",
+      "blobShipped": false
+    },
+    {
+      "layoutId": 331,
+      "family": "fst",
+      "usage": 2,
+      "placeNameId": 2001,
+      "slotName": "fst0Town01a",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 401,
+      "family": "wil",
+      "usage": 1,
+      "placeNameId": 3001,
+      "slotName": "wil0Field01",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 402,
+      "family": "wil",
+      "usage": 1,
+      "placeNameId": 3002,
+      "slotName": "wil0Field02",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 403,
+      "family": "wil",
+      "usage": 1,
+      "placeNameId": 3003,
+      "slotName": "wil0Field03",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 404,
+      "family": "wil",
+      "usage": 1,
+      "placeNameId": 3004,
+      "slotName": "wil0Field04",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 405,
+      "family": "wil",
+      "usage": 1,
+      "placeNameId": 3005,
+      "slotName": "wil0Field05",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 411,
+      "family": "wil",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "wil0Dungeon01",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 412,
+      "family": "wil",
+      "usage": 2,
+      "placeNameId": 3101,
+      "slotName": "wil0Dungeon02",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 413,
+      "family": "wil",
+      "usage": 2,
+      "placeNameId": 3002,
+      "slotName": "wil0Dungeon03",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 414,
+      "family": "wil",
+      "usage": 2,
+      "placeNameId": 3112,
+      "slotName": "wil0Dungeon04",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 415,
+      "family": "wil",
+      "usage": 2,
+      "placeNameId": 3123,
+      "slotName": "wil0Dungeon05",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 416,
+      "family": "wil",
+      "usage": 2,
+      "placeNameId": 1501,
+      "slotName": "wil0Dungeon06",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 421,
+      "family": "wil",
+      "usage": 2,
+      "placeNameId": 3051,
+      "slotName": "wil0Town01",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 431,
+      "family": "wil",
+      "usage": 2,
+      "placeNameId": 3051,
+      "slotName": "wil0Town01a",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 501,
+      "family": "lak",
+      "usage": 1,
+      "placeNameId": 106,
+      "slotName": "lak0Field01",
+      "blobShipped": true
+    },
+    {
+      "layoutId": 511,
+      "family": "lak",
+      "usage": 2,
+      "placeNameId": 5014,
+      "slotName": "lak0Dungeon01",
+      "blobShipped": true
+    }
+  ],
+  "zoneBindings": [
+    {
+      "zoneId": 131,
+      "layoutId": 111,
+      "zoneName": "sea0Dungeon01",
+      "placeNameId": 1101,
+      "basis": "layout_slot"
+    },
+    {
+      "zoneId": 132,
+      "layoutId": 113,
+      "zoneName": "sea0Dungeon03",
+      "placeNameId": 1113,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 135,
+      "layoutId": 104,
+      "zoneName": "sea0Field04",
+      "placeNameId": 1004,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 139,
+      "layoutId": 105,
+      "zoneName": "sea0Field05",
+      "placeNameId": 115,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 143,
+      "layoutId": 201,
+      "zoneName": "roc0Field01",
+      "placeNameId": 4004,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 144,
+      "layoutId": 202,
+      "zoneName": "roc0Field02",
+      "placeNameId": 4005,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 145,
+      "layoutId": 203,
+      "zoneName": "roc0Field03",
+      "placeNameId": 4006,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 147,
+      "layoutId": 204,
+      "zoneName": "roc0Field04",
+      "placeNameId": 4007,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 148,
+      "layoutId": 205,
+      "zoneName": "roc0Field05",
+      "placeNameId": 4008,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 151,
+      "layoutId": 302,
+      "zoneName": "fst0Field02",
+      "placeNameId": 2008,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 153,
+      "layoutId": 304,
+      "zoneName": "fst0Field04",
+      "placeNameId": 2010,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 157,
+      "layoutId": 311,
+      "zoneName": "fst0Dungeon01",
+      "placeNameId": 2101,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 158,
+      "layoutId": 312,
+      "zoneName": "fst0Dungeon02",
+      "placeNameId": 2113,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 159,
+      "layoutId": 313,
+      "zoneName": "fst0Dungeon03",
+      "placeNameId": 2123,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 173,
+      "layoutId": 404,
+      "zoneName": "wil0Field04",
+      "placeNameId": 3004,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 174,
+      "layoutId": 405,
+      "zoneName": "wil0Field05",
+      "placeNameId": 3005,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 176,
+      "layoutId": 412,
+      "zoneName": "wil0Dungeon02",
+      "placeNameId": 3101,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 178,
+      "layoutId": 414,
+      "zoneName": "wil0Dungeon04",
+      "placeNameId": 3112,
+      "basis": "blob_primary"
+    },
+    {
+      "zoneId": 231,
+      "layoutId": 211,
+      "zoneName": "roc0Dungeon01",
+      "placeNameId": 4102,
+      "basis": "layout_slot"
+    }
+  ]
+}

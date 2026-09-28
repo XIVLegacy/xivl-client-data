@@ -1,0 +1,9 @@
+{
+    "version":  "2012.09.19.0001",
+    "gameVersion":  "1.23b",
+    "sourceType":  "decoded_csv",
+    "sourcePath":  "https://github.com/XIVLegacy/xivl-tools (first-party extraction; client game.ver 2012.09.19.0001)",
+    "csvPath":  "csv",
+    "tableCount":  803,
+    "totalBytes":  70029056
+}

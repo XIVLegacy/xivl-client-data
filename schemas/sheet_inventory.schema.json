@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/XIVLegacy/xivl-client-data/schemas/sheet_inventory.schema.json",
+  "title": "XIVLegacy Client Data Sheet Inventory",
+  "description": "Rows record the canonical sheet inventory in manifests/sheet_inventory.csv; tools/validate_corpus.py checks the cross-field and referential invariants (resource_id_hex equals resource_id, unique name-sorted rows, correspondence with csv/) because JSON Schema cannot express them.",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "required": [
+      "name",
+      "resource_id",
+      "resource_id_hex",
+      "source"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_/-]+$"
+      },
+      "resource_id": {
+        "type": "string",
+        "pattern": "^(0|[1-9][0-9]*)$"
+      },
+      "resource_id_hex": {
+        "type": "string",
+        "pattern": "^0x[0-9A-F]{8}$"
+      },
+      "source": {
+        "enum": ["game_schema", "var_schema", "extrasheets"]
+      }
+    }
+  }
+}

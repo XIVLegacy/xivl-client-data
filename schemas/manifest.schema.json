@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/XIVLegacy/xivl-client-data/schemas/manifest.schema.json",
+  "title": "XIVLegacy Client Data Manifest",
+  "type": "object",
+  "required": [
+    "version",
+    "gameVersion",
+    "sourceType",
+    "sourcePath",
+    "csvPath",
+    "tableCount",
+    "totalBytes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "gameVersion": {
+      "type": "string"
+    },
+    "sourceType": {
+      "const": "decoded_csv"
+    },
+    "sourcePath": {
+      "type": "string"
+    },
+    "csvPath": {
+      "const": "csv"
+    },
+    "tableCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "totalBytes": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}
