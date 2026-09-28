@@ -83,6 +83,48 @@ def _san(records: list[tuple[int, bytes]], trailing: bytes = b"") -> bytes:
     return b"sane" + bytes(byte ^ extractor.XOR_KEY for byte in decoded_tail)
 
 
+def _check_schema_equality(schema: dict, attestation: dict) -> None:
+    cases = (
+        (True, 1, False, "boolean versus number"),
+        (False, 0, False, "false versus zero"),
+        (1.0, 1, True, "equal numeric representations"),
+        (2, 1, False, "different numbers"),
+        ({"a": [True]}, {"a": [1]}, False, "nested boolean"),
+        ({"a": [1.0]}, {"a": [1]}, True, "nested number"),
+        ({"a": 1, "b": None}, {"b": None, "a": 1.0}, True, "object order"),
+        ([1, 2], [1], False, "array length"),
+        (9007199254740993, 9007199254740992.0, False, "large integer precision"),
+    )
+    for actual, expected, equal, label in cases:
+        for keyword in ("const", "enum"):
+            rule = {keyword: expected if keyword == "const" else [expected]}
+            check(
+                f"JSON {keyword} equality: {label}",
+                (not _schema_check.validate(actual, rule)) == equal,
+            )
+    for nested in (False, True):
+        for value, accepted in ((1.0, True), (True, False), (2, False)):
+            mutated = copy.deepcopy(attestation)
+            target = mutated["check"] if nested else mutated
+            field = "version" if nested else "schemaVersion"
+            target[field] = value
+            check(
+                f"attestation {field} JSON number {value!r}",
+                (not _schema_check.validate(mutated, schema)) == accepted,
+            )
+
+    for values, unique, label in (
+        ([True, 1], True, "boolean and number are distinct"),
+        ([1, 1.0], False, "equal numbers are duplicates"),
+        ([{"a": [1]}, {"a": [1.0]}], False, "nested equal numbers"),
+        ([{"a": [True]}, {"a": [1]}], True, "nested boolean and number"),
+    ):
+        check(
+            f"JSON uniqueItems: {label}",
+            (not _schema_check.validate(values, {"uniqueItems": True})) == unique,
+        )
+
+
 def main() -> int:
     parsed = extractor.parse_san(_san([(0xF0000001, b"/Command/Test")]))
     check(
@@ -206,6 +248,7 @@ def main() -> int:
 
         schema = _schema_check.load_schema(SCHEMA)
         attestation = verifier.build_attestation("pass")
+        _check_schema_equality(schema, attestation)
         check(
             "passing attestation satisfies schema",
             not _schema_check.validate(attestation, schema),

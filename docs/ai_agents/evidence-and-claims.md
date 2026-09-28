@@ -69,8 +69,7 @@ repository-name:path/to/file
 
 Add a row, symbol, or section locator when useful. When byte identity matters,
 record a sha256 in the local provenance or checksum record rather than in the
-citation string. Commit hashes and date pins do not replace source locators: repository
-histories are rewritten before publication, and dated "as of" claims rot.
+citation string. Commit hashes and date pins do not replace source locators.
 Branch names, live working tree paths, and sibling paths are not citations.
 For the client CSV extraction, preserve version `2012.09.19.0001` and rely on
 the local manifest checksums for the committed bytes. Preserve source dates

@@ -113,6 +113,25 @@ def _type_matches(value: Any, expected: str) -> bool:
     raise SchemaError(f"unsupported schema type {expected!r}")
 
 
+def _json_equal(left: Any, right: Any) -> bool:
+    """Compare JSON values, keeping booleans distinct from equal-valued numbers."""
+    if isinstance(left, bool) or isinstance(right, bool):
+        return type(left) is type(right) and left == right
+    if isinstance(left, (int, float)) and isinstance(right, (int, float)):
+        return left == right
+    if type(left) is not type(right):
+        return False
+    if isinstance(left, list):
+        return len(left) == len(right) and all(
+            _json_equal(a, b) for a, b in zip(left, right)
+        )
+    if isinstance(left, dict):
+        return left.keys() == right.keys() and all(
+            _json_equal(value, right[key]) for key, value in left.items()
+        )
+    return left == right
+
+
 def validate(value: Any, schema: dict[str, Any]) -> list[str]:
     _check_schema_node(schema)
     errors: list[str] = []
@@ -126,9 +145,11 @@ def validate(value: Any, schema: dict[str, Any]) -> list[str]:
             ):
                 errors.append(f"{location}: type mismatch")
                 return
-        if "const" in node and current != node["const"]:
+        if "const" in node and not _json_equal(current, node["const"]):
             errors.append(f"{location}: const mismatch")
-        if "enum" in node and current not in node["enum"]:
+        if "enum" in node and not any(
+            _json_equal(current, member) for member in node["enum"]
+        ):
             errors.append(f"{location}: enum mismatch")
         if isinstance(current, str):
             if "pattern" in node and re.search(node["pattern"], current) is None:
@@ -138,9 +159,11 @@ def validate(value: Any, schema: dict[str, Any]) -> list[str]:
         if isinstance(current, list):
             if len(current) < node.get("minItems", 0):
                 errors.append(f"{location}: too few items")
-            if node.get("uniqueItems") and len(
-                {json.dumps(item, sort_keys=True) for item in current}
-            ) != len(current):
+            if node.get("uniqueItems") and any(
+                _json_equal(item, prior)
+                for index, item in enumerate(current)
+                for prior in current[:index]
+            ):
                 errors.append(f"{location}: duplicate items")
             item_schema = node.get("items")
             if isinstance(item_schema, dict):
