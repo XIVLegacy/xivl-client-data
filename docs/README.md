@@ -45,6 +45,7 @@ evidence, derived findings, and repository policy.
 - [raid-message-rows.md](raid-message-rows.md) - Dzemael progression and terminal text rows with dispatch unknowns.
 - [job-quest-combat-display-joins.md](job-quest-combat-display-joins.md) - selected job-fight actor-class and display-name joins.
 - [item-equipment-columns.md](item-equipment-columns.md) - retail item/equipment formula-column census, parameter-name joins, and grow-table boundary.
+- [item-compatibility-inspector.md](item-compatibility-inspector.md) - read-only item/skill compatibility join and equipment-eligibility limits.
 
 ## Repository policy
 

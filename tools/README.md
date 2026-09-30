@@ -109,6 +109,11 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   `test_item_equipment_crosswalk.py` mutation-tests source types, blank-vs-zero
   handling, parameter-key rules, row widths, retail anchors, and deterministic
   rendering.
+- `inspect_item_compatibility.py <catalog-id> <skill-id>` reads the item catalog
+  join, compatibility key, signed-s8 cell, and client factor without writing
+  files. See [item compatibility inspection](../docs/item-compatibility-inspector.md)
+  for source identities and equipment-eligibility limits. Run
+  `python tools/test_item_compatibility.py` for its synthetic join and error tests.
 - `compare_sheet_inventory.py` compares `manifests/sheet_inventory.csv` with an
   explicit retail client root, checks the game/var master references and every
   named sheet document, and reports XML sheet documents carrying names outside
