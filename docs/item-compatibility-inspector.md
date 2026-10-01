@@ -66,5 +66,46 @@ establish their declared identities against [tables.json](../manifests/tables.js
 using the hydrated-corpus validation procedure in
 [retail input validation](ai_agents/retail-input-validation.md#local-verification).
 The public-tree absence check validates metadata and public products, not CSV
-bytes. Without identity-verified retained inputs, retail validation is
-unperformed.
+bytes.
+
+## Retained retail row checks
+
+The retained input was extraction `2012.09.19.0001`, input ID
+`decoded-csv-corpus-1.23b`. Its archive size, SHA-256, private source revision,
+and expanded tree identity are pinned in
+[`private_csv_corpus.json`](../manifests/private_csv_corpus.json).
+`tools/verify_retail_csv_corpus.py --archive <archive>` verified the archive
+and every member; `tools/private_csv_corpus.py hydrate <archive> <csv-root>`
+hydrated a separate plain directory. `tools/validate_corpus.py` passed against
+that directory with `XIVL_CORPUS_ABSENT` unset.
+
+The producing inspector, verifier, hydration tool, and identity manifests were
+at revision `1326bc2d7d31559b8000dff8de3f510429301125`.
+The source identities are the `_item.csv`, `itemData.csv`, and
+`compatibility.csv` entries in [`tables.json`](../manifests/tables.json) at
+that revision. Their sizes and SHA-256 digests matched the retained files.
+
+A separate standard-library CSV reader used no inspector or lookup helpers.
+It joined `_item.csv` and `itemData.csv` by the same row ID, read the `s32` key
+at item-data column 48, and read the declared `s8` compatibility cell at
+column `8 + (N - 1)`. Columns below count from zero after the row-ID field.
+All 44 skills for each documented gear anchor matched the inspector CLI's
+row IDs, key, column, stored integer, and factor. One additional retained
+fractional result also matched, for 133 comparisons in total.
+
+| _item / itemData row ID | itemData column 48 / compatibility row ID | Skill N | Compatibility column | Stored s8 | Factor |
+|---|---|---:|---:|---:|---:|
+| `8030423` | `1001` | 1 | 8 | 100 | 1.00 |
+| `8030423` | `1001` | 44 | 51 | 100 | 1.00 |
+| `8011608` | `2004` | 1 | 8 | 100 | 1.00 |
+| `8011608` | `2004` | 29 | 36 | 0 | 0.00 |
+| `4030013` | `2131` | 44 | 51 | 0 | 0.00 |
+| `4050001` | `2001` | 1 | 8 | 1 | 0.01 |
+
+These are selected row observations, not an exhaustive item/skill validation.
+No negative value occurred in columns 8-51 across the 219 retained
+compatibility rows (9636 cells); negative-value and malformed-input behavior
+remain covered by the synthetic tests. No inspector defect was demonstrated.
+The local corpus check does not establish hosted retail-CI reproduction.
+Nonzero compatibility retains the equipment-eligibility and appearance limits
+above. CSV bytes and full row reports are not public products.
