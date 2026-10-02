@@ -109,6 +109,14 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   `test_item_equipment_crosswalk.py` mutation-tests source types, blank-vs-zero
   handling, parameter-key rules, row widths, retail anchors, and deterministic
   rendering.
+- `build_autotranslate_name_crosswalk.py` regenerates
+  `derived/autotranslate_name_crosswalk.json` from the authenticated fixed
+  phrase, item, place, zone, and layout sheets. It records source hashes,
+  locale fields, complete item joins, all place/zone/layout candidates, and
+  duplicate-name groups without selecting a wire token or ambiguous id. Its
+  `--check` mode verifies the repository-local tracked JSON; `test_autotranslate_name_crosswalk.py`
+  covers literal locale anchors, key/field separation, duplicate preservation,
+  and the Limsa candidate boundary when `XIVL_CSV_DIR` is set.
 - `inspect_item_compatibility.py <catalog-id> <skill-id>` reads the item catalog
   join, compatibility key, signed-s8 cell, and client factor without writing
   files. See [item compatibility inspection](../docs/item-compatibility-inspector.md)
