@@ -67,7 +67,7 @@ _ZONE_NAME_CATALOG = (
 
 
 def _load_catalog_zone_names() -> dict[str, str]:
-    """Load deterministic client-bindable zone names from the manifest."""
+    """Load zone names that the manifest binds to client data."""
     data = json.loads(_ZONE_NAME_CATALOG.read_text(encoding="utf-8"))
     return {str(b["zoneId"]): b["zoneName"] for b in data["zoneBindings"]}
 

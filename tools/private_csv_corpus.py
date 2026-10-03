@@ -509,7 +509,6 @@ def hydrate_archive(
     return shape
 
 
-# Short aliases make the read-only operations convenient for library callers.
 package = package_archive
 verify = inspect_archive
 hydrate = hydrate_archive

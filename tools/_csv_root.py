@@ -1,4 +1,4 @@
-"""Shared CSV-root selection for corpus-consuming tools."""
+"""Select the CSV corpus directory for the tools that read it."""
 
 from __future__ import annotations
 

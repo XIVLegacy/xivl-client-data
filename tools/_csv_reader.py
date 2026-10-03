@@ -101,7 +101,7 @@ def sql_bool(value: str) -> str:
 
 
 def sql_float(value: str) -> str:
-    """Coerce a CSV float value to a SQL float literal. Empty -> 0."""
+    """Convert a CSV float to a SQL literal. Empty values become 0."""
     if value == "":
         return "0"
     f = float(value)
@@ -111,7 +111,7 @@ def sql_float(value: str) -> str:
 
 
 def sql_string(value: str) -> str:
-    """Quote a CSV string for SQL. Empty -> empty string literal."""
+    """Quote a CSV string for SQL. Empty values become an empty string literal."""
     escaped = value.replace("\\", "\\\\").replace("'", "''")
     return f"'{escaped}'"
 

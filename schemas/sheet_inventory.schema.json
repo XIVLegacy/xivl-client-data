@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/XIVLegacy/xivl-client-data/schemas/sheet_inventory.schema.json",
   "title": "XIVLegacy Client Data Sheet Inventory",
-  "description": "Rows record the canonical sheet inventory in manifests/sheet_inventory.csv; tools/validate_corpus.py checks the cross-field and referential invariants (resource_id_hex equals resource_id, unique name-sorted rows, correspondence with csv/) because JSON Schema cannot express them.",
+  "description": "Rows describe the canonical sheet inventory in manifests/sheet_inventory.csv. tools/validate_corpus.py checks constraints that JSON Schema cannot express: resource_id_hex equals resource_id, rows are unique and sorted by name, and entries correspond to csv/.",
   "type": "array",
   "minItems": 1,
   "items": {

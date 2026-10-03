@@ -45,7 +45,7 @@ PLACEHOLDER_PLACE_NAME = 1501
 
 
 def read_corpus_csv(csv_dir: Path, name: str) -> list[list[str]]:
-    """Return data rows of a corpus CSV (header + type rows skipped)."""
+    """Return corpus CSV data rows, skipping the header and type rows."""
     with (csv_dir / name).open(newline="", encoding="utf-8") as fh:
         return list(csv.reader(fh))[2:]
 

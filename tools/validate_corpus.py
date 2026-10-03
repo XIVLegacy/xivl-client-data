@@ -768,7 +768,7 @@ def validate_docs_index() -> None:
             continue
         linked: set[str] = set()
         for target in re.findall(r"\]\(([^)]+)\)", readme.read_text(encoding="utf-8")):
-            target = target.split("#", 1)[0]  # drop any '#anchor'
+            target = target.split("#", 1)[0]
             if "/" in target or not target.endswith(".md") or target == "README.md":
                 continue  # cross-dir link, non-md, or self-reference
             linked.add(target)

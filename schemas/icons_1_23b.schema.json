@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/XIVLegacy/xivl-client-data/schemas/icons_1_23b.schema.json",
   "title": "XIVLegacy Client Data 1.23b Icon Corpus",
-  "description": "Manifest for the cold-stored 1.23b client icon export under archive/icons-1.23b/; tools/validate_corpus.py re-verifies sha256 values against on-disk files and, when present, the gitignored archive; counts are recomputed from derived/icons-1.23b/file-inventory.csv.",
+  "description": "Manifest for the 1.23b client icon export stored under archive/icons-1.23b/. tools/validate_corpus.py verifies sha256 values against files on disk and the ignored archive when present. Counts are recomputed from derived/icons-1.23b/file-inventory.csv.",
   "type": "object",
   "required": [
     "_provenance",
