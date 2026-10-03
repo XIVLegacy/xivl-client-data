@@ -13,7 +13,7 @@ Keep a comment only when it records one of these:
 - an API or file-format contract not inferable from names and types
 
 Keep source identifiers, evidence citations, extraction versions, and dates
-verbatim. Compress other survivors to one line when practical. Move a
+verbatim. Shorten the remaining comments to one line when practical. Move a
 longer contract to the owning documentation page or declaration and leave a
 short pointer. When unsure, keep one line and flag it in the maintainer review
 record.
@@ -30,7 +30,7 @@ Python docstrings and command help are runtime text. Keep them when they
 define a public tool or file-format contract. Tighten narration to one line while
 preserving any contract that users or mappings rely on.
 
-Examples of valid survivors:
+Examples of useful comments:
 
 ```text
 # Match build-manifest.ps1's CR/LF/CRLF line-terminator convention.
@@ -45,8 +45,8 @@ facts they are allowed to assert.
 
 ## Authored public prose
 
-Public tier prose, meaning the README, the docs index, and any
-page a stranger reads, uses a plain, direct register.
+Write public documentation in plain language. Name the file, operation,
+result, or remaining question directly.
 
 All tracked authored prose and structured descriptions state current evidence or
 contracts. They are not prompts, assignments, review summaries, checkout state,
@@ -58,8 +58,9 @@ batch-processing history. Retain dates that belong to external source or
 provenance metadata, actual evidence observations or captures, retail build or
 source identity, legal metadata, or required vendor artifact names.
 
-- Avoid over-hyphenation and invented compound modifiers. Established
-  technical terms keep their hyphens.
+- Avoid awkward compounds and strings of modifiers. Rewrite the sentence
+  rather than joining more words with hyphens. Preserve established technical
+  terms, identifiers, and quoted source text.
 - Use semicolons sparingly, preferring periods, commas, or short lists.
 - Cut parenthetical asides. If the aside matters, make it a short sentence
   of its own. If it does not, delete it.

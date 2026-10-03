@@ -17,8 +17,7 @@ belong in manifests, derived products, or evidence notes.
 `_item.csv` carries the base record, and `itemData.csv` carries typed game data.
 `xtx_itemName.csv` carries localized display text. Joining all three is
 required to reproduce a complete item record. Most other families are
-single-source. The multi-CSV helper is the reusable join pattern for the
-exceptions.
+single-source. The multi-CSV helper provides the join pattern for those exceptions.
 
 ## 3. Mapping complexity describes the required transform
 
@@ -38,8 +37,8 @@ specific missing relationship.
 This repo's `csv_to_sql.py` emits untracked fragments under `build/sql/`.
 A downstream consumer owns its DDL, server SQL, and any import or splice of
 those fragments.
-The client-data pipeline does not write into a server checkout or treat a
-server seed as its validation oracle.
+The client-data pipeline neither writes into a server checkout nor uses
+server seed data to validate client facts.
 
 ## 6. The 1.23b item IDs align with later retail IDs where content overlaps
 

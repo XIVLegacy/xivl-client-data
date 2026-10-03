@@ -1,9 +1,8 @@
 # Selected quest marker rows
 
-This page records literal fields from selected `quest_marker.csv` rows.
-Coordinates below are the stored values in columns 3/4, not a complete world
-position. The table does not establish actor identity, quest activation,
-terrain height, or a route.
+The selected `quest_marker.csv` rows below preserve literal field values.
+Columns 3/4 contain coordinates, not a complete world position. The rows do
+not establish actor identity, quest activation, terrain height, or a route.
 
 ## Rows 11001601-11001606
 

@@ -17,10 +17,9 @@ strength, source names, or corpus provenance.
 
 ### Documentation
 
-The public [documentation policy](ai_agents/README.md#documentation-policy) is
-canonical for authored documentation. The
-[evidence policy](ai_agents/evidence-and-claims.md) owns claim wording,
-citations, confidence, and provenance.
+The public [documentation policy](ai_agents/README.md#documentation-policy) covers authored documentation. The
+[evidence policy](ai_agents/evidence-and-claims.md) explains claims, citations,
+confidence, and provenance.
 
 ## Python
 

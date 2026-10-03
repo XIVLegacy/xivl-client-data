@@ -75,7 +75,7 @@ For the client CSV extraction, preserve version `2012.09.19.0001` and rely on
 the local manifest checksums for the committed bytes. Preserve source dates
 when they are part of the provenance record.
 
-A record that carries evidence but makes no citation-grade external claims stays in
+A record that carries evidence but makes no citable external claims stays in
 maintainer material until its citations are refreshed. Tracked documents
 should point to the repository's manifests, schemas, tools, and findings, not
 to a sibling checkout or a departed source tree.

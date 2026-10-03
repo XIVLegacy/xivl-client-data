@@ -1,10 +1,9 @@
 # Guildleve selected row values
 
-This note records selected values from the retail `passiveGL_craft.csv` and
-`guildleve.csv` tables using the column positions named by the existing
-mappings. The mapping names are not proof of how a client or server uses these
-values. No eligibility, objective-completion, reward, or runtime rule is
-inferred here.
+The selected `passiveGL_craft.csv` and `guildleve.csv` values below use the
+column positions defined by the existing mappings. Mapping names do not
+establish how a client or server uses the values. These rows alone cannot
+resolve eligibility, objective completion, rewards, or other runtime rules.
 
 CSV positions below are zero-based after the row ID, matching the index
 convention in `tools/mappings/passivegl_craft.py` and
