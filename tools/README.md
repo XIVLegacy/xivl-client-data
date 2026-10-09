@@ -117,6 +117,14 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   `--check` mode verifies the repository-local tracked JSON; `test_autotranslate_name_crosswalk.py`
   covers literal locale anchors, key/field separation, duplicate preservation,
   and the Limsa candidate boundary when `XIVL_CSV_DIR` is set.
+- `build_fixed_phrase_backing_rows.py --client-root <install>` compares the
+  fixed-phrase backing resources with the selected authenticated CSV root.
+  It generates `manifests/fixed_phrase_backing_rows.json` with per-locale key
+  counts, resource hashes, sparse row anchors and metadata differences.
+  `--check` reproduces the report without writing. Run
+  `test_fixed_phrase_backing_rows.py` for bounded sparse-row checks. The
+  [name crosswalk](../docs/autotranslate-name-crosswalk.md#backing-row-identities)
+  owns the native-key qualification.
 - `inspect_item_compatibility.py <catalog-id> <skill-id>` reads the item catalog
   join, compatibility key, signed-s8 cell, and client factor without writing
   files. See [item compatibility inspection](../docs/item-compatibility-inspector.md)

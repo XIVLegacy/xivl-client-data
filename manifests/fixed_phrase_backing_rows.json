@@ -1,0 +1,1220 @@
+{
+  "csvKeySha256": "46400CFAA651FD3A4F92D2A1AAB71AA1E1642FF131E962E94450A645C739E98F",
+  "evidenceClass": "client_extraction",
+  "extractionVersion": "2012.09.19.0001",
+  "locales": [
+    {
+      "anchors": [
+        {
+          "csvIterationIndex": 0,
+          "csvRecordId": "fixedPhrase:100",
+          "dataSpan": {
+            "end": 39,
+            "start": 0
+          },
+          "enabledOrdinal": 0,
+          "field0": 1,
+          "field1": "@",
+          "rangeBase": 100,
+          "rangeCount": 21,
+          "rangeIndex": 0,
+          "rowKey": 100
+        },
+        {
+          "csvIterationIndex": 54,
+          "csvRecordId": "fixedPhrase:311",
+          "dataSpan": {
+            "end": 3742,
+            "start": 3678
+          },
+          "enabledOrdinal": 54,
+          "field0": 3,
+          "field1": "",
+          "rangeBase": 311,
+          "rangeCount": 3,
+          "rangeIndex": 3,
+          "rowKey": 311
+        },
+        {
+          "csvIterationIndex": 99,
+          "csvRecordId": "fixedPhrase:430",
+          "dataSpan": {
+            "end": 6955,
+            "start": 6939
+          },
+          "enabledOrdinal": 99,
+          "field0": 4,
+          "field1": "",
+          "rangeBase": 430,
+          "rangeCount": 1,
+          "rangeIndex": 6,
+          "rowKey": 430
+        },
+        {
+          "csvIterationIndex": 278,
+          "csvRecordId": "fixedPhrase:974",
+          "dataSpan": {
+            "end": 16592,
+            "start": 16567
+          },
+          "enabledOrdinal": 278,
+          "field0": 9,
+          "field1": "",
+          "rangeBase": 940,
+          "rangeCount": 71,
+          "rangeIndex": 13,
+          "rowKey": 974
+        },
+        {
+          "csvIterationIndex": 436,
+          "csvRecordId": "fixedPhrase:1255",
+          "dataSpan": {
+            "end": 21938,
+            "start": 21918
+          },
+          "enabledOrdinal": 436,
+          "field0": 10,
+          "field1": "",
+          "rangeBase": 1255,
+          "rangeCount": 6,
+          "rangeIndex": 21,
+          "rowKey": 1255
+        },
+        {
+          "csvIterationIndex": 706,
+          "csvRecordId": "fixedPhrase:2104",
+          "dataSpan": {
+            "end": 31018,
+            "start": 30530
+          },
+          "enabledOrdinal": 706,
+          "field0": 21,
+          "field1": "xtx/placeName[1-1,102-106,1001-1004,1014-1031,1051-1051,1062-1062,1065-1065,1080-1081,1101-1101,1113-1113,1122-1122,1125-1125,1509-1516,1519-1519,2001-2001,2003-2004,2007-2011,2017-2036,2085-2085,2101-2101,2113-2113,2123-2123,2526-2530,2534-2534,3001-3005,3011-3029,3038-3038,3043-3044,3051-3051,3097-3097,3101-3101,3112-3112,3123-3123,3514-3519,3533-3533,4001-4001,4004-4008,4014-4032,4102-4102,4104-4104,4502-4503,4519-4519,5003-5009,5014-5015]#200",
+          "rangeBase": 2100,
+          "rangeCount": 15,
+          "rangeIndex": 37,
+          "rowKey": 2104
+        },
+        {
+          "csvIterationIndex": 708,
+          "csvRecordId": "fixedPhrase:2106",
+          "dataSpan": {
+            "end": 31226,
+            "start": 31113
+          },
+          "enabledOrdinal": 708,
+          "field0": 23,
+          "field1": "xtx/itemName[1000002-1000020,2000100-2002048,3000000-15000000]#500",
+          "rangeBase": 2100,
+          "rangeCount": 15,
+          "rangeIndex": 37,
+          "rowKey": 2106
+        },
+        {
+          "csvIterationIndex": 720,
+          "csvRecordId": "fixedPhrase:2118",
+          "dataSpan": {
+            "end": 32752,
+            "start": 32630
+          },
+          "enabledOrdinal": 719,
+          "field0": 35,
+          "field1": "xtx/command[22113-22114,29861-29861,tail-IVX]",
+          "rangeBase": 2116,
+          "rangeCount": 7,
+          "rangeIndex": 38,
+          "rowKey": 2118
+        },
+        {
+          "csvIterationIndex": 757,
+          "csvRecordId": "fixedPhrase:3025",
+          "dataSpan": {
+            "end": 34749,
+            "start": 34694
+          },
+          "enabledOrdinal": 755,
+          "field0": 50,
+          "field1": "#30",
+          "rangeBase": 3025,
+          "rangeCount": 1,
+          "rangeIndex": 44,
+          "rowKey": 3025
+        }
+      ],
+      "csvOnlyKeys": [
+        2115,
+        2133
+      ],
+      "declaredSlotCount": 2926,
+      "enableMatchesNonemptySpans": true,
+      "enabledKeySha256": "8521FD8DE39AD77F71DD6C734F6DE520A6B08E594981B3DDFBBAD00B2F74F96B",
+      "enabledRangeCount": 45,
+      "enabledRowCount": 756,
+      "field0MatchesCsvCount": 756,
+      "locale": "ja",
+      "nameColumns": [
+        2,
+        3
+      ],
+      "offsetEntryCount": 2926,
+      "sources": {
+        "data": {
+          "bytes": 34749,
+          "resourceId": "0x0B4508F0",
+          "sha256": "A518D206435024618E64D93B8F5595C9F1236CE1108C8085AF0560A5B40E94DA"
+        },
+        "enable": {
+          "bytes": 360,
+          "resourceId": "0x0B4508F1",
+          "sha256": "BAE12EDE849C94A4203483C7B85379914FA0226236BFD04315FCCEA3685495A3"
+        },
+        "offsets": {
+          "bytes": 11704,
+          "resourceId": "0x0B4508F2",
+          "sha256": "4BC9348E2488B84711F19B0F8BD4E3845565663D88A8F31C71D2AE78A57BBE93"
+        }
+      }
+    },
+    {
+      "anchors": [
+        {
+          "csvIterationIndex": 0,
+          "csvRecordId": "fixedPhrase:100",
+          "dataSpan": {
+            "end": 42,
+            "start": 0
+          },
+          "enabledOrdinal": 0,
+          "field0": 1,
+          "field1": "@",
+          "rangeBase": 100,
+          "rangeCount": 21,
+          "rangeIndex": 0,
+          "rowKey": 100
+        },
+        {
+          "csvIterationIndex": 54,
+          "csvRecordId": "fixedPhrase:311",
+          "dataSpan": {
+            "end": 1784,
+            "start": 1753
+          },
+          "enabledOrdinal": 54,
+          "field0": 3,
+          "field1": "",
+          "rangeBase": 311,
+          "rangeCount": 3,
+          "rangeIndex": 3,
+          "rowKey": 311
+        },
+        {
+          "csvIterationIndex": 99,
+          "csvRecordId": "fixedPhrase:430",
+          "dataSpan": {
+            "end": 3289,
+            "start": 3273
+          },
+          "enabledOrdinal": 99,
+          "field0": 4,
+          "field1": "",
+          "rangeBase": 430,
+          "rangeCount": 1,
+          "rangeIndex": 6,
+          "rowKey": 430
+        },
+        {
+          "csvIterationIndex": 278,
+          "csvRecordId": "fixedPhrase:974",
+          "dataSpan": {
+            "end": 8356,
+            "start": 8337
+          },
+          "enabledOrdinal": 278,
+          "field0": 9,
+          "field1": "",
+          "rangeBase": 940,
+          "rangeCount": 71,
+          "rangeIndex": 13,
+          "rowKey": 974
+        },
+        {
+          "csvIterationIndex": 436,
+          "csvRecordId": "fixedPhrase:1255",
+          "dataSpan": {
+            "end": 12336,
+            "start": 12316
+          },
+          "enabledOrdinal": 436,
+          "field0": 10,
+          "field1": "",
+          "rangeBase": 1255,
+          "rangeCount": 6,
+          "rangeIndex": 21,
+          "rowKey": 1255
+        },
+        {
+          "csvIterationIndex": 706,
+          "csvRecordId": "fixedPhrase:2104",
+          "dataSpan": {
+            "end": 19395,
+            "start": 18910
+          },
+          "enabledOrdinal": 706,
+          "field0": 21,
+          "field1": "xtx/placeName[1-1,102-106,1001-1004,1014-1031,1051-1051,1062-1062,1065-1065,1080-1081,1101-1101,1113-1113,1122-1122,1125-1125,1509-1516,1519-1519,2001-2001,2003-2004,2007-2011,2017-2036,2085-2085,2101-2101,2113-2113,2123-2123,2526-2530,2534-2534,3001-3005,3011-3029,3038-3038,3043-3044,3051-3051,3097-3097,3101-3101,3112-3112,3123-3123,3514-3519,3533-3533,4001-4001,4004-4008,4014-4032,4102-4102,4104-4104,4502-4503,4519-4519,5003-5009,5014-5015]#200",
+          "rangeBase": 2100,
+          "rangeCount": 15,
+          "rangeIndex": 37,
+          "rowKey": 2104
+        },
+        {
+          "csvIterationIndex": 708,
+          "csvRecordId": "fixedPhrase:2106",
+          "dataSpan": {
+            "end": 19582,
+            "start": 19483
+          },
+          "enabledOrdinal": 708,
+          "field0": 23,
+          "field1": "xtx/itemName[1000002-1000020,2000100-2002048,3000000-15000000]#500",
+          "rangeBase": 2100,
+          "rangeCount": 15,
+          "rangeIndex": 37,
+          "rowKey": 2106
+        },
+        {
+          "csvIterationIndex": 720,
+          "csvRecordId": "fixedPhrase:2118",
+          "dataSpan": {
+            "end": 20762,
+            "start": 20664
+          },
+          "enabledOrdinal": 719,
+          "field0": 35,
+          "field1": "xtx/command[22113-22114,29861-29861,tail-IVX]",
+          "rangeBase": 2116,
+          "rangeCount": 7,
+          "rangeIndex": 38,
+          "rowKey": 2118
+        },
+        {
+          "csvIterationIndex": 757,
+          "csvRecordId": "fixedPhrase:3025",
+          "dataSpan": {
+            "end": 22449,
+            "start": 22408
+          },
+          "enabledOrdinal": 755,
+          "field0": 50,
+          "field1": "#30",
+          "rangeBase": 3025,
+          "rangeCount": 1,
+          "rangeIndex": 44,
+          "rowKey": 3025
+        }
+      ],
+      "csvOnlyKeys": [
+        2115,
+        2133
+      ],
+      "declaredSlotCount": 2926,
+      "enableMatchesNonemptySpans": true,
+      "enabledKeySha256": "8521FD8DE39AD77F71DD6C734F6DE520A6B08E594981B3DDFBBAD00B2F74F96B",
+      "enabledRangeCount": 45,
+      "enabledRowCount": 756,
+      "field0MatchesCsvCount": 756,
+      "locale": "en",
+      "nameColumns": [
+        4,
+        5
+      ],
+      "offsetEntryCount": 2926,
+      "sources": {
+        "data": {
+          "bytes": 22449,
+          "resourceId": "0x0B4508EA",
+          "sha256": "255216F19CB34331F0ED774D62CAB53469EAEFBCB04D7E689BFE6392937684AA"
+        },
+        "enable": {
+          "bytes": 360,
+          "resourceId": "0x0B4508EB",
+          "sha256": "BAE12EDE849C94A4203483C7B85379914FA0226236BFD04315FCCEA3685495A3"
+        },
+        "offsets": {
+          "bytes": 11704,
+          "resourceId": "0x0B4508EC",
+          "sha256": "4A41467264A52F1A13CA4D5E80A21FC89F659DC3FB55A033D9979BAA9894B796"
+        }
+      }
+    },
+    {
+      "anchors": [
+        {
+          "csvIterationIndex": 0,
+          "csvRecordId": "fixedPhrase:100",
+          "dataSpan": {
+            "end": 40,
+            "start": 0
+          },
+          "enabledOrdinal": 0,
+          "field0": 1,
+          "field1": "@",
+          "rangeBase": 100,
+          "rangeCount": 21,
+          "rangeIndex": 0,
+          "rowKey": 100
+        },
+        {
+          "csvIterationIndex": 54,
+          "csvRecordId": "fixedPhrase:311",
+          "dataSpan": {
+            "end": 1876,
+            "start": 1850
+          },
+          "enabledOrdinal": 54,
+          "field0": 3,
+          "field1": "",
+          "rangeBase": 311,
+          "rangeCount": 3,
+          "rangeIndex": 3,
+          "rowKey": 311
+        },
+        {
+          "csvIterationIndex": 99,
+          "csvRecordId": "fixedPhrase:430",
+          "dataSpan": {
+            "end": 3618,
+            "start": 3602
+          },
+          "enabledOrdinal": 99,
+          "field0": 4,
+          "field1": "",
+          "rangeBase": 430,
+          "rangeCount": 1,
+          "rangeIndex": 6,
+          "rowKey": 430
+        },
+        {
+          "csvIterationIndex": 278,
+          "csvRecordId": "fixedPhrase:974",
+          "dataSpan": {
+            "end": 9438,
+            "start": 9417
+          },
+          "enabledOrdinal": 278,
+          "field0": 9,
+          "field1": "",
+          "rangeBase": 940,
+          "rangeCount": 71,
+          "rangeIndex": 13,
+          "rowKey": 974
+        },
+        {
+          "csvIterationIndex": 436,
+          "csvRecordId": "fixedPhrase:1255",
+          "dataSpan": {
+            "end": 13701,
+            "start": 13681
+          },
+          "enabledOrdinal": 436,
+          "field0": 10,
+          "field1": "",
+          "rangeBase": 1255,
+          "rangeCount": 6,
+          "rangeIndex": 21,
+          "rowKey": 1255
+        },
+        {
+          "csvIterationIndex": 706,
+          "csvRecordId": "fixedPhrase:2104",
+          "dataSpan": {
+            "end": 21090,
+            "start": 20595
+          },
+          "enabledOrdinal": 706,
+          "field0": 21,
+          "field1": "xtx/placeName[1-1,102-106,1001-1004,1014-1031,1051-1051,1062-1062,1065-1065,1080-1081,1101-1101,1113-1113,1122-1122,1125-1125,1509-1516,1519-1519,2001-2001,2003-2004,2007-2011,2017-2036,2085-2085,2101-2101,2113-2113,2123-2123,2526-2530,2534-2534,3001-3005,3011-3029,3038-3038,3043-3044,3051-3051,3097-3097,3101-3101,3112-3112,3123-3123,3514-3519,3533-3533,4001-4001,4004-4008,4014-4032,4102-4102,4104-4104,4502-4503,4519-4519,5003-5009,5014-5015]#200",
+          "rangeBase": 2100,
+          "rangeCount": 15,
+          "rangeIndex": 37,
+          "rowKey": 2104
+        },
+        {
+          "csvIterationIndex": 708,
+          "csvRecordId": "fixedPhrase:2106",
+          "dataSpan": {
+            "end": 21293,
+            "start": 21180
+          },
+          "enabledOrdinal": 708,
+          "field0": 23,
+          "field1": "xtx/itemName[1000002-1000020,2000100-2002048,3000000-15000000]#500",
+          "rangeBase": 2100,
+          "rangeCount": 15,
+          "rangeIndex": 37,
+          "rowKey": 2106
+        },
+        {
+          "csvIterationIndex": 720,
+          "csvRecordId": "fixedPhrase:2118",
+          "dataSpan": {
+            "end": 22581,
+            "start": 22471
+          },
+          "enabledOrdinal": 719,
+          "field0": 35,
+          "field1": "xtx/command[22113-22114,29861-29861,tail-IVX]",
+          "rangeBase": 2116,
+          "rangeCount": 7,
+          "rangeIndex": 38,
+          "rowKey": 2118
+        },
+        {
+          "csvIterationIndex": 757,
+          "csvRecordId": "fixedPhrase:3025",
+          "dataSpan": {
+            "end": 24188,
+            "start": 24128
+          },
+          "enabledOrdinal": 755,
+          "field0": 50,
+          "field1": "#30",
+          "rangeBase": 3025,
+          "rangeCount": 1,
+          "rangeIndex": 44,
+          "rowKey": 3025
+        }
+      ],
+      "csvOnlyKeys": [
+        2115,
+        2133
+      ],
+      "declaredSlotCount": 2926,
+      "enableMatchesNonemptySpans": true,
+      "enabledKeySha256": "8521FD8DE39AD77F71DD6C734F6DE520A6B08E594981B3DDFBBAD00B2F74F96B",
+      "enabledRangeCount": 45,
+      "enabledRowCount": 756,
+      "field0MatchesCsvCount": 756,
+      "locale": "de",
+      "nameColumns": [
+        6,
+        7
+      ],
+      "offsetEntryCount": 2926,
+      "sources": {
+        "data": {
+          "bytes": 24188,
+          "resourceId": "0x0B4508E7",
+          "sha256": "5BC177FD53769790857766BB085AE97BEE2161B603E7961549CB3E815DF1FF5D"
+        },
+        "enable": {
+          "bytes": 360,
+          "resourceId": "0x0B4508E8",
+          "sha256": "BAE12EDE849C94A4203483C7B85379914FA0226236BFD04315FCCEA3685495A3"
+        },
+        "offsets": {
+          "bytes": 11704,
+          "resourceId": "0x0B4508E9",
+          "sha256": "4DD0C11A55BB2BEBF3FFA1B72F4791B9AE087341B22E522D48FDE72340590A6E"
+        }
+      }
+    },
+    {
+      "anchors": [
+        {
+          "csvIterationIndex": 0,
+          "csvRecordId": "fixedPhrase:100",
+          "dataSpan": {
+            "end": 38,
+            "start": 0
+          },
+          "enabledOrdinal": 0,
+          "field0": 1,
+          "field1": "@",
+          "rangeBase": 100,
+          "rangeCount": 21,
+          "rangeIndex": 0,
+          "rowKey": 100
+        },
+        {
+          "csvIterationIndex": 54,
+          "csvRecordId": "fixedPhrase:311",
+          "dataSpan": {
+            "end": 2122,
+            "start": 2090
+          },
+          "enabledOrdinal": 54,
+          "field0": 3,
+          "field1": "",
+          "rangeBase": 311,
+          "rangeCount": 3,
+          "rangeIndex": 3,
+          "rowKey": 311
+        },
+        {
+          "csvIterationIndex": 99,
+          "csvRecordId": "fixedPhrase:430",
+          "dataSpan": {
+            "end": 4194,
+            "start": 4178
+          },
+          "enabledOrdinal": 99,
+          "field0": 4,
+          "field1": "",
+          "rangeBase": 430,
+          "rangeCount": 1,
+          "rangeIndex": 6,
+          "rowKey": 430
+        },
+        {
+          "csvIterationIndex": 278,
+          "csvRecordId": "fixedPhrase:974",
+          "dataSpan": {
+            "end": 11216,
+            "start": 11195
+          },
+          "enabledOrdinal": 278,
+          "field0": 9,
+          "field1": "",
+          "rangeBase": 940,
+          "rangeCount": 71,
+          "rangeIndex": 13,
+          "rowKey": 974
+        },
+        {
+          "csvIterationIndex": 436,
+          "csvRecordId": "fixedPhrase:1255",
+          "dataSpan": {
+            "end": 16026,
+            "start": 16006
+          },
+          "enabledOrdinal": 436,
+          "field0": 10,
+          "field1": "",
+          "rangeBase": 1255,
+          "rangeCount": 6,
+          "rangeIndex": 21,
+          "rowKey": 1255
+        },
+        {
+          "csvIterationIndex": 706,
+          "csvRecordId": "fixedPhrase:2104",
+          "dataSpan": {
+            "end": 23855,
+            "start": 23372
+          },
+          "enabledOrdinal": 706,
+          "field0": 21,
+          "field1": "xtx/placeName[1-1,102-106,1001-1004,1014-1031,1051-1051,1062-1062,1065-1065,1080-1081,1101-1101,1113-1113,1122-1122,1125-1125,1509-1516,1519-1519,2001-2001,2003-2004,2007-2011,2017-2036,2085-2085,2101-2101,2113-2113,2123-2123,2526-2530,2534-2534,3001-3005,3011-3029,3038-3038,3043-3044,3051-3051,3097-3097,3101-3101,3112-3112,3123-3123,3514-3519,3533-3533,4001-4001,4004-4008,4014-4032,4102-4102,4104-4104,4502-4503,4519-4519,5003-5009,5014-5015]#200",
+          "rangeBase": 2100,
+          "rangeCount": 15,
+          "rangeIndex": 37,
+          "rowKey": 2104
+        },
+        {
+          "csvIterationIndex": 708,
+          "csvRecordId": "fixedPhrase:2106",
+          "dataSpan": {
+            "end": 24042,
+            "start": 23941
+          },
+          "enabledOrdinal": 708,
+          "field0": 23,
+          "field1": "xtx/itemName[1000002-1000020,2000100-2002048,3000000-15000000]#500",
+          "rangeBase": 2100,
+          "rangeCount": 15,
+          "rangeIndex": 37,
+          "rowKey": 2106
+        },
+        {
+          "csvIterationIndex": 720,
+          "csvRecordId": "fixedPhrase:2118",
+          "dataSpan": {
+            "end": 25339,
+            "start": 25237
+          },
+          "enabledOrdinal": 719,
+          "field0": 35,
+          "field1": "xtx/command[22113-22114,29861-29861,tail-IVX]",
+          "rangeBase": 2116,
+          "rangeCount": 7,
+          "rangeIndex": 38,
+          "rowKey": 2118
+        },
+        {
+          "csvIterationIndex": 757,
+          "csvRecordId": "fixedPhrase:3025",
+          "dataSpan": {
+            "end": 27259,
+            "start": 27207
+          },
+          "enabledOrdinal": 755,
+          "field0": 50,
+          "field1": "#30",
+          "rangeBase": 3025,
+          "rangeCount": 1,
+          "rangeIndex": 44,
+          "rowKey": 3025
+        }
+      ],
+      "csvOnlyKeys": [
+        2115,
+        2133
+      ],
+      "declaredSlotCount": 2926,
+      "enableMatchesNonemptySpans": true,
+      "enabledKeySha256": "8521FD8DE39AD77F71DD6C734F6DE520A6B08E594981B3DDFBBAD00B2F74F96B",
+      "enabledRangeCount": 45,
+      "enabledRowCount": 756,
+      "field0MatchesCsvCount": 756,
+      "locale": "fr",
+      "nameColumns": [
+        8,
+        9
+      ],
+      "offsetEntryCount": 2926,
+      "sources": {
+        "data": {
+          "bytes": 27259,
+          "resourceId": "0x0B4508ED",
+          "sha256": "1C24778F39D9AEC27E7899F679D40A442AD6C6734DF27AAB1F08B5883E2A1F46"
+        },
+        "enable": {
+          "bytes": 360,
+          "resourceId": "0x0B4508EE",
+          "sha256": "BAE12EDE849C94A4203483C7B85379914FA0226236BFD04315FCCEA3685495A3"
+        },
+        "offsets": {
+          "bytes": 11704,
+          "resourceId": "0x0B4508EF",
+          "sha256": "6E37938E30C325E745DFE13B8047925493A36D607A1E47F8E2D1120260BDE374"
+        }
+      }
+    },
+    {
+      "anchors": [
+        {
+          "csvIterationIndex": 0,
+          "csvRecordId": "fixedPhrase:100",
+          "dataSpan": {
+            "end": 36,
+            "start": 0
+          },
+          "enabledOrdinal": 0,
+          "field0": 1,
+          "field1": "@",
+          "rangeBase": 100,
+          "rangeCount": 21,
+          "rangeIndex": 0,
+          "rowKey": 100
+        },
+        {
+          "csvIterationIndex": 54,
+          "csvRecordId": "fixedPhrase:311",
+          "dataSpan": {
+            "end": 1579,
+            "start": 1554
+          },
+          "enabledOrdinal": 54,
+          "field0": 3,
+          "field1": "",
+          "rangeBase": 311,
+          "rangeCount": 3,
+          "rangeIndex": 3,
+          "rowKey": 311
+        },
+        {
+          "csvIterationIndex": 278,
+          "csvRecordId": "fixedPhrase:974",
+          "dataSpan": {
+            "end": 6752,
+            "start": 6733
+          },
+          "enabledOrdinal": 247,
+          "field0": 9,
+          "field1": "",
+          "rangeBase": 940,
+          "rangeCount": 71,
+          "rangeIndex": 12,
+          "rowKey": 974
+        },
+        {
+          "csvIterationIndex": 436,
+          "csvRecordId": "fixedPhrase:1255",
+          "dataSpan": {
+            "end": 9397,
+            "start": 9380
+          },
+          "enabledOrdinal": 366,
+          "field0": 10,
+          "field1": "",
+          "rangeBase": 1255,
+          "rangeCount": 6,
+          "rangeIndex": 20,
+          "rowKey": 1255
+        },
+        {
+          "csvIterationIndex": 706,
+          "csvRecordId": "fixedPhrase:2104",
+          "dataSpan": {
+            "end": 14225,
+            "start": 13968
+          },
+          "enabledOrdinal": 580,
+          "field0": 21,
+          "field1": "xtx/placeName[102-106,1014-1029,1051-1051,1101-1101,1113-1113,1512-1516,2001-2001,2017-2036,2101-2101,2113-2113,2123-2123,2526-2529,3011-3029,3051-3051,3101-3101,3112-3112,3514-3518,4001-4001,4014-4032,4102-4102,5003-5006]#50",
+          "rangeBase": 2100,
+          "rangeCount": 23,
+          "rangeIndex": 35,
+          "rowKey": 2104
+        },
+        {
+          "csvIterationIndex": 708,
+          "csvRecordId": "fixedPhrase:2106",
+          "dataSpan": {
+            "end": 14411,
+            "start": 14313
+          },
+          "enabledOrdinal": 582,
+          "field0": 23,
+          "field1": "xtx/itemName[1000002-1000020,2000100-2002048,3000000-15000000]#200",
+          "rangeBase": 2100,
+          "rangeCount": 23,
+          "rangeIndex": 35,
+          "rowKey": 2106
+        },
+        {
+          "csvIterationIndex": 717,
+          "csvRecordId": "fixedPhrase:2115",
+          "dataSpan": {
+            "end": 15168,
+            "start": 15085
+          },
+          "enabledOrdinal": 591,
+          "field0": 32,
+          "field1": "xtx/command[27941-28120,tail-IVX]",
+          "rangeBase": 2100,
+          "rangeCount": 23,
+          "rangeIndex": 35,
+          "rowKey": 2115
+        },
+        {
+          "csvIterationIndex": 720,
+          "csvRecordId": "fixedPhrase:2118",
+          "dataSpan": {
+            "end": 15489,
+            "start": 15382
+          },
+          "enabledOrdinal": 594,
+          "field0": 35,
+          "field1": "xtx/command[22114-22114,29861-29861,29865-29872,tail-IVX]",
+          "rangeBase": 2100,
+          "rangeCount": 23,
+          "rangeIndex": 35,
+          "rowKey": 2118
+        },
+        {
+          "csvIterationIndex": 725,
+          "csvRecordId": "fixedPhrase:2133",
+          "dataSpan": {
+            "end": 15875,
+            "start": 15829
+          },
+          "enabledOrdinal": 599,
+          "field0": 50,
+          "field1": "#30",
+          "rangeBase": 2133,
+          "rangeCount": 1,
+          "rangeIndex": 36,
+          "rowKey": 2133
+        }
+      ],
+      "csvOnlyKeys": [
+        328,
+        329,
+        330,
+        331,
+        332,
+        417,
+        418,
+        419,
+        420,
+        421,
+        422,
+        423,
+        430,
+        517,
+        518,
+        519,
+        520,
+        717,
+        718,
+        719,
+        720,
+        721,
+        722,
+        723,
+        724,
+        725,
+        841,
+        842,
+        843,
+        844,
+        845,
+        1133,
+        1134,
+        1135,
+        1136,
+        1137,
+        1138,
+        1139,
+        1140,
+        1141,
+        1142,
+        1143,
+        1144,
+        1145,
+        1146,
+        1147,
+        1148,
+        1149,
+        1150,
+        1151,
+        1152,
+        1153,
+        1154,
+        1155,
+        1156,
+        1157,
+        1158,
+        1159,
+        1160,
+        1161,
+        1162,
+        1163,
+        1164,
+        1165,
+        1166,
+        1167,
+        1168,
+        1169,
+        1170,
+        1171,
+        1309,
+        1320,
+        1322,
+        1323,
+        1324,
+        1325,
+        1326,
+        1327,
+        1328,
+        1329,
+        1330,
+        1331,
+        1332,
+        1333,
+        1334,
+        1335,
+        1336,
+        1337,
+        1338,
+        1340,
+        1341,
+        1520,
+        1521,
+        1648,
+        1649,
+        1650,
+        1651,
+        1652,
+        1803,
+        2037,
+        2038,
+        2039,
+        2040,
+        2041,
+        2042,
+        2043,
+        2044,
+        2045,
+        2046,
+        2047,
+        2048,
+        2049,
+        2050,
+        2051,
+        2052,
+        2053,
+        2054,
+        2055,
+        2056,
+        2057,
+        2058,
+        2059,
+        2060,
+        2061,
+        2062,
+        2063,
+        2200,
+        2201,
+        2202,
+        2205,
+        2206,
+        2207,
+        2208,
+        2209,
+        2210,
+        2211,
+        2212,
+        2213,
+        2225,
+        2226,
+        2227,
+        2228,
+        2229,
+        2230,
+        2231,
+        2232,
+        2233,
+        2245,
+        2246,
+        2247,
+        2248,
+        2249,
+        2250,
+        2251,
+        2252,
+        2253,
+        3000,
+        3025
+      ],
+      "declaredSlotCount": 2926,
+      "enableMatchesNonemptySpans": true,
+      "enabledKeySha256": "A4A2A86512A2F896C0CA5E57920EE5BF64CB3E63C5EE39B89CBBE25B9971F261",
+      "enabledRangeCount": 37,
+      "enabledRowCount": 600,
+      "field0MatchesCsvCount": 600,
+      "locale": "chs",
+      "nameColumns": [
+        10,
+        11
+      ],
+      "offsetEntryCount": 2036,
+      "sources": {
+        "data": {
+          "bytes": 15875,
+          "resourceId": "0x0B450A02",
+          "sha256": "800A67542A2FCF8BE7C79A53E7FF878B55A0B6E22EA9FC59691C030F5407E3CD"
+        },
+        "enable": {
+          "bytes": 296,
+          "resourceId": "0x0B450A03",
+          "sha256": "444710DE4EE314B275F81C4CEF7BF15E3E36BB9B5C5AB9A524FBB644E9E95528"
+        },
+        "offsets": {
+          "bytes": 8144,
+          "resourceId": "0x0B450A04",
+          "sha256": "F8B88DAF6025C63D3F20BC0AD22CD83B4007E797B782D3A7E59688DEB805C2E7"
+        }
+      }
+    }
+  ],
+  "metadataDifferences": [
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/text_skillName[2-4,7-8,10-10,22-23,29-36,39-41]",
+        "de": "xtx/text_skillName[2-4,7-8,22-23,29-36,39-41]",
+        "en": "xtx/text_skillName[2-4,7-8,22-23,29-36,39-41]",
+        "fr": "xtx/text_skillName[2-4,7-8,22-23,29-36,39-41]",
+        "ja": "xtx/text_skillName[2-4,7-8,22-23,29-36,39-41]"
+      },
+      "csvField1": "xtx/text_skillName\\[2-4,7-8,22-23,29-36,39-41][@duplicate:7874782F746578745F736B696C6C4E616D655C5B322D342C372D382C31302D31302C32322D32332C32392D33362C33392D34315D]",
+      "rowKey": 2102
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/placeName[102-106,1014-1029,1051-1051,1101-1101,1113-1113,1512-1516,2001-2001,2017-2036,2101-2101,2113-2113,2123-2123,2526-2529,3011-3029,3051-3051,3101-3101,3112-3112,3514-3518,4001-4001,4014-4032,4102-4102,5003-5006]#50",
+        "de": "xtx/placeName[1-1,102-106,1001-1004,1014-1031,1051-1051,1062-1062,1065-1065,1080-1081,1101-1101,1113-1113,1122-1122,1125-1125,1509-1516,1519-1519,2001-2001,2003-2004,2007-2011,2017-2036,2085-2085,2101-2101,2113-2113,2123-2123,2526-2530,2534-2534,3001-3005,3011-3029,3038-3038,3043-3044,3051-3051,3097-3097,3101-3101,3112-3112,3123-3123,3514-3519,3533-3533,4001-4001,4004-4008,4014-4032,4102-4102,4104-4104,4502-4503,4519-4519,5003-5009,5014-5015]#200",
+        "en": "xtx/placeName[1-1,102-106,1001-1004,1014-1031,1051-1051,1062-1062,1065-1065,1080-1081,1101-1101,1113-1113,1122-1122,1125-1125,1509-1516,1519-1519,2001-2001,2003-2004,2007-2011,2017-2036,2085-2085,2101-2101,2113-2113,2123-2123,2526-2530,2534-2534,3001-3005,3011-3029,3038-3038,3043-3044,3051-3051,3097-3097,3101-3101,3112-3112,3123-3123,3514-3519,3533-3533,4001-4001,4004-4008,4014-4032,4102-4102,4104-4104,4502-4503,4519-4519,5003-5009,5014-5015]#200",
+        "fr": "xtx/placeName[1-1,102-106,1001-1004,1014-1031,1051-1051,1062-1062,1065-1065,1080-1081,1101-1101,1113-1113,1122-1122,1125-1125,1509-1516,1519-1519,2001-2001,2003-2004,2007-2011,2017-2036,2085-2085,2101-2101,2113-2113,2123-2123,2526-2530,2534-2534,3001-3005,3011-3029,3038-3038,3043-3044,3051-3051,3097-3097,3101-3101,3112-3112,3123-3123,3514-3519,3533-3533,4001-4001,4004-4008,4014-4032,4102-4102,4104-4104,4502-4503,4519-4519,5003-5009,5014-5015]#200",
+        "ja": "xtx/placeName[1-1,102-106,1001-1004,1014-1031,1051-1051,1062-1062,1065-1065,1080-1081,1101-1101,1113-1113,1122-1122,1125-1125,1509-1516,1519-1519,2001-2001,2003-2004,2007-2011,2017-2036,2085-2085,2101-2101,2113-2113,2123-2123,2526-2530,2534-2534,3001-3005,3011-3029,3038-3038,3043-3044,3051-3051,3097-3097,3101-3101,3112-3112,3123-3123,3514-3519,3533-3533,4001-4001,4004-4008,4014-4032,4102-4102,4104-4104,4502-4503,4519-4519,5003-5009,5014-5015]#200"
+      },
+      "csvField1": "xtx/placeName\\[1-1,102-106,1001-1004,1014-1031,1051-1051,1062-1062,1065-1065,1080-1081,1101-1101,1113-1113,1122-1122,1125-1125,1509-1516,1519-1519,2001-2001,2003-2004,2007-2011,2017-2036,2085-2085,2101-2101,2113-2113,2123-2123,2526-2530,2534-2534,3001-3005,3011-3029,3038-3038,3043-3044,3051-3051,3097-3097,3101-3101,3112-3112,3123-3123,3514-3519,3533-3533,4001-4001,4004-4008,4014-4032,4102-4102,4104-4104,4502-4503,4519-4519,5003-5009,5014-5015]#200[@duplicate:7874782F706C6163654E616D655C5B3130322D3130362C313031342D313032392C313035312D313035312C313130312D313130312C313131332D313131332C313531322D313531362C323030312D323030312C323031372D323033362C323130312D323130312C323131332D323131332C323132332D323132332C323532362D323532392C333031312D333032392C333035312D333035312C333130312D333130312C333131322D333131322C333531342D333531382C343030312D343030312C343031342D343033322C343130322D343130322C353030332D353030365D233530]",
+      "rowKey": 2104
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/displayName:noun[1000000-4000256,4000258-4019999]#50",
+        "de": "xtx/displayName:noun[1000000-4000256,4000258-4019999]#200",
+        "en": "xtx/displayName:noun[1000000-4000256,4000258-4019999]#200",
+        "fr": "xtx/displayName:noun[1000000-4000256,4000258-4019999]#200",
+        "ja": "xtx/displayName:noun[1000000-4000256,4000258-4019999]#200"
+      },
+      "csvField1": "xtx/displayName:noun\\[1000000-4000256,4000258-4019999]#200[@duplicate:7874782F646973706C61794E616D653A6E6F756E5C5B313030303030302D343030303235362C343030303235382D343031393939395D233530]",
+      "rowKey": 2105
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/itemName[1000002-1000020,2000100-2002048,3000000-15000000]#200",
+        "de": "xtx/itemName[1000002-1000020,2000100-2002048,3000000-15000000]#500",
+        "en": "xtx/itemName[1000002-1000020,2000100-2002048,3000000-15000000]#500",
+        "fr": "xtx/itemName[1000002-1000020,2000100-2002048,3000000-15000000]#500",
+        "ja": "xtx/itemName[1000002-1000020,2000100-2002048,3000000-15000000]#500"
+      },
+      "csvField1": "xtx/itemName\\[1000002-1000020,2000100-2002048,3000000-15000000]#500[@duplicate:7874782F6974656D4E616D655C5B313030303030322D313030303032302C323030303130302D323030323034382C333030303030302D31353030303030305D23323030]",
+      "rowKey": 2106
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/command[29467-29493,tail-IVX]",
+        "de": "xtx/command[27120-27125,27130-27130,27160-27170,27200-27205,27207-27207,27240-27250,27280-27286,27288-27290,27320-27330,27360-27369]",
+        "en": "xtx/command[27120-27125,27130-27130,27160-27170,27200-27205,27207-27207,27240-27250,27280-27286,27288-27290,27320-27330,27360-27369]",
+        "fr": "xtx/command[27120-27125,27130-27130,27160-27170,27200-27205,27207-27207,27240-27250,27280-27286,27288-27290,27320-27330,27360-27369]",
+        "ja": "xtx/command[27120-27125,27130-27130,27160-27170,27200-27205,27207-27207,27240-27250,27280-27286,27288-27290,27320-27330,27360-27369]"
+      },
+      "csvField1": "xtx/command\\[27120-27125,27130-27130,27160-27170,27200-27205,27207-27207,27240-27250,27280-27286,27288-27290,27320-27330,27360-27369][@duplicate:7874782F636F6D6D616E645C5B32393436372D32393439332C7461696C2D4956585D]",
+      "rowKey": 2108
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/command[22113-22113,26681-26860,tail-IVX]",
+        "de": "xtx/command[22113-22113,27140-27159]",
+        "en": "xtx/command[22113-22113,27140-27159]",
+        "fr": "xtx/command[22113-22113,27140-27159]",
+        "ja": "xtx/command[22113-22113,27140-27159]"
+      },
+      "csvField1": "xtx/command\\[22113-22113,27140-27159][@duplicate:7874782F636F6D6D616E645C5B32323131332D32323131332C32363638312D32363836302C7461696C2D4956585D]",
+      "rowKey": 2110
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/command[22113-22113,26501-26680,tail-IVX]",
+        "de": "xtx/command[22113-22113,27100-27119]",
+        "en": "xtx/command[22113-22113,27100-27119]",
+        "fr": "xtx/command[22113-22113,27100-27119]",
+        "ja": "xtx/command[22113-22113,27100-27119]"
+      },
+      "csvField1": "xtx/command\\[22113-22113,27100-27119][@duplicate:7874782F636F6D6D616E645C5B32323131332D32323131332C32363530312D32363638302C7461696C2D4956585D]",
+      "rowKey": 2111
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/command[22113-22113,26861-27040,tail-IVX]",
+        "de": "xtx/command[22113-22113,27180-27199]",
+        "en": "xtx/command[22113-22113,27180-27199]",
+        "fr": "xtx/command[22113-22113,27180-27199]",
+        "ja": "xtx/command[22113-22113,27180-27199]"
+      },
+      "csvField1": "xtx/command\\[22113-22113,27180-27199][@duplicate:7874782F636F6D6D616E645C5B32323131332D32323131332C32363836312D32373034302C7461696C2D4956585D]",
+      "rowKey": 2112
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/command[22108-22108,22113-22113,22310-22310,27401-27580,tail-IVX]",
+        "de": "xtx/command[22113-22113,27220-27239,27258-27259]",
+        "en": "xtx/command[22113-22113,27220-27239,27258-27259]",
+        "fr": "xtx/command[22113-22113,27220-27239,27258-27259]",
+        "ja": "xtx/command[22113-22113,27220-27239,27258-27259]"
+      },
+      "csvField1": "xtx/command\\[22113-22113,27220-27239,27258-27259][@duplicate:7874782F636F6D6D616E645C5B32323130382D32323130382C32323131332D32323131332C32323331302D32323331302C32373430312D32373538302C7461696C2D4956585D]",
+      "rowKey": 2113
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/command[22113-22113,27581-27760,tail-IVX]",
+        "de": "xtx/command[22113-22113,27260-27279]",
+        "en": "xtx/command[22113-22113,27260-27279]",
+        "fr": "xtx/command[22113-22113,27260-27279]",
+        "ja": "xtx/command[22113-22113,27260-27279]"
+      },
+      "csvField1": "xtx/command\\[22113-22113,27260-27279][@duplicate:7874782F636F6D6D616E645C5B32323131332D32323131332C32373538312D32373736302C7461696C2D4956585D]",
+      "rowKey": 2114
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/command[22113-22113,22302-22302,28461-28800,tail-IVX]",
+        "de": "xtx/command[22113-22113,27300-27319]",
+        "en": "xtx/command[22113-22113,27300-27319]",
+        "fr": "xtx/command[22113-22113,27300-27319]",
+        "ja": "xtx/command[22113-22113,27300-27319]"
+      },
+      "csvField1": "xtx/command\\[22113-22113,27300-27319][@duplicate:7874782F636F6D6D616E645C5B32323131332D32323131332C32323330322D32323330322C32383436312D32383830302C7461696C2D4956585D]",
+      "rowKey": 2116
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/command[22113-22113,22303-22303,28801-29140,tail-IVX]",
+        "de": "xtx/command[22113-22113,27340-27359]",
+        "en": "xtx/command[22113-22113,27340-27359]",
+        "fr": "xtx/command[22113-22113,27340-27359]",
+        "ja": "xtx/command[22113-22113,27340-27359]"
+      },
+      "csvField1": "xtx/command\\[22113-22113,27340-27359][@duplicate:7874782F636F6D6D616E645C5B32323131332D32323131332C32323330332D32323330332C32383830312D32393134302C7461696C2D4956585D]",
+      "rowKey": 2117
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/command[22114-22114,29861-29861,29865-29872,tail-IVX]",
+        "de": "xtx/command[22113-22114,29861-29861,tail-IVX]",
+        "en": "xtx/command[22113-22114,29861-29861,tail-IVX]",
+        "fr": "xtx/command[22113-22114,29861-29861,tail-IVX]",
+        "ja": "xtx/command[22113-22114,29861-29861,tail-IVX]"
+      },
+      "csvField1": "xtx/command\\[22113-22114,29861-29861,tail-IVX][@duplicate:7874782F636F6D6D616E645C5B32323131342D32323131342C32393836312D32393836312C32393836352D32393837322C7461696C2D4956585D]",
+      "rowKey": 2118
+    },
+    {
+      "backingField1ByLocale": {
+        "chs": "xtx/command[22114-22114,29801-29860,29861-29864,tail-IVX]",
+        "de": "xtx/command[22113-22114,29801-29860,29861-29861,29873-29873,tail-IVX]",
+        "en": "xtx/command[22113-22114,29801-29860,29861-29861,29873-29873,tail-IVX]",
+        "fr": "xtx/command[22113-22114,29801-29860,29861-29861,29873-29873,tail-IVX]",
+        "ja": "xtx/command[22113-22114,29801-29860,29861-29861,29873-29873,tail-IVX]"
+      },
+      "csvField1": "xtx/command\\[22113-22114,29801-29860,29861-29861,29873-29873,tail-IVX][@duplicate:7874782F636F6D6D616E645C5B32323131342D32323131342C32393830312D32393836302C32393836312D32393836342C7461696C2D4956585D]",
+      "rowKey": 2119
+    }
+  ],
+  "method": "Compare enabled keys, nonempty offset spans and field 0 against the merged CSV; retain sparse backing-row metadata and locale column locators. Key digests hash ordered little-endian u32 values.",
+  "nativeBoundary": {
+    "enableRangesToNativeBackend": "unproved",
+    "nativeKeyEqualsCsvRowId": "unproved",
+    "reference": "xivl-client-structs:manifests/autotranslate_wire_format_study.json, AT-COMP-010/011 and AT-CHAT-001/002/003",
+    "revision": "6b53147c8afca1a13bd9c753b39662aaa964da3b",
+    "selectedInstanceAndLocale": "unobserved",
+    "statement": "Backing-file ordinals are not observed Completion indices. No selected native key, category, control or receive/render lookup is assigned a CSV row identity."
+  },
+  "schemaVersion": 1,
+  "sheet": "xtx/_fixedPhrase",
+  "sourceCsv": {
+    "bytes": 82373,
+    "columnTypes": [
+      "u32",
+      "str",
+      "str",
+      "str",
+      "str",
+      "str",
+      "str",
+      "str",
+      "str",
+      "str",
+      "str",
+      "str"
+    ],
+    "dataRowCount": 758,
+    "sha256": "A9CE38B0B4CA33E1C03BF22BC854E054BB46DB1CEF9EDFB4E9C55C5D0516A16C",
+    "sheet": "xtx__fixedPhrase.csv"
+  },
+  "sourceDefinition": {
+    "bytes": 2571,
+    "resourceId": "0x0B4508E6",
+    "sha256": "5EA94396D7B2DAA6C2E516D6ABC533BC841109820CBA3FA5B661306EC6061593"
+  },
+  "sourceMaster": {
+    "bytes": 7044,
+    "resourceId": "0x01030000",
+    "sha256": "860023878F9AD1E98FD1BAA3E3380F971F86BF1F7747043CF0C3C7459CEE2EB4"
+  }
+}
