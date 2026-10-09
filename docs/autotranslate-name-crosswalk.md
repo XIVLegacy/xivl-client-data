@@ -178,6 +178,44 @@ python tools/build_place_name_backing_rows.py --client-root <install> --csv-dir 
 python tools/test_place_name_backing_rows.py
 ```
 
+## Attributive backing rows
+
+[`manifests/attributive_backing_rows.json`](../manifests/attributive_backing_rows.json)
+authenticates game master resource `0x01030000` to the named
+`xtx/attributive` definition `0x0B4500CA`, then compares every supplied locale
+field with `xtx_attributive.csv`. The five definitions use one block beginning
+at key 1 with 35 declared slots. ja, en, de, and fr supply all 35 keys. chs
+supplies only key 2; its other 34 mapped CSV cells are empty.
+
+The definition and CSV header provide the field mappings and types:
+
+| Definition locale | CSV columns | Types | Enabled rows |
+|---|---|---|---:|
+| ja | 0-2 | s8, str, str | 35 |
+| en | 3-9 | s8, str, str, str, str, str, str | 35 |
+| de | 10-26 | s8, followed by 16 str fields | 35 |
+| fr | 27-43 | s8, followed by 16 str fields | 35 |
+| chs | 44 | str | 1 |
+
+All supplied fields match their keyed CSV cells. The report retains the data,
+enable, and offset identities, ordered key and span digests, separate slot,
+enabled-ordinal, and CSV-iteration coordinates, and finite row anchors. Row
+selector 5 is present in the four full locales at slot 4, enabled ordinal 4,
+and CSV iteration 4. It is absent from chs, where the corresponding CSV cell is
+empty.
+
+Observed string length framing and terminators remain opaque metadata on the
+finite anchors. The report does not interpret arbitrary control tokens or
+assign a token, selection, grammar, or rendering behavior to a CSV row.
+
+Reproduce with the preserved 1.23b client install and authenticated CSV root:
+
+```
+python tools/build_attributive_backing_rows.py --client-root <install> --csv-dir <csv-root>
+python tools/build_attributive_backing_rows.py --client-root <install> --csv-dir <csv-root> --check
+python tools/test_attributive_backing_rows.py
+```
+
 ## Selection boundary
 
 The native study at revision

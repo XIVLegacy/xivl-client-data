@@ -133,6 +133,15 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   checks bounded string framing, mixed field layouts and sparse keys. The
   [place-name finding](../docs/autotranslate-name-crosswalk.md#place-name-backing-rows)
   owns the source equality and native selection limits.
+- `build_attributive_backing_rows.py --client-root <install>` authenticates the
+  named attributive definition and compares every supplied locale field with
+  the selected CSV root. It generates
+  `manifests/attributive_backing_rows.json` with definition mappings, resource
+  identities, key/span digests, opaque string framing and finite row anchors.
+  `--check` reproduces the report without writing;
+  `test_attributive_backing_rows.py` checks typed rows, framing, sparse keys and
+  absent locale cells. The [attributive finding](../docs/autotranslate-name-crosswalk.md#attributive-backing-rows)
+  owns the source equality and native selection limits.
 - `inspect_item_compatibility.py <catalog-id> <skill-id>` reads the item catalog
   join, compatibility key, signed-s8 cell, and client factor without writing
   files. See [item compatibility inspection](../docs/item-compatibility-inspector.md)
