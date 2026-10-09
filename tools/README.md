@@ -125,6 +125,14 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   `test_fixed_phrase_backing_rows.py` for bounded sparse-row checks. The
   [name crosswalk](../docs/autotranslate-name-crosswalk.md#backing-row-identities)
   owns the native-key qualification.
+- `build_place_name_backing_rows.py --client-root <install>` authenticates the
+  named placeName definition and compares its locale rows with the selected
+  CSV root. It generates `manifests/place_name_backing_rows.json` with resource
+  identities, column mappings, key/span digests and sparse anchors. `--check`
+  reproduces the report without writing; `test_place_name_backing_rows.py`
+  checks bounded string framing, mixed field layouts and sparse keys. The
+  [place-name finding](../docs/autotranslate-name-crosswalk.md#place-name-backing-rows)
+  owns the source equality and native selection limits.
 - `inspect_item_compatibility.py <catalog-id> <skill-id>` reads the item catalog
   join, compatibility key, signed-s8 cell, and client factor without writing
   files. See [item compatibility inspection](../docs/item-compatibility-inspector.md)

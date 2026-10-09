@@ -1,0 +1,1248 @@
+{
+  "clientVersion": {
+    "game.ver": "2012.09.19.0001",
+    "patch.ver": "1.23b"
+  },
+  "csvKeySha256": "B3B660D8883CFA85FF6CF8554ED8D53C6950F17D2A26DC47D8CABCC6C52D6EF7",
+  "csvRowCount": 923,
+  "definitionLocales": [
+    {
+      "cache": "-1",
+      "columnCount": 1,
+      "columnMax": 1,
+      "columns": [
+        0
+      ],
+      "locale": "ja",
+      "mode": "client",
+      "param": "",
+      "type": "none",
+      "types": [
+        "str"
+      ]
+    },
+    {
+      "cache": "-1",
+      "columnCount": 3,
+      "columnMax": 4,
+      "columns": [
+        1,
+        2,
+        3
+      ],
+      "locale": "en",
+      "mode": "client",
+      "param": "[NOUN|SGL;2/PLR;2/VOW;=0/CNT;=0/DEF;3]",
+      "type": "none",
+      "types": [
+        "str",
+        "str",
+        "u8"
+      ]
+    },
+    {
+      "cache": "-1",
+      "columnCount": 2,
+      "columnMax": 6,
+      "columns": [
+        4,
+        5
+      ],
+      "locale": "de",
+      "mode": "client",
+      "param": "",
+      "type": "none",
+      "types": [
+        "str",
+        "str"
+      ]
+    },
+    {
+      "cache": "-1",
+      "columnCount": 2,
+      "columnMax": 8,
+      "columns": [
+        6,
+        7
+      ],
+      "locale": "fr",
+      "mode": "client",
+      "param": "",
+      "type": "none",
+      "types": [
+        "str",
+        "str"
+      ]
+    },
+    {
+      "cache": "-1",
+      "columnCount": 1,
+      "columnMax": 9,
+      "columns": [
+        8
+      ],
+      "locale": "chs",
+      "mode": "client",
+      "param": "",
+      "type": "none",
+      "types": [
+        "str"
+      ]
+    }
+  ],
+  "evidenceClass": "client_extraction",
+  "extractionVersion": "2012.09.19.0001",
+  "locales": [
+    {
+      "anchors": [
+        {
+          "blockIndex": 0,
+          "cells": {
+            "0": "\u30cf\u30a4\u30c7\u30ea\u30f3"
+          },
+          "csvIterationIndex": 0,
+          "dataSpan": {
+            "end": 19,
+            "start": 0
+          },
+          "enabledOrdinal": 0,
+          "rangeBase": 1,
+          "rangeCount": 1,
+          "rangeIndex": 0,
+          "rowKey": 1,
+          "slotIndex": 1
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "0": "\u5feb\u6674"
+          },
+          "csvIterationIndex": 1,
+          "dataSpan": {
+            "end": 29,
+            "start": 19
+          },
+          "enabledOrdinal": 1,
+          "rangeBase": 51,
+          "rangeCount": 17,
+          "rangeIndex": 1,
+          "rowKey": 51,
+          "slotIndex": 51
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "0": "\u30ea\u30e0\u30b5\u30fb\u30ed\u30df\u30f3\u30b5"
+          },
+          "csvIterationIndex": 101,
+          "dataSpan": {
+            "end": 1993,
+            "start": 1965
+          },
+          "enabledOrdinal": 101,
+          "rangeBase": 1051,
+          "rangeCount": 13,
+          "rangeIndex": 4,
+          "rowKey": 1051,
+          "slotIndex": 1051
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "0": "\u52a0\u5727\u5ba4"
+          },
+          "csvIterationIndex": 391,
+          "dataSpan": {
+            "end": 8886,
+            "start": 8873
+          },
+          "enabledOrdinal": 391,
+          "rangeBase": 2101,
+          "rangeCount": 23,
+          "rangeIndex": 11,
+          "rowKey": 2104,
+          "slotIndex": 2104
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "0": "\u30e1\u30ca\u5bb6\u306e\u5893\u6240"
+          },
+          "csvIterationIndex": 405,
+          "dataSpan": {
+            "end": 9128,
+            "start": 9106
+          },
+          "enabledOrdinal": 405,
+          "rangeBase": 2101,
+          "rangeCount": 23,
+          "rangeIndex": 11,
+          "rowKey": 2118,
+          "slotIndex": 2118
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "0": "\u30ce\u30b3\u30ae\u30ea\u5ce0"
+          },
+          "csvIterationIndex": 563,
+          "dataSpan": {
+            "end": 13813,
+            "start": 13794
+          },
+          "enabledOrdinal": 563,
+          "rangeBase": 3001,
+          "rangeCount": 46,
+          "rangeIndex": 15,
+          "rowKey": 3025,
+          "slotIndex": 3025
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "0": "\u4e88\u50996"
+          },
+          "csvIterationIndex": 922,
+          "dataSpan": {
+            "end": 22572,
+            "start": 22561
+          },
+          "enabledOrdinal": 922,
+          "rangeBase": 8001,
+          "rangeCount": 1,
+          "rangeIndex": 29,
+          "rowKey": 8001,
+          "slotIndex": 8001
+        }
+      ],
+      "blockGroupCount": 1,
+      "blocks": [
+        {
+          "begin": 0,
+          "blockIndex": 0,
+          "declaredSlotCount": 8002,
+          "enableMatchesNonemptySpans": true,
+          "enabledKeySha256": "B3B660D8883CFA85FF6CF8554ED8D53C6950F17D2A26DC47D8CABCC6C52D6EF7",
+          "enabledRangeCount": 30,
+          "enabledRowCount": 923,
+          "fieldCount": 923,
+          "fieldMatchesCsvCount": 923,
+          "offsetEntryCount": 8002,
+          "rowSpanSha256": "9C6B13D4A465C3C631D6C74968EA08092253796C0D6C79880E9AE5A1D7261C1A",
+          "scrambledStringCount": 923,
+          "sources": {
+            "data": {
+              "bytes": 22572,
+              "resourceId": "0x0B450886",
+              "sha256": "402613CF3A2F8888871E309BA9835D666733A259EBEFD803BB2F4E111F1C7BEF"
+            },
+            "enable": {
+              "bytes": 240,
+              "resourceId": "0x0B450887",
+              "sha256": "39F7F9DCFBF0A8C1DC23298A814ED822FA0FF8EC58721F8C3FEC74D0FF22150B"
+            },
+            "offsets": {
+              "bytes": 32008,
+              "resourceId": "0x0B450888",
+              "sha256": "2B6B945378B9F9EADCFFDD0ED807EC5F2E2135F42BADFD9102B166F8F0FD73E1"
+            }
+          },
+          "stringCount": 923,
+          "tokenCodes": {
+            "0x10": 22
+          },
+          "tokenCount": 22,
+          "tokenLengthLeads": {
+            "0x01": 22
+          }
+        }
+      ],
+      "columns": [
+        0
+      ],
+      "csvOnlyCellsAreEmpty": true,
+      "csvOnlyKeyCount": 0,
+      "csvOnlyKeys": [],
+      "enabledKeySha256": "B3B660D8883CFA85FF6CF8554ED8D53C6950F17D2A26DC47D8CABCC6C52D6EF7",
+      "enabledRowCount": 923,
+      "fieldMatchesCsvCount": 923,
+      "fileBlockCount": 1,
+      "locale": "ja",
+      "orderMatchesCsvIteration": true,
+      "types": [
+        "str"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "blockIndex": 0,
+          "cells": {
+            "1": "Hydaelyn",
+            "2": "Hydaelyn",
+            "3": "1"
+          },
+          "csvIterationIndex": 0,
+          "dataSpan": {
+            "end": 25,
+            "start": 0
+          },
+          "enabledOrdinal": 0,
+          "rangeBase": 1,
+          "rangeCount": 1,
+          "rangeIndex": 0,
+          "rowKey": 1,
+          "slotIndex": 1
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "1": "clear",
+            "2": "clear skies",
+            "3": "1"
+          },
+          "csvIterationIndex": 1,
+          "dataSpan": {
+            "end": 50,
+            "start": 25
+          },
+          "enabledOrdinal": 1,
+          "rangeBase": 51,
+          "rangeCount": 17,
+          "rangeIndex": 1,
+          "rowKey": 51,
+          "slotIndex": 51
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "1": "Limsa Lominsa",
+            "2": "Limsa Lominsa",
+            "3": "1"
+          },
+          "csvIterationIndex": 101,
+          "dataSpan": {
+            "end": 3209,
+            "start": 3174
+          },
+          "enabledOrdinal": 101,
+          "rangeBase": 1051,
+          "rangeCount": 13,
+          "rangeIndex": 4,
+          "rowKey": 1051,
+          "slotIndex": 1051
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "1": "Pressing Cellar",
+            "2": "pressing cellar",
+            "3": "0"
+          },
+          "csvIterationIndex": 391,
+          "dataSpan": {
+            "end": 14770,
+            "start": 14731
+          },
+          "enabledOrdinal": 391,
+          "rangeBase": 2101,
+          "rangeCount": 23,
+          "rangeIndex": 11,
+          "rowKey": 2104,
+          "slotIndex": 2104
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "1": "The Ak[@hyphen:021f0103]Mena Tomb",
+            "2": "Ak[@hyphen:021f0103]Mena Tomb",
+            "3": "0"
+          },
+          "csvIterationIndex": 405,
+          "dataSpan": {
+            "end": 15336,
+            "start": 15293
+          },
+          "enabledOrdinal": 405,
+          "rangeBase": 2101,
+          "rangeCount": 23,
+          "rangeIndex": 11,
+          "rowKey": 2118,
+          "slotIndex": 2118
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "1": "Cutter's Pass",
+            "2": "Cutter's Pass",
+            "3": "1"
+          },
+          "csvIterationIndex": 563,
+          "dataSpan": {
+            "end": 22062,
+            "start": 22027
+          },
+          "enabledOrdinal": 563,
+          "rangeBase": 3001,
+          "rangeCount": 46,
+          "rangeIndex": 15,
+          "rowKey": 3025,
+          "slotIndex": 3025
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "1": "\\[\u672a\u7ffb\u8a33]",
+            "2": "",
+            "3": "0"
+          },
+          "csvIterationIndex": 922,
+          "dataSpan": {
+            "end": 36300,
+            "start": 36280
+          },
+          "enabledOrdinal": 922,
+          "rangeBase": 8001,
+          "rangeCount": 1,
+          "rangeIndex": 29,
+          "rowKey": 8001,
+          "slotIndex": 8001
+        }
+      ],
+      "blockGroupCount": 1,
+      "blocks": [
+        {
+          "begin": 0,
+          "blockIndex": 0,
+          "declaredSlotCount": 8002,
+          "enableMatchesNonemptySpans": true,
+          "enabledKeySha256": "B3B660D8883CFA85FF6CF8554ED8D53C6950F17D2A26DC47D8CABCC6C52D6EF7",
+          "enabledRangeCount": 30,
+          "enabledRowCount": 923,
+          "fieldCount": 2769,
+          "fieldMatchesCsvCount": 2769,
+          "offsetEntryCount": 8002,
+          "rowSpanSha256": "4986FC029D637A7613E751666AD4E79F5C0F4A7339B0C2E7280D301D6A30843D",
+          "scrambledStringCount": 1846,
+          "sources": {
+            "data": {
+              "bytes": 36300,
+              "resourceId": "0x0B450880",
+              "sha256": "FFF2D6A92F1A8EE2927C9CF07D31FBA5591D8701B31D0DC80A0CDA18681EA4DF"
+            },
+            "enable": {
+              "bytes": 240,
+              "resourceId": "0x0B450881",
+              "sha256": "39F7F9DCFBF0A8C1DC23298A814ED822FA0FF8EC58721F8C3FEC74D0FF22150B"
+            },
+            "offsets": {
+              "bytes": 32008,
+              "resourceId": "0x0B450882",
+              "sha256": "5581268CC892EA34C55621BD9491542595C4071BDD914CD2A9DCD5191CBAC40D"
+            }
+          },
+          "stringCount": 1846,
+          "tokenCodes": {
+            "0x10": 29,
+            "0x1F": 36
+          },
+          "tokenCount": 65,
+          "tokenLengthLeads": {
+            "0x01": 65
+          }
+        }
+      ],
+      "columns": [
+        1,
+        2,
+        3
+      ],
+      "csvOnlyCellsAreEmpty": true,
+      "csvOnlyKeyCount": 0,
+      "csvOnlyKeys": [],
+      "enabledKeySha256": "B3B660D8883CFA85FF6CF8554ED8D53C6950F17D2A26DC47D8CABCC6C52D6EF7",
+      "enabledRowCount": 923,
+      "fieldMatchesCsvCount": 2769,
+      "fileBlockCount": 1,
+      "locale": "en",
+      "orderMatchesCsvIteration": true,
+      "types": [
+        "str",
+        "str",
+        "u8"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "blockIndex": 0,
+          "cells": {
+            "4": "Hydaelyn",
+            "5": "[@switch:02091fe802ff0e6e6163682048796461656c796eff0c696e2048796461656c796e03]"
+          },
+          "csvIterationIndex": 0,
+          "dataSpan": {
+            "end": 50,
+            "start": 0
+          },
+          "enabledOrdinal": 0,
+          "rangeBase": 1,
+          "rangeCount": 1,
+          "rangeIndex": 0,
+          "rowKey": 1,
+          "slotIndex": 1
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "4": "sonnig",
+            "5": ""
+          },
+          "csvIterationIndex": 1,
+          "dataSpan": {
+            "end": 64,
+            "start": 50
+          },
+          "enabledOrdinal": 1,
+          "rangeBase": 51,
+          "rangeCount": 17,
+          "rangeIndex": 1,
+          "rowKey": 51,
+          "slotIndex": 51
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "4": "Limsa Lominsa",
+            "5": "[@switch:020929e802ff136e616368204c696d7361204c6f6d696e7361ff11696e204c696d7361204c6f6d696e736103]"
+          },
+          "csvIterationIndex": 101,
+          "dataSpan": {
+            "end": 5863,
+            "start": 5798
+          },
+          "enabledOrdinal": 101,
+          "rangeBase": 1051,
+          "rangeCount": 13,
+          "rangeIndex": 4,
+          "rowKey": 1051,
+          "slotIndex": 1051
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "4": "Schrotkeller",
+            "5": "[@switch:020926e802ff117a756d20536368726f746b656c6c6572ff10696d20536368726f746b656c6c657203]"
+          },
+          "csvIterationIndex": 391,
+          "dataSpan": {
+            "end": 28332,
+            "start": 28271
+          },
+          "enabledOrdinal": 391,
+          "rangeBase": 2101,
+          "rangeCount": 23,
+          "rangeIndex": 11,
+          "rowKey": 2104,
+          "slotIndex": 2104
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "4": "Die Ak-Mena-Gruft",
+            "5": "[@switch:02092ce802ff127a757220416b2d4d656e612d4772756674ff15696e2064657220416b2d4d656e612d477275667403]"
+          },
+          "csvIterationIndex": 405,
+          "dataSpan": {
+            "end": 29284,
+            "start": 29212
+          },
+          "enabledOrdinal": 405,
+          "rangeBase": 2101,
+          "rangeCount": 23,
+          "rangeIndex": 11,
+          "rowKey": 2118,
+          "slotIndex": 2118
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "4": "S\u00e4gerpass",
+            "5": "[@switch:020922e802ff0f7a756d2053c3a467657270617373ff0e616d2053c3a46765727061737303]"
+          },
+          "csvIterationIndex": 563,
+          "dataSpan": {
+            "end": 40567,
+            "start": 40512
+          },
+          "enabledOrdinal": 563,
+          "rangeBase": 3001,
+          "rangeCount": 46,
+          "rangeIndex": 15,
+          "rowKey": 3025,
+          "slotIndex": 3025
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "4": "\\[\u672a\u7ffb\u8a33]",
+            "5": ""
+          },
+          "csvIterationIndex": 922,
+          "dataSpan": {
+            "end": 67532,
+            "start": 67513
+          },
+          "enabledOrdinal": 922,
+          "rangeBase": 8001,
+          "rangeCount": 1,
+          "rangeIndex": 29,
+          "rowKey": 8001,
+          "slotIndex": 8001
+        }
+      ],
+      "blockGroupCount": 1,
+      "blocks": [
+        {
+          "begin": 0,
+          "blockIndex": 0,
+          "declaredSlotCount": 8002,
+          "enableMatchesNonemptySpans": true,
+          "enabledKeySha256": "B3B660D8883CFA85FF6CF8554ED8D53C6950F17D2A26DC47D8CABCC6C52D6EF7",
+          "enabledRangeCount": 30,
+          "enabledRowCount": 923,
+          "fieldCount": 1846,
+          "fieldMatchesCsvCount": 1846,
+          "offsetEntryCount": 8002,
+          "rowSpanSha256": "39CA6CEEBA1CBF4120EC6647C22871A6E77C6E2C05571962D6F0829CAE1917FD",
+          "scrambledStringCount": 1846,
+          "sources": {
+            "data": {
+              "bytes": 67532,
+              "resourceId": "0x0B45087D",
+              "sha256": "DE66224A8432A89CAE7C2BCF65E7AF4124C61E10A37F0B9F3DE4B261DAB99267"
+            },
+            "enable": {
+              "bytes": 240,
+              "resourceId": "0x0B45087E",
+              "sha256": "39F7F9DCFBF0A8C1DC23298A814ED822FA0FF8EC58721F8C3FEC74D0FF22150B"
+            },
+            "offsets": {
+              "bytes": 32008,
+              "resourceId": "0x0B45087F",
+              "sha256": "910A32740812933C99C66607ACD39C94D7417B591F06A0BBC45D79498432CE39"
+            }
+          },
+          "stringCount": 1846,
+          "tokenCodes": {
+            "0x09": 858,
+            "0x10": 26,
+            "0x16": 29
+          },
+          "tokenCount": 913,
+          "tokenLengthLeads": {
+            "0x01": 55,
+            "0x16": 1,
+            "0x1A": 4,
+            "0x1B": 3,
+            "0x1C": 6,
+            "0x1D": 7,
+            "0x1E": 21,
+            "0x1F": 11,
+            "0x20": 20,
+            "0x21": 13,
+            "0x22": 25,
+            "0x23": 5,
+            "0x24": 32,
+            "0x25": 7,
+            "0x26": 35,
+            "0x27": 11,
+            "0x28": 47,
+            "0x29": 7,
+            "0x2A": 43,
+            "0x2B": 8,
+            "0x2C": 52,
+            "0x2D": 7,
+            "0x2E": 47,
+            "0x2F": 17,
+            "0x30": 51,
+            "0x31": 8,
+            "0x32": 32,
+            "0x33": 12,
+            "0x34": 31,
+            "0x35": 9,
+            "0x36": 35,
+            "0x37": 10,
+            "0x38": 18,
+            "0x39": 15,
+            "0x3A": 28,
+            "0x3B": 20,
+            "0x3C": 22,
+            "0x3D": 27,
+            "0x3E": 20,
+            "0x3F": 7,
+            "0x40": 15,
+            "0x41": 1,
+            "0x42": 13,
+            "0x44": 15,
+            "0x45": 1,
+            "0x46": 6,
+            "0x47": 1,
+            "0x48": 4,
+            "0x4A": 8,
+            "0x4C": 7,
+            "0x4E": 6,
+            "0x4F": 1,
+            "0x50": 2,
+            "0x52": 3,
+            "0x5E": 1
+          }
+        }
+      ],
+      "columns": [
+        4,
+        5
+      ],
+      "csvOnlyCellsAreEmpty": true,
+      "csvOnlyKeyCount": 0,
+      "csvOnlyKeys": [],
+      "enabledKeySha256": "B3B660D8883CFA85FF6CF8554ED8D53C6950F17D2A26DC47D8CABCC6C52D6EF7",
+      "enabledRowCount": 923,
+      "fieldMatchesCsvCount": 1846,
+      "fileBlockCount": 1,
+      "locale": "de",
+      "orderMatchesCsvIteration": true,
+      "types": [
+        "str",
+        "str"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "blockIndex": 0,
+          "cells": {
+            "6": "Hydaelyn",
+            "7": "[@switch:020926e802ff0948796461656c796eff0c656e2048796461656c796eff0b642748796461656c796e03]"
+          },
+          "csvIterationIndex": 0,
+          "dataSpan": {
+            "end": 57,
+            "start": 0
+          },
+          "enabledOrdinal": 0,
+          "rangeBase": 1,
+          "rangeCount": 1,
+          "rangeIndex": 0,
+          "rowKey": 1,
+          "slotIndex": 1
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "6": "Temps magnifique",
+            "7": "[@switch:02093fe802ff14756e2074656d7073206d61676e696669717565ff127472c3a87320656e736f6c65696c6cc3a9ff137472c3a87320656e736f6c65696c6cc3a96503]"
+          },
+          "csvIterationIndex": 1,
+          "dataSpan": {
+            "end": 147,
+            "start": 57
+          },
+          "enabledOrdinal": 1,
+          "rangeBase": 51,
+          "rangeCount": 17,
+          "rangeIndex": 1,
+          "rowKey": 51,
+          "slotIndex": 51
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "6": "Limsa Lominsa",
+            "7": "[@switch:020936e802ff0e4c696d7361204c6f6d696e7361ff11c3a0204c696d7361204c6f6d696e7361ff116465204c696d7361204c6f6d696e736103]"
+          },
+          "csvIterationIndex": 101,
+          "dataSpan": {
+            "end": 8745,
+            "start": 8667
+          },
+          "enabledOrdinal": 101,
+          "rangeBase": 1051,
+          "rangeCount": 13,
+          "rangeIndex": 4,
+          "rowKey": 1051,
+          "slotIndex": 1051
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "6": "Pressoir",
+            "7": "[@switch:02092ae802ff0c6c652070726573736f6972ff0c61752070726573736f6972ff0c64752070726573736f697203]"
+          },
+          "csvIterationIndex": 391,
+          "dataSpan": {
+            "end": 39647,
+            "start": 39586
+          },
+          "enabledOrdinal": 391,
+          "rangeBase": 2101,
+          "rangeCount": 23,
+          "rangeIndex": 11,
+          "rowKey": 2104,
+          "slotIndex": 2104
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "6": "Tombe d'Ak-Mena",
+            "7": "[@switch:020945e802ff136c6120746f6d6265206427416b2d4d656e61ff16c3a0206c6120746f6d6265206427416b2d4d656e61ff166465206c6120746f6d6265206427416b2d4d656e6103]"
+          },
+          "csvIterationIndex": 405,
+          "dataSpan": {
+            "end": 41026,
+            "start": 40931
+          },
+          "enabledOrdinal": 405,
+          "rangeBase": 2101,
+          "rangeCount": 23,
+          "rangeIndex": 11,
+          "rowKey": 2118,
+          "slotIndex": 2118
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "6": "Col du Couteau",
+            "7": "[@switch:02093ce802ff126c6520636f6c20647520436f7574656175ff12617520636f6c20647520436f7574656175ff12647520636f6c20647520436f757465617503]"
+          },
+          "csvIterationIndex": 563,
+          "dataSpan": {
+            "end": 58838,
+            "start": 58753
+          },
+          "enabledOrdinal": 563,
+          "rangeBase": 3001,
+          "rangeCount": 46,
+          "rangeIndex": 15,
+          "rowKey": 3025,
+          "slotIndex": 3025
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "6": "\\[\u672a\u7ffb\u8a33]",
+            "7": ""
+          },
+          "csvIterationIndex": 922,
+          "dataSpan": {
+            "end": 96395,
+            "start": 96376
+          },
+          "enabledOrdinal": 922,
+          "rangeBase": 8001,
+          "rangeCount": 1,
+          "rangeIndex": 29,
+          "rowKey": 8001,
+          "slotIndex": 8001
+        }
+      ],
+      "blockGroupCount": 1,
+      "blocks": [
+        {
+          "begin": 0,
+          "blockIndex": 0,
+          "declaredSlotCount": 8002,
+          "enableMatchesNonemptySpans": true,
+          "enabledKeySha256": "B3B660D8883CFA85FF6CF8554ED8D53C6950F17D2A26DC47D8CABCC6C52D6EF7",
+          "enabledRangeCount": 30,
+          "enabledRowCount": 923,
+          "fieldCount": 1846,
+          "fieldMatchesCsvCount": 1846,
+          "offsetEntryCount": 8002,
+          "rowSpanSha256": "F8222A88D9C36EA412D29CD4FD73E8B549918D1290198523D7D15B8EF6420758",
+          "scrambledStringCount": 1846,
+          "sources": {
+            "data": {
+              "bytes": 96395,
+              "resourceId": "0x0B450883",
+              "sha256": "4CC09C3B906C264ADC635A06C88D72B1FAD4EF9D47E1F0402A081808231237D1"
+            },
+            "enable": {
+              "bytes": 240,
+              "resourceId": "0x0B450884",
+              "sha256": "39F7F9DCFBF0A8C1DC23298A814ED822FA0FF8EC58721F8C3FEC74D0FF22150B"
+            },
+            "offsets": {
+              "bytes": 32008,
+              "resourceId": "0x0B450885",
+              "sha256": "825676B9738F72D08AA344C5FD829954039981B45FFD9C7CDEDFA1AA03C854EA"
+            }
+          },
+          "stringCount": 1846,
+          "tokenCodes": {
+            "0x09": 882,
+            "0x10": 22,
+            "0x16": 8,
+            "0x1F": 1
+          },
+          "tokenCount": 913,
+          "tokenLengthLeads": {
+            "0x01": 31,
+            "0x1B": 2,
+            "0x1E": 2,
+            "0x1F": 1,
+            "0x20": 1,
+            "0x21": 5,
+            "0x22": 1,
+            "0x23": 5,
+            "0x24": 10,
+            "0x25": 1,
+            "0x26": 3,
+            "0x27": 23,
+            "0x29": 3,
+            "0x2A": 25,
+            "0x2C": 1,
+            "0x2D": 10,
+            "0x2E": 2,
+            "0x2F": 2,
+            "0x30": 21,
+            "0x31": 1,
+            "0x32": 1,
+            "0x33": 19,
+            "0x36": 17,
+            "0x39": 20,
+            "0x3C": 25,
+            "0x3F": 32,
+            "0x42": 44,
+            "0x43": 1,
+            "0x45": 53,
+            "0x48": 47,
+            "0x4B": 45,
+            "0x4E": 43,
+            "0x51": 47,
+            "0x54": 51,
+            "0x57": 51,
+            "0x5A": 38,
+            "0x5D": 29,
+            "0x60": 31,
+            "0x63": 32,
+            "0x66": 24,
+            "0x69": 33,
+            "0x6C": 34,
+            "0x6F": 18,
+            "0x72": 14,
+            "0x75": 1,
+            "0x78": 5,
+            "0x7B": 2,
+            "0x81": 3,
+            "0x84": 1,
+            "0x99": 1,
+            "0x9F": 1
+          }
+        }
+      ],
+      "columns": [
+        6,
+        7
+      ],
+      "csvOnlyCellsAreEmpty": true,
+      "csvOnlyKeyCount": 0,
+      "csvOnlyKeys": [],
+      "enabledKeySha256": "B3B660D8883CFA85FF6CF8554ED8D53C6950F17D2A26DC47D8CABCC6C52D6EF7",
+      "enabledRowCount": 923,
+      "fieldMatchesCsvCount": 1846,
+      "fileBlockCount": 1,
+      "locale": "fr",
+      "orderMatchesCsvIteration": true,
+      "types": [
+        "str",
+        "str"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "blockIndex": 0,
+          "cells": {
+            "8": "\u6d77\u5fb7\u6797"
+          },
+          "csvIterationIndex": 0,
+          "dataSpan": {
+            "end": 12,
+            "start": 0
+          },
+          "enabledOrdinal": 0,
+          "rangeBase": 1,
+          "rangeCount": 1,
+          "rangeIndex": 0,
+          "rowKey": 1,
+          "slotIndex": 1
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "8": "\u8273\u9633"
+          },
+          "csvIterationIndex": 1,
+          "dataSpan": {
+            "end": 21,
+            "start": 12
+          },
+          "enabledOrdinal": 1,
+          "rangeBase": 51,
+          "rangeCount": 17,
+          "rangeIndex": 1,
+          "rowKey": 51,
+          "slotIndex": 51
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "8": "\u5229\u59c6\u8428\u00b7\u7f57\u654f\u8428"
+          },
+          "csvIterationIndex": 101,
+          "dataSpan": {
+            "end": 1468,
+            "start": 1445
+          },
+          "enabledOrdinal": 99,
+          "rangeBase": 1051,
+          "rangeCount": 13,
+          "rangeIndex": 4,
+          "rowKey": 1051,
+          "slotIndex": 1051
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "8": "\u589e\u538b\u5ba4"
+          },
+          "csvIterationIndex": 391,
+          "dataSpan": {
+            "end": 6268,
+            "start": 6256
+          },
+          "enabledOrdinal": 386,
+          "rangeBase": 2101,
+          "rangeCount": 23,
+          "rangeIndex": 11,
+          "rowKey": 2104,
+          "slotIndex": 2104
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "8": "\u6885\u90a3\u5bb6\u65cf\u4e4b\u5893"
+          },
+          "csvIterationIndex": 405,
+          "dataSpan": {
+            "end": 6477,
+            "start": 6456
+          },
+          "enabledOrdinal": 400,
+          "rangeBase": 2101,
+          "rangeCount": 23,
+          "rangeIndex": 11,
+          "rowKey": 2118,
+          "slotIndex": 2118
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "8": "\u5229\u952f\u5173"
+          },
+          "csvIterationIndex": 563,
+          "dataSpan": {
+            "end": 8921,
+            "start": 8909
+          },
+          "enabledOrdinal": 555,
+          "rangeBase": 3001,
+          "rangeCount": 46,
+          "rangeIndex": 15,
+          "rowKey": 3025,
+          "slotIndex": 3025
+        },
+        {
+          "blockIndex": 0,
+          "cells": {
+            "8": "\\[\u672a\u7ffb\u8a33]"
+          },
+          "csvIterationIndex": 922,
+          "dataSpan": {
+            "end": 14791,
+            "start": 14777
+          },
+          "enabledOrdinal": 882,
+          "rangeBase": 8001,
+          "rangeCount": 1,
+          "rangeIndex": 29,
+          "rowKey": 8001,
+          "slotIndex": 8001
+        }
+      ],
+      "blockGroupCount": 1,
+      "blocks": [
+        {
+          "begin": 0,
+          "blockIndex": 0,
+          "declaredSlotCount": 8002,
+          "enableMatchesNonemptySpans": true,
+          "enabledKeySha256": "EAC5E6436EE167A1BCEAE05AA628B0865DC50C469899DC5E8AE8FF36671990E3",
+          "enabledRangeCount": 30,
+          "enabledRowCount": 883,
+          "fieldCount": 883,
+          "fieldMatchesCsvCount": 883,
+          "offsetEntryCount": 8002,
+          "rowSpanSha256": "069B8A1CBAD3DC37B3DE026FC96F17B83E00BC9F6C576E5EC52618A190B2A03E",
+          "scrambledStringCount": 0,
+          "sources": {
+            "data": {
+              "bytes": 14791,
+              "resourceId": "0x0B450B49",
+              "sha256": "E4EFBCB5DC823A30AC3DAF84F7BE11473652FA2D95E1BCEA7F755CD9C2D0CBAC"
+            },
+            "enable": {
+              "bytes": 240,
+              "resourceId": "0x0B450B4A",
+              "sha256": "7CC78BE9D829B6FA90BED93477557C56B4A7A0AF27586A53524A20B7FF8E2EA2"
+            },
+            "offsets": {
+              "bytes": 32008,
+              "resourceId": "0x0B450B4B",
+              "sha256": "6E3FB626C6A7F9AF5AEC27347CA6393DD637C90C69D46FD66002C81E1012F668"
+            }
+          },
+          "stringCount": 883,
+          "tokenCodes": {
+            "0x10": 22,
+            "0x1F": 1
+          },
+          "tokenCount": 23,
+          "tokenLengthLeads": {
+            "0x01": 23
+          }
+        }
+      ],
+      "columns": [
+        8
+      ],
+      "csvOnlyCellsAreEmpty": true,
+      "csvOnlyKeyCount": 40,
+      "csvOnlyKeys": [
+        142,
+        1041,
+        1518,
+        1519,
+        1520,
+        2532,
+        2533,
+        2534,
+        3123,
+        3124,
+        3125,
+        3126,
+        3127,
+        3128,
+        3129,
+        3130,
+        3131,
+        3132,
+        3133,
+        3134,
+        3135,
+        3136,
+        3137,
+        3532,
+        3533,
+        4073,
+        4122,
+        4123,
+        4124,
+        4125,
+        4126,
+        4127,
+        4519,
+        5009,
+        5010,
+        5011,
+        5012,
+        5013,
+        5014,
+        5015
+      ],
+      "enabledKeySha256": "EAC5E6436EE167A1BCEAE05AA628B0865DC50C469899DC5E8AE8FF36671990E3",
+      "enabledRowCount": 883,
+      "fieldMatchesCsvCount": 883,
+      "fileBlockCount": 1,
+      "locale": "chs",
+      "orderMatchesCsvIteration": true,
+      "types": [
+        "str"
+      ]
+    }
+  ],
+  "masterReference": {
+    "infofile": 189073532,
+    "matchesDefinition": true,
+    "name": "xtx/placeName"
+  },
+  "method": "Verify the 1.23b version and decimal master-to-definition reference; follow every locale block's explicit data, enable and offset resource; decode the established SSD string framing, XOR obfuscation and direct lossless rich-token envelope for the observed placeName token codes; compare exported cells to the authenticated merged CSV; hash ordered row keys and row spans.",
+  "nativeBoundary": {
+    "backingRowToCsv": "proven",
+    "conditionalProducer": "proven",
+    "conditionalProducerReference": "xivl-client-structs:manifests/autotranslate_wire_format_study.json#AT-COMP-017",
+    "conditionalProducerRevision": "ad17cb88572f831ebfffc96f3766c4df5733afa7",
+    "historicalDeliveryAndLocale": "qualified",
+    "render": "qualified",
+    "selectedFamilyAndKey": "qualified",
+    "statement": "AT-COMP-017 proves conditional descriptor/category -> ExcelSheet -> ready CacheAll CB1990 -> C9DC80 -> C9C670 ordinary-record production; the category marker and target key remain separate. This backing-file and CSV report does not establish historical delivery or locale, TextModule output or admission, the selected family or key, or rendering.",
+    "textModuleOutputAndAdmission": "qualified"
+  },
+  "schemaVersion": 1,
+  "sheet": "xtx/placeName",
+  "sourceCsv": {
+    "bytes": 357220,
+    "columnTypes": [
+      "str",
+      "str",
+      "str",
+      "u8",
+      "str",
+      "str",
+      "str",
+      "str",
+      "str"
+    ],
+    "dataRowCount": 923,
+    "sha256": "81467EF42E8AEBA82FE95F6C4249356550C02E41E6734ABF9FDD194051DC1714",
+    "sheet": "xtx_placeName.csv"
+  },
+  "sourceDefinition": {
+    "bytes": 1946,
+    "resourceId": "0x0B45087C",
+    "sha256": "1EA88CE0E9444E23E5AFD56B3021C6A21865C12AA6BE0D0CD79CB4E755ECFAB3"
+  },
+  "sourceMaster": {
+    "bytes": 7044,
+    "resourceId": "0x01030000",
+    "sha256": "860023878F9AD1E98FD1BAA3E3380F971F86BF1F7747043CF0C3C7459CEE2EB4"
+  },
+  "tokenContract": {
+    "lengthForm": "direct lead < 0xF0, length is lead - 1",
+    "rejectedLengthForms": [
+      "0x00",
+      "0xF0",
+      "0xF1",
+      "0xF2",
+      "0xF3-0xFF"
+    ],
+    "source": "xivl-tools:docs/formats/ssd-sheet.md#rich-string-read-and-text-export-contract",
+    "supportedCodes": {
+      "0x09": "switch",
+      "0x10": "newline",
+      "0x16": "soft-hyphen",
+      "0x1F": "hyphen"
+    }
+  }
+}

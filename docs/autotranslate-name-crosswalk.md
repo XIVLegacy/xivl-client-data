@@ -138,28 +138,71 @@ Duplicate annotation is implemented by `xivl-tools:src/formats/src/csv.rs`,
 
 Backing row 2104's field 1 names `xtx/placeName`, including key 1051, and row
 2106 names `xtx/itemName`. The raw locale-specific strings and source spans
-are retained in the report. These are descriptor cells. They do not identify
-an item/place selection producer or prove how a selected record encodes a
-target row. The existing crosswalk owns those target sheets' names and joins.
+are retained in the report. These descriptor cells are separate from a selected
+target row. AT-COMP-017 supplies the conditional native place producer below;
+item production remains unresolved. The crosswalk owns the target names and
+joins.
+
+## Place-name backing rows
+
+[The place-name backing report](../manifests/place_name_backing_rows.json)
+authenticates game master resource `0x01030000` to the named `xtx/placeName`
+definition `0x0B45087C`, then compares every present locale row and declared
+field with the authenticated `xtx_placeName.csv`. Each locale has one block
+beginning at 0, with 8002 declared slots and 8002 offsets. Its 30 enable ranges
+name the nonempty spans; those sparse ranges are separate from the block range
+that supplies a native CacheAll pair.
+
+The ja/en/de/fr payloads each contain 923 rows. The chs payload contains 883;
+its 40 CSV-only rows have empty cells in column 8. Their union equals the 923
+merged CSV keys. The report retains definition column mappings, resource
+identities, key/span digests and selected row anchors.
+
+The English definition contains two strings and a u8 field, mapped to CSV
+columns 1, 2 and 3. Other locales have their own string layouts. All decoded
+fields agree with their corresponding CSV cells. Rich controls are compared
+as lossless framing bytes with the CSV escape convention; their expressions
+are not evaluated. This verifies source-cell equality, without establishing
+TextModule output or rendering.
+
+For place key 1051, the block slot is 1051 and merged CSV iteration is 101.
+Its enabled ordinal is 101 in ja/en/de/fr and 99 in chs. The block begin is 0;
+the anchor's enable-range base is 1051. These coordinates cannot substitute
+for one another in the native key path.
+
+Reproduce with the preserved install and authenticated CSV root:
+
+```
+python tools/build_place_name_backing_rows.py --client-root <install> --csv-dir <csv-root>
+python tools/build_place_name_backing_rows.py --client-root <install> --csv-dir <csv-root> --check
+python tools/test_place_name_backing_rows.py
+```
 
 ## Selection boundary
 
 The native study at revision
-`6b53147c8afca1a13bd9c753b39662aaa964da3b`,
+`ad17cb88572f831ebfffc96f3766c4df5733afa7`,
 `xivl-client-structs:manifests/autotranslate_wire_format_study.json`,
 AT-COMP-010/011, recovers selected-record production and separate category and
-mapped native-key inputs. AT-CHAT-001/002 recovers the conditional native send
+mapped native-key inputs. AT-COMP-016 supplies conditional fixedPhrase row-key
+equality; AT-COMP-017 supplies the conditional place descriptor, callback key
+and ordinary-record producer. AT-CHAT-001/002 recovers the conditional native send
 path and byte preservation for a complete admitted control in the copied
 prefix. AT-CHAT-003 qualifies earlier pronoun replacement. Generic Lua
 argument packing and actual execution remain qualified.
 
-The backing-row report supplies static source identities and sparse rows.
-It does not join a locale's enable resource to the native CacheAll range
-vector at backend+0x14/+0x18, its row storage/order at backend+0x8, or an actual
-selected instance. That loader/population join and selected locale are the
-first missing evidence for native-key-to-CSV identity. Numeric agreement or
-the same range shape alone cannot close it. Item/place producers and the
-matching receive/render lookup remain separate missing joins.
+The reports supply static source identities and sparse rows. The native
+CacheAll pairs come from child block begin/count, rather than enable ranges.
+For rows built from the authenticated placeName payloads, with CacheAll pair
+`(0,8002)` and an in-range block slot, the row writer maps key `blockSlot` to
+that storage slot. The iteration callback supplies the same key. The report
+identifies that nonempty span by the same external CSV row key. This is a
+conditional key association, without an observed historical selection.
+
+Actual delivered payloads, retained child/backend state and selected locale
+remain qualified. TextModule source/output and category admission must still
+produce the retained selected record. Item production and matching
+receive/render lookup remain separate missing joins.
 
 The crosswalk therefore assigns no CSV row key or field 0 value to selected
 wire bytes and chooses no zone/layout from a duplicate place name. Its
