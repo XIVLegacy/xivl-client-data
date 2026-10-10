@@ -133,6 +133,13 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   checks bounded string framing, mixed field layouts and sparse keys. The
   [place-name finding](../docs/autotranslate-name-crosswalk.md#place-name-backing-rows)
   owns the source equality and native selection limits.
+- `build_item_name_backing_rows.py --client-root <install>` authenticates all
+  named itemName blocks and compares every declared locale field with the
+  selected CSV root. It generates `manifests/item_name_backing_rows.json`;
+  `--check` reproduces it without writing. `test_item_name_backing_rows.py`
+  checks signed fields, opaque controls, sparse keys and short chs offsets.
+  The [item-name finding](../docs/autotranslate-name-crosswalk.md#item-name-backing-rows)
+  owns reproduction and the native-key boundary.
 - `build_attributive_backing_rows.py --client-root <install>` authenticates the
   named attributive definition and compares every supplied locale field with
   the selected CSV root. It generates

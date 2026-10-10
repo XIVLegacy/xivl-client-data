@@ -37,7 +37,10 @@ TOKEN_NAMES = {
     0x09: "switch",
     0x10: "newline",
     0x16: "soft-hyphen",
+    0x1A: "italic",
+    0x1D: "non-breaking-space",
     0x1F: "hyphen",
+    0x28: "sheet",
 }
 
 
@@ -164,11 +167,14 @@ def parse_row(data: bytes, types: list[str]) -> tuple[list[str], list[dict[str, 
             position, value, detail = parse_sheet_string(data, position)
             values.append(value)
             details.append(detail)
-        elif type_name == "u8":
+        elif type_name in {"u8", "s8"}:
             if position >= len(data):
-                raise ValueError("u8 column is truncated")
-            values.append(str(data[position]))
-            details.append({"type": "u8"})
+                raise ValueError(f"{type_name} column is truncated")
+            value = struct.unpack_from(
+                "<b" if type_name == "s8" else "<B", data, position
+            )[0]
+            values.append(str(value))
+            details.append({"type": type_name})
             position += 1
         else:
             raise ValueError(f"unsupported placeName column type {type_name}")
@@ -209,7 +215,7 @@ def _definition(sheet: ET.Element) -> tuple[list[str], list[int], dict[str, Any]
     if len(set(columns)) != len(columns):
         raise ValueError(f"{locale}: definition repeats a column index")
     for type_name in types:
-        if type_name not in {"str", "u8"}:
+        if type_name not in {"str", "u8", "s8"}:
             raise ValueError(f"{locale}: unsupported placeName column type {type_name}")
     column_max = _u32_attribute(sheet, "column_max")
     if not columns or column_max != max(columns) + 1:
@@ -241,6 +247,8 @@ def _block_report(
     csv_rows: dict[int, Any],
     csv_ordinals: dict[int, int],
     locale_ordinal_start: int,
+    anchor_keys: tuple[int, ...] = ANCHORS,
+    allow_short_offsets: bool = False,
 ) -> tuple[dict[str, Any], list[int], list[dict[str, Any]]]:
     begin = _u32_attribute(block, "begin")
     count = _u32_attribute(block, "count")
@@ -264,9 +272,8 @@ def _block_report(
     }
     ranges, keys = read_ranges(resources["enable"], begin, count)
     try:
-        spans = strict_row_spans(
-            resources["offsets"], len(resources["data"]), begin, count
-        )
+        read_spans = row_spans if allow_short_offsets else strict_row_spans
+        spans = read_spans(resources["offsets"], len(resources["data"]), begin, count)
     except ValueError as exc:
         raise ValueError(f"{locale} block {block_index}: {exc}") from exc
     if keys != list(spans):
@@ -303,7 +310,7 @@ def _block_report(
                 )
             cell_matches += 1
             cell_count += 1
-            if detail.get("type") != "u8":
+            if "scrambled" in detail:
                 string_count += 1
                 scrambled_count += int(detail["scrambled"])
                 token_count += int(detail["tokenCount"])
@@ -312,7 +319,7 @@ def _block_report(
                 for lead, amount in detail["tokenLengthLeads"].items():
                     token_length_leads[lead] += amount
         span_rows.append((key, start, end))
-        if key in ANCHORS:
+        if key in anchor_keys:
             range_index, range_base, range_count = range_by_key[key]
             anchors.append(
                 {
@@ -361,6 +368,18 @@ def _block_report(
 
 
 def build(client_root: Path, csv_dir: Path) -> dict[str, Any]:
+    return build_named(client_root, csv_dir, SHEET, CSV, CSV_TYPES, ANCHORS)
+
+
+def build_named(
+    client_root: Path,
+    csv_dir: Path,
+    sheet_name: str,
+    csv_name: str,
+    csv_types: list[str] | None,
+    anchor_keys: tuple[int, ...],
+    short_offset_locales: tuple[str, ...] = (),
+) -> dict[str, Any]:
     versions = {
         name: (client_root / name).read_text(encoding="ascii").strip()
         for name in ("game.ver", "patch.ver")
@@ -368,31 +387,32 @@ def build(client_root: Path, csv_dir: Path) -> dict[str, Any]:
     if versions != {"game.ver": "2012.09.19.0001", "patch.ver": "1.23b"}:
         raise ValueError("client version is not the catalog's 1.23b extraction")
     inventory = load_inventory(REPO / "manifests" / "sheet_inventory.csv")
-    entry = next(row for row in inventory if row["name"] == SHEET)
+    entry = next(row for row in inventory if row["name"] == sheet_name)
     data_root = client_root / "data"
     master = resource_path(data_root, 0x01030000)
     references = parse_document(master).findall("sheet")
     matching_references = [
         row
         for row in references
-        if row.get("name") == SHEET and row.get("infofile") == str(entry["resourceId"])
+        if row.get("name") == sheet_name
+        and row.get("infofile") == str(entry["resourceId"])
     ]
     if len(matching_references) != 1:
         raise ValueError(
-            "game master does not name the placeName definition exactly once"
+            f"game master does not name the {sheet_name} definition exactly once"
         )
     schema_path = resource_path(data_root, entry["resourceId"])
     sheets = parse_document(schema_path).findall("sheet")
     if len(sheets) != len(LOCALES) or [sheet.get("lang") for sheet in sheets] != list(
         LOCALES
     ):
-        raise ValueError("placeName locale definitions differ")
+        raise ValueError(f"{sheet_name} locale definitions differ")
 
     header, rows, source = _load_source(
-        validate_csv_dir(csv_dir), CSV, _load_table_manifest()[CSV]
+        validate_csv_dir(csv_dir), csv_name, _load_table_manifest()[csv_name]
     )
-    if header.column_types != CSV_TYPES:
-        raise ValueError("placeName CSV column types differ")
+    if csv_types is not None and header.column_types != csv_types:
+        raise ValueError(f"{sheet_name} CSV column types differ")
     csv_keys: list[int] = []
     csv_rows: dict[int, Any] = {}
     for row in rows:
@@ -400,25 +420,32 @@ def build(client_root: Path, csv_dir: Path) -> dict[str, Any]:
             key = int(row.row_id, 10)
         except ValueError as exc:
             raise ValueError(
-                f"placeName CSV row id is not decimal: {row.row_id}"
+                f"{sheet_name} CSV row id is not decimal: {row.row_id}"
             ) from exc
         if key < 0 or key >= UINT32_LIMIT or row.row_id != str(key):
-            raise ValueError(f"placeName CSV row id is not canonical u32: {row.row_id}")
+            raise ValueError(
+                f"{sheet_name} CSV row id is not canonical u32: {row.row_id}"
+            )
         if key in csv_rows:
-            raise ValueError(f"placeName CSV has duplicate numeric row id {key}")
+            raise ValueError(f"{sheet_name} CSV has duplicate numeric row id {key}")
         csv_keys.append(key)
         csv_rows[key] = row
     if csv_keys != sorted(csv_keys):
-        raise ValueError("placeName CSV rows are not in ascending iteration order")
+        raise ValueError(f"{sheet_name} CSV rows are not in ascending iteration order")
     csv_ordinals = {key: ordinal for ordinal, key in enumerate(csv_keys)}
 
     locale_reports = []
     locale_keys: dict[str, list[int]] = {}
     definition_reports = []
     for sheet in sheets:
-        if sheet.get("name") != SHEET:
-            raise ValueError("unexpected placeName definition name")
+        if sheet.get("name") != sheet_name:
+            raise ValueError(f"unexpected {sheet_name} definition name")
         types, columns, metadata = _definition(sheet)
+        if any(
+            column >= len(header.column_types) or header.column_types[column] != kind
+            for column, kind in zip(columns, types)
+        ):
+            raise ValueError(f"{metadata['locale']}: definition types differ from CSV")
         definition_reports.append(metadata)
         block_groups = sheet.findall("./block")
         file_blocks: list[ET.Element] = []
@@ -430,7 +457,7 @@ def build(client_root: Path, csv_dir: Path) -> dict[str, Any]:
             file_blocks.extend(files)
         locale = metadata["locale"]
         if locale in locale_keys:
-            raise ValueError(f"duplicate placeName locale {locale}")
+            raise ValueError(f"duplicate {sheet_name} locale {locale}")
         all_keys: list[int] = []
         block_reports = []
         anchors: list[dict[str, Any]] = []
@@ -445,6 +472,8 @@ def build(client_root: Path, csv_dir: Path) -> dict[str, Any]:
                 csv_rows,
                 csv_ordinals,
                 len(all_keys),
+                anchor_keys,
+                locale in short_offset_locales,
             )
             block_reports.append(block_report)
             all_keys.extend(block_keys)
@@ -487,23 +516,23 @@ def build(client_root: Path, csv_dir: Path) -> dict[str, Any]:
 
     union = set().union(*(set(keys) for keys in locale_keys.values()))
     if union != set(csv_keys):
-        raise ValueError("placeName locale row union differs from merged CSV keys")
+        raise ValueError(f"{sheet_name} locale row union differs from merged CSV keys")
     if any(set(keys) - set(csv_keys) for keys in locale_keys.values()):
         raise ValueError(
-            "placeName backing rows contain keys absent from the merged CSV"
+            f"{sheet_name} backing rows contain keys absent from the merged CSV"
         )
-    if set(ANCHORS) - union:
-        raise ValueError("placeName sparse anchor is absent from every locale")
+    if set(anchor_keys) - union:
+        raise ValueError(f"{sheet_name} sparse anchor is absent from every locale")
 
     return {
         "schemaVersion": 1,
         "evidenceClass": "client_extraction",
         "clientVersion": versions,
         "extractionVersion": versions["game.ver"],
-        "sheet": SHEET,
+        "sheet": sheet_name,
         "sourceMaster": identity(master.read_bytes(), 0x01030000),
         "masterReference": {
-            "name": SHEET,
+            "name": sheet_name,
             "infofile": entry["resourceId"],
             "matchesDefinition": True,
         },
@@ -516,7 +545,7 @@ def build(client_root: Path, csv_dir: Path) -> dict[str, Any]:
             "Verify the 1.23b version and decimal master-to-definition reference; "
             "follow every locale block's explicit data, enable and offset resource; "
             "decode the established SSD string framing, XOR obfuscation and direct "
-            "lossless rich-token envelope for the observed placeName token codes; "
+            f"lossless rich-token envelope for the observed {sheet_name[4:]} token codes; "
             "compare exported cells to the authenticated merged CSV; hash ordered "
             "row keys and row spans."
         ),

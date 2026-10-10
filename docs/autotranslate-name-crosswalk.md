@@ -143,6 +143,43 @@ target row. AT-COMP-017 supplies the conditional native place producer below;
 item production remains unresolved. The crosswalk owns the target names and
 joins.
 
+## Item-name backing rows
+
+[The item-name backing report](../manifests/item_name_backing_rows.json)
+authenticates the master reference to `xtx/itemName` definition `0x0B450027`,
+then follows all 50 blocks in each of its five locale definitions. Every
+nonempty offset span has the same key as the expanded enable ranges, and
+every declared field matches the authenticated `xtx_itemName.csv` cell.
+Each of ja/en/de/fr has 8403 rows. The chs definition has 7021 rows; its 1382
+CSV-only keys have empty cells in its declared columns. Some chs offset files
+omit trailing empty slots. The report retains both declared and actual counts,
+so it does not assert that a historical backend retained the declared count.
+
+Reproduce with explicit authenticated inputs:
+
+```
+python tools/build_item_name_backing_rows.py --client-root <install> --csv-dir <csv-root>
+python tools/build_item_name_backing_rows.py --client-root <install> --csv-dir <csv-root> --check
+python tools/test_item_name_backing_rows.py
+```
+
+The locale layouts and resource identities have their canonical home in the
+report. It retains all declared strings and signed-byte fields, including
+opaque italic, non-breaking-space and sheet controls under the existing SSD
+lossless export contract. It does not evaluate those controls or noun grammar.
+
+Key 1000002 is slot 2 of block `(1000000,204)` and enabled ordinal 3 in the
+four main locales. Key 10009506 is slot 9506 of block `(10000000,13018)` and
+enabled ordinal 5614; key 12000016 belongs to a different block. The latter
+two keys both have English field 5 `Bat Wing`, so text equality does not
+identify a key. The generic ready-cache mapping is owned by
+`xivl-client-structs:docs/autotranslate-selection-contract.md`, Native block
+slots and conditional CSV keys, at revision
+`143ff251b5e2d8ffc464207ccb097476cf17ad73`. Applying it to a named block is
+conditional on matching payloads and cache construction. This report does
+not prove selected item production, historical delivery, TextModule output,
+admission or rendering.
+
 ## Place-name backing rows
 
 [The place-name backing report](../manifests/place_name_backing_rows.json)
