@@ -1,7 +1,7 @@
 # Job-fight candidate display joins
 
 The decoded `2012.09.19.0001` `actorclass` sheet maps the selected actor-class
-IDs below to display IDs in column 5. `xtx_displayName` column 1 gives the
+IDs below to display IDs in header `5`. `xtx_displayName` header `1` gives the
 corresponding English label. These are static class-to-display joins, not
 proof that a particular job quest spawns the class, chooses its count, or
 uses it as a kill target. Source rows are

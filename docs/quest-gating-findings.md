@@ -106,21 +106,38 @@ capitalized "UND". Two conclusions follow directly from that structure:
 
 No language attaches a level to the trailing class, and the candidate field
 sweep above already rules out a second class-level selector in the quest
-family sheets (columns 52-55 and the sibling sheets). The decoded corpus
-therefore establishes THAT the trailing class is required but not at what
-threshold, nor whether the requirement is a level, an unlock, or class
+family sheets (columns 52-55 and the sibling sheets). These eligibility
+fields describe the trailing class as required, but do not state its
+threshold or distinguish a level requirement from an unlock or class
 availability.
 
-One bounded decompilation-consumer check was run for this addendum: the
-client reverse-engineering corpus classifies `xtx_quest` as text
-localization only and records no client-side gating consumer of these
-columns, so no client evidence can refine the threshold. The trailing-class
-threshold is UNRESOLVED. A consumer implementing the named form must apply
-the primary class restriction as ruled above and fail closed on the
-trailing-class requirement rather than guess a threshold.
+The initial job-unlock Lua hints refine the presentation threshold: each
+passes primary level `30` and secondary level `15` to worldMaster text row
+`51130`. The canonical sources in `xivl-client-scripts` are:
 
-No Ghidra or decompilation evidence was used in the original sweep; the
-addendum's single consumer check is described above. No structured manifest was added:
-the source rows already preserve the complete scalar and localized selector.
+- `lua/scripts/quest/scenario/war/war0j1.lua`,
+  `lua/scripts/quest/scenario/mnk/mnk0j1.lua`,
+  `lua/scripts/quest/scenario/whm/whm0j1.lua`,
+  `lua/scripts/quest/scenario/pld/pld0j1.lua`, and
+  `lua/scripts/quest/scenario/drg/drg0j1.lua`, method `processEventStart_Hint`.
+- `lua/scripts/quest/scenario/blm/blm0j1.lua`, method
+  `processEvent_Yayake_Hint`.
+- `lua/scripts/quest/scenario/brd/brd0j1.lua`, method
+  `processEvent_GEORJEAUXS_Hint`.
+
+Source identities are pinned by `xivl-client-scripts:manifests/scripts.json`.
+`xivl-client-data:csv/worldMaster.csv` row `51130`, header `1`, formats the
+two class/level pairs. The consumer boundary is documented in
+`xivl-client-scripts:docs/quest-selector-consumers.md`, section `Consumer chain and boundary`.
+These hints establish displayed requirements, not server acceptance checks.
+The later family scripts contain no `51130` call, so they do not supply a
+numeric secondary threshold for those quests. A consumer must not extend the
+unlock's displayed level `15` to later quests or infer server enforcement
+from the localized eligibility label.
+For later named rows, the primary class restriction still applies and the
+unresolved trailing-class requirement must fail closed rather than use a
+guessed threshold.
+
+The source rows preserve the complete scalar and localized selector.
 Converting free-form eligibility strings into an enum would exceed what
 the decoded schema proves.

@@ -1,15 +1,15 @@
 # Job-quest marker and actor-class joins
 
 The decoded `2012.09.19.0001` sheets establish four named job-quest marker
-rows and their display-ID joins. `quest_marker` column 5 is a display ID;
-`actorclass` column 5 maps actor-class IDs to display IDs; and
-`xtx_displayName` column 1 supplies the English display name. The values
+rows and their display-ID joins. `quest_marker` header `4` is a display ID;
+`actorclass` header `5` maps actor-class IDs to display IDs; and
+`xtx_displayName` header `1` supplies the English display name. The values
 below come from `xivl-client-data:csv/quest_marker.csv`,
 `xivl-client-data:csv/actorclass.csv`, and
-`xivl-client-data:csv/xtx_displayName.csv` at the cited row IDs. Columns 3
-and 4 are the marker's two stored floats, not a complete world transform.
+`xivl-client-data:csv/xtx_displayName.csv` at the cited row IDs. Headers `2`
+and `3` are the marker's two stored floats, not a complete world transform.
 
-| Name | Marker row | Floats, columns 3/4 | Columns 9/10 | Display ID | Actor-class rows with that display |
+| Name | Marker row | Floats, headers 2/3 | Headers 8/9 | Display ID | Actor-class rows with that display |
 | --- | ---: | ---: | ---: | ---: | --- |
 | Curious Gorge | `11220001` | `-1116.04`, `285.49` | `104`, `403` | `1600318` | `1060028` |
 | Raya-O-Senna | `11222001` | `-1540.98`, `-1588.34` | `103`, `303` | `2700007` | `1001570` |
@@ -27,11 +27,11 @@ method. Rows `11221002`, `11222002`, `11223301`, `11225003`, and `11226301`
 all use display ID `4000257`, which joins to 87 actor-class rows. The marker
 sheet supplies neither terrain height, facing, a unique spawn, nor an event
 dispatcher. Its property-reference column is also not a universal row-ID
-identity: row `11222501` stores `@5208/i11222301` in column 13.
+identity: row `11222501` stores `@5208/i11222301` in header `12`.
 
 Rows `11221401` and `11222401` also use display
-ID `4000257`. Both store floats `(-74.51, 392.07)` in columns 3/4 and
-region/area `102/201` in columns 9/10 of `quest_marker.csv`. Their distinct
+ID `4000257`. Both store floats `(-74.51, 392.07)` in headers `2`/`3` and
+region/area `102/201` in headers `8`/`9` of `quest_marker.csv`. Their distinct
 row IDs and identical map point do not establish whether either refers to
 the same physical Darkhold coffer, two coffers, an interaction actor, or only
 a shared quest-area destination. Neither row binds an armor item to a chest.
