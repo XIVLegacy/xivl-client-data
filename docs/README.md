@@ -12,6 +12,7 @@ evidence, derived findings, and repository policy.
 ## Evidence and derived findings
 
 - [Actor appearance words](actor-appearance-crosswalk.md)
+- [Movement binding rows](movement-binding-rows.md)
 - [Deepvoid actor appearances](deepvoid-class-appearance.md)
 - [Selected quest replay rows](quest-replay-rows.md)
 - [Selected quest marker rows](quest-marker-rows.md)
