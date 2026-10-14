@@ -51,6 +51,7 @@ evidence, derived findings, and repository policy.
 - [Localized name and key crosswalk](autotranslate-name-crosswalk.md)
 - [Decoded form Content carriers](sqwt-form-content-carriers.md)
 - [Decoded form dependency structure](sqwt-form-dependency-structure.md)
+- [Nameplate primary-label form attributes](sqwt-nameplate-primary-label.md)
 
 ## Repository policy
 
