@@ -9,6 +9,23 @@ The pinned `_zoneParam.csv` rows `236` and `269` both carry place-name ID
 | `236`, `269` | `112` | `1041` |
 | `237`, `270` | `113` | `1011` |
 
+The same shape holds for the three capital groups. `zoneGroupParam.csv`
+rows `101`, `201`, and `301` carry place-name IDs `1051`, `2001`, and
+`3051` at position 0 and list five zones each at positions 1-5. Their first
+two zones carry that place-name ID in `_zoneParam.csv` position 0:
+
+| Zone IDs | Zone-group row | Place-name ID |
+| --- | ---: | ---: |
+| `133`, `230` | `101` | `1051` |
+| `155`, `206` | `201` | `2001` |
+| `175`, `209` | `301` | `3051` |
+
+Their other three listed zones carry different place-name IDs. Zones `184`
+through `188` also carry `3051` but are not listed in row `301`. A prior
+external lead, `docs/mob_placement_records_2026-09-27.md` at revision
+`d5fb880e17f07f31ea7f8380ff813e5d71b6b678`, groups these zone IDs the same
+way.
+
 These are static CSV relationships. The shared keys do not identify localized
 place names, prove identical scene geometry or transforms, or establish
 historical encounter use.
