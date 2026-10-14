@@ -49,6 +49,7 @@ evidence, derived findings, and repository policy.
 - [Item and equipment columns](item-equipment-columns.md)
 - [Item compatibility inspection](item-compatibility-inspector.md)
 - [Localized name and key crosswalk](autotranslate-name-crosswalk.md)
+- [Decoded form Content carriers](sqwt-form-content-carriers.md)
 
 ## Repository policy
 
