@@ -92,6 +92,10 @@ jobs:
         run: python tools/test_attributive_backing_rows.py
       - name: Test command battle parameters
         run: python tools/test_command_battle_params.py
+      - name: Test guildleve display names
+        run: python tools/test_guildleve_names.py
+      - name: Test local guildleve display names
+        run: python tools/test_local_guildleve_names.py
       - name: Test zone-name evidence boundary
         run: python tools/test_zone_name_bindings.py
       - name: Test SQL input row widths

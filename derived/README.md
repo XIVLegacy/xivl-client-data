@@ -27,6 +27,8 @@ in the table below.
 | `substat_status_crosswalk.csv` | `tools/analyze_substat_status.py` | `csv/status.csv` | `docs/substat-status-join.md` |
 | `gc_seal_shop_catalog.csv` | `tools/build_shop_catalogs.py` | `csv/gcSealShopItem.csv`, item catalog | `docs/shop-catalogs.md` |
 | `shop_catalog.csv` | `tools/build_shop_catalogs.py` | `csv/shopBase.csv`, `csv/shopItem.csv`, item catalog | `docs/shop-catalogs.md` |
+| `guildleve_names.csv` | `tools/build_guildleve_names.py` | `csv/guildleve.csv`, `csv/xtx_guildleve.csv` | `docs/guildleve-names.md` |
+| `local_guildleve_names.csv` | `tools/build_local_guildleve_names.py` | `csv/passiveGL_craft.csv`, `csv/xtx_quest.csv`, `csv/xtx__text_ui.csv` | `docs/guildleve-names.md#local-guildleve-names` |
 | `map_marker_resource_crosswalk.csv` | `tools/build_map_marker_resources.py` | `csv/2Dmap_actor_data.csv`, `csv/2Dmap_marker.csv`, `csv/quest_marker.csv` | `docs/map-marker-resources.md` |
 | `autotranslate_name_crosswalk.json` | `tools/build_autotranslate_name_crosswalk.py` | `csv/xtx__fixedPhrase.csv`, item/name sheets, place/zone/layout sheets, and `manifests/zone_internal_names.json` | `docs/autotranslate-name-crosswalk.md` |
 | `icons-1.23b/` | imported, not regenerable here | `archive/icons-1.23b/xiv-icons-1.23b.zip` | `derived/icons-1.23b/README.md` |

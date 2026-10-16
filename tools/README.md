@@ -78,6 +78,18 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
 - `build_shop_catalogs.py` regenerates the GC seal and generic range-expanded
   shop catalogs plus `manifests/shop_catalogs.json`. Its `--check` mode verifies
   all three artifacts without writing.
+- `build_guildleve_names.py` joins every `guildleve.csv` row to its exact EN/JA
+  display names in `xtx_guildleve.csv`, writing `derived/guildleve_names.csv`
+  and `manifests/guildleve_names.json`. Its `--check` mode verifies both files
+  without writing. `test_guildleve_names.py` checks locale fidelity, complete
+  joins, duplicate preservation, placeholders, categories, and input failures.
+  See [guildleve display names](../docs/guildleve-names.md) for the source map
+  and local-name boundary.
+- `build_local_guildleve_names.py` joins every `passiveGL_craft.csv` row to
+  the journal title in `xtx_quest.csv`, auditing the UI text 4219 lookup
+  controls. It writes `derived/local_guildleve_names.csv` and
+  `manifests/local_guildleve_names.json`; `--check` verifies both files without
+  writing. Run `test_local_guildleve_names.py` for title-join and control checks.
 - `analyze_item_graphics_candidates.py` emits full distributions and correlations
   plus packed-field profiles for typed `weapon.csv` and `equipment.csv` columns
   considered as item-graphics candidates. An optional historical SQL

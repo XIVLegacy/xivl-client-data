@@ -232,6 +232,16 @@ def validate_schemas() -> None:
             "shop_catalogs.json",
         ),
         (
+            MANIFESTS / "guildleve_names.json",
+            "guildleve_names.schema.json",
+            "guildleve_names.json",
+        ),
+        (
+            MANIFESTS / "local_guildleve_names.json",
+            "local_guildleve_names.schema.json",
+            "local_guildleve_names.json",
+        ),
+        (
             MANIFESTS / "map_marker_resources.json",
             "map_marker_resources.schema.json",
             "map_marker_resources.json",
@@ -418,6 +428,8 @@ def validate_sheet_inventory() -> None:
 
 def validate_derived_counts() -> None:
     """Validate generator-reported counts against their payloads."""
+    validate_guildleve_names()
+    validate_local_guildleve_names()
     actors_path = MANIFESTS / "staticactor_class_paths.json"
     if actors_path.is_file():
         actors = _load(actors_path)
@@ -523,6 +535,152 @@ def validate_derived_counts() -> None:
             detail = (result.stdout + result.stderr).strip()
             errors.append(
                 "item/equipment column crosswalk is not reproducible: " + detail
+            )
+
+
+def validate_guildleve_names() -> None:
+    """Check the public name product and reproduce it when the corpus is present."""
+    from collections import Counter
+    from build_guildleve_names import FIELDS, PLACEHOLDERS
+
+    label = "guildleve_names.json"
+    manifest_path = MANIFESTS / label
+    product = REPO_ROOT / "derived/guildleve_names.csv"
+    if not manifest_path.is_file() or not product.is_file():
+        errors.append("guildleve names product or manifest missing")
+        return
+    manifest = _load(manifest_path)
+    output = manifest.get("output", {})
+    data = product.read_bytes()
+    if (
+        output.get("bytes") != len(data)
+        or output.get("sha256") != hashlib.sha256(data).hexdigest().upper()
+    ):
+        errors.append(f"{label}: output size or SHA-256 mismatch")
+    with product.open(encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if reader.fieldnames != FIELDS:
+            errors.append(f"{label}: unexpected product columns")
+            return
+        rows = list(reader)
+    if any(None in row or any(value is None for value in row.values()) for row in rows):
+        errors.append(f"{label}: invalid product row width")
+        return
+    tables = {entry["name"]: entry for entry in _load(MANIFESTS / "tables.json")}
+    for source in manifest.get("sources", []):
+        expected = tables.get(source.get("path", "").removeprefix("csv/"), {})
+        if (source.get("bytes"), source.get("sha256"), source.get("rowCount")) != (
+            expected.get("bytes"),
+            expected.get("sha256"),
+            expected.get("dataRowCount"),
+        ):
+            errors.append(f"{label}: source identity differs from tables.json")
+    ids = [row["guildleve_id"] for row in rows]
+    if len(ids) != len(set(ids)) or any(not value.isdecimal() for value in ids):
+        errors.append(f"{label}: invalid or duplicate guildleve ID")
+    if (
+        output.get("rowCount") != len(rows)
+        or len(rows) != tables["guildleve.csv"]["dataRowCount"]
+    ):
+        errors.append(f"{label}: product row count mismatch")
+    if output.get("placeholderCount") != sum(
+        row["placeholder"] == "true" for row in rows
+    ):
+        errors.append(f"{label}: placeholder count mismatch")
+    if output.get("categoryCounts") != dict(Counter(row["category"] for row in rows)):
+        errors.append(f"{label}: category counts mismatch")
+    for row in rows:
+        if (
+            row["source_sheet"] != "xtx/guildleve"
+            or row["source_row"] != row["guildleve_id"]
+            or row["category"] not in {"battlecraft", "fieldcraft", "local", "other"}
+            or row["placeholder"]
+            != ("true" if row["name_en"] in PLACEHOLDERS else "false")
+        ):
+            errors.append(f"{label}: invalid product row {row['guildleve_id']}")
+    if not CORPUS_ABSENT:
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(REPO_ROOT / "tools/build_guildleve_names.py"),
+                "--check",
+                "--csv-dir",
+                str(CSV_DIR),
+            ],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode:
+            errors.append(
+                "guildleve names are not reproducible: "
+                + (result.stdout + result.stderr).strip()
+            )
+
+
+def validate_local_guildleve_names() -> None:
+    """Verify local guildleve title provenance, rows, and corpus reproduction."""
+    from build_local_guildleve_names import FIELDS
+
+    label = "local_guildleve_names.json"
+    manifest_path = MANIFESTS / label
+    product = REPO_ROOT / "derived/local_guildleve_names.csv"
+    if not manifest_path.is_file() or not product.is_file():
+        errors.append("local guildleve names product or manifest missing")
+        return
+    manifest = _load(manifest_path)
+    output = manifest.get("product", {})
+    if output.get("bytes") != product.stat().st_size:
+        errors.append(f"{label}: output size mismatch")
+    if output.get("sha256") != _sha256_hexdigest(product).upper():
+        errors.append(f"{label}: output SHA-256 mismatch")
+    with product.open(encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if reader.fieldnames != FIELDS or output.get("columns") != FIELDS:
+            errors.append(f"{label}: unexpected product columns")
+            return
+        rows = list(reader)
+    if any(None in row or any(value is None for value in row.values()) for row in rows):
+        errors.append(f"{label}: invalid product row width")
+        return
+    tables = {entry["name"]: entry for entry in _load(MANIFESTS / "tables.json")}
+    for source in manifest.get("sources", []):
+        expected = tables.get(source.get("file"), {})
+        if (source.get("sha256"), source.get("dataRowCount")) != (
+            expected.get("sha256"),
+            expected.get("dataRowCount"),
+        ):
+            errors.append(f"{label}: source identity differs from tables.json")
+    if (
+        output.get("dataRowCount") != len(rows)
+        or len(rows) != tables["passiveGL_craft.csv"]["dataRowCount"]
+    ):
+        errors.append(f"{label}: product row count mismatch")
+    ids = [row["guildleve_id"] for row in rows]
+    if len(ids) != len(set(ids)) or any(not value.isdecimal() for value in ids):
+        errors.append(f"{label}: invalid or duplicate guildleve ID")
+    if any(
+        row["source_sheet"] != "xtx/quest" or row["source_row"] != row["guildleve_id"]
+        for row in rows
+    ):
+        errors.append(f"{label}: invalid title source locator")
+    if not CORPUS_ABSENT:
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(REPO_ROOT / "tools/build_local_guildleve_names.py"),
+                "--check",
+                "--csv-dir",
+                str(CSV_DIR),
+            ],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode:
+            errors.append(
+                "local guildleve names are not reproducible: "
+                + (result.stdout + result.stderr).strip()
             )
 
 

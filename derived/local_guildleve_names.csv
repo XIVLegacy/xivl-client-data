@@ -1,0 +1,170 @@
+guildleve_id,name_en,name_ja,source_sheet,source_row
+120001,The Collector,製作依頼：グスタフ艦長のコレクション,xtx/quest,120001
+120002,Readying the Rose,製作依頼：商船の武装補修パーツ,xtx/quest,120002
+120003,Tools of the Trade,製作依頼：船の積載工具,xtx/quest,120003
+120004,All Out of Ingots,製作依頼：金属の輸出品,xtx/quest,120004
+120005,Baderon's New Sword,駆け出し鍛冶師向けの仕事,xtx/quest,120005
+120006,Baderon's New Clothes,駆け出し裁縫師向けの仕事,xtx/quest,120006
+120007,Baderon's New Counter,駆け出し木工師向けの仕事,xtx/quest,120007
+120008,Baderon's New Shoes,駆け出し革細工師向けの仕事,xtx/quest,120008
+120009,Baderon's New Barbuts,駆け出し甲冑師向けの仕事,xtx/quest,120009
+120010,Baderon's New Bands,駆け出し彫金師向けの仕事,xtx/quest,120010
+120011,Baderon's New Soles,駆け出し錬金術師向けの仕事,xtx/quest,120011
+120012,Baderon's New Breakfast,駆け出し調理師向けの仕事,xtx/quest,120012
+120013,Got Ingots,製作依頼：輸出用インゴット,xtx/quest,120013
+120014,Ship Shape,製作依頼：ガレオン船の補修材,xtx/quest,120014
+120015,A Want of Weapons,急募！　製作依頼：商船隊の陸士用武器,xtx/quest,120015
+120016,The Mad Hatter,製作依頼：漁師の帽子,xtx/quest,120016
+120017,The Mad Fisher,製作依頼：イカ用漁具,xtx/quest,120017
+120018,The Mad Tanner,製作依頼：船乗りのベルト,xtx/quest,120018
+120019,Seeing Sallets to the See,製作依頼：輸出用サレット,xtx/quest,120019
+120020,A Step Ahead,製作依頼：船員用鎖頭巾,xtx/quest,120020
+120021,Mailed Sailors,急募！　製作依頼：陸士用鎖帷子,xtx/quest,120021
+120022,2 ｘ 2 Eyes,製作依頼：ヒロインの眼鏡,xtx/quest,120022
+120023,A Sticky Situation,製作依頼：量産にかわ,xtx/quest,120023
+120024,"Tall, Cool One",製作依頼：サービスのジュース,xtx/quest,120024
+120025,The Captain's Cravings,製作依頼：輸出用パイ,xtx/quest,120025
+120026,A Feast Fit for an Admiral,急募！　製作依頼：提督の晩餐の下ごしらえ,xtx/quest,120026
+120027,\[en],\[ja],xtx/quest,120027
+120028,\[en],\[ja],xtx/quest,120028
+120029,\[en],\[ja],xtx/quest,120029
+120030,\[en],\[ja],xtx/quest,120030
+120031,\[en],\[ja],xtx/quest,120031
+120032,\[en],\[ja],xtx/quest,120032
+120033,\[en],\[ja],xtx/quest,120033
+120034,\[en],\[ja],xtx/quest,120034
+120035,Skull Valley Delivery,キャンプ・スカルバレー：鍛冶製品納品,xtx/quest,120035
+120036,Running Rings,キャンプ・スカルバレー：チェーンリングズ納品,xtx/quest,120036
+120037,Supper at the Skull,キャンプ・スカルバレー：魚料理出前,xtx/quest,120037
+120038,Wear and Tear,キャンプ・スカルバレー：支給軍服納品,xtx/quest,120038
+120039,Building Bridges,キャンプ・スカルバレー：建築資材納入,xtx/quest,120039
+120040,Under Foot,キャンプ・スカルバレー：工兵用軍靴納品,xtx/quest,120040
+120041,Going Brandanas,キャンプ・スカルバレー：呪具納品,xtx/quest,120041
+120042,Feeding the Trainees,キャンプ・スカルバレー：精製食品納品,xtx/quest,120042
+120043,Fruits of a Vintner's Whinings,キャンプ・ブラッドショア：戦備納品,xtx/quest,120043
+120044,Watching the Shore,キャンプ・ブラッドショア：プレート納品,xtx/quest,120044
+120045,The Last Supper,キャンプ・ブラッドショア：肉料理出前,xtx/quest,120045
+120046,Outfitting the Shore,キャンプ・ブラッドショア：支給軍服納品,xtx/quest,120046
+120047,High Stakes,キャンプ・ブラッドショア：建築資材納入,xtx/quest,120047
+120048,Shoeing the Shore,キャンプ・ブラッドショア：工兵用軍靴納品,xtx/quest,120048
+120049,Brand New Brands,キャンプ・ブラッドショア：呪具納品,xtx/quest,120049
+120050,Suffering Soldiers,キャンプ・ブラッドショア：医薬品納品,xtx/quest,120050
+120051,Premiums Paid,キャンプ・バルドノール：損害補償品納品,xtx/quest,120051
+120052,Watching the Knoll,キャンプ・バルドノール：プレート納品,xtx/quest,120052
+120053,A Meal to Remember,キャンプ・バルドノール：肉料理出前,xtx/quest,120053
+120054,\[en],\[ja],xtx/quest,120054
+120055,\[en],\[ja],xtx/quest,120055
+120056,\[en],\[ja],xtx/quest,120056
+120057,\[en],\[ja],xtx/quest,120057
+120058,\[en],\[ja],xtx/quest,120058
+120059,Training and Trading,キャンプ・ビアデッドロック：新兵装備納品,xtx/quest,120059
+120060,Training and Tailoring,キャンプ・ビアデッドロック：支給軍服納品,xtx/quest,120060
+120061,Training and Trees,キャンプ・ビアデッドロック：建築資材納入,xtx/quest,120061
+120062,Training and Tanning,キャンプ・ビアデッドロック：工兵用軍靴納品,xtx/quest,120062
+120063,Rings Around the Rock,キャンプ・ビアデッドロック：チェーンリングズ納品,xtx/quest,120063
+120064,Staves to Fashion,キャンプ・ビアデッドロック：呪具納品,xtx/quest,120064
+120065,Training and Eating,キャンプ・ビアデッドロック：精製食品納品,xtx/quest,120065
+120066,Just Desserts,キャンプ・ビアデッドロック：野菜料理出前,xtx/quest,120066
+120067,Waiting on Weapons,キャンプ・アイアンレイク：兵装納品,xtx/quest,120067
+120068,Dead Ringers,キャンプ・アイアンレイク：チェーンリングズ納品,xtx/quest,120068
+120069,A Job Well Done,キャンプ・アイアンレイク：魚料理出前,xtx/quest,120069
+120201,A Mother's Metallurgy,初級鍛冶師向けの仕事,xtx/quest,120201
+120202,A Mother's Frippery,初級裁縫師向けの仕事,xtx/quest,120202
+120203,A Mother's Carpentry,初級木工師向けの仕事,xtx/quest,120203
+120204,A Mother's Booties,初級革細工師向けの仕事,xtx/quest,120204
+120205,A Mother's Foundry,初級甲冑師向けの仕事,xtx/quest,120205
+120206,A Mother's Jewelry,初級彫金師向けの仕事,xtx/quest,120206
+120207,A Mother's Delicacies,初級錬金術師向けの仕事,xtx/quest,120207
+120208,A Mother's Muselix,初級調理師向けの仕事,xtx/quest,120208
+120209,It's All in the File,製作依頼：槍研ぎ用のファイル,xtx/quest,120209
+120210,Quelling Bloody Rumors,製作依頼：乙女師団の狩衣,xtx/quest,120210
+120211,Shields for the Masses,製作依頼：トレンドの木製盾,xtx/quest,120211
+120212,Canes for the Citizens,製作依頼：流行の牧羊杖,xtx/quest,120212
+120213,High Tension,急募！　製作依頼：トレンドの長弓,xtx/quest,120213
+120214,Strapped for Straps,製作依頼：フェン・イルのリストバンド,xtx/quest,120214
+120215,Fire and Hide,製作依頼：フェン・イルのなめし革,xtx/quest,120215
+120216,Choke Hold,急募！　製作依頼：フェン・イルのチョーカー,xtx/quest,120216
+120217,Tending to Tendons,製作依頼：神勇隊用足防具,xtx/quest,120217
+120218,The Band's Bands,製作依頼：アイドルの腕輪,xtx/quest,120218
+120219,Mixing It Up,製作依頼：職人用の医薬品,xtx/quest,120219
+120220,Better Baker's Bounty,製作依頼：おいしいパン,xtx/quest,120220
+120221,Training in Bentbranch,キャンプ・ベントブランチ：鍛冶製品納品,xtx/quest,120221
+120222,Clearing Bentbranch,キャンプ・ベントブランチ：工兵用手袋納品,xtx/quest,120222
+120223,Bowing to Pressure,キャンプ・ベントブランチ：短弓納品,xtx/quest,120223
+120224,Work of Friction,キャンプ・ベントブランチ：神勇隊用弓籠手納品,xtx/quest,120224
+120225,A Little Rusty,キャンプ・ベントブランチ：装備納品,xtx/quest,120225
+120226,Dusting the Knuckles,キャンプ・ベントブランチ：格闘武器納品,xtx/quest,120226
+120227,Keeping It Green,キャンプ・ベントブランチ：グロースフォーミュラ納品,xtx/quest,120227
+120228,On a Full Belly,キャンプ・ベントブランチ：海産物料理納品,xtx/quest,120228
+120229,Pole Positioning,キャンプ・ナインアイビー：幻具納品,xtx/quest,120229
+120230,Hungry Like the Wolves,キャンプ・ナインアイビー：神勇隊用ジャーキン納品,xtx/quest,120230
+120231,Re-crating the Scene,キャンプ・ナインアイビー：鍛冶製品納品,xtx/quest,120231
+120232,Clearing Nine Ivies,キャンプ・ナインアイビー：工兵用手袋納品,xtx/quest,120232
+120233,Springripple Rising,キャンプ・トランキル：装備納品,xtx/quest,120233
+120234,In Arm's Reach,キャンプ・ナインアイビー：格闘武器納品,xtx/quest,120234
+120235,Arboreal Alchemy,キャンプ・トランキル：グロースフォーミュラ納品,xtx/quest,120235
+120236,A Well-Deserved Dinner,キャンプ・ナインアイビー：海産物料理納品,xtx/quest,120236
+120237,Driving up the Wall,キャンプ・エメラルドモス：佩剣納品,xtx/quest,120237
+120238,Back in the Harness,キャンプ・エメラルドモス：鬼哭隊用ハーネス納品,xtx/quest,120238
+120239,Training in Emerald Moss,キャンプ・エメラルドモス：鍛冶製品納品,xtx/quest,120239
+120240,Clearing Emerald Moss,キャンプ・エメラルドモス：工兵用手袋納品,xtx/quest,120240
+120241,In Sod We Rust,キャンプ・エメラルドモス：装備納品,xtx/quest,120241
+120242,Knuckling Down,キャンプ・エメラルドモス：格闘武器納品,xtx/quest,120242
+120243,Growing Strains,キャンプ・エメラルドモス：軍需品納品,xtx/quest,120243
+120244,Seafood Smorgasbord,キャンプ・エメラルドモス：海産物料理納品,xtx/quest,120244
+120245,Restocking the Stockade,キャンプ・クリムゾンバーク：幻具納品,xtx/quest,120245
+120246,Morbol Measures,キャンプ・クリムゾンバーク：神勇隊用ジャーキン納品,xtx/quest,120246
+120247,Plinks Aplenty,キャンプ・トランキル：武器納品,xtx/quest,120247
+120248,Harnessing Help,キャンプ・トランキル：鬼哭隊用ハーネス納品,xtx/quest,120248
+120401,Momodi's Dancing Daggers,新米鍛冶師向けの仕事,xtx/quest,120401
+120402,Momodi's Budget Breeches,新米裁縫師向けの仕事,xtx/quest,120402
+120403,Momodi's Sturdy Supports,新米木工師向けの仕事,xtx/quest,120403
+120404,Momodi's Slashed Shoes,新米革細工師向けの仕事,xtx/quest,120404
+120405,Momodi's Sturdy Suits,新米甲冑師向けの仕事,xtx/quest,120405
+120406,Momodi's Radiant Rings,新米彫金師向けの仕事,xtx/quest,120406
+120407,Momodi's Condiment Conundrum,新米錬金術師向けの仕事,xtx/quest,120407
+120408,Momodi's Breakfast Bread,新米調理師向けの仕事,xtx/quest,120408
+120409,Pointy Props,製作依頼：剣闘試合用の剣,xtx/quest,120409
+120410,Just for Kecks,製作依頼：追撃闘士のケクス,xtx/quest,120410
+120411,Pants Make the Man,製作依頼：投網闘士のサルエル,xtx/quest,120411
+120412,Holes in Their Defense,急募！　製作依頼：流行の脚衣,xtx/quest,120412
+120413,The Walk of Death,製作依頼：巡礼者用木靴,xtx/quest,120413
+120414,Showing Some Leg,製作依頼：剣闘士用サブリガ,xtx/quest,120414
+120415,Battered and Bent,製作依頼：剣闘試合用の盾,xtx/quest,120415
+120416,A Scarcity of Scepters,製作依頼：流行のセプター,xtx/quest,120416
+120417,Pleasure and Pain,製作依頼：流行のイヤリング,xtx/quest,120417
+120418,In the Sultana's Wake,急募！　製作依頼：セレブ向けチョーカー,xtx/quest,120418
+120419,Exports of Import,製作依頼：輸出用錬金術精製品,xtx/quest,120419
+120420,Fertile Lies,製作依頼：輸出用錬金術肥料,xtx/quest,120420
+120421,A Blind Fool,急募！　製作依頼：輸出用毒薬,xtx/quest,120421
+120422,Finger Food,製作依頼：カジノのつまみ,xtx/quest,120422
+120423,Hammering the Point,キャンプ・ブラックブラッシュ：鍛冶製品納品,xtx/quest,120423
+120424,Hanging by a Thread,キャンプ・ブラックブラッシュ：天幕補修用糸納品,xtx/quest,120424
+120425,Pointed Ambitions,キャンプ・ブラックブラッシュ：長槍納入,xtx/quest,120425
+120426,World-weary Souls,キャンプ・ブラックブラッシュ：装備納品,xtx/quest,120426
+120427,Arming the Unarmed,キャンプ・ブラックブラッシュ：物資納品,xtx/quest,120427
+120428,A Shining Example,キャンプ・ブラックブラッシュ：宝石納品,xtx/quest,120428
+120429,Saint Allene's Fire,キャンプ・ブラックブラッシュ：軍需品納品,xtx/quest,120429
+120430,Irrational Behavior,キャンプ・ブラックブラッシュ：保存食納品,xtx/quest,120430
+120431,Treating Steel,キャンプ・ドライボーン：兵糧納品,xtx/quest,120431
+120432,A Drybone Induction,キャンプ・ドライボーン：指輪納品,xtx/quest,120432
+120433,Exposed to the Elements,キャンプ・ドライボーン：天幕補修用布納品,xtx/quest,120433
+120434,Molten Metal,キャンプ・ドライボーン：鍛冶製品納品,xtx/quest,120434
+120435,Off With Their Heads,キャンプ・ドライボーン：長槍納入,xtx/quest,120435
+120436,Camp Drybone Cares,キャンプ・ドライボーン：装備納品,xtx/quest,120436
+120437,Provisioning Drybone,キャンプ・ドライボーン：物資納品,xtx/quest,120437
+120438,Tender Victuals,キャンプ・ドライボーン：保存食納品,xtx/quest,120438
+120439,Blue in the Eye,キャンプ・ホライズン：医薬品納品,xtx/quest,120439
+120440,A Horizon Promotion,キャンプ・ホライズン：サークレット納品,xtx/quest,120440
+120441,Busier Than the Blades,キャンプ・ホライズン：シャツ納品,xtx/quest,120441
+120442,Looking to the Horizon,キャンプ・ホライズン：鍛冶製品納品,xtx/quest,120442
+120443,Act of Pure Weevil,キャンプ・ホライズン：長槍納入,xtx/quest,120443
+120444,I Would Walk 500 Malms,キャンプ・ホライズン：装備納品,xtx/quest,120444
+120445,Buckling Under,キャンプ・ホライズン：物資納品,xtx/quest,120445
+120446,Some Like It Wet,キャンプ・ホライズン：保存食納品,xtx/quest,120446
+120447,Preserving the Region,キャンプ・ブルーフォグ：軍需品納品,xtx/quest,120447
+120448,A Bluefog Induction,キャンプ・ブルーフォグ：指輪納品,xtx/quest,120448
+120449,A Spot in the Shade,キャンプ・ブルーフォグ：天幕補修用布納品,xtx/quest,120449
+120450,Provisioning Broken Water,キャンプ・ブロークンウォーター：医薬品納品,xtx/quest,120450
+120451,A Broken Water Promotion,キャンプ・ブロークンウォーター：サークレット納品,xtx/quest,120451
+120452,Fire on the Water,キャンプ・ブロークンウォーター：シャツ納品,xtx/quest,120452

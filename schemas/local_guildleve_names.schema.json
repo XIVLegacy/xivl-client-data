@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local guildleve title provenance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "extractionVersion", "sourceEvidenceClass", "sources", "columnMappings", "titleControls", "product", "limitations"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "extractionVersion": {"const": "2012.09.19.0001"},
+    "sourceEvidenceClass": {"const": "client_extraction"},
+    "sources": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["file", "sha256", "dataRowCount", "columnCount"],
+        "properties": {
+          "file": {"enum": ["passiveGL_craft.csv", "xtx_quest.csv", "xtx__text_ui.csv"]},
+          "sha256": {"$ref": "#/$defs/sha256"},
+          "dataRowCount": {"type": "integer", "minimum": 1},
+          "columnCount": {"type": "integer", "minimum": 1}
+        }
+      }
+    },
+    "columnMappings": {
+      "const": {
+        "guildleve_id": "passiveGL_craft row id",
+        "name_en": "xtx/quest field 2",
+        "name_ja": "xtx/quest field 1",
+        "source_sheet": "xtx/quest",
+        "source_row": "same row id as passiveGL_craft"
+      }
+    },
+    "titleControls": {
+      "const": {
+        "ja": "[@sheet:02280fff0a7874782f7175657374e8020203]",
+        "en": "[@sheet:02280fff0a7874782f7175657374e8020303]"
+      }
+    },
+    "product": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "bytes", "dataRowCount", "columns"],
+      "properties": {
+        "path": {"const": "derived/local_guildleve_names.csv"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "dataRowCount": {"type": "integer", "minimum": 1},
+        "columns": {"const": ["guildleve_id", "name_en", "name_ja", "source_sheet", "source_row"]}
+      }
+    },
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"}}
+}

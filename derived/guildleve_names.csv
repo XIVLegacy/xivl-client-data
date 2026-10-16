@@ -1,0 +1,625 @@
+guildleve_id,name_en,name_ja,placeholder,category,source_sheet,source_row
+0,翻訳不要,ダミー,true,battlecraft,xtx/guildleve,0
+1,Official Behest,ビヘスト,false,battlecraft,xtx/guildleve,1
+2,翻訳不要,ドードー大発生,true,battlecraft,xtx/guildleve,2
+3,翻訳不要,捕食者の怒り,true,battlecraft,xtx/guildleve,3
+4,翻訳不要,レミングを追え,true,battlecraft,xtx/guildleve,4
+5,翻訳不要,ダミー作戦4,true,battlecraft,xtx/guildleve,5
+6,翻訳不要,ダミー作戦5,true,battlecraft,xtx/guildleve,6
+7,翻訳不要,ダミー作戦6,true,battlecraft,xtx/guildleve,7
+8,翻訳不要,ダミー作戦7,true,battlecraft,xtx/guildleve,8
+9,翻訳不要,ダミー作戦8,true,battlecraft,xtx/guildleve,9
+10,翻訳不要,ダミー作戦9,true,battlecraft,xtx/guildleve,10
+11,翻訳不要,ダミー作戦10,true,battlecraft,xtx/guildleve,11
+47,翻訳不要,バトルテスト,true,battlecraft,xtx/guildleve,47
+48,翻訳不要,バトルテスト,true,battlecraft,xtx/guildleve,48
+49,翻訳不要,バトルテスト,true,battlecraft,xtx/guildleve,49
+1001,Operation: Reave-quest,藻屑旅団要撃,false,battlecraft,xtx/guildleve,1001
+1002,Operation: Kobold as Ice,鉄鎖組要撃,false,battlecraft,xtx/guildleve,1002
+1003,Operation: Sylph Stalkings,露華連討伐,false,battlecraft,xtx/guildleve,1003
+1004,Operation: Supplication Denied,バトルアクス作戦,false,battlecraft,xtx/guildleve,1004
+1005,Operation: Bloody Side Up,デビルドエッグズ追撃,false,battlecraft,xtx/guildleve,1005
+1006,Operation: Reaving Home,ハープーン作戦,false,battlecraft,xtx/guildleve,1006
+1007,Operation: Warm Welcome,偵察隊の待ち伏せ,false,battlecraft,xtx/guildleve,1007
+1008,Operation: Broken Thunder,ドラグーン作戦,false,battlecraft,xtx/guildleve,1008
+1009,Operation: Scar and Defeather,イクサル掃討戦,false,battlecraft,xtx/guildleve,1009
+1010,Operation: Frame Work,シーク作戦,false,battlecraft,xtx/guildleve,1010
+1011,Operation: Bloody Scales,マーケット作戦,false,battlecraft,xtx/guildleve,1011
+1012,Operation: Under Siege,第二次マーケット作戦,false,battlecraft,xtx/guildleve,1012
+1013,Operation: Pulling Fangs,第三次マーケット作戦,false,battlecraft,xtx/guildleve,1013
+1014,Operation: Wolfsbane,ウルフズベーン作戦,false,battlecraft,xtx/guildleve,1014
+1015,"Operation: Up, Up, and Away",第二次ウルフズベーン作戦,false,battlecraft,xtx/guildleve,1015
+1016,Operation: Shuteye,第三次ウルフズベーン作戦,false,battlecraft,xtx/guildleve,1016
+1017,Operation: Leaving the Nest,イクサル要人攻撃,false,battlecraft,xtx/guildleve,1017
+1018,Operation: Tailspin,カウンターブロウ作戦,false,battlecraft,xtx/guildleve,1018
+1019,Operation: Deepground,コボルド要人攻撃,false,battlecraft,xtx/guildleve,1019
+1020,Operation: Crosseye,戦死者の弔い合戦,false,battlecraft,xtx/guildleve,1020
+1021,x,x,true,battlecraft,xtx/guildleve,1021
+1022,x,x,true,battlecraft,xtx/guildleve,1022
+1023,x,x,true,battlecraft,xtx/guildleve,1023
+1024,x,x,true,battlecraft,xtx/guildleve,1024
+1025,x,x,true,battlecraft,xtx/guildleve,1025
+1101,Wanted: Xha Viqqoh the Nibbler,賞金首｢チーズ喰いのシャ・ヴィッコ｣,false,battlecraft,xtx/guildleve,1101
+1102,Wanted: Palemoon Parazuzu,賞金首｢白狼のパラズズ｣,false,battlecraft,xtx/guildleve,1102
+1103,Wanted: Rorogun the Tailtamer,賞金首｢猿回しのロログン｣,false,battlecraft,xtx/guildleve,1103
+1104,Wanted: B'khenna the Phoenixfire,賞金首｢不死鳥のビ・ケナ｣,false,battlecraft,xtx/guildleve,1104
+1105,Wanted: Ser Aucheforne of the High Tide,賞金首｢潮騒のオシュフォーン｣,false,battlecraft,xtx/guildleve,1105
+1106,Wanted: Godwin Goodgoat,賞金首｢羊飼いのゴドウィン｣,false,battlecraft,xtx/guildleve,1106
+1107,Still Wanted: B'khenna the Phoenixfire,賞金首｢無慈悲なビ・ケナ｣,false,battlecraft,xtx/guildleve,1107
+1108,Wanted: Coiled Adder,賞金首｢蜥蜴使いのコイルドアダー｣,false,battlecraft,xtx/guildleve,1108
+1109,Wanted: Toadsquatter Femomo,賞金首｢ガマ使いのフェモモ｣,false,battlecraft,xtx/guildleve,1109
+1110,Wanted: Alvara Sourkiss,賞金首｢毒婦アルバラ｣,false,battlecraft,xtx/guildleve,1110
+1111,Wanted: Soft Evidence,｢タープ・ウーシュカ｣の噂調査,false,battlecraft,xtx/guildleve,1111
+1112,Wanted: Violent Verdure,｢タープ・ウーシュカ｣の捕獲準備,false,battlecraft,xtx/guildleve,1112
+1113,Wanted: Mammoth and Master,｢タープ・ウーシュカ｣捕獲＆賞金首｢牛飼いのマティスティアン｣,false,battlecraft,xtx/guildleve,1113
+1114,Wanted: Ursulien the Unseen,賞金首「幻影のウルスリアン」,false,battlecraft,xtx/guildleve,1114
+1115,Wanted: Princess Pudding,プリンセスプリン捜索,false,battlecraft,xtx/guildleve,1115
+1116,Wanted: Striped Lightning,賞金首「海賊：連雷衆」,false,battlecraft,xtx/guildleve,1116
+1117,Wanted: Porus,賞金首「ポリュス」,false,battlecraft,xtx/guildleve,1117
+1118,Wanted: The Maskmaker,内通者の身柄確保,false,battlecraft,xtx/guildleve,1118
+1119,Wanted: Vengeance,帝国軍への報復,false,battlecraft,xtx/guildleve,1119
+1120,x,x,true,battlecraft,xtx/guildleve,1120
+1201,Collecting Sea Shells,椎の実弾の回収,false,other,xtx/guildleve,1201
+1202,Spoiled Soil,土壌サンプルの収集,false,other,xtx/guildleve,1202
+1203,Old Money,アラグ古銭の回収,false,other,xtx/guildleve,1203
+1204,Something in the Air,薬瓶の回収,false,other,xtx/guildleve,1204
+1205,It's the Smell,香箱の回収,false,other,xtx/guildleve,1205
+1206,A Weighty Problem,鎧櫃の回収,false,other,xtx/guildleve,1206
+1207,Diamonds in the Rough,大泥棒の追跡,false,other,xtx/guildleve,1207
+1208,Golden Opportunity,スプリガンの秘宝奪取,false,other,xtx/guildleve,1208
+1209,While They're Young,アントリングの卵サンプル採集,false,other,xtx/guildleve,1209
+1210,Heat of the Moment,飛空便の回収,false,other,xtx/guildleve,1210
+1211,Unlike a Rolling Stone,塗香苔の採集,false,other,xtx/guildleve,1211
+1212,Looting the Larder,バジリスクの速贄の奪取,false,other,xtx/guildleve,1212
+1213,"Hook, Line, and Sinker",密猟者の追跡,false,other,xtx/guildleve,1213
+1214,Intel Outside,内偵調査への協力,false,other,xtx/guildleve,1214
+1215,x,x,true,other,xtx/guildleve,1215
+1216,x,x,true,other,xtx/guildleve,1216
+1217,x,x,true,other,xtx/guildleve,1217
+1218,x,x,true,other,xtx/guildleve,1218
+1219,x,x,true,other,xtx/guildleve,1219
+1220,x,x,true,other,xtx/guildleve,1220
+3200,Meet the Flint Stones,駆け出し採掘師向けの仕事,false,fieldcraft,xtx/guildleve,3200
+3201,Mining Bearded Rock,ビアデッドロック採掘場の調査,false,fieldcraft,xtx/guildleve,3201
+3203,Heavy Medals,拳銃の材料｢銅鉱｣調達,false,fieldcraft,xtx/guildleve,3203
+3216,Mining Skull Valley,スカルバレー採掘場の調査,false,fieldcraft,xtx/guildleve,3216
+3219,Making Muskets out of Molehills,拳銃の材料｢硝石｣調達,false,fieldcraft,xtx/guildleve,3219
+3232,Mining Bloodshore,ブラッドショア採掘場の調査,false,fieldcraft,xtx/guildleve,3232
+3235,"Make More, Cut Less",拳銃の材料｢鉄鉱｣調達,false,fieldcraft,xtx/guildleve,3235
+3248,Mining Cedarwood,シダーウッド採掘場の調査,false,fieldcraft,xtx/guildleve,3248
+3251,Of Muskets and Men,拳銃の材料｢最良の鉄鉱｣調達,false,fieldcraft,xtx/guildleve,3251
+3264,Assaying Iron Lake,アイアンレイク採掘場の調査,false,fieldcraft,xtx/guildleve,3264
+3266,An Officer and a Firing Pin,拳銃の材料｢良質の霊銀鉱｣調達,false,fieldcraft,xtx/guildleve,3266
+3400,A Taste of Honey,駆け出し園芸師向けの仕事,false,fieldcraft,xtx/guildleve,3400
+3401,Logging Bearded Rock,ビアデッドロックの植林状況調査,false,fieldcraft,xtx/guildleve,3401
+3403,Teak for Two,商船の肋材｢シーダー原木｣収集,false,fieldcraft,xtx/guildleve,3403
+3416,Logging Skull Valley,スカルバレーの植林状況調査,false,fieldcraft,xtx/guildleve,3416
+3419,Oak on a Boat,商船の肋材｢オーク原木｣収集,false,fieldcraft,xtx/guildleve,3419
+3432,Fighting the Wood Blight,ブラッドショアの植林状況調査,false,fieldcraft,xtx/guildleve,3432
+3435,Going Against the Grain,軍船の外板｢ウォルナット原木｣収集,false,fieldcraft,xtx/guildleve,3435
+3448,Reforesting Cedarwood,シダーウッドの植林状況調査,false,fieldcraft,xtx/guildleve,3448
+3451,Outfitting the Fleet,軍船の竜骨｢マホガニー原木｣収集,false,fieldcraft,xtx/guildleve,3451
+3464,Logging Iron Lake,アイアンレイクの植林状況調査,false,fieldcraft,xtx/guildleve,3464
+3466,Sprucing up Ships,商船の肋材｢スプルース原木｣収集,false,fieldcraft,xtx/guildleve,3466
+3600,Help with the Herring,駆け出し漁師向けの仕事,false,fieldcraft,xtx/guildleve,3600
+3601,Fishing Bearded Rock,ビアデッドロックの漁場調査,false,fieldcraft,xtx/guildleve,3601
+3603,Vim and Vigor,海の食材｢オイスター｣捕り,false,fieldcraft,xtx/guildleve,3603
+3616,Fishing Skull Valley,スカルバレーの漁場調査,false,fieldcraft,xtx/guildleve,3616
+3619,Blowfish for the Blowhards,海の食材｢ブローフィッシュ｣釣り,false,fieldcraft,xtx/guildleve,3619
+3632,Fishing Bloodshore,ブラッドショアの漁場調査,false,fieldcraft,xtx/guildleve,3632
+3635,Dream a Little Bream,海の食材｢ビアナックブリーム｣捕り,false,fieldcraft,xtx/guildleve,3635
+3648,Fishing Cedarwood,シダーウッドの漁場調査,false,fieldcraft,xtx/guildleve,3648
+3651,Pulmia's First Course,海の食材｢ロブスター｣釣り,false,fieldcraft,xtx/guildleve,3651
+3664,Swimming in the Iron,アイアンレイクの漁場調査,false,fieldcraft,xtx/guildleve,3664
+3666,Soup for the Troops,スープの具｢メイデンカープ｣捕り,false,fieldcraft,xtx/guildleve,3666
+4000,The Burning Brush,新米採掘師向けの仕事,false,fieldcraft,xtx/guildleve,4000
+4001,Mining Black Brush,ブラックブラッシュ採掘場の調査,false,fieldcraft,xtx/guildleve,4001
+4003,Get to the Copper,宝飾品の材料「銅鉱」調達,false,fieldcraft,xtx/guildleve,4003
+4016,Mining Drybone,ドライボーン採掘場の調査,false,fieldcraft,xtx/guildleve,4016
+4019,Silver Linings,宝飾品の材料「銀鉱」調達,false,fieldcraft,xtx/guildleve,4019
+4032,Assaying Horizon's Edge,ホライズン採掘場の調査,false,fieldcraft,xtx/guildleve,4032
+4035,Desperately Seeking Sphenes,宝飾品の材料「スフェーン原石」調達,false,fieldcraft,xtx/guildleve,4035
+4048,Mining Nophica's Wells,ノフィカの井戸採掘場の調査,false,fieldcraft,xtx/guildleve,4048
+4051,Mythril for Merchants,宝飾品の材料「霊銀鉱」調達,false,fieldcraft,xtx/guildleve,4051
+4064,Mining Halatali,ハラタリ採掘場の調査,false,fieldcraft,xtx/guildleve,4064
+4066,The Sultana's New Cloak,宝飾品の材料「ヘリオドール原石」調達,false,fieldcraft,xtx/guildleve,4066
+4200,Hunting for Hives,新米園芸師向けの仕事,false,fieldcraft,xtx/guildleve,4200
+4201,Logging Black Brush,ブラックブラッシュの植林状況調査,false,fieldcraft,xtx/guildleve,4201
+4203,Willow Pillars,鉱山の支柱「ウィロー原木」収集,false,fieldcraft,xtx/guildleve,4203
+4216,Logging Drybone,ドライボーンの植林状況調査,false,fieldcraft,xtx/guildleve,4216
+4219,Ash Pillars,鉱山の支柱「アッシュ原木」収集,false,fieldcraft,xtx/guildleve,4219
+4232,Logging the Horizon,ホライズンの植林状況調査,false,fieldcraft,xtx/guildleve,4232
+4235,Oak Pillars,鉱山の支柱「オーク原木」収集,false,fieldcraft,xtx/guildleve,4235
+4248,Battling the Blight,ノフィカの井戸の植林状況調査,false,fieldcraft,xtx/guildleve,4248
+4251,Support Our Mines,鉱山の枕木「ラワン原木」収集,false,fieldcraft,xtx/guildleve,4251
+4264,Reading the Rings,ハラタリの植林状況調査,false,fieldcraft,xtx/guildleve,4264
+4266,Seeing to the Overseers,鉱山の支柱「マホガニー原木」収集,false,fieldcraft,xtx/guildleve,4266
+4400,Nutritious Fishes,新米漁師向けの仕事,false,fieldcraft,xtx/guildleve,4400
+4401,Fishing Black Brush,ブラックブラッシュの漁場調査,false,fieldcraft,xtx/guildleve,4401
+4403,Curing Greyscale,水中の薬種｢ザリガニ｣釣り,false,fieldcraft,xtx/guildleve,4403
+4416,Fishing Drybone,ドライボーンの漁場調査,false,fieldcraft,xtx/guildleve,4416
+4419,Curing the Flux,水中の薬種｢ピピラ｣釣り,false,fieldcraft,xtx/guildleve,4419
+4432,Fishing Halatali,ハラタリの漁場調査,false,fieldcraft,xtx/guildleve,4432
+4435,Curing Gout,水中の薬種｢ランプマリモ｣釣り,false,fieldcraft,xtx/guildleve,4435
+4448,Fishing Nophica's Wells,ノフィカの井戸の漁場調査,false,fieldcraft,xtx/guildleve,4448
+4451,Piscean Poison,斑の毒魚｢モンケオンケ｣釣り,false,fieldcraft,xtx/guildleve,4451
+4464,Fish Out of Water,ホライズンの漁場調査,false,fieldcraft,xtx/guildleve,4464
+4467,Fulgurating Fishes,黒い稲妻｢ブラックゴースト｣釣り,false,fieldcraft,xtx/guildleve,4467
+4800,Stones of Flint,初級採掘師向けの仕事,false,fieldcraft,xtx/guildleve,4800
+4801,Mining Bentbranch,ベントブランチ採掘場の調査,false,fieldcraft,xtx/guildleve,4801
+4803,Bones for the Eye,矢尻の材料「骨片」調達,false,fieldcraft,xtx/guildleve,4803
+4816,Mining Emerald Moss,エメラルドモス採掘場の調査,false,fieldcraft,xtx/guildleve,4816
+4819,Ore for the Eye,矢尻の材料「鉄鉱」調達,false,fieldcraft,xtx/guildleve,4819
+4832,Mining Tranquil Paths,トランキル採掘場の調査,false,fieldcraft,xtx/guildleve,4832
+4835,Corpse Cupid,矢尻の材料「銀鉱」調達,false,fieldcraft,xtx/guildleve,4835
+4848,Assaying Humblehearth,妖精の火床採掘場の調査,false,fieldcraft,xtx/guildleve,4848
+4851,Jade for the Eye,矢尻の材料「ジェード」調達,false,fieldcraft,xtx/guildleve,4851
+4864,Mining Treespeak,ひそひそ木立採掘場の調査,false,fieldcraft,xtx/guildleve,4864
+4866,Obsidian for the Eye,矢尻の材料「黒曜石」調達,false,fieldcraft,xtx/guildleve,4866
+5000,Honey Tea for Two,初級園芸師向けの仕事,false,fieldcraft,xtx/guildleve,5000
+5001,Logging Bentbranch,ベントブランチの植林状況調査,false,fieldcraft,xtx/guildleve,5001
+5003,Elm Waterwheels,水車の輪板「エルム原木」収集,false,fieldcraft,xtx/guildleve,5003
+5016,Logging Emerald Moss,エメラルドモスの植林状況調査,false,fieldcraft,xtx/guildleve,5016
+5019,Walnut Waterwheels,水車の輪板「ウォルナット原木」収集,false,fieldcraft,xtx/guildleve,5019
+5032,Logging Tranquil Paths,トランキルの植林状況調査,false,fieldcraft,xtx/guildleve,5032
+5035,Waterlogged,水車の輪板「オーク原木」収集,false,fieldcraft,xtx/guildleve,5035
+5048,Logging Humblehearth,妖精の火床の植林状況調査,false,fieldcraft,xtx/guildleve,5048
+5051,Mahogany Waterwheels,水車の輪板「マホガニー原木」収集,false,fieldcraft,xtx/guildleve,5051
+5064,Smiting the Blight,ひそひそ木立の植林状況調査,false,fieldcraft,xtx/guildleve,5064
+5066,Cieldalaes Amenities,高級家具材「ローズウッド原木」収集,false,fieldcraft,xtx/guildleve,5066
+5200,Salmon for the Masses,初級漁師向けの仕事,false,fieldcraft,xtx/guildleve,5200
+5201,Fishing Bentbranch,ベントブランチの漁場調査,false,fieldcraft,xtx/guildleve,5201
+5203,Searching for Crayfish,観賞魚｢ホネザリガニ｣釣り,false,fieldcraft,xtx/guildleve,5203
+5216,Fishing Emerald Moss,エメラルドモスの漁場調査,false,fieldcraft,xtx/guildleve,5216
+5219,Fighting for Fish,観賞魚｢ベタ｣釣り,false,fieldcraft,xtx/guildleve,5219
+5232,Fishing Nine Ivies,ナインアイビーの漁場調査,false,fieldcraft,xtx/guildleve,5232
+5234,To Fry a Pike,フライ用｢ノーザンパイク｣釣り,false,fieldcraft,xtx/guildleve,5234
+5248,Preserving Humblehearth,妖精の火床の漁場調査,false,fieldcraft,xtx/guildleve,5248
+5251,Salmon Superior,美味｢ユグラムサーモン｣釣り,false,fieldcraft,xtx/guildleve,5251
+5264,Fishing Tranquil Paths,トランキルの漁場調査,false,fieldcraft,xtx/guildleve,5264
+5266,Only the Monke Onke,観賞魚｢モンケオンケ｣釣り,false,fieldcraft,xtx/guildleve,5266
+10801,My Very First Adventure,駆け出し冒険者向けの仕事,false,battlecraft,xtx/guildleve,10801
+10802,My Very First Adventure,駆け出し冒険者向けの仕事,false,battlecraft,xtx/guildleve,10802
+10821,Mole Patrol,モール退治,false,battlecraft,xtx/guildleve,10821
+10822,Unsavory Ramifications,野良羊の駆除,false,battlecraft,xtx/guildleve,10822
+10823,Missing Teeth,ラットの歯の調達,false,battlecraft,xtx/guildleve,10823
+10824,A Clean Sale,急募！　「浮石」の収集,false,battlecraft,xtx/guildleve,10824
+10825,A Beardful of Rats,ラットの駆除,false,battlecraft,xtx/guildleve,10825
+10826,Evil Weevils,ウィーヴィルの防除,false,battlecraft,xtx/guildleve,10826
+10827,Annexing the Rock,キャンプ・ビアデッドロックの魔物の駆逐,false,battlecraft,xtx/guildleve,10827
+10828,When Bats Cry,バットの防除,false,battlecraft,xtx/guildleve,10828
+10829,x,x,true,battlecraft,xtx/guildleve,10829
+10830,x,x,true,battlecraft,xtx/guildleve,10830
+10831,x,x,true,battlecraft,xtx/guildleve,10831
+10832,x,x,true,battlecraft,xtx/guildleve,10832
+10833,x,x,true,battlecraft,xtx/guildleve,10833
+10834,x,x,true,battlecraft,xtx/guildleve,10834
+10835,x,x,true,battlecraft,xtx/guildleve,10835
+10841,Where the Goat Goes,アルドゴート・ナニーの駆除,false,battlecraft,xtx/guildleve,10841
+10842,Yarz on Me,ボッグヤーゾンの退治,false,battlecraft,xtx/guildleve,10842
+10843,Where's the Meat,アルドゴートのサーロインの調達,false,battlecraft,xtx/guildleve,10843
+10844,Bombs Away,ボムの調査と一掃,false,battlecraft,xtx/guildleve,10844
+10845,Escape Artist,脱獄した小鬼の捕殺,false,battlecraft,xtx/guildleve,10845
+10846,Necrologos: Lords of Skyey Realms,急募！　魔物大全『翼捨てし者の巻』の回収,false,battlecraft,xtx/guildleve,10846
+10847,Necrologos: Elemental Thralldom,魔物大全『元素と共にある者の巻』の回収,false,battlecraft,xtx/guildleve,10847
+10848,Necrologos: Lightsome Verdure,魔物大全『野駆けし者の巻』の回収,false,battlecraft,xtx/guildleve,10848
+10849,x,x,true,battlecraft,xtx/guildleve,10849
+10850,x,x,true,battlecraft,xtx/guildleve,10850
+10851,x,x,true,battlecraft,xtx/guildleve,10851
+10852,x,x,true,battlecraft,xtx/guildleve,10852
+10853,x,x,true,battlecraft,xtx/guildleve,10853
+10854,x,x,true,battlecraft,xtx/guildleve,10854
+10855,x,x,true,battlecraft,xtx/guildleve,10855
+10861,"Save the Lettuce, Save the World",ドードーの駆除,false,battlecraft,xtx/guildleve,10861
+10862,Annexing the Shore,キャンプ・ブラッドショアの魔物の駆逐,false,battlecraft,xtx/guildleve,10862
+10863,To Catch a Thief,密造銀塊の奪還,false,battlecraft,xtx/guildleve,10863
+10864,A Roseling by Any Other Name,急募！　ローズリングの巻きひげの収集,false,battlecraft,xtx/guildleve,10864
+10865,Sating the Simians,ガラゴの一掃,false,battlecraft,xtx/guildleve,10865
+10866,An Imp in Sheep's Clothing,脱獄したインプの捕殺,false,battlecraft,xtx/guildleve,10866
+10867,Fiend in the Flock,ドードーの保護,false,battlecraft,xtx/guildleve,10867
+10868,Escape from Cell B17,脱獄囚インプB17の処断,false,battlecraft,xtx/guildleve,10868
+10869,x,x,true,battlecraft,xtx/guildleve,10869
+10870,x,x,true,battlecraft,xtx/guildleve,10870
+10871,x,x,true,battlecraft,xtx/guildleve,10871
+10872,x,x,true,battlecraft,xtx/guildleve,10872
+10873,x,x,true,battlecraft,xtx/guildleve,10873
+10874,x,x,true,battlecraft,xtx/guildleve,10874
+10875,x,x,true,battlecraft,xtx/guildleve,10875
+10881,Annexing the Valley,キャンプ・スカルバレーの魔物の駆逐,false,battlecraft,xtx/guildleve,10881
+10882,Colonizing the Valley,急募！　キャンプ・スカルバレーの魔物の駆逐,false,battlecraft,xtx/guildleve,10882
+10883,Claws and Wings,飛翔魔物の部位調達,false,battlecraft,xtx/guildleve,10883
+10884,Burning Down the Houses,急募！　放火魔インプの一掃,false,battlecraft,xtx/guildleve,10884
+10885,The Swarm,大発生！　サーフィズの一掃,false,battlecraft,xtx/guildleve,10885
+10886,Send Them Packing,畑荒らしラットの一掃,false,battlecraft,xtx/guildleve,10886
+10887,Herbicide,畑荒らしドードーの一掃,false,battlecraft,xtx/guildleve,10887
+10888,Jellyfish in a Barrel,養殖場荒らしオーレリアの一掃,false,battlecraft,xtx/guildleve,10888
+10889,x,x,true,battlecraft,xtx/guildleve,10889
+10890,x,x,true,battlecraft,xtx/guildleve,10890
+10891,x,x,true,battlecraft,xtx/guildleve,10891
+10892,x,x,true,battlecraft,xtx/guildleve,10892
+10893,x,x,true,battlecraft,xtx/guildleve,10893
+10894,x,x,true,battlecraft,xtx/guildleve,10894
+10895,x,x,true,battlecraft,xtx/guildleve,10895
+10901,Annexing the Knoll,バルドノールの魔物の駆逐,false,battlecraft,xtx/guildleve,10901
+10902,Fearsome Foliage,フライトラップの除草,false,battlecraft,xtx/guildleve,10902
+10903,Slippery Skins,人気商品｢エフトの粗皮｣の調達,false,battlecraft,xtx/guildleve,10903
+10904,Wyrston's Herd,野生化した家畜の一掃,false,battlecraft,xtx/guildleve,10904
+10905,Escape from Cell E05,脱獄囚デビレットE05の処断,false,battlecraft,xtx/guildleve,10905
+10906,Keeping the Peace,第113防御陣地の防衛,false,battlecraft,xtx/guildleve,10906
+10907,Dropping Like Flies,急募！第93防御陣地の防衛,false,battlecraft,xtx/guildleve,10907
+10908,On the Beating Path,第107防御陣地の防衛,false,battlecraft,xtx/guildleve,10908
+10909,Off With Their Heads,エフト狩り,false,battlecraft,xtx/guildleve,10909
+10910,dummy,dummy,true,battlecraft,xtx/guildleve,10910
+10911,dummy,dummy,true,battlecraft,xtx/guildleve,10911
+10912,dummy,dummy,true,battlecraft,xtx/guildleve,10912
+10913,dummy,dummy,true,battlecraft,xtx/guildleve,10913
+10914,dummy,dummy,true,battlecraft,xtx/guildleve,10914
+10915,dummy,dummy,true,battlecraft,xtx/guildleve,10915
+10921,Soft Targets,アネモネの防除,false,battlecraft,xtx/guildleve,10921
+10922,Annexing the Lake,アイアンレイクの魔物の駆逐,false,battlecraft,xtx/guildleve,10922
+10923,Meating Demand,交易船の貨物：塩漬用の肉調達,false,battlecraft,xtx/guildleve,10923
+10924,Mutton over Mongrels,羊喰いジャッカルの一掃,false,battlecraft,xtx/guildleve,10924
+10925,Unholy Moley,脱獄デビレットの誅殺,false,battlecraft,xtx/guildleve,10925
+10926,Necrologos: The Abased,魔物大全『地這いし者の巻』の回収,false,battlecraft,xtx/guildleve,10926
+10927,Sharing the Load,第78防御陣地の防衛,false,battlecraft,xtx/guildleve,10927
+10928,Cliff Haranguers,第33防御陣地の防衛,false,battlecraft,xtx/guildleve,10928
+10929,Great Hoary Toads,急募！　ギガントード狩り,false,battlecraft,xtx/guildleve,10929
+10930,dummy,dummy,true,battlecraft,xtx/guildleve,10930
+10931,dummy,dummy,true,battlecraft,xtx/guildleve,10931
+10932,dummy,dummy,true,battlecraft,xtx/guildleve,10932
+10933,dummy,dummy,true,battlecraft,xtx/guildleve,10933
+10934,dummy,dummy,true,battlecraft,xtx/guildleve,10934
+10935,dummy,dummy,true,battlecraft,xtx/guildleve,10935
+10941,x,x,true,battlecraft,xtx/guildleve,10941
+10942,x,x,true,battlecraft,xtx/guildleve,10942
+10943,x,x,true,battlecraft,xtx/guildleve,10943
+10944,x,x,true,battlecraft,xtx/guildleve,10944
+10945,dummy,dummy,true,battlecraft,xtx/guildleve,10945
+10946,dummy,dummy,true,battlecraft,xtx/guildleve,10946
+10947,dummy,dummy,true,battlecraft,xtx/guildleve,10947
+10948,dummy,dummy,true,battlecraft,xtx/guildleve,10948
+10961,x,x,true,battlecraft,xtx/guildleve,10961
+10962,x,x,true,battlecraft,xtx/guildleve,10962
+10963,x,x,true,battlecraft,xtx/guildleve,10963
+10964,x,x,true,battlecraft,xtx/guildleve,10964
+10965,dummy,dummy,true,battlecraft,xtx/guildleve,10965
+10966,dummy,dummy,true,battlecraft,xtx/guildleve,10966
+10967,dummy,dummy,true,battlecraft,xtx/guildleve,10967
+10968,dummy,dummy,true,battlecraft,xtx/guildleve,10968
+10981,dummy,dummy,true,battlecraft,xtx/guildleve,10981
+10982,dummy,dummy,true,battlecraft,xtx/guildleve,10982
+10983,dummy,dummy,true,battlecraft,xtx/guildleve,10983
+10984,dummy,dummy,true,battlecraft,xtx/guildleve,10984
+10985,dummy,dummy,true,battlecraft,xtx/guildleve,10985
+10986,dummy,dummy,true,battlecraft,xtx/guildleve,10986
+10987,dummy,dummy,true,battlecraft,xtx/guildleve,10987
+10988,dummy,dummy,true,battlecraft,xtx/guildleve,10988
+11001,x,x,true,battlecraft,xtx/guildleve,11001
+11002,x,x,true,battlecraft,xtx/guildleve,11002
+11003,x,x,true,battlecraft,xtx/guildleve,11003
+11004,The Skull Valley Chronicles,x,false,battlecraft,xtx/guildleve,11004
+11005,dummy,dummy,true,battlecraft,xtx/guildleve,11005
+11006,dummy,dummy,true,battlecraft,xtx/guildleve,11006
+11007,dummy,dummy,true,battlecraft,xtx/guildleve,11007
+11008,dummy,dummy,true,battlecraft,xtx/guildleve,11008
+11021,x,x,true,battlecraft,xtx/guildleve,11021
+11022,x,x,true,battlecraft,xtx/guildleve,11022
+11023,x,x,true,battlecraft,xtx/guildleve,11023
+11024,dummy,dummy,true,battlecraft,xtx/guildleve,11024
+11025,dummy,dummy,true,battlecraft,xtx/guildleve,11025
+11026,dummy,dummy,true,battlecraft,xtx/guildleve,11026
+11027,dummy,dummy,true,battlecraft,xtx/guildleve,11027
+11028,dummy,dummy,true,battlecraft,xtx/guildleve,11028
+11041,dummy,dummy,true,battlecraft,xtx/guildleve,11041
+11042,dummy,dummy,true,battlecraft,xtx/guildleve,11042
+11043,dummy,dummy,true,battlecraft,xtx/guildleve,11043
+11044,dummy,dummy,true,battlecraft,xtx/guildleve,11044
+11045,dummy,dummy,true,battlecraft,xtx/guildleve,11045
+11046,dummy,dummy,true,battlecraft,xtx/guildleve,11046
+11047,dummy,dummy,true,battlecraft,xtx/guildleve,11047
+11048,dummy,dummy,true,battlecraft,xtx/guildleve,11048
+11421,Protecting the Pilgrims,ナット退治,false,battlecraft,xtx/guildleve,11421
+11422,Awful Offal,ボッグヤーゾンの味噌の収集,false,battlecraft,xtx/guildleve,11422
+11423,Orbs for the Ossuary,アースオーブの調達,false,battlecraft,xtx/guildleve,11423
+11424,Spooring Spores,苗床荒らしアルドゴートの一掃,false,battlecraft,xtx/guildleve,11424
+11425,Crabs in a Barrel,養殖場荒らしメガロクラブの一掃,false,battlecraft,xtx/guildleve,11425
+11426,Escape from Cell D72,脱獄囚デビレットD72の処断,false,battlecraft,xtx/guildleve,11426
+11427,Necrologos: The Boughs Above,魔物大全『枝渡りし者の巻』の回収,false,battlecraft,xtx/guildleve,11427
+11428,Necrologos: Inferno,魔物大全『燃え盛りし者の巻』の回収,false,battlecraft,xtx/guildleve,11428
+11441,dummy,dummy,true,battlecraft,xtx/guildleve,11441
+11442,dummy,dummy,true,battlecraft,xtx/guildleve,11442
+11443,dummy,dummy,true,battlecraft,xtx/guildleve,11443
+11444,dummy,dummy,true,battlecraft,xtx/guildleve,11444
+11445,dummy,dummy,true,battlecraft,xtx/guildleve,11445
+11446,dummy,dummy,true,battlecraft,xtx/guildleve,11446
+11447,dummy,dummy,true,battlecraft,xtx/guildleve,11447
+11448,dummy,dummy,true,battlecraft,xtx/guildleve,11448
+11449,dummy,dummy,true,battlecraft,xtx/guildleve,11449
+11450,dummy,dummy,true,battlecraft,xtx/guildleve,11450
+11451,dummy,dummy,true,battlecraft,xtx/guildleve,11451
+11452,dummy,dummy,true,battlecraft,xtx/guildleve,11452
+11453,dummy,dummy,true,battlecraft,xtx/guildleve,11453
+11454,dummy,dummy,true,battlecraft,xtx/guildleve,11454
+11455,dummy,dummy,true,battlecraft,xtx/guildleve,11455
+11461,dummy,dummy,true,battlecraft,xtx/guildleve,11461
+11462,dummy,dummy,true,battlecraft,xtx/guildleve,11462
+11463,dummy,dummy,true,battlecraft,xtx/guildleve,11463
+11464,dummy,dummy,true,battlecraft,xtx/guildleve,11464
+11465,dummy,dummy,true,battlecraft,xtx/guildleve,11465
+11466,dummy,dummy,true,battlecraft,xtx/guildleve,11466
+11467,dummy,dummy,true,battlecraft,xtx/guildleve,11467
+11468,dummy,dummy,true,battlecraft,xtx/guildleve,11468
+11601,Moles for the Mauling,新米冒険者向けの仕事,false,battlecraft,xtx/guildleve,11601
+11602,dummy,dummy,true,battlecraft,xtx/guildleve,11602
+11621,Something in the Water,マーモットの駆除,false,battlecraft,xtx/guildleve,11621
+11622,Weevil Panic,ウィーヴィルの駆虫,false,battlecraft,xtx/guildleve,11622
+11623,Flambert's Forgetfulness,急募！　霊布の確保,false,battlecraft,xtx/guildleve,11623
+11624,Cogwheel Scramble,駅馬車の積荷：車骨鉱の調達,false,battlecraft,xtx/guildleve,11624
+11625,Sucking Blood,ミッヂの防除,false,battlecraft,xtx/guildleve,11625
+11626,Tunneling Trouble,モールの駆除,false,battlecraft,xtx/guildleve,11626
+11627,Sprightly Spriggans,スプリガンの除霊,false,battlecraft,xtx/guildleve,11627
+11628,Clearing Black Brush,キャンプ・ブラックブラッシュの魔物の駆逐,false,battlecraft,xtx/guildleve,11628
+11629,dummy,dummy,true,battlecraft,xtx/guildleve,11629
+11630,dummy,dummy,true,battlecraft,xtx/guildleve,11630
+11631,dummy,dummy,true,battlecraft,xtx/guildleve,11631
+11632,dummy,dummy,true,battlecraft,xtx/guildleve,11632
+11633,dummy,dummy,true,battlecraft,xtx/guildleve,11633
+11634,dummy,dummy,true,battlecraft,xtx/guildleve,11634
+11635,dummy,dummy,true,battlecraft,xtx/guildleve,11635
+11641,Sand Yarzon Sweep,ラセットヤーゾン退治,false,battlecraft,xtx/guildleve,11641
+11642,Sucking Blood Again,揺蚊の防除,false,battlecraft,xtx/guildleve,11642
+11643,Where the Stone Floats,駅馬車の積荷：浮石の調達,false,battlecraft,xtx/guildleve,11643
+11644,After the Battle,客荒らしラセットヤーゾンの一掃,false,battlecraft,xtx/guildleve,11644
+11645,Treasures of the Smallfolk,宝石泥棒スプリガンの一掃,false,battlecraft,xtx/guildleve,11645
+11646,Popotoes in Peril,芋喰いマーモットの一掃,false,battlecraft,xtx/guildleve,11646
+11647,Culling All Coblyns,募集：コブランの追跡者,false,battlecraft,xtx/guildleve,11647
+11648,Revenge of the Dodos,急募！　ドードーへの復讐者,false,battlecraft,xtx/guildleve,11648
+11649,dummy,dummy,true,battlecraft,xtx/guildleve,11649
+11650,dummy,dummy,true,battlecraft,xtx/guildleve,11650
+11651,dummy,dummy,true,battlecraft,xtx/guildleve,11651
+11652,dummy,dummy,true,battlecraft,xtx/guildleve,11652
+11653,dummy,dummy,true,battlecraft,xtx/guildleve,11653
+11654,dummy,dummy,true,battlecraft,xtx/guildleve,11654
+11655,dummy,dummy,true,battlecraft,xtx/guildleve,11655
+11661,Securing Horizon's Edge,キャンプ・ホライズンの賊退治,false,battlecraft,xtx/guildleve,11661
+11662,Threading the Needles,カクターの除草,false,battlecraft,xtx/guildleve,11662
+11663,A Leg Up,駅馬車の積荷：サボテンダーの肉の調達,false,battlecraft,xtx/guildleve,11663
+11664,The Wights' Stuff,錆びた古代剣の調達,false,battlecraft,xtx/guildleve,11664
+11665,Sweet Vengeance,客狙いアサシンの一掃,false,battlecraft,xtx/guildleve,11665
+11666,Just One of the Dodos,急募！　ドードーの保護,false,battlecraft,xtx/guildleve,11666
+11667,The Lady's Bite,レディバグの捜索,false,battlecraft,xtx/guildleve,11667
+11668,The Devilet Inside,脱獄囚インプAZTの処断,false,battlecraft,xtx/guildleve,11668
+11669,dummy,dummy,true,battlecraft,xtx/guildleve,11669
+11670,dummy,dummy,true,battlecraft,xtx/guildleve,11670
+11671,dummy,dummy,true,battlecraft,xtx/guildleve,11671
+11672,dummy,dummy,true,battlecraft,xtx/guildleve,11672
+11673,dummy,dummy,true,battlecraft,xtx/guildleve,11673
+11674,dummy,dummy,true,battlecraft,xtx/guildleve,11674
+11675,dummy,dummy,true,battlecraft,xtx/guildleve,11675
+11681,Securing Nophica's Wells,ノフィカの井戸の魔物駆逐,false,battlecraft,xtx/guildleve,11681
+11682,A Drop in the Pond,ドードーの駆逐,false,battlecraft,xtx/guildleve,11682
+11683,Volatile Vitals,駅馬車の積荷：アーリマンの血の調達,false,battlecraft,xtx/guildleve,11683
+11684,Dodos and Popotoes,芋喰いドードーの一掃,false,battlecraft,xtx/guildleve,11684
+11685,Secret of the Sewers,炎使いの誅殺,false,battlecraft,xtx/guildleve,11685
+11686,Necrologos: The Light's Corrivals,魔物大全『光に牙剥く者の巻』の回収,false,battlecraft,xtx/guildleve,11686
+11687,Necrologos: Amongst Leaves Most Green,魔物大全『木々駆けし者の巻』の回収,false,battlecraft,xtx/guildleve,11687
+11688,Necrologos: Levinshower,急募！魔物大全『閃光放ちし者の巻』の回収,false,battlecraft,xtx/guildleve,11688
+11689,dummy,dummy,true,battlecraft,xtx/guildleve,11689
+11690,dummy,dummy,true,battlecraft,xtx/guildleve,11690
+11691,dummy,dummy,true,battlecraft,xtx/guildleve,11691
+11692,dummy,dummy,true,battlecraft,xtx/guildleve,11692
+11693,dummy,dummy,true,battlecraft,xtx/guildleve,11693
+11694,dummy,dummy,true,battlecraft,xtx/guildleve,11694
+11695,dummy,dummy,true,battlecraft,xtx/guildleve,11695
+11701,Desert Defilement,ペイスト退治,false,battlecraft,xtx/guildleve,11701
+11702,Cat Eat Dog,駅馬車の積荷：ジャッカルの腿肉の調達,false,battlecraft,xtx/guildleve,11702
+11703,Juggling Knives,黄金の短剣の調達,false,battlecraft,xtx/guildleve,11703
+11704,Stalking the Stalkers,募集：ペイストの追跡者,false,battlecraft,xtx/guildleve,11704
+11705,Secrets of the Sultanate,風使いの捕殺,false,battlecraft,xtx/guildleve,11705
+11706,Necrologos: All Things Must Die,魔物大全『死してなお彷徨う者の巻』の回収,false,battlecraft,xtx/guildleve,11706
+11707,Bigger Fish to Fry,オロボンを利用したアンブッシュ訓練,false,battlecraft,xtx/guildleve,11707
+11708,Restless be the Damned,ゾンビーを利用したアンブッシュ訓練,false,battlecraft,xtx/guildleve,11708
+11709,Preventing the Plague,急募！　ヂッガ駆除,false,battlecraft,xtx/guildleve,11709
+11710,dummy,dummy,true,battlecraft,xtx/guildleve,11710
+11711,dummy,dummy,true,battlecraft,xtx/guildleve,11711
+11712,dummy,dummy,true,battlecraft,xtx/guildleve,11712
+11713,dummy,dummy,true,battlecraft,xtx/guildleve,11713
+11714,dummy,dummy,true,battlecraft,xtx/guildleve,11714
+11715,dummy,dummy,true,battlecraft,xtx/guildleve,11715
+11721,A Terrible Thirst,アルドゴートの駆除,false,battlecraft,xtx/guildleve,11721
+11722,Hiding Under the Beds,ヘッジモールの駆除,false,battlecraft,xtx/guildleve,11722
+11723,All Cracked Up,駅馬車の積荷：コカトリスの石卵の調達,false,battlecraft,xtx/guildleve,11723
+11724,Netting the Gnats,ナットの追跡,false,battlecraft,xtx/guildleve,11724
+11725,A Devilet's Best Friend,デビレットの捜索,false,battlecraft,xtx/guildleve,11725
+11726,Necrologos: Ranine Reveries,魔物大全『貪欲なる者の巻』の回収,false,battlecraft,xtx/guildleve,11726
+11727,Whipping the Curs,急募！　モングレルを利用したアンブッシュ訓練,false,battlecraft,xtx/guildleve,11727
+11728,Thwack Ye Mole,ヘッジモールを利用したアンブッシュ訓練,false,battlecraft,xtx/guildleve,11728
+11729,Dunesfolk for Dinner,ペイスト狩り,false,battlecraft,xtx/guildleve,11729
+11730,dummy,dummy,true,battlecraft,xtx/guildleve,11730
+11731,dummy,dummy,true,battlecraft,xtx/guildleve,11731
+11732,dummy,dummy,true,battlecraft,xtx/guildleve,11732
+11733,dummy,dummy,true,battlecraft,xtx/guildleve,11733
+11734,dummy,dummy,true,battlecraft,xtx/guildleve,11734
+11735,dummy,dummy,true,battlecraft,xtx/guildleve,11735
+12221,Overtime in the Mines,プーク退治,false,battlecraft,xtx/guildleve,12221
+12222,Tuning In,駅馬車の積荷：ナットの触角の調達,false,battlecraft,xtx/guildleve,12222
+12223,The Potter's Price,駅馬車の積荷：魔白灰の調達,false,battlecraft,xtx/guildleve,12223
+12224,Spirited Below,ウィル・オ・ザ・ウィスプの追跡,false,battlecraft,xtx/guildleve,12224
+12225,Antling Invasion,募集：アントリング・ワーカーの追跡者,false,battlecraft,xtx/guildleve,12225
+12226,Corpus Adamance,脱獄囚デビレットAVYの処断,false,battlecraft,xtx/guildleve,12226
+12227,Necrologos: Torn Asunder,急募！魔物大全『大地刺す者の巻』の回収,false,battlecraft,xtx/guildleve,12227
+12228,Necrologos: Adamantine Wills,魔物大全『堅牢なる者の巻』の回収,false,battlecraft,xtx/guildleve,12228
+12229,dummy,dummy,true,battlecraft,xtx/guildleve,12229
+12230,dummy,dummy,true,battlecraft,xtx/guildleve,12230
+12231,dummy,dummy,true,battlecraft,xtx/guildleve,12231
+12232,dummy,dummy,true,battlecraft,xtx/guildleve,12232
+12233,dummy,dummy,true,battlecraft,xtx/guildleve,12233
+12234,dummy,dummy,true,battlecraft,xtx/guildleve,12234
+12235,dummy,dummy,true,battlecraft,xtx/guildleve,12235
+12241,dummy,dummy,true,battlecraft,xtx/guildleve,12241
+12242,dummy,dummy,true,battlecraft,xtx/guildleve,12242
+12243,dummy,dummy,true,battlecraft,xtx/guildleve,12243
+12244,dummy,dummy,true,battlecraft,xtx/guildleve,12244
+12245,dummy,dummy,true,battlecraft,xtx/guildleve,12245
+12246,dummy,dummy,true,battlecraft,xtx/guildleve,12246
+12247,dummy,dummy,true,battlecraft,xtx/guildleve,12247
+12248,dummy,dummy,true,battlecraft,xtx/guildleve,12248
+12249,dummy,dummy,true,battlecraft,xtx/guildleve,12249
+12250,dummy,dummy,true,battlecraft,xtx/guildleve,12250
+12251,dummy,dummy,true,battlecraft,xtx/guildleve,12251
+12252,dummy,dummy,true,battlecraft,xtx/guildleve,12252
+12253,dummy,dummy,true,battlecraft,xtx/guildleve,12253
+12254,dummy,dummy,true,battlecraft,xtx/guildleve,12254
+12255,dummy,dummy,true,battlecraft,xtx/guildleve,12255
+12401,Spore Spoor,初級冒険者向けの仕事,false,battlecraft,xtx/guildleve,12401
+12402,dummy,dummy,true,battlecraft,xtx/guildleve,12402
+12421,Reforesting Bentbranch,キャンプ・ベントブランチの魔物の駆逐,false,battlecraft,xtx/guildleve,12421
+12422,Crushing Chiglets,チグレットの防除,false,battlecraft,xtx/guildleve,12422
+12423,Light for the Rites,初蛍の調達,false,battlecraft,xtx/guildleve,12423
+12424,Spores for the Ceremony,ファンガーの傘の調達,false,battlecraft,xtx/guildleve,12424
+12425,An Old-fashioned Exorcism,急募！　スプリガンの除霊者,false,battlecraft,xtx/guildleve,12425
+12426,Moles vs the Pilgrims,モール叩き,false,battlecraft,xtx/guildleve,12426
+12427,Clearing the Forest,ファンガーの除草,false,battlecraft,xtx/guildleve,12427
+12428,Bees vs the Pilgrims,ビーズ退治,false,battlecraft,xtx/guildleve,12428
+12429,dummy,dummy,true,battlecraft,xtx/guildleve,12429
+12430,dummy,dummy,true,battlecraft,xtx/guildleve,12430
+12431,dummy,dummy,true,battlecraft,xtx/guildleve,12431
+12432,dummy,dummy,true,battlecraft,xtx/guildleve,12432
+12433,dummy,dummy,true,battlecraft,xtx/guildleve,12433
+12434,dummy,dummy,true,battlecraft,xtx/guildleve,12434
+12435,dummy,dummy,true,battlecraft,xtx/guildleve,12435
+12441,Foresting Emerald Moss,キャンプ・エメラルドモスの魔物の駆逐,false,battlecraft,xtx/guildleve,12441
+12442,Yarzons vs the Pilgrims,ラセットヤーゾン掃滅,false,battlecraft,xtx/guildleve,12442
+12443,The Black Rabbit's Ore,隊商の主力商品：車骨鉱の調達,false,battlecraft,xtx/guildleve,12443
+12444,Fungicide,市民の敵ファンガーの一掃,false,battlecraft,xtx/guildleve,12444
+12445,Lack of Humours,募集：チグレットの追跡者,false,battlecraft,xtx/guildleve,12445
+12446,Tricks of the Traders,急募！　インプへの復讐者,false,battlecraft,xtx/guildleve,12446
+12447,Sapped Saplings,柱囓りモールの一掃,false,battlecraft,xtx/guildleve,12447
+12448,Help the Children,市民の敵ビーズの一掃,false,battlecraft,xtx/guildleve,12448
+12449,dummy,dummy,true,battlecraft,xtx/guildleve,12449
+12450,dummy,dummy,true,battlecraft,xtx/guildleve,12450
+12451,dummy,dummy,true,battlecraft,xtx/guildleve,12451
+12452,dummy,dummy,true,battlecraft,xtx/guildleve,12452
+12453,dummy,dummy,true,battlecraft,xtx/guildleve,12453
+12454,dummy,dummy,true,battlecraft,xtx/guildleve,12454
+12455,dummy,dummy,true,battlecraft,xtx/guildleve,12455
+12461,Reforesting Tranquil,キャンプ・トランキルの魔物の駆逐,false,battlecraft,xtx/guildleve,12461
+12462,An Enemy in the Orchards,アンテロープの駆除,false,battlecraft,xtx/guildleve,12462
+12463,Forsaken Sacs,隊商の主力商品：テロックの縞尾の調達,false,battlecraft,xtx/guildleve,12463
+12464,A Feast Fit for a Queen,ヒメミツバチの調達,false,battlecraft,xtx/guildleve,12464
+12465,Migrating Crustaceans,メガロクラブの追跡,false,battlecraft,xtx/guildleve,12465
+12466,Impish Intentions,ガラゴに化けたインプの誅殺,false,battlecraft,xtx/guildleve,12466
+12467,Hidden Behind a Hide,妖火使いの誅殺,false,battlecraft,xtx/guildleve,12467
+12468,Leaders of the Pack,脱獄囚インプ237の処断,false,battlecraft,xtx/guildleve,12468
+12469,dummy,dummy,true,battlecraft,xtx/guildleve,12469
+12470,dummy,dummy,true,battlecraft,xtx/guildleve,12470
+12471,dummy,dummy,true,battlecraft,xtx/guildleve,12471
+12472,dummy,dummy,true,battlecraft,xtx/guildleve,12472
+12473,dummy,dummy,true,battlecraft,xtx/guildleve,12473
+12474,dummy,dummy,true,battlecraft,xtx/guildleve,12474
+12475,dummy,dummy,true,battlecraft,xtx/guildleve,12475
+12481,Reforesting Humblehearth,妖精の火床の魔物駆逐,false,battlecraft,xtx/guildleve,12481
+12482,From the Sea to the Trees,アングラー退治,false,battlecraft,xtx/guildleve,12482
+12483,The Goodwill Traders,隊商の主力商品：バッファローの猟用外套の調達,false,battlecraft,xtx/guildleve,12483
+12484,The Root of the Problem,花喰いアンテロープの一掃,false,battlecraft,xtx/guildleve,12484
+12485,Underneath the Shell,水使いの誅殺,false,battlecraft,xtx/guildleve,12485
+12486,Necrologos: In Shadow Bemantled,急募！　魔物大全『黒雲包まれし者の巻』の回収,false,battlecraft,xtx/guildleve,12486
+12487,Necrologos: Celeritous Impetus,魔物大全『猛進せし者の巻』の回収,false,battlecraft,xtx/guildleve,12487
+12488,Necrologos: Thousandfold Agony,魔物大全『針千本飲ます者の巻』の回収,false,battlecraft,xtx/guildleve,12488
+12489,dummy,dummy,true,battlecraft,xtx/guildleve,12489
+12490,dummy,dummy,true,battlecraft,xtx/guildleve,12490
+12491,dummy,dummy,true,battlecraft,xtx/guildleve,12491
+12492,dummy,dummy,true,battlecraft,xtx/guildleve,12492
+12493,dummy,dummy,true,battlecraft,xtx/guildleve,12493
+12494,dummy,dummy,true,battlecraft,xtx/guildleve,12494
+12495,dummy,dummy,true,battlecraft,xtx/guildleve,12495
+12501,Reforesting Nine Ivies,キャンプ・ナインアイビーの魔物駆逐,false,battlecraft,xtx/guildleve,12501
+12502,The All-seeing Eyes,ファハンの封印,false,battlecraft,xtx/guildleve,12502
+12503,Tickling Whiskers,隊商の主力商品：オロボンのヒゲの調達,false,battlecraft,xtx/guildleve,12503
+12504,Efts from Afar,市民の敵エフトの一掃,false,battlecraft,xtx/guildleve,12504
+12505,What the Devilet Dons,変身デビレットの捜索,false,battlecraft,xtx/guildleve,12505
+12506,Necrologos: The Fallen,魔物大全『地に墜ちし者の巻』の回収,false,battlecraft,xtx/guildleve,12506
+12507,Fire Fighting,ジャッカスツリー監視哨の防衛,false,battlecraft,xtx/guildleve,12507
+12508,All Nine Ivies is a Stage,急募！　フーリッシュツリー監視哨の防衛,false,battlecraft,xtx/guildleve,12508
+12509,Slugging it Out,アリオンを利用したアンブッシュ訓練,false,battlecraft,xtx/guildleve,12509
+12510,dummy,dummy,true,battlecraft,xtx/guildleve,12510
+12511,dummy,dummy,true,battlecraft,xtx/guildleve,12511
+12512,dummy,dummy,true,battlecraft,xtx/guildleve,12512
+12513,dummy,dummy,true,battlecraft,xtx/guildleve,12513
+12514,dummy,dummy,true,battlecraft,xtx/guildleve,12514
+12515,dummy,dummy,true,battlecraft,xtx/guildleve,12515
+12521,A Toad's Taste,ギガントードの防除,false,battlecraft,xtx/guildleve,12521
+12522,Stealing Apples from a Lemur,隊商の主力商品：虫笑みリンゴの調達,false,battlecraft,xtx/guildleve,12522
+12523,Blacksand in Hand,隊商の主力商品：黒砂の調達,false,battlecraft,xtx/guildleve,12523
+12524,Do Toads Dream,募集：ギガントードの追跡者,false,battlecraft,xtx/guildleve,12524
+12525,Out of its Shell,脱獄囚デビレット049の処断,false,battlecraft,xtx/guildleve,12525
+12526,Necrologos: Rockbound Mists,魔物大全『しなやかなりし者の巻』の回収,false,battlecraft,xtx/guildleve,12526
+12527,All Treespeak is a Stage,ポーキュパインツリー監視哨の防衛,false,battlecraft,xtx/guildleve,12527
+12528,Sweet Revenge,レオパルドツリー監視哨の防衛,false,battlecraft,xtx/guildleve,12528
+12529,Open Season,急募！　ポーチャーを利用したアンブッシュ訓練,false,battlecraft,xtx/guildleve,12529
+12530,dummy,dummy,true,battlecraft,xtx/guildleve,12530
+12531,dummy,dummy,true,battlecraft,xtx/guildleve,12531
+12532,dummy,dummy,true,battlecraft,xtx/guildleve,12532
+12533,dummy,dummy,true,battlecraft,xtx/guildleve,12533
+12534,dummy,dummy,true,battlecraft,xtx/guildleve,12534
+12535,dummy,dummy,true,battlecraft,xtx/guildleve,12535
+13021,Wizening Up,洞穴プーク討伐,false,battlecraft,xtx/guildleve,13021
+13022,Undercutting the Competition,急募！　｢ナットの触角｣の調達,false,battlecraft,xtx/guildleve,13022
+13023,Orbs for the Ceremony,アースオーブの収集,false,battlecraft,xtx/guildleve,13023
+13024,Tracking the Pack,残飯漁りウルフの一掃,false,battlecraft,xtx/guildleve,13024
+13025,Crabs in the Cellar,市民の敵メガロクラブの一掃,false,battlecraft,xtx/guildleve,13025
+13026,My Fey Lady,デビレットの誅殺,false,battlecraft,xtx/guildleve,13026
+13027,Necrologos: The Ever-reaching Claw,魔物大全『沼歩む者の巻』の回収,false,battlecraft,xtx/guildleve,13027
+13028,Necrologos: The Moons' Mistress,魔物大全『闇に吼えし者の巻』の回収,false,battlecraft,xtx/guildleve,13028
+13029,dummy,dummy,true,battlecraft,xtx/guildleve,13029
+13030,dummy,dummy,true,battlecraft,xtx/guildleve,13030
+13031,dummy,dummy,true,battlecraft,xtx/guildleve,13031
+13032,dummy,dummy,true,battlecraft,xtx/guildleve,13032
+13033,dummy,dummy,true,battlecraft,xtx/guildleve,13033
+13034,dummy,dummy,true,battlecraft,xtx/guildleve,13034
+13035,dummy,dummy,true,battlecraft,xtx/guildleve,13035
+13041,dummy,dummy,true,battlecraft,xtx/guildleve,13041
+13042,dummy,dummy,true,battlecraft,xtx/guildleve,13042
+13043,dummy,dummy,true,battlecraft,xtx/guildleve,13043
+13044,dummy,dummy,true,battlecraft,xtx/guildleve,13044
+13045,dummy,dummy,true,battlecraft,xtx/guildleve,13045
+13046,dummy,dummy,true,battlecraft,xtx/guildleve,13046
+13047,dummy,dummy,true,battlecraft,xtx/guildleve,13047
+13048,dummy,dummy,true,battlecraft,xtx/guildleve,13048
+13049,dummy,dummy,true,battlecraft,xtx/guildleve,13049
+13050,dummy,dummy,true,battlecraft,xtx/guildleve,13050
+13051,dummy,dummy,true,battlecraft,xtx/guildleve,13051
+13052,dummy,dummy,true,battlecraft,xtx/guildleve,13052
+13053,dummy,dummy,true,battlecraft,xtx/guildleve,13053
+13054,dummy,dummy,true,battlecraft,xtx/guildleve,13054
+13055,dummy,dummy,true,battlecraft,xtx/guildleve,13055
+20901,An Eye for an Herb,指令：錬金術師の捜索,false,battlecraft,xtx/guildleve,20901
+20902,Missing in Action,指令：黒渦団偵察要員の捜索,false,battlecraft,xtx/guildleve,20902
+20903,Caravan of Courage,西ラノシア魔物掃討作戦,false,battlecraft,xtx/guildleve,20903
+20904,Holding Halfstone,指令：入植地の安全確保,false,battlecraft,xtx/guildleve,20904
+20905,Tapping the Spine,指令：西ラノシア輸送ルートの安全確保,false,battlecraft,xtx/guildleve,20905
+20906,Red Eye,指令：ブラッドショットアイの駆除,false,battlecraft,xtx/guildleve,20906
+21421,Between a Rock and a Hard Place,指令：調査員捜索,false,battlecraft,xtx/guildleve,21421
+21422,Bloody Hollow,浮海月の厳穴掃討作戦,false,battlecraft,xtx/guildleve,21422
+21423,Ale to the Chief,指令：エール泥棒の処断,false,battlecraft,xtx/guildleve,21423
+21424,The Walking Undead,指令：偽友軍兵の殲滅,false,battlecraft,xtx/guildleve,21424
+21701,The Last Flame Scout,指令：不滅隊偵察要員の捜索,false,battlecraft,xtx/guildleve,21701
+21702,Of Man and Mythril,指令：採掘師の捜索,false,battlecraft,xtx/guildleve,21702
+21703,Pit Fighting,8号霊銀試掘場支援作戦,false,battlecraft,xtx/guildleve,21703
+21704,Minding the Mesas,指令：ハラタリ哨戒任務,false,battlecraft,xtx/guildleve,21704
+21705,Back in Back,ハラタリ寄生生物駆除作戦,false,battlecraft,xtx/guildleve,21705
+21706,Eye of the Miner,指令：霊銀鉱床調査隊の安全確保,false,battlecraft,xtx/guildleve,21706
+22221,The Mine Matters,指令：採掘師捜索,false,battlecraft,xtx/guildleve,22221
+22222,A Beautiful Mine,ナナワ銀山掃討作戦,false,battlecraft,xtx/guildleve,22222
+22223,Minesweeper,指令：試掘作業妨害者の排除,false,battlecraft,xtx/guildleve,22223
+22224,Terror in the Pits,指令：亡霊の殲滅,false,battlecraft,xtx/guildleve,22224
+22521,Alone in the Dark,指令：哨兵の救出,false,battlecraft,xtx/guildleve,22521
+22522,Raiders of the Lost Archaeologist,指令：考古学者の捜索,false,battlecraft,xtx/guildleve,22522
+22523,Invaders from Afar,指令：ひそひそ木立の魔物駆除,false,battlecraft,xtx/guildleve,22523
+22524,Sylph-inflicted Wounds,指令：シルフ族の幻術除去,false,battlecraft,xtx/guildleve,22524
+22525,A Fine Host,指令：寄生生物バーブルの駆除,false,battlecraft,xtx/guildleve,22525
+22526,Eyeopener,指令：森の調和の維持,false,battlecraft,xtx/guildleve,22526
+23021,The Missed Zymurgist,指令：園芸師捜索,false,battlecraft,xtx/guildleve,23021
+23022,Best Cellars,指令：醸造庫の魔物駆除,false,battlecraft,xtx/guildleve,23022
+23023,Swimming in Suds,指令：醸造庫のデビレット討伐,false,battlecraft,xtx/guildleve,23023
+23024,Sly Spirits,ウィケッドソウル掃討作戦,false,battlecraft,xtx/guildleve,23024

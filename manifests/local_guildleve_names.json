@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "extractionVersion": "2012.09.19.0001",
+  "sourceEvidenceClass": "client_extraction",
+  "sources": [
+    {
+      "file": "passiveGL_craft.csv",
+      "sha256": "2E2B68515F43BA2898BC3C4BF642332BD924687A4D771BA8D8D9733C539CD0BA",
+      "dataRowCount": 169,
+      "columnCount": 44
+    },
+    {
+      "file": "xtx_quest.csv",
+      "sha256": "938640466B314242916F1F8877A90154C4F4DB7AA63DE6223E6AF4AA194E6719",
+      "dataRowCount": 735,
+      "columnCount": 57
+    },
+    {
+      "file": "xtx__text_ui.csv",
+      "sha256": "23762A422118D99C4144A48B3495C52511B1B1B865E4FC50FDC61A973E3C6ECE",
+      "dataRowCount": 4355,
+      "columnCount": 5
+    }
+  ],
+  "columnMappings": {
+    "guildleve_id": "passiveGL_craft row id",
+    "name_en": "xtx/quest field 2",
+    "name_ja": "xtx/quest field 1",
+    "source_sheet": "xtx/quest",
+    "source_row": "same row id as passiveGL_craft"
+  },
+  "titleControls": {
+    "ja": "[@sheet:02280fff0a7874782f7175657374e8020203]",
+    "en": "[@sheet:02280fff0a7874782f7175657374e8020303]"
+  },
+  "product": {
+    "path": "derived/local_guildleve_names.csv",
+    "sha256": "56EF822C226A2495D7D5F3C307C08535F42A2FEABEDAF9D392A72FBF03C93366",
+    "bytes": 14913,
+    "dataRowCount": 169,
+    "columns": [
+      "guildleve_id",
+      "name_en",
+      "name_ja",
+      "source_sheet",
+      "source_row"
+    ]
+  },
+  "limitations": [
+    "Covers every passiveGL_craft row, including test and dummy titles; names are preserved verbatim.",
+    "The local journal title lookup is independent of passiveGL_craft columns 8-11.",
+    "Client title data does not establish availability or server behavior."
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Guildleve display-name provenance manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "extractionVersion",
+    "sourceEvidenceClass",
+    "sources",
+    "columnMappings",
+    "categoryRules",
+    "output",
+    "placeholderRanges",
+    "duplicateNameGroups"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "extractionVersion": {
+      "const": "2012.09.19.0001"
+    },
+    "sourceEvidenceClass": {
+      "const": "client_extraction"
+    },
+    "sources": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "rowCount"
+          ],
+          "properties": {
+            "path": {
+              "const": "csv/guildleve.csv"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9A-F]{64}$"
+            },
+            "rowCount": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "rowCount"
+          ],
+          "properties": {
+            "path": {
+              "const": "csv/xtx_guildleve.csv"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9A-F]{64}$"
+            },
+            "rowCount": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "columnMappings": {
+      "const": {
+        "guildleve.csv": {
+          "rowId": "guildleve_id",
+          "1": "classType"
+        },
+        "xtx_guildleve.csv": {
+          "rowId": "source_row",
+          "9": "name_ja",
+          "10": "name_en"
+        }
+      }
+    },
+    "categoryRules": {
+      "const": {
+        "1": "battlecraft",
+        "2": "fieldcraft",
+        "otherwise": "other"
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "rowCount",
+        "placeholderCount",
+        "categoryCounts"
+      ],
+      "properties": {
+        "path": {
+          "const": "derived/guildleve_names.csv"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9A-F]{64}$"
+        },
+        "rowCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "placeholderCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "categoryCounts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "battlecraft",
+            "fieldcraft",
+            "other"
+          ],
+          "properties": {
+            "battlecraft": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "fieldcraft": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "other": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "placeholderRanges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "nameEn",
+          "ranges"
+        ],
+        "properties": {
+          "nameEn": {
+            "enum": [
+              "x",
+              "dummy",
+              "\u7ffb\u8a33\u4e0d\u8981"
+            ]
+          },
+          "ranges": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          }
+        }
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "duplicateNameGroups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "nameEn",
+          "nameJa",
+          "guildleveIds"
+        ],
+        "properties": {
+          "nameEn": {
+            "type": "string"
+          },
+          "nameJa": {
+            "type": "string"
+          },
+          "guildleveIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 2,
+            "uniqueItems": true
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "extractionVersion": "2012.09.19.0001",
+  "sourceEvidenceClass": "client_extraction",
+  "sources": [
+    {
+      "path": "csv/guildleve.csv",
+      "bytes": 80881,
+      "sha256": "74EE8061449BF538D504443017C776F994C06FD1BCD2FD008BBEE18284D93B2D",
+      "rowCount": 624
+    },
+    {
+      "path": "csv/xtx_guildleve.csv",
+      "bytes": 921273,
+      "sha256": "D14826E8D222AEB8BEC8607E5FBE2CAD6E0605A429753CDFB38E780C69FB84B6",
+      "rowCount": 624
+    }
+  ],
+  "columnMappings": {
+    "guildleve.csv": {
+      "rowId": "guildleve_id",
+      "1": "classType"
+    },
+    "xtx_guildleve.csv": {
+      "rowId": "source_row",
+      "9": "name_ja",
+      "10": "name_en"
+    }
+  },
+  "categoryRules": {
+    "1": "battlecraft",
+    "2": "fieldcraft",
+    "otherwise": "other"
+  },
+  "output": {
+    "path": "derived/guildleve_names.csv",
+    "bytes": 50158,
+    "sha256": "F445C69774978650CA01DD0CC3B3506A78D104CFECF7310B771C9E6AA96212B6",
+    "rowCount": 624,
+    "placeholderCount": 262,
+    "categoryCounts": {
+      "battlecraft": 505,
+      "fieldcraft": 99,
+      "other": 20
+    }
+  },
+  "placeholderRanges": [
+    {
+      "nameEn": "x",
+      "ranges": [
+        [
+          1021,
+          1025
+        ],
+        [
+          1120,
+          1120
+        ],
+        [
+          1215,
+          1220
+        ],
+        [
+          10829,
+          10835
+        ],
+        [
+          10849,
+          10855
+        ],
+        [
+          10869,
+          10875
+        ],
+        [
+          10889,
+          10895
+        ],
+        [
+          10941,
+          10944
+        ],
+        [
+          10961,
+          10964
+        ],
+        [
+          11001,
+          11003
+        ],
+        [
+          11021,
+          11023
+        ]
+      ]
+    },
+    {
+      "nameEn": "dummy",
+      "ranges": [
+        [
+          10910,
+          10915
+        ],
+        [
+          10930,
+          10935
+        ],
+        [
+          10945,
+          10948
+        ],
+        [
+          10965,
+          10968
+        ],
+        [
+          10981,
+          10988
+        ],
+        [
+          11005,
+          11008
+        ],
+        [
+          11024,
+          11028
+        ],
+        [
+          11041,
+          11048
+        ],
+        [
+          11441,
+          11455
+        ],
+        [
+          11461,
+          11468
+        ],
+        [
+          11602,
+          11602
+        ],
+        [
+          11629,
+          11635
+        ],
+        [
+          11649,
+          11655
+        ],
+        [
+          11669,
+          11675
+        ],
+        [
+          11689,
+          11695
+        ],
+        [
+          11710,
+          11715
+        ],
+        [
+          11730,
+          11735
+        ],
+        [
+          12229,
+          12235
+        ],
+        [
+          12241,
+          12255
+        ],
+        [
+          12402,
+          12402
+        ],
+        [
+          12429,
+          12435
+        ],
+        [
+          12449,
+          12455
+        ],
+        [
+          12469,
+          12475
+        ],
+        [
+          12489,
+          12495
+        ],
+        [
+          12510,
+          12515
+        ],
+        [
+          12530,
+          12535
+        ],
+        [
+          13029,
+          13035
+        ],
+        [
+          13041,
+          13055
+        ]
+      ]
+    },
+    {
+      "nameEn": "\u7ffb\u8a33\u4e0d\u8981",
+      "ranges": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          47,
+          49
+        ]
+      ]
+    }
+  ],
+  "duplicateNameGroups": [
+    {
+      "nameEn": "My Very First Adventure",
+      "nameJa": "\u99c6\u3051\u51fa\u3057\u5192\u967a\u8005\u5411\u3051\u306e\u4ed5\u4e8b",
+      "guildleveIds": [
+        10801,
+        10802
+      ]
+    }
+  ]
+}
