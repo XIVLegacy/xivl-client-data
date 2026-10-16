@@ -94,6 +94,8 @@ jobs:
         run: python tools/test_command_battle_params.py
       - name: Test guildleve display names
         run: python tools/test_guildleve_names.py
+      - name: Test retail sheet exports
+        run: python tools/test_retail_sheet_exports.py
       - name: Test local guildleve display names
         run: python tools/test_local_guildleve_names.py
       - name: Test zone-name evidence boundary

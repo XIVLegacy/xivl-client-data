@@ -1,0 +1,67 @@
+rank_id,company,name_variant,name_en,name_ja,linear_rank,seal_maximum,seals_needed_next_rank,icon_company_1,icon_company_2,icon_company_3,source_row
+0,unresolved,0,未配属,未配属,0,0,0,640,670,700,0
+0,unresolved,1,未配属,未配属,0,0,0,640,670,700,0
+0,unresolved,2,未配属,未配属,0,0,0,640,670,700,0
+11,unresolved,0,Storm Private Third Class,二等甲兵,1,10000,1000,641,671,701,11
+11,unresolved,1,Serpent Private Third Class,二等牙兵,1,10000,1000,641,671,701,11
+11,unresolved,2,Flame Private Third Class,二等闘兵,1,10000,1000,641,671,701,11
+13,unresolved,0,Storm Private Second Class,一等甲兵,2,15000,1500,642,672,702,13
+13,unresolved,1,Serpent Private Second Class,一等牙兵,2,15000,1500,642,672,702,13
+13,unresolved,2,Flame Private Second Class,一等闘兵,2,15000,1500,642,672,702,13
+15,unresolved,0,Storm Private First Class,上等甲兵,3,20000,2000,643,673,703,15
+15,unresolved,1,Serpent Private First Class,上等牙兵,3,20000,2000,643,673,703,15
+15,unresolved,2,Flame Private First Class,上等闘兵,3,20000,2000,643,673,703,15
+17,unresolved,0,Storm Corporal,甲兵長,4,25000,2500,644,674,704,17
+17,unresolved,1,Serpent Corporal,牙兵長,4,25000,2500,644,674,704,17
+17,unresolved,2,Flame Corporal,闘兵長,4,25000,2500,644,674,704,17
+21,unresolved,0,Storm Sergeant Third Class,甲伍長,5,30000,3000,645,675,705,21
+21,unresolved,1,Serpent Sergeant Third Class,牙伍長,5,30000,3000,645,675,705,21
+21,unresolved,2,Flame Sergeant Third Class,闘伍長,5,30000,3000,645,675,705,21
+23,unresolved,0,Storm Sergeant Second Class,甲軍曹,6,35000,3500,646,676,706,23
+23,unresolved,1,Serpent Sergeant Second Class,牙軍曹,6,35000,3500,646,676,706,23
+23,unresolved,2,Flame Sergeant Second Class,闘軍曹,6,35000,3500,646,676,706,23
+25,unresolved,0,Storm Sergeant First Class,甲曹長,7,40000,4000,647,677,707,25
+25,unresolved,1,Serpent Sergeant First Class,牙曹長,7,40000,4000,647,677,707,25
+25,unresolved,2,Flame Sergeant First Class,闘曹長,7,40000,4000,647,677,707,25
+27,unresolved,0,Chief Storm Sergeant,准甲士,8,45000,25000,648,678,708,27
+27,unresolved,1,Chief Serpent Sergeant,准牙士,8,45000,25000,648,678,708,27
+27,unresolved,2,Chief Flame Sergeant,准闘士,8,45000,25000,648,678,708,27
+31,unresolved,0,Second Storm Lieutenant,少甲士,9,50000,50000,649,679,709,31
+31,unresolved,1,Second Serpent Lieutenant,少牙士,9,50000,50000,649,679,709,31
+31,unresolved,2,Second Flame Lieutenant,少闘士,9,50000,50000,649,679,709,31
+33,unresolved,0,First Storm Lieutenant,中甲士,10,50000,50000,650,680,710,33
+33,unresolved,1,First Serpent Lieutenant,中牙士,10,50000,50000,650,680,710,33
+33,unresolved,2,First Flame Lieutenant,中闘士,10,50000,50000,650,680,710,33
+35,unresolved,0,Storm Captain,大甲士,11,50000,50000,651,681,711,35
+35,unresolved,1,Serpent Captain,大牙士,11,50000,50000,651,681,711,35
+35,unresolved,2,Flame Captain,大闘士,11,50000,50000,651,681,711,35
+41,unresolved,0,Second Storm Commander,少甲佐,12,60000,60000,652,682,712,41
+41,unresolved,1,Second Serpent Commander,少牙佐,12,60000,60000,652,682,712,41
+41,unresolved,2,Second Flame Commander,少闘佐,12,60000,60000,652,682,712,41
+43,unresolved,0,First Storm Commander,中甲佐,13,60000,60000,653,683,713,43
+43,unresolved,1,First Serpent Commander,中牙佐,13,60000,60000,653,683,713,43
+43,unresolved,2,First Flame Commander,中闘佐,13,60000,60000,653,683,713,43
+45,unresolved,0,High Storm Commander,大甲佐,14,60000,60000,654,684,714,45
+45,unresolved,1,High Serpent Commander,大牙佐,14,60000,60000,654,684,714,45
+45,unresolved,2,High Flame Commander,大闘佐,14,60000,60000,654,684,714,45
+51,unresolved,0,Rear Storm Marshal,准甲将,15,70000,70000,655,685,715,51
+51,unresolved,1,Rear Serpent Marshal,准牙将,15,70000,70000,655,685,715,51
+51,unresolved,2,Rear Flame Marshal,准闘将,15,70000,70000,655,685,715,51
+53,unresolved,0,Vice Storm Marshal,少甲将,16,70000,70000,656,686,716,53
+53,unresolved,1,Vice Serpent Marshal,少牙将,16,70000,70000,656,686,716,53
+53,unresolved,2,Vice Flame Marshal,少闘将,16,70000,70000,656,686,716,53
+55,unresolved,0,Storm Marshal,中甲将,17,70000,70000,657,687,717,55
+55,unresolved,1,Serpent Marshal,中牙将,17,70000,70000,657,687,717,55
+55,unresolved,2,Flame Marshal,中闘将,17,70000,70000,657,687,717,55
+57,unresolved,0,Grand Storm Marshal,大甲将,18,70000,0,658,688,718,57
+57,unresolved,1,Grand Serpent Marshal,大牙将,18,70000,0,658,688,718,57
+57,unresolved,2,Grand Flame Marshal,大闘将,18,70000,0,658,688,718,57
+100,unresolved,0,Storm Champion,海督,19,100000,0,659,689,719,100
+100,unresolved,1,Serpent Champion,蛇将,19,100000,0,659,689,719,100
+100,unresolved,2,Flame Champion,闘聖,19,100000,0,659,689,719,100
+111,unresolved,0,Chief Admiral,都督,111,0,0,660,690,720,111
+111,unresolved,1,Elder Seedseer,双蛇将,111,0,0,660,690,720,111
+111,unresolved,2,Flame General,大闘聖,111,0,0,660,690,720,111
+127,unresolved,0,Storm Recruit,仮配属,127,10000,500,640,670,700,127
+127,unresolved,1,Serpent Recruit,仮配属,127,10000,500,640,670,700,127
+127,unresolved,2,Flame Recruit,仮配属,127,10000,500,640,670,700,127

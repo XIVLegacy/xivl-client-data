@@ -1,0 +1,544 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Retail sheet export provenance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "extractionVersion",
+    "sourceEvidenceClass",
+    "sources",
+    "products",
+    "placeholderMarkers",
+    "companyMapping",
+    "materiaBookJoin"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "extractionVersion": {
+      "const": "2012.09.19.0001"
+    },
+    "sourceEvidenceClass": {
+      "const": "client_extraction"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "bytes",
+          "sha256",
+          "rowCount",
+          "columnTypes"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9A-F]{64}$"
+          },
+          "rowCount": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "columnTypes": {
+            "type": "object",
+            "additionalProperties": {
+              "enum": [
+                "s8",
+                "u8",
+                "s16",
+                "s32",
+                "float",
+                "bool",
+                "str"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "products": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status_names",
+        "gc_rank",
+        "materia",
+        "materia_book"
+      ],
+      "properties": {
+        "status_names": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "rowCount",
+            "source",
+            "fields",
+            "textColumns",
+            "textSource",
+            "placeholderCount",
+            "typedColumns"
+          ],
+          "properties": {
+            "path": {
+              "const": "derived/status_names.csv"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9A-F]{64}$"
+            },
+            "rowCount": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "source": {
+              "const": "csv/status.csv"
+            },
+            "fields": {
+              "const": [
+                "status_id",
+                "name_en",
+                "name_ja",
+                "placeholder",
+                "icon_text",
+                "status_col_25",
+                "status_col_31",
+                "status_col_42",
+                "status_col_47",
+                "status_col_51",
+                "status_col_52",
+                "status_col_53",
+                "status_col_54",
+                "status_col_55",
+                "status_col_56",
+                "status_col_57",
+                "status_col_58",
+                "source_row"
+              ]
+            },
+            "textColumns": {
+              "const": {
+                "name_en": 3,
+                "name_ja": 1,
+                "icon_text": 24
+              }
+            },
+            "textSource": {
+              "const": "csv/xtx_status.csv"
+            },
+            "placeholderCount": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "typedColumns": {
+              "const": {
+                "status_col_25": 25,
+                "status_col_31": 31,
+                "status_col_42": 42,
+                "status_col_47": 47,
+                "status_col_51": 51,
+                "status_col_52": 52,
+                "status_col_53": 53,
+                "status_col_54": 54,
+                "status_col_55": 55,
+                "status_col_56": 56,
+                "status_col_57": 57,
+                "status_col_58": 58
+              }
+            }
+          }
+        },
+        "gc_rank": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "rowCount",
+            "source",
+            "fields",
+            "textColumns",
+            "textSource",
+            "typedColumns",
+            "mappingEvidence"
+          ],
+          "properties": {
+            "path": {
+              "const": "derived/gc_rank.csv"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9A-F]{64}$"
+            },
+            "rowCount": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "source": {
+              "const": "csv/gcRank.csv"
+            },
+            "fields": {
+              "const": [
+                "rank_id",
+                "company",
+                "name_variant",
+                "name_en",
+                "name_ja",
+                "linear_rank",
+                "seal_maximum",
+                "seals_needed_next_rank",
+                "icon_company_1",
+                "icon_company_2",
+                "icon_company_3",
+                "source_row"
+              ]
+            },
+            "textColumns": {
+              "const": {
+                "name_en": [
+                  9,
+                  10,
+                  11
+                ],
+                "name_ja": [
+                  3,
+                  4,
+                  5
+                ]
+              }
+            },
+            "textSource": {
+              "const": "csv/xtx_gcRank.csv"
+            },
+            "typedColumns": {
+              "const": {
+                "linear_rank": 0,
+                "seal_maximum": 1,
+                "seals_needed_next_rank": 2,
+                "icon_company_1": 6,
+                "icon_company_2": 7,
+                "icon_company_3": 8
+              }
+            },
+            "mappingEvidence": {
+              "const": "xivl-client-scripts:docs/gc-promotion-client-contract.md#player-state-and-sheet-consumers"
+            }
+          }
+        },
+        "materia": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "rowCount",
+            "source",
+            "fields",
+            "textColumns",
+            "typedColumns",
+            "mappingEvidence"
+          ],
+          "properties": {
+            "path": {
+              "const": "derived/materia.csv"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9A-F]{64}$"
+            },
+            "rowCount": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "source": {
+              "const": "csv/materia.csv"
+            },
+            "fields": {
+              "const": [
+                "materia_id",
+                "catalog_id_quality_group_0",
+                "catalog_id_quality_group_1",
+                "catalog_id_quality_group_2",
+                "catalog_id_quality_group_3",
+                "parameter_1",
+                "value_1_quality_0",
+                "value_1_quality_1",
+                "value_1_quality_2",
+                "value_1_quality_3",
+                "value_1_quality_4",
+                "value_1_quality_5",
+                "value_1_quality_6",
+                "value_1_quality_7",
+                "value_1_quality_8",
+                "value_1_quality_9",
+                "value_1_quality_10",
+                "value_1_quality_11",
+                "value_1_quality_12",
+                "value_1_quality_13",
+                "value_1_quality_14",
+                "value_1_quality_15",
+                "parameter_2",
+                "value_2_quality_0",
+                "value_2_quality_1",
+                "value_2_quality_2",
+                "value_2_quality_3",
+                "value_2_quality_4",
+                "value_2_quality_5",
+                "value_2_quality_6",
+                "value_2_quality_7",
+                "value_2_quality_8",
+                "value_2_quality_9",
+                "value_2_quality_10",
+                "value_2_quality_11",
+                "value_2_quality_12",
+                "value_2_quality_13",
+                "value_2_quality_14",
+                "value_2_quality_15",
+                "icon_quality_group_0",
+                "icon_quality_group_1",
+                "icon_quality_group_2",
+                "icon_quality_group_3",
+                "materia_col_42",
+                "materia_col_43",
+                "materia_col_44",
+                "materia_col_45",
+                "materia_col_46",
+                "materia_col_47",
+                "materia_col_48",
+                "materia_col_49",
+                "materia_col_50",
+                "materia_col_51",
+                "materia_col_52",
+                "materia_col_53",
+                "materia_col_54",
+                "materia_col_55",
+                "materia_col_56",
+                "materia_col_57",
+                "materia_col_58",
+                "materia_col_59",
+                "materia_col_60",
+                "materia_col_61",
+                "materia_col_62",
+                "materia_col_63",
+                "materia_col_64",
+                "materia_col_65",
+                "materia_col_66",
+                "materia_col_67",
+                "materia_col_68",
+                "materia_col_69",
+                "materia_col_70",
+                "materia_col_71",
+                "materia_col_72",
+                "materia_col_73",
+                "materia_col_74",
+                "materia_col_75",
+                "materia_col_76",
+                "materia_col_77",
+                "materia_col_78",
+                "materia_col_79",
+                "source_row"
+              ]
+            },
+            "textColumns": {
+              "const": {}
+            },
+            "typedColumns": {
+              "const": {
+                "catalog_id_quality_group_0": 0,
+                "catalog_id_quality_group_1": 1,
+                "catalog_id_quality_group_2": 2,
+                "catalog_id_quality_group_3": 3,
+                "parameter_1": 4,
+                "value_1_quality_0": 5,
+                "value_1_quality_1": 6,
+                "value_1_quality_2": 7,
+                "value_1_quality_3": 8,
+                "value_1_quality_4": 9,
+                "value_1_quality_5": 10,
+                "value_1_quality_6": 11,
+                "value_1_quality_7": 12,
+                "value_1_quality_8": 13,
+                "value_1_quality_9": 14,
+                "value_1_quality_10": 15,
+                "value_1_quality_11": 16,
+                "value_1_quality_12": 17,
+                "value_1_quality_13": 18,
+                "value_1_quality_14": 19,
+                "value_1_quality_15": 20,
+                "parameter_2": 21,
+                "value_2_quality_0": 22,
+                "value_2_quality_1": 23,
+                "value_2_quality_2": 24,
+                "value_2_quality_3": 25,
+                "value_2_quality_4": 26,
+                "value_2_quality_5": 27,
+                "value_2_quality_6": 28,
+                "value_2_quality_7": 29,
+                "value_2_quality_8": 30,
+                "value_2_quality_9": 31,
+                "value_2_quality_10": 32,
+                "value_2_quality_11": 33,
+                "value_2_quality_12": 34,
+                "value_2_quality_13": 35,
+                "value_2_quality_14": 36,
+                "value_2_quality_15": 37,
+                "icon_quality_group_0": 38,
+                "icon_quality_group_1": 39,
+                "icon_quality_group_2": 40,
+                "icon_quality_group_3": 41,
+                "materia_col_42": 42,
+                "materia_col_43": 43,
+                "materia_col_44": 44,
+                "materia_col_45": 45,
+                "materia_col_46": 46,
+                "materia_col_47": 47,
+                "materia_col_48": 48,
+                "materia_col_49": 49,
+                "materia_col_50": 50,
+                "materia_col_51": 51,
+                "materia_col_52": 52,
+                "materia_col_53": 53,
+                "materia_col_54": 54,
+                "materia_col_55": 55,
+                "materia_col_56": 56,
+                "materia_col_57": 57,
+                "materia_col_58": 58,
+                "materia_col_59": 59,
+                "materia_col_60": 60,
+                "materia_col_61": 61,
+                "materia_col_62": 62,
+                "materia_col_63": 63,
+                "materia_col_64": 64,
+                "materia_col_65": 65,
+                "materia_col_66": 66,
+                "materia_col_67": 67,
+                "materia_col_68": 68,
+                "materia_col_69": 69,
+                "materia_col_70": 70,
+                "materia_col_71": 71,
+                "materia_col_72": 72,
+                "materia_col_73": 73,
+                "materia_col_74": 74,
+                "materia_col_75": 75,
+                "materia_col_76": 76,
+                "materia_col_77": 77,
+                "materia_col_78": 78,
+                "materia_col_79": 79
+              }
+            },
+            "mappingEvidence": {
+              "const": "xivl-client-scripts:docs/materia-meld-client-contract.md#sheet-getters"
+            }
+          }
+        },
+        "materia_book": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "rowCount",
+            "source",
+            "fields",
+            "textColumns",
+            "textSource",
+            "typedColumns"
+          ],
+          "properties": {
+            "path": {
+              "const": "derived/materia_book.csv"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9A-F]{64}$"
+            },
+            "rowCount": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "source": {
+              "const": "csv/materiaBook.csv"
+            },
+            "fields": {
+              "const": [
+                "text_id",
+                "text_ja",
+                "text_en",
+                "text_de",
+                "text_fr",
+                "text_zh",
+                "source_row"
+              ]
+            },
+            "textColumns": {
+              "const": {
+                "text_ja": 0,
+                "text_en": 1,
+                "text_de": 2,
+                "text_fr": 3,
+                "text_zh": 4
+              }
+            },
+            "textSource": {
+              "const": "csv/materiaBook.csv"
+            },
+            "typedColumns": {
+              "const": {}
+            }
+          }
+        }
+      }
+    },
+    "placeholderMarkers": {
+      "const": [
+        "",
+        "-",
+        "****",
+        "x",
+        "dummy",
+        "\u7ffb\u8a33\u4e0d\u8981"
+      ]
+    },
+    "companyMapping": {
+      "const": "unresolved; name_variant is the zero-based position within textColumns"
+    },
+    "materiaBookJoin": {
+      "const": "not established; exported independently"
+    }
+  }
+}

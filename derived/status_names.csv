@@ -1,0 +1,400 @@
+status_id,name_en,name_ja,placeholder,icon_text,status_col_25,status_col_31,status_col_42,status_col_47,status_col_51,status_col_52,status_col_53,status_col_54,status_col_55,status_col_56,status_col_57,status_col_58,source_row
+0,-,ステータス無し,true,[@icon:021203f0e703],231,0,0,60,false,false,-1,true,-1,false,false,false,0
+221000,-,右盾防御,true,[@icon:021203f0e703],231,0,0,60,true,true,-1,true,-1,false,false,false,221000
+221001,-,左盾防御,true,[@icon:021203f0e703],231,0,0,60,true,true,-1,true,-1,false,false,false,221001
+221002,-,魔法盾防御,true,[@icon:021203f0e703],231,0,0,60,true,true,-1,true,-1,false,false,false,221002
+221003,-,魔法盾防御,true,[@icon:021203f0e703],231,0,0,60,true,true,-1,true,-1,false,false,false,221003
+221004,-,斧防御,true,[@icon:021203f0e703],231,0,0,60,true,true,-1,true,-1,false,false,false,221004
+221012,-,ショートスタン,true,[@icon:021203f0e703],231,0,-4,2,false,false,-1,true,-1,false,false,false,221012
+221013,-,ショートスタン,true,[@icon:021203f0e703],231,0,-4,3,false,false,-1,true,-1,false,false,false,221013
+221014,-,ショートスタン,true,[@icon:021203f0e703],231,0,-4,5,false,false,-1,true,-1,false,false,false,221014
+221015,-,強制詠唱中断(WS),true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,221015
+221016,-,怒髪天,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,1,false,false,false,221016
+221017,-,モンスターガード,true,[@icon:021203f0e703],231,0,0,30,true,true,-1,true,-1,false,false,false,221017
+221018,-,タゲ切り,true,[@icon:021203f0e703],231,0,0,30,true,true,-1,true,-1,false,false,false,221018
+221019,-,GROW標準モード,true,[@icon:021203f0e703],231,0,0,-1,false,false,-1,true,-1,false,false,false,221019
+221020,-,追加効果ドレイン,true,[@icon:021203f0e703],231,0.1,0,-1,true,true,-1,true,-1,false,false,false,221020
+221021,Rage of Halone,レイジオブハルオーネ,false,[@icon:021203f0e703],231,50,0,30,true,false,-1,true,-1,false,false,false,221021
+221022,-,魔法威力＋（切れない）,true,[@icon:021203f0e703],231,0,0,-1,false,false,-1,true,-1,false,false,false,221022
+221023,-,属性吸収,true,[@icon:021203f0e703],231,0,0,-1,false,false,-1,true,-1,false,false,false,221023
+221024,-,GROW標準モード（旧）,true,[@icon:021203f0e703],231,0,0,-1,false,false,-1,true,-1,false,false,false,221024
+221025,-,イルーシブジャンプ,true,[@icon:021203f0e703],231,0,0,2,false,false,-1,true,-1,false,false,false,221025
+221026,-,魔法0ダメージ,true,[@icon:021203f0e703],231,1,0,-1,false,false,-1,true,-1,false,false,false,221026
+223001,Quick,クイック,false,[@icon:021204f2271103],10001,1.25,-16,600,false,false,-1,true,-1,false,false,false,223001
+223002,Haste,ヘイスト,false,[@icon:021204f2271303],10003,1.5,-5,30,false,false,-1,true,-1,false,false,false,223002
+223003,Slow,スロウ,false,[@icon:021204f2271403],10004,0.5,-5,30,false,false,-1,true,-1,false,false,false,223003
+223004,Petrification,石化,false,[@icon:021204f2272303],10019,50,0,30,false,false,-1,true,-1,false,false,false,223004
+223005,Paralysis,麻痺,false,[@icon:021204f2271d03],10013,30,0,30,true,true,-1,true,-1,false,false,false,223005
+223006,Silence,静寂,false,[@icon:021204f2271703],10007,50,-6,30,false,false,-1,true,-1,false,false,false,223006
+223007,Blind,暗闇,false,[@icon:021204f2271e03],10014,-10,-8,30,false,false,-1,true,-1,false,false,false,223007
+223008,Mute,沈黙,false,[@icon:021204f2271703],10007,50,-6,30,false,false,-1,true,-1,false,false,false,223008
+223009,Slowcast,スロウキャスト,false,[@icon:021204f2271603],10006,1.2,0,30,false,false,-1,true,-1,false,false,false,223009
+223010,Glare,閃光,false,[@icon:021204f2271e03],10014,-50,-8,30,false,false,-1,true,-1,false,false,false,223010
+223011,Poison,中毒,false,[@icon:021204f2271f03],10015,10,0,30,false,false,-1,true,-1,false,false,false,223011
+223012,Transfixion,逃走不可,false,[@icon:021204f2272703],10023,50,-7,30,false,false,-1,true,-1,false,false,false,223012
+223013,Pacification,WS不可,false,[@icon:021204f2271803],10008,50,0,30,true,true,-1,true,-1,false,false,false,223013
+223014,Amnesia,アビリティ不可,false,[@icon:021204f2271903],10009,50,0,30,true,true,-1,true,-1,false,false,false,223014
+223015,Stun,スタン,false,[@icon:021204f2271b03],10011,50,-4,30,false,false,-1,true,-1,false,false,false,223015
+223016,Daze,気絶,false,[@icon:021204f2271b03],10011,50,0,30,false,false,-1,true,-1,false,false,false,223016
+223017,Exposed Front,正面防御－,false,[@icon:021204f2272b03],10027,50,0,30,false,false,-1,true,-1,false,false,false,223017
+223018,Exposed Right,右側面防御－,false,[@icon:021204f2272c03],10028,50,0,30,false,false,-1,true,-1,false,false,false,223018
+223019,Exposed Rear,背面防御－,false,[@icon:021204f2272d03],10029,50,0,30,false,false,-1,true,-1,false,false,false,223019
+223020,Exposed Left,左側面防御－,false,[@icon:021204f2272e03],10030,50,0,30,false,false,-1,true,-1,false,false,false,223020
+223021,Incapacitation,部位損傷,false,[@icon:021204f2272f03],10031,50,0,30,false,false,-1,true,-1,false,false,false,223021
+223022,Incapacitation,部位損傷,false,[@icon:021204f2272f03],10031,50,0,30,false,false,-1,true,-1,false,false,false,223022
+223023,Incapacitation,部位損傷,false,[@icon:021204f2272f03],10031,50,0,30,false,false,-1,true,-1,false,false,false,223023
+223024,Incapacitation,部位損傷,false,[@icon:021204f2272f03],10031,50,0,30,false,false,-1,true,-1,false,false,false,223024
+223025,Incapacitation,部位損傷,false,[@icon:021204f2272f03],10031,50,0,30,false,false,-1,true,-1,false,false,false,223025
+223026,Incapacitation,部位損傷,false,[@icon:021204f2272f03],10031,50,0,30,false,false,-1,true,-1,false,false,false,223026
+223027,Incapacitation,部位損傷,false,[@icon:021204f2272f03],10031,50,0,30,false,false,-1,true,-1,false,false,false,223027
+223028,Incapacitation,部位損傷,false,[@icon:021204f2272f03],10031,50,0,30,false,false,-1,true,-1,false,false,false,223028
+223029,HP Boost,ＨＰmax＋,false,[@icon:021204f2273303],10035,1.2,0,600,false,false,-1,true,-1,false,false,false,223029
+223030,HP Penalty,ＨＰmax－,false,[@icon:021204f2273403],10036,0.8,0,30,false,false,-1,true,-1,false,false,false,223030
+223031,MP Boost,ＭＰmax＋,false,[@icon:021204f2273503],10037,1.2,0,600,false,false,-1,true,-1,false,false,false,223031
+223032,MP Penalty,ＭＰmax－,false,[@icon:021204f2273603],10038,0.8,0,30,false,false,-1,true,-1,false,false,false,223032
+223033,Attack Up,物理攻撃＋,false,[@icon:021204f2275803],10072,20,0,600,false,false,-1,true,-1,false,false,false,223033
+223034,Attack Down,物理攻撃－,false,[@icon:021204f2275903],10073,-20,0,30,false,false,-1,true,-1,false,false,false,223034
+223035,Accuracy Up,物理命中＋,false,[@icon:021204f2275c03],10076,27,0,600,false,false,-1,true,-1,false,false,false,223035
+223036,Accuracy Down,物理命中－,false,[@icon:021204f2275d03],10077,-27,0,30,false,false,-1,true,-1,false,false,false,223036
+223037,Defense Up,物理防御＋,false,[@icon:021204f2276003],10080,35,0,600,false,false,-1,true,-1,false,false,false,223037
+223038,Defense Down,物理防御－,false,[@icon:021204f2276103],10081,-35,0,30,false,false,-1,true,-1,false,false,false,223038
+223039,Evasion Up,物理回避＋,false,[@icon:021204f2276403],10084,27,0,600,false,false,-1,true,-1,false,false,false,223039
+223040,Evasion Down,物理回避－,false,[@icon:021204f2276503],10085,-27,0,30,false,false,-1,true,-1,false,false,false,223040
+223041,Magic Potency Up,魔法威力＋,false,[@icon:021204f2275a03],10074,33,0,600,false,false,-1,true,-1,false,false,false,223041
+223042,Magic Potency Down,魔法威力－,false,[@icon:021204f2275b03],10075,-33,0,30,false,false,-1,true,-1,false,false,false,223042
+223043,Magic Accuracy Up,魔法命中＋,false,[@icon:021204f2275e03],10078,27,0,600,false,false,-1,true,-1,false,false,false,223043
+223044,Magic Accuracy Down,魔法命中－,false,[@icon:021204f2275f03],10079,-27,0,30,false,false,-1,true,-1,false,false,false,223044
+223045,Magic Defense Up,魔法防御＋,false,[@icon:021204f2276203],10082,35,0,600,false,false,-1,true,-1,false,false,false,223045
+223046,Magic Defense Down,魔法防御－,false,[@icon:021204f2275b03],10075,-35,0,30,false,false,-1,true,-1,false,false,false,223046
+223047,Magic Resistance Up,魔法耐性＋,false,[@icon:021204f2276603],10086,27,0,600,false,false,-1,true,-1,false,false,false,223047
+223048,Magic Resistance Down,魔法耐性－,false,[@icon:021204f2276703],10087,-27,0,30,false,false,-1,true,-1,false,false,false,223048
+223049,Combat Finesse,クリティカル発動＋,false,[@icon:021204f2276803],10088,50,0,30,false,false,-1,true,-1,false,false,false,223049
+223050,Combat Hindrance,クリティカル発動－,false,[@icon:021204f2276903],10089,-50,0,30,false,false,-1,true,-1,false,false,false,223050
+223051,Magic Finesse,魔法クリティカル率＋,false,[@icon:021204f2276a03],10090,50,0,30,false,false,-1,true,-1,false,false,false,223051
+223052,Magic Hindrance,魔法クリティカル率－,false,[@icon:021204f2276b03],10091,-50,0,30,false,false,-1,true,-1,false,false,false,223052
+223053,Combat Resilience,クリティカル耐性＋,false,[@icon:021204f2276c03],10092,50,0,30,false,false,-1,true,-1,false,false,false,223053
+223054,Combat Vulnerability,クリティカル耐性－,false,[@icon:021204f2276d03],10093,-50,0,30,false,false,-1,true,-1,false,false,false,223054
+223055,Magic Vulnerability,被魔法クリティカル率＋,false,[@icon:021204f2276e03],10094,50,0,30,false,false,-1,true,-1,false,false,false,223055
+223056,Magic Resilience,被魔法クリティカル率－,false,[@icon:021204f2276f03],10095,-50,0,30,false,false,-1,true,-1,false,false,false,223056
+223057,Inhibited,ＴＰ倍率抑制,false,[@icon:021204f2273703],10039,1,0,30,false,false,-1,true,-1,false,false,false,223057
+223058,Aegis Boon,イージスブーン,false,[@icon:021204f227b003][@duplicate:5B4069636F6E3A30323132303466323237373630335D],10160,1.2,-9,30,true,true,-1,true,1,false,false,false,223058
+223059,Deflection,デフレクション,false,[@icon:021204f2277603],10102,500,-9,30,true,true,-1,true,-1,false,false,false,223059
+223060,Outmaneuver,アウトマニューバ,false,[@icon:021204f227b203][@duplicate:5B4069636F6E3A30323132303466323237373630335D],10162,1.5,-9,30,false,false,-1,true,-1,false,false,false,223060
+223061,Provoked,挑発,false,[@icon:021204f2277803],10104,50,0,30,false,false,-1,true,-1,false,false,false,223061
+223062,Sentinel,センチネル,false,[@icon:021204f227af03][@duplicate:5B4069636F6E3A30323132303466323237363030335D],10159,50,0,30,true,true,-1,true,-1,false,false,false,223062
+223063,Cover,かばう,false,[@icon:021204f227dc03][@duplicate:5B4069636F6E3A30323132303466323237363030335D],10204,50,0,30,true,true,-1,true,-1,false,false,false,223063
+223064,Rampart,ランパート,false,[@icon:021204f227b103][@duplicate:5B4069636F6E3A30323132303466323237363030335D],10161,50,0,30,false,false,-1,true,-1,false,false,false,223064
+223065,Still Precision,プレシジョン,false,[@icon:021204f2275c03],10076,50,0,30,false,false,-1,true,-1,false,false,false,223065
+223066,Cadence,ケイデンス,false,[@icon:021204f2275803],10072,50,0,30,true,false,-1,true,1,false,false,false,223066
+223067,Discerning Eye,見極める,false,[@icon:021204f2275803],10072,50,0,30,false,false,-1,true,-1,false,false,false,223067
+223068,Tempered Will,鋼の意志,false,[@icon:021204f2276003],10080,0,0,30,true,true,-1,true,-1,false,false,false,223068
+223069,Obsess,オブセス,false,[@icon:021204f2276003],10080,50,0,30,true,false,-1,true,-1,false,false,false,223069
+223070,Ambidexterity,双手,false,[@icon:021204f2271303],10003,50,0,30,false,false,-1,true,-1,false,false,false,223070
+223071,Battle Calm,バトルカーム,false,[@icon:021204f2275803],10072,50,0,30,true,false,-1,true,1,false,false,false,223071
+223072,Master of Arms,マスターオブアームズ,false,[@icon:021204f2277403],10100,50,0,30,false,false,-1,true,1,false,false,false,223072
+223073,Taunted,口笛,false,[@icon:021204f2277803],10104,50,0,30,false,false,-1,true,-1,false,false,false,223073
+223074,Blindside,ブラインドサイド,false,[@icon:021204f2275803],10072,1,-29,30,true,false,-1,true,1,false,false,false,223074
+223075,Featherfoot,フェザーステップ,false,[@icon:021204f2276403],10084,50,0,8,true,false,-1,true,-1,false,false,false,223075
+223076,Presence of Mind,サードアイ,false,[@icon:021204f2276403],10084,50,0,30,false,false,-1,true,-1,false,false,false,223076
+223077,Coeurl Step,ステルス,false,[@icon:021204f2272803],10024,50,0,30,false,false,-1,true,-1,false,false,false,223077
+223078,Enduring March,不屈の行軍,false,[@icon:021204f2277e03],10110,50,0,30,false,false,-1,true,-1,false,false,false,223078
+223079,Murderous Intent,力攻め,false,[@icon:021204f2275803],10072,50,0,30,false,false,-1,true,-1,false,false,false,223079
+223080,Entrench,仁王立ち,false,[@icon:021204f2277f03],10111,50,0,30,false,false,-1,true,-1,false,false,false,223080
+223081,Bloodbath,ブラッドバス,false,[@icon:021204f227b403][@duplicate:5B4069636F6E3A30323132303466323237353830335D],10164,50,0,30,true,true,-1,true,1,false,false,false,223081
+223082,Retaliation,リタリエーション,false,[@icon:021204f2275803],10072,50,0,30,false,false,-1,true,-1,false,false,false,223082
+223083,Foresight,フォーサイト,false,[@icon:021204f227b303][@duplicate:5B4069636F6E3A30323132303466323237363430335D],10163,50,0,8,true,false,-1,true,-1,false,false,false,223083
+223084,Defender,ディフェンダー,false,[@icon:021204f2276003],10080,50,0,30,false,false,-1,true,-1,false,false,false,223084
+223085,Rampage,ランページ,false,[@icon:021204f2275803],10072,50,0,30,false,false,-1,true,-1,false,false,false,223085
+223086,Enraged,被ウォーモンガー,false,[@icon:021204f2277803],10104,50,0,30,false,false,-1,true,-1,false,false,false,223086
+223087,Warmonger,ウォーモンガー,false,[@icon:021204f2277903],10105,50,0,30,true,true,-1,true,-1,false,false,false,223087
+223088,Disorient x1,ディスオリエント,false,[@icon:021204f2279b03],10139,-10,-10,30,false,false,-1,true,-1,false,false,false,223088
+223089,Disorient x2,ディスオリエント☆,false,[@icon:021204f2279c03],10140,-20,-10,30,false,false,-1,true,-1,false,false,false,223089
+223090,Disorient x3,ディスオリエント☆☆,false,[@icon:021204f2279d03],10141,-30,-10,30,false,false,-1,true,-1,false,false,false,223090
+223091,Keen Flurry,キーンフラーリ,false,[@icon:021204f2275c03],10076,50,0,30,true,false,-1,true,1,false,false,false,223091
+223092,Comrade in Arms,鼓舞,false,[@icon:021204f2273703],10039,2,0,30,true,true,-1,true,-1,false,false,false,223092
+223093,Ferocity,フェロシティ,false,[@icon:021204f2275803],10072,50,0,30,true,false,-1,true,1,false,false,false,223093
+223094,Invigorate,気合,false,[@icon:021204f2273203],10034,100,0,30,false,true,3,true,-1,false,false,false,223094
+223095,Line of Fire,ラインオブファイア,false,[@icon:021204f2276003],10080,50,0,30,true,true,-1,true,-1,false,false,false,223095
+223096,Jump,ジャンプ,false,[@icon:021204f2276403],10084,50,0,30,false,false,-1,true,-1,false,false,false,223096
+223097,Collusion,コルーション,false,[@icon:021204f227e103][@duplicate:5B4069636F6E3A30323132303466323237353830335D],10209,50,0,30,true,true,-1,true,1,false,false,false,223097
+223098,Diversion,ダイバージョン,false,[@icon:021204f2276403],10084,50,0,30,true,true,-1,true,1,false,false,false,223098
+223099,Speed Surge,竜槍,false,[@icon:021204f2278203],10114,1.2,-11,30,false,false,-1,true,-1,false,false,false,223099
+223100,Life Surge,竜剣,false,[@icon:021204f2278103],10113,50,-11,30,true,true,-1,true,-1,false,false,false,223100
+223101,Speed Sap,被竜槍,false,[@icon:021204f2275503],10069,0.5,0,30,true,true,-1,true,-1,false,false,false,223101
+223102,Life Sap,被竜剣,false,[@icon:021204f2276503],10085,50,0,30,false,false,-1,true,-1,false,false,false,223102
+223103,Farshot,ファーショット,false,[@icon:021204f2275803],10072,50,0,30,false,false,-1,true,-1,false,false,false,223103
+223104,Quelling Strike,静者の撃,false,[@icon:021204f2277903],10105,0.8,-12,30,true,true,-1,true,1,false,false,false,223104
+223105,Raging Strike,猛者の撃,false,[@icon:021204f2275803],10072,50,-12,30,true,false,-1,true,1,false,false,false,223105
+223106,Hawk's Eye,ホークアイ,false,[@icon:021204f2275c03],10076,50,0,30,false,false,-1,true,1,false,false,false,223106
+223107,Subtle Release,サトルリリース,false,[@icon:021204f2277a03],10106,50,0,30,true,true,-1,true,-1,false,false,false,223107
+223108,Decoy,デコイ,false,[@icon:021204f2276403],10084,50,-26,30,true,true,-1,true,1,false,false,false,223108
+223109,Profundity,ライフブレス,false,[@icon:021204f2275a03],10074,50,0,30,true,false,-1,true,-1,false,false,false,223109
+223110,Trance Chant,トランスチャント,false,[@icon:021204f2275a03],10074,50,0,30,true,true,-1,true,1,false,false,false,223110
+223111,Roaming Soul,ローミングソウル,false,[@icon:021204f2275a03],10074,50,0,30,true,true,-1,true,-1,false,false,false,223111
+223112,Purge,パージ,false,[@icon:021204f2277103],10097,50,0,30,false,false,-1,true,-1,false,false,false,223112
+223113,Spiritsong,スピリットバインド,false,[@icon:021204f2278003],10112,50,0,30,false,false,-1,true,-1,false,false,false,223113
+223114,Resonance,レゾナンス,false,[@icon:021204f227d003][@duplicate:5B4069636F6E3A30323132303466323237356130335D],10192,50,0,30,false,false,-1,true,-1,false,false,false,223114
+223115,Soughspeak,サウスピーク,false,[@icon:021204f2277903],10105,0.8,0,30,true,false,-1,true,-1,false,false,false,223115
+223116,Presence of Mind,神速魔,false,[@icon:021204f227e803][@duplicate:5B4069636F6E3A30323132303466323237356130335D],10216,50,0,30,true,false,-1,true,-1,false,false,false,223116
+223117,Sanguine Rite,血の儀礼,false,[@icon:021204f2275a03],10074,50,0,30,true,false,-1,true,-1,false,false,false,223117
+223118,Punishing Barbs,トーメント,false,[@icon:021204f2277703],10103,500,0,30,true,true,-1,true,-1,false,false,false,223118
+223119,Dark Seal,ダークシール,false,[@icon:021204f2275e03],10078,50,0,30,false,false,-1,true,1,false,false,false,223119
+223120,Emulate,エミュレート,false,[@icon:021204f2276203],10082,50,0,30,true,false,-1,true,-1,false,false,false,223120
+223121,Paradigm Shift,パラダイムシフト,false,[@icon:021204f2275a03],10074,50,0,30,false,false,-1,true,-1,false,false,false,223121
+223123,Concussive Blow x1,コンカシブブロー,false,[@icon:021204f2279803],10136,-10,-13,30,false,false,-1,true,-1,false,false,false,223123
+223124,Concussive Blow x2,コンカシブブロー☆,false,[@icon:021204f2279903],10137,-20,-13,30,false,false,-1,true,-1,false,false,false,223124
+223125,Concussive Blow x3,コンカシブブロー☆☆,false,[@icon:021204f2279a03],10138,-30,-13,30,false,false,-1,true,-1,false,false,false,223125
+223126,Skull Sunder,スカルサンダー,false,[@icon:021204f2275403],10068,50,0,12,false,false,-1,true,-1,false,false,false,223126
+223127,Bloodletter,ブラッドレッター,false,[@icon:021204f227c903][@duplicate:5B4069636F6E3A30323132303466323237353430335D],10185,50,0,30,false,false,-1,true,-1,false,false,false,223127
+223128,Levinbolt,レヴィンボルト,false,[@icon:021204f2275003],10064,50,0,12,false,false,-1,true,-1,false,false,false,223128
+223129,Protect,プロテス,false,[@icon:021204f2277b03],10107,20,-30,600,false,false,-1,true,-1,false,false,false,223129
+223130,Shell,シェル,false,[@icon:021204f2277c03],10108,35,-30,600,false,false,-1,true,-1,false,false,false,223130
+223131,Reraise,リレイズ,false,[@icon:021204f2271a03],10010,50,-14,1800,false,false,-1,true,-1,false,false,false,223131
+223132,Shock Spikes,ショックスパイク,false,[@icon:021204f2277703],10103,40,-15,120,false,false,-1,true,-1,false,false,false,223132
+223133,Stoneskin,ストンスキン,false,[@icon:021204f2277d03],10109,160,0,600,false,false,-1,true,-1,false,false,false,223133
+223134,Scourge,スカージ,false,[@icon:021204f2274703],10055,-5,0,30,false,false,-1,true,-1,false,false,false,223134
+223135,Bio,バイオ,false,[@icon:021204f2275303],10067,10,0,30,false,false,-1,true,-1,false,false,false,223135
+223136,Dia,ディア,false,[@icon:021204f2275203],10066,10,0,30,false,false,-1,true,-1,false,false,false,223136
+223137,Banish,バニシュ,false,[@icon:021204f2274503],10053,-5,0,60,false,false,-1,true,-1,false,false,false,223137
+223138,Stygian Spikes,マインドスパイク,false,[@icon:021204f2277703],10103,10,-15,120,false,false,-1,true,-1,false,false,false,223138
+223139,ATK Absorbed,被アブゾアタ,false,[@icon:021204f2275903],10073,10,0,30,false,false,-1,true,-1,false,false,false,223139
+223140,DEF Absorbed,被アブゾディフェ,false,[@icon:021204f2276103],10081,10,0,30,false,false,-1,true,-1,false,false,false,223140
+223141,ACC Absorbed,被アブゾアキュル,false,[@icon:021204f2275d03],10077,5,0,30,false,false,-1,true,-1,false,false,false,223141
+223142,EVA Absorbed,被アブゾイヴェ,false,[@icon:021204f2276503],10085,5,0,30,false,false,-1,true,-1,false,false,false,223142
+223143,Absorb ATK,アブゾアタ,false,[@icon:021204f2275803],10072,10,0,30,false,false,-1,true,-1,false,false,false,223143
+223144,Absorb DEF,アブゾディフェ,false,[@icon:021204f2276003],10080,10,0,30,false,false,-1,true,-1,false,false,false,223144
+223145,Absorb ACC,アブゾアキュル,false,[@icon:021204f2275c03],10076,5,0,30,false,false,-1,true,-1,false,false,false,223145
+223146,Absorb EVA,アブゾイヴェ,false,[@icon:021204f2276403],10084,5,0,30,false,false,-1,true,-1,false,false,false,223146
+223147,Soul Ward,ソウルウォード,false,[@icon:021204f2271a03],10010,50,-14,1800,false,false,-1,true,-1,false,false,false,223147
+223148,Burn,バーン,false,[@icon:021204f2274c03],10060,10,0,30,false,false,-1,true,-1,false,false,false,223148
+223149,Frost,フロスト,false,[@icon:021204f2274d03],10061,10,0,30,false,false,-1,true,-1,false,false,false,223149
+223150,Shock,ショック,false,[@icon:021204f2275003],10064,10,0,30,false,false,-1,true,-1,false,false,false,223150
+223151,Drown,ドラウン,false,[@icon:021204f2275103],10065,10,0,30,false,false,-1,true,-1,false,false,false,223151
+223152,Choke,チョーク,false,[@icon:021204f2274e03],10062,10,0,30,false,false,-1,true,-1,false,false,false,223152
+223153,Rasp,ラスプ,false,[@icon:021204f2274f03],10063,10,0,30,false,false,-1,true,-1,false,false,false,223153
+223154,Flare,フレア,false,[@icon:021204f2273803],10040,50,-23,30,false,false,3,true,-1,false,false,false,223154
+223155,Freeze,フリーズ,false,[@icon:021204f2273a03],10042,50,-23,30,false,false,3,true,-1,false,false,false,223155
+223156,Burst,バースト,false,[@icon:021204f2274003],10048,50,-23,30,false,false,3,true,-1,false,false,false,223156
+223157,Flood,フラッド,false,[@icon:021204f2274203],10050,50,-23,30,false,false,3,true,-1,false,false,false,223157
+223158,Tornado,トルネド,false,[@icon:021204f2273c03],10044,50,-23,30,false,false,3,true,-1,false,false,false,223158
+223159,Quake,クエイク,false,[@icon:021204f2273e03],10046,50,-23,30,false,false,3,true,-1,false,false,false,223159
+223160,Berserk,バーサク,false,[@icon:021204f2275803],10072,50,0,30,false,false,-1,true,-1,false,false,false,223160
+223161,Regimen of Ruin,バトルレジメン(物理耐性－),false,[@icon:021204f2278303],10115,0,0,30,false,false,-1,true,-1,false,false,false,223161
+223162,Regimen of Trauma,バトルレジメン(魔法耐性－),false,[@icon:021204f2278403],10116,0,0,30,false,false,-1,true,-1,false,false,false,223162
+223163,Regimen of Despair,バトルレジメン(魔法ペナルティ),false,[@icon:021204f2278503],10117,0,0,30,false,false,-1,true,-1,false,false,false,223163
+223164,Regimen of Constraint,バトルレジメン(ＴＰペナルティ),false,[@icon:021204f2278603],10118,0,0,30,false,false,-1,true,-1,false,false,false,223164
+223165,Weakness,衰弱,false,[@icon:021204f2272003],10016,0.75,-25,180,false,false,-1,true,-1,false,false,false,223165
+223166,Scavenge,スカベンジ,false,[@icon:021204f2279e03],10142,10,0,300,false,false,-1,true,1,false,false,false,223166
+223167,Fastcast,ファストキャスト,false,[@icon:021204f2271503],10005,0.5,0,30,false,false,-1,true,-1,false,false,false,223167
+223168,Midnight Howl,ミッドナイトハウル,false,[@icon:021204f2279703],10135,10,0,30,false,false,-1,true,-1,false,false,false,223168
+223169,Outlast,アウトラスト,false,[@icon:021204f2279f03],10143,50,-1,30,false,false,-1,true,-1,false,false,false,223169
+223170,Steadfast,不動,false,[@icon:021204f227a003],10144,50,-1,-1,false,false,-1,true,-1,false,false,false,223170
+223171,Double Nock,ダブルノッチ,false,[@icon:021204f227a103],10145,50,-1,-1,false,false,-1,true,-1,false,false,false,223171
+223172,Triple Nock,トリプルノッチ,false,[@icon:021204f227a203],10146,50,-1,-1,false,false,-1,true,-1,false,false,false,223172
+223173,Covered,被かばう,false,[@icon:021204f227dc03][@duplicate:5B4069636F6E3A30323132303466323237363030335D],10204,50,0,30,false,false,-1,true,-1,false,false,false,223173
+223174,Perfect Dodge,パーフェクトドッジ,false,[@icon:021204f2276403],10084,50,0,30,false,false,-1,true,-1,false,false,false,223174
+223175,Expert Mining,採石回数アップ,false,[@icon:021203f0e703],10016,50,0,30,false,false,-1,true,-1,false,false,false,223175
+223176,Expert Logging,伐採回数アップ,false,[@icon:021203f0e703],10016,50,0,30,false,false,-1,true,-1,false,false,false,223176
+223177,Expert Harvesting,草刈回数アップ,false,[@icon:021203f0e703],10016,50,0,30,false,false,-1,true,-1,false,false,false,223177
+223178,Expert Fishing,釣り回数アップ,false,[@icon:021203f0e703],10016,50,0,30,false,false,-1,true,-1,false,false,false,223178
+223179,Expert Spearfishing,銛突き回数アップ,false,[@icon:021203f0e703],10016,50,0,30,false,false,-1,true,-1,false,false,false,223179
+223180,Regen,リジェネ,false,[@icon:021204f2273003],10032,10,0,600,true,true,3,true,-1,false,false,false,223180
+223181,Refresh,リフレシュ,false,[@icon:021204f2273103],10033,5,0,30,true,true,3,true,-1,false,false,false,223181
+223182,Regain,リゲイン,false,[@icon:021204f2273203],10034,50,0,600,true,true,3,true,-1,false,false,false,223182
+223183,TP Bleed,ＴＰＤｏＴ,false,[@icon:021204f2278703],10119,50,0,30,true,true,3,true,-1,false,false,false,223183
+223184,Empowered,全ステータス＋,false,[@icon:021204f2277003],10096,1.1,-18,30,false,false,-1,true,-1,false,false,false,223184
+223185,Imperiled,全ステータス－,false,[@icon:021204f2277103],10097,0.9,-18,30,false,false,-1,true,-1,false,false,false,223185
+223186,Adept,レベル＋,false,[@icon:021204f2277203],10098,1,-19,30,false,false,-1,true,-1,false,false,false,223186
+223187,Inept,レベル－,false,[@icon:021204f2277303],10099,-1,-19,30,false,false,-1,true,-1,false,false,false,223187
+223188,Quick,クイックMAX,false,[@icon:021204f2271103],10001,2,-16,-1,false,false,-1,true,-1,false,false,false,223188
+223189,Quick,クイック,false,[@icon:021204f2271103],10001,1.5,0,30,false,false,-1,true,-1,false,false,false,223189
+223190,Wrist Flick,キャノンアーム,false,[@icon:021204f2275803],10072,5,0,30,true,false,-1,true,1,false,false,false,223190
+223191,Glossolalia,詠唱妨害無効,false,[@icon:021204f2275a03],10074,0,0,30,false,false,-1,true,-1,false,false,false,223191
+223192,Sonorous Blast,敵視上昇率－,false,[@icon:021204f2277a03],10106,0,0,30,false,false,-1,true,-1,false,false,false,223192
+223193,Comradery,パートナーシップボーナス,false,[@icon:021204f227a703],10151,105,-24,-1,false,false,-1,true,-1,false,false,false,223193
+223194,Strength in Numbers,フェローシップボーナス,false,[@icon:021204f227a803],10152,110,-24,-1,false,false,-1,true,-1,false,false,false,223194
+223195,-,パートナーシップボーナス（DUMMY）,true,[@icon:021204f227a703],10151,105,-24,-1,false,false,-1,true,-1,false,false,false,223195
+223196,-,フェローシップボーナス（DUMMY）,true,[@icon:021204f227a803],10152,110,-24,-1,false,false,-1,true,-1,false,false,false,223196
+223197,Brink of Death,衰弱［強］,false,[@icon:021204f227a603],10150,0.5,-25,180,false,false,-1,true,-1,false,false,false,223197
+223198,Crafter's Grace,経験値＋（クラフター専用）,false,[@icon:021204f227aa03],10154,1.5,0,10800,false,false,-1,true,-1,false,false,false,223198
+223199,Gatherer's Grace,経験値＋（ギャザラー専用）,false,[@icon:021204f227ab03],10155,1.5,0,10800,false,false,-1,true,-1,false,false,false,223199
+223200,Rebirth,アレイズ,false,[@icon:021203f0e703],231,0,0,0.1,false,false,-1,true,-1,false,false,false,223200
+223201,Stealth,ステルス,false,[@icon:021204f227ac03],10156,20,0,-1,false,false,-1,true,-1,false,false,false,223201
+223202,Stealth II,ステルスII,false,[@icon:021204f227ac03],10156,30,0,-1,false,false,-1,true,-1,false,false,false,223202
+223203,Stealth III,ステルスIII,false,[@icon:021204f227ac03],10156,40,0,-1,false,false,-1,true,-1,false,false,false,223203
+223204,Stealth IV,ステルスIV,false,[@icon:021204f227ac03],10156,50,0,-1,false,false,-1,true,-1,false,false,false,223204
+223205,Combo,コンボ状態,false,[@icon:021204f227d503],10197,0,0,5,false,false,-1,true,-1,false,false,false,223205
+223206,Goring Blade,ゴアブレード,false,[@icon:021204f227d603],10198,0,0,5,false,false,-1,true,-1,false,false,false,223206
+223207,Berserk,バーサク,false,[@icon:021204f227b503],10165,0,-11,5,false,false,-1,true,-1,false,false,false,223207
+223208,Rampage,ランページ,false,[@icon:021204f227b603],10166,0,-11,5,false,false,6,true,-1,false,false,false,223208
+223209,Fists of Fire,紅蓮の構え,false,[@icon:021204f227bb03],10171,0,-11,30,false,false,3,true,-1,false,false,false,223209
+223210,Fists of Earth,金剛の構え,false,[@icon:021204f227bc03],10172,0,-11,30,false,false,3,true,-1,false,false,false,223210
+223211,Fists of Wind,疾風の構え,false,[@icon:021204f227db03],10203,0,-11,30,false,false,3,true,-1,false,false,false,223211
+223212,Power Surge I,竜槍☆,false,[@icon:021204f2278203],10114,0,-11,30,false,false,-1,true,-1,false,false,false,223212
+223213,Power Surge II,竜槍☆☆,false,[@icon:021204f2278203],10114,0,-11,30,false,false,-1,true,-1,false,false,false,223213
+223214,Power Surge III,竜槍☆☆☆,false,[@icon:021204f2278203],10114,0,-11,30,false,false,-1,true,-1,false,false,false,223214
+223215,Life Surge I,竜剣☆,false,[@icon:021204f2278103],10113,0,-11,30,true,true,-1,true,-1,false,false,false,223215
+223216,Life Surge II,竜剣☆☆,false,[@icon:021204f2278103],10113,0,-11,30,true,true,-1,true,-1,false,false,false,223216
+223217,Life Surge III,竜剣☆☆☆,false,[@icon:021204f2278103],10113,0,-11,30,true,true,-1,true,-1,false,false,false,223217
+223218,Dread Spike,ドレッドスパイク,false,[@icon:021204f227bf03],10175,0,-15,30,false,false,-1,true,1,false,false,false,223218
+223219,Blood for Blood,捨身,false,[@icon:021204f227c003],10176,0,0,30,false,false,-1,true,1,false,false,false,223219
+223220,Barrage,乱れ撃ち,false,[@icon:021204f227c603],10182,0,0,30,false,false,-1,true,1,false,false,false,223220
+223221,Raging Strike,猛者の撃,false,[@icon:021204f227c703],10183,0,-12,5,false,false,-1,true,-1,false,false,false,223221
+223222,-,***,true,[@icon:021204f2279503],10133,0,-12,5,false,false,-1,true,-1,false,false,false,223222
+223223,-,***,true,[@icon:021204f2279503],10133,0,-12,5,false,false,-1,true,-1,false,false,false,223223
+223224,Swiftsong,スウィフトソング,false,[@icon:021204f227c803],10184,0,-16,30,false,false,-1,true,-1,false,false,false,223224
+223225,Sacred Prism,女神の慈悲,false,[@icon:021204f227ca03],10186,0,0,30,false,false,-1,true,1,false,false,false,223225
+223226,Shroud of Saints,女神の加護,false,[@icon:021204f227cb03],10187,0,0,30,false,false,-1,true,-1,false,false,false,223226
+223227,Cleric Stance,クルセードスタンス,false,[@icon:021204f227cc03],10188,0,0,30,false,false,-1,true,-1,false,false,false,223227
+223228,Blissful Mind,献身（蓄積中）,false,[@icon:021204f227cd03],10189,0,-27,30,true,true,3,true,-1,false,false,false,223228
+223229,Dark Seal,ダークシール,false,[@icon:021204f227cf03],10191,0,0,5,false,false,-1,true,1,false,false,false,223229
+223230,Resonance,レゾナンス,false,[@icon:021204f227d003],10192,0,0,5,false,false,-1,true,1,false,false,false,223230
+223231,Excruciate,エクスクルシエート,false,[@icon:021204f227d103],10193,0,0,5,false,false,-1,true,-1,false,false,false,223231
+223232,Necrogenesis,ネクロジェネシス,false,[@icon:021204f227d203],10194,0,0,30,false,false,-1,true,1,false,false,false,223232
+223233,Parsimony,パーシモニー,false,[@icon:021204f227d303],10195,0,0,30,false,false,-1,true,1,false,false,false,223233
+223234,Sanguine Rite,ブラッドライト,false,[@icon:021204f227d403],10196,0,-28,30,true,true,-1,true,-1,false,false,false,223234
+223235,Aero,エアロ,false,[@icon:021204f227d703],10199,0,0,5,false,false,-1,true,-1,false,false,false,223235
+223236,Outmaneuver,アウトマニューバ,false,[@icon:021204f227b203],10162,1.5,-9,30,false,false,-1,true,-1,false,false,false,223236
+223237,Blindside,ブラインドサイド,false,[@icon:021204f2275803],10072,1,-29,30,true,false,-1,true,1,false,false,false,223237
+223238,Decoy,デコイ,false,[@icon:021204f2276403],10084,50,-26,30,true,true,-1,true,1,false,false,false,223238
+223239,Protect,プロテス,false,[@icon:021204f2277b03],10107,20,-30,600,false,false,-1,true,-1,false,false,false,223239
+223240,Sanguine Rite,ブラッドライト,false,[@icon:021204f227d403],10196,0,-28,30,true,true,-1,true,-1,false,false,false,223240
+223241,Bloodletter,ブラッドレッター,false,[@icon:021204f2275403],10068,50,0,30,false,false,-1,true,-1,false,false,false,223241
+223242,Fully Blissful Mind,献身（蓄積完了）,false,[@icon:021204f227ce03],10190,0,-27,-1,true,true,-1,true,-1,false,false,false,223242
+223243,Magic Evasion Down,魔法回避力－,false,[@icon:021204f2278403],10116,-27,0,30,false,false,-1,true,-1,false,false,false,223243
+223244,Hundred Fists,百烈拳,false,[@icon:021204f227d803],10200,0,-31,30,false,false,-1,true,-1,false,false,false,223244
+223245,Spinning Heel,蹴撃,false,[@icon:021204f227d903],10201,0,-31,30,false,false,-1,true,-1,false,false,false,223245
+223248,Divine Veil,ディヴァインヴェール,false,[@icon:021204f227dd03],10205,8,0,30,false,false,-1,true,-1,false,false,false,223248
+223249,Hallowed Ground,インビンシブル,false,[@icon:021204f227de03],10206,0,0,30,true,true,-1,true,-1,false,false,false,223249
+223250,Vengeance,ヴェンジェンス,false,[@icon:021204f227df03],10207,0,-15,30,true,true,-1,true,-1,false,false,false,223250
+223251,Antagonize,アンタゴナイズ,false,[@icon:021204f227e003],10208,0,0,30,false,false,-1,true,-1,false,false,false,223251
+223252,Mighty Strikes,マイティストライク,false,[@icon:021204f227e203],10210,0,0,30,true,true,-1,true,-1,false,false,false,223252
+223253,Battle Voice,バトルボイス,false,[@icon:021204f227e303],10211,0,0,30,false,false,-1,true,-1,false,false,false,223253
+223254,Ballad of Magi,賢人のバラード,false,[@icon:021204f227e403],10212,0,0,30,true,true,3,true,-1,false,false,false,223254
+223255,Paeon of War,軍神のパイオン,false,[@icon:021204f227e503],10213,0,0,30,true,true,3,true,-1,false,false,false,223255
+223256,Minuet of Rigor,厳命のメヌエット,false,[@icon:021204f227e603],10214,0,0,30,false,false,-1,true,-1,false,false,false,223256
+223258,Gold Lung,黄毒霧,false,[@icon:021204f227eb03],10219,190,0,-1,false,false,3,true,-1,false,false,false,223258
+223259,Goldbile,黄水,false,[@icon:021204f227ec03],10220,640,0,-1,false,false,3,true,-1,false,false,false,223259
+223260,Aurum Veil,黄毒抵抗：小,false,[@icon:021204f227ed03],10221,0.65,-32,630,false,false,-1,true,-1,false,false,false,223260
+223261,Aurum Veil II,黄毒抵抗：大,false,[@icon:021204f227ee03],10222,0.2,-32,330,false,false,-1,true,-1,false,false,false,223261
+223262,Flare,フレア,false,[@icon:021204f227ea03],10218,0,0,30,false,false,-1,true,-1,false,false,false,223262
+223263,Resting,休息状態,false,[@icon:021204f227f003],10224,0,0,-1,false,false,-1,true,-1,false,false,false,223263
+223264,Divine Regen,ディヴァインリジェネ,false,[@icon:021204f2273003],10032,10,0,600,true,true,3,true,-1,false,false,false,223264
+223265,Defense & Evasion Up,物理防御・物理回避＋,false,[@icon:021204f227f203],10226,20,0,-1,false,false,-1,true,-1,false,false,false,223265
+223266,Magic Defense & Evasion Up,魔法防御・魔法回避＋,false,[@icon:021204f227f403],10228,20,0,-1,false,false,-1,true,-1,false,false,false,223266
+223267,Attack Up,物理攻撃＋,false,[@icon:021204f2275803],10072,20,0,-1,false,false,-1,true,-1,false,false,false,223267
+223268,Magic Potency Up,魔法威力＋,false,[@icon:021204f2275a03],10074,20,0,-1,false,false,-1,true,-1,false,false,false,223268
+223269,Defense & Evasion Down,物理防御・物理回避－,false,[@icon:021204f227f303],10227,-20,0,-1,false,false,-1,true,-1,false,false,false,223269
+223270,Magic Defense & Evasion Down,魔法防御・魔法回避－,false,[@icon:021204f227f503],10229,-20,0,-1,false,false,-1,true,-1,false,false,false,223270
+223271,Poison,中毒,false,[@icon:021204f227eb03],10219,10,0,30,false,false,-1,true,-1,false,false,false,223271
+223272,Deep Burn,熱傷,false,[@icon:021204f2274c03],10060,0,0,180,false,false,-1,true,-1,false,false,false,223272
+223273,Lunar Curtain,月のカーテン,false,[@icon:021204f227f603],10230,0.5,0,15,false,false,-1,true,-1,false,false,false,223273
+223274,Defense Up,物理防御＋,false,[@icon:021204f2276003],10080,0.8,0,20,false,false,-1,true,-1,false,false,false,223274
+223275,Attack Down,物理攻撃－,false,[@icon:021204f2275903],10073,-20,0,30,false,false,-1,true,-1,false,false,false,223275
+223992,Sanction,サンクション,false,[@icon:021204f227f103],10225,50,0,10800,false,false,-1,true,-1,false,false,false,223992
+223993,Intact-Podling Toting,ゆりかご所持,false,[@icon:021204f2279603],10134,50,0,30,true,true,-1,true,-1,false,false,false,223993
+223994,Red Riding Hooded,赤頭巾装備,false,[@icon:021204f2279603],10134,50,0,30,true,true,-1,true,-1,false,false,false,223994
+223998,Medicated,薬品ステータス＋,false,[@icon:021204f227ef03],10223,0,0,30,false,false,-1,true,-1,false,false,false,223998
+223999,Well Fed,食事,false,[@icon:021204f2279503],10133,50,0,30,false,false,-1,true,-1,false,false,false,223999
+224001,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,224001
+224002,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,224002
+224003,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,224003
+224004,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,224004
+224005,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,224005
+224006,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,224006
+224007,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,224007
+224008,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,224008
+224009,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,224009
+224010,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,224010
+225001,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,225001
+225002,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,225002
+225003,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,225003
+225004,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,225004
+225005,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,225005
+225006,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,225006
+225007,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,225007
+225008,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,225008
+225009,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,225009
+225010,-,ダミー,true,[@icon:021203f0e703],231,0,0,5,false,false,-1,true,-1,false,false,false,225010
+228001,Sleep,睡眠,false,[@icon:021204f2271c03],10012,50,0,30,false,false,-1,true,-1,false,false,false,228001
+228011,Bind,バインド,false,[@icon:021204f2271b03],10011,50,0,30,false,false,-1,true,-1,false,false,false,228011
+228012,Fixation,転向不可,false,[@icon:021204f2271b03],10011,50,0,30,false,false,-1,true,-1,false,false,false,228012
+228013,Bind,バインド,false,[@icon:021204f2271b03],10011,50,0,-1,false,false,-1,true,-1,false,false,false,228013
+228021,Heavy,ヘヴィ,false,[@icon:021204f2271203],10002,0.5,-16,30,false,false,-1,true,-1,false,false,false,228021
+228031,Charm,魅了,false,[@icon:021204f2272403],10020,50,0,30,false,false,-1,true,-1,false,false,false,228031
+228041,Flee,逃走,false,[@icon:021204f2272603],10022,50,-7,30,false,false,-1,true,-1,false,false,false,228041
+228051,Doom,死の宣告,false,[@icon:021204f2272503],10021,50,0,30,false,false,-1,true,-1,false,false,false,228051
+230001,Synthesis Support,合成施設,false,[@icon:021203f0e703],231,0,-21,3600,false,false,-1,true,-1,false,false,false,230001
+230002,Woodyard Access,木工設備：利用認可,false,[@icon:021204f2278a03],10122,0,-21,3600,false,false,-1,true,-1,false,false,false,230002
+230003,Smith's Forge Access,鍛冶設備：利用認可,false,[@icon:021204f2278b03],10123,0,-21,3600,false,false,-1,true,-1,false,false,false,230003
+230004,Armorer's Forge Access,板金設備：利用認可,false,[@icon:021204f2278c03],10124,0,-21,3600,false,false,-1,true,-1,false,false,false,230004
+230005,Gemmary Access,彫金設備：利用認可,false,[@icon:021204f2278d03],10125,0,-21,3600,false,false,-1,true,-1,false,false,false,230005
+230006,Tannery Access,革加工設備：利用認可,false,[@icon:021204f2278e03],10126,0,-21,3600,false,false,-1,true,-1,false,false,false,230006
+230007,Clothshop Access,裁縫設備：利用認可,false,[@icon:021204f2278f03],10127,0,-21,3600,false,false,-1,true,-1,false,false,false,230007
+230008,Laboratory Access,錬金術設備：利用認可,false,[@icon:021204f2279003],10128,0,-21,3600,false,false,-1,true,-1,false,false,false,230008
+230009,Cookery Access,調理設備：利用認可,false,[@icon:021204f2279103],10129,0,-21,3600,false,false,-1,true,-1,false,false,false,230009
+230010,Miner's Support,採掘イメージ,false,[@icon:021204f2279203],10130,0,-21,3600,false,false,-1,true,-1,false,false,false,230010
+230011,Botanists' Support,園芸イメージ,false,[@icon:021204f2279303],10131,0,-21,3600,false,false,-1,true,-1,false,false,false,230011
+230012,Fisher's Support,漁釣イメージ,false,[@icon:021204f2279403],10132,0,-21,3600,false,false,-1,true,-1,false,false,false,230012
+230013,Gear Change,装備変更ペナルティ,false,[@icon:021204f227a303],10147,0,0,-1,false,false,-1,true,-1,false,false,false,230013
+230014,Gear Damage,装備品劣化：古品,false,[@icon:021204f227a403],10148,0,-22,-1,false,false,-1,true,-1,false,false,false,230014
+230015,Heavy Gear Damage,装備品劣化：廃品,false,[@icon:021204f227a503],10149,0,-22,-1,false,false,-1,true,-1,false,false,false,230015
+230016,Lamed,レイム,false,[@icon:021204f227ae03],10158,0,0,30,false,false,-1,true,-1,false,false,false,230016
+230017,Lamed,レイム,false,[@icon:021204f227ae03],10158,0,0,30,false,false,-1,true,-1,false,false,false,230017
+230018,Lamed,レイム,false,[@icon:021204f227e903],10217,0,0,30,false,false,-1,true,-1,false,false,false,230018
+231001,-,眠り,true,[@icon:021204f2271c03],10012,0,0,-1,false,false,-1,true,-1,false,false,false,231001
+231002,Poison,毒,false,[@icon:021204f2271f03],10015,1,0,20,true,true,2,true,-1,false,false,false,231002
+231003,Envenom,猛毒,false,[@icon:021203f0e703],231,2,0,40,true,true,2,true,-1,false,false,false,231003
+231004,Berserk,バーサク,false,[@icon:021203f0e703],231,3,0,60,false,false,-1,true,3,false,false,false,231004
+231005,-,がまん,true,[@icon:021203f0e703],231,0,0,-1,false,false,-1,true,1,false,false,false,231005
+231006,-,廃止予定,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231006
+231007,-,シールダーズジョイ,true,[@icon:021203f0e703],231,0,0,40,false,true,-1,true,-1,true,false,false,231007
+231008,-,敵対心コントロール,true,[@icon:021203f0e703],231,0,0,30,true,true,-1,true,-1,true,false,false,231008
+231009,-,STRアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231009
+231010,-,VITアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231010
+231011,-,DEXアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231011
+231012,-,AGIアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231012
+231013,-,INTアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231013
+231014,-,MNDアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231014
+231015,-,CHRアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231015
+231016,-,LUCアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231016
+231017,-,FIREアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231017
+231018,-,ICEアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231018
+231019,-,WINDアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231019
+231020,-,EARTHアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231020
+231021,-,THUNDERアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231021
+231022,-,WATERアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231022
+231023,-,LIGHTアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231023
+231024,-,DARKアップ,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231024
+231025,-,STRダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231025
+231026,-,VITダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231026
+231027,-,DEXダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231027
+231028,-,AGIダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231028
+231029,-,INTダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231029
+231030,-,MNDダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231030
+231031,-,CHRダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231031
+231032,-,LUCダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231032
+231033,-,FIREダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231033
+231034,-,ICEダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231034
+231035,-,WINDダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231035
+231036,-,EARTHダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231036
+231037,-,THUNDERダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231037
+231038,-,WATERダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231038
+231039,-,LIGHTダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231039
+231040,-,DARKダウン,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231040
+231041,-,麻痺,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231041
+231042,-,バインド,true,[@icon:021203f0e703],231,0,0,30,false,false,-1,true,-1,false,false,false,231042
+232001,-,ダミー1a,true,[@icon:021204f2275803],10012,0,0,-1,false,false,1,true,-1,false,false,false,232001
+232002,-,ダミー1b,true,[@icon:021204f2271f03],10015,0,0,30,false,false,2,true,-1,false,false,false,232002
+232003,-,ダミー1c,true,[@icon:021204f2271c03],10012,0,0,30,false,false,2,true,-1,false,false,false,232003
+232004,-,ダミー1d,true,[@icon:021204f2271f03],10015,0,0,30,false,false,2,true,-1,false,false,false,232004
+232005,-,ダミー1e,true,[@icon:021204f2271c03],10012,0,0,30,false,false,2,true,-1,false,false,false,232005
+232011,-,ダミー1b,true,[@icon:021204f2271c03],10012,0,0,30,false,false,2,true,-1,false,false,false,232011
+232012,-,ダミー2b,true,[@icon:021204f2271f03],10015,0,0,60,false,false,2,true,-1,false,false,false,232012
+232013,-,ダミー2c,true,[@icon:021204f2271c03],10012,0,0,30,false,false,2,true,-1,false,false,false,232013
+232014,-,ダミー2d,true,[@icon:021204f2271f03],10015,0,0,45,false,false,2,true,-1,false,false,false,232014
+232015,-,ダミー2e,true,[@icon:021204f2271c03],10012,0,0,30,false,false,2,true,-1,false,false,false,232015
+251001,-,寸止め,true,[@icon:021203f0e703],231,1.5,0,-1,false,false,-1,true,-1,false,false,false,251001
+253001,-,保護状態,true,[@icon:021203f0e703],231,50,0,60,false,false,-1,true,-1,false,false,false,253001
+253002,Guardian's Aspect,神符,false,[@icon:021204f2278903],10121,50,-2,60,false,false,-1,true,-1,false,false,false,253002
+253003,経験値ブースト,特訓（経験値上昇＋）,false,[@icon:021204f2278803],10120,50,-3,60,false,false,-1,true,-1,false,false,false,253003

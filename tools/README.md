@@ -85,6 +85,16 @@ driver row ID and all indexed source rows. Returning `None` emits SQL `NULL`.
   joins, duplicate preservation, placeholders, categories, and input failures.
   See [guildleve display names](../docs/guildleve-names.md) for the source map
   and local-name boundary.
+- `build_retail_sheet_exports.py` exports complete status names and typed
+  values, Grand Company rank name variants and typed values, materia rows,
+  and independent materia-book text. It writes four derived CSVs and
+  `manifests/retail_sheet_exports.json`; `--check` verifies all products
+  without writing. `test_retail_sheet_exports.py` checks exact joins, raw-cell
+  and locale fidelity, positional company variants, independent book keys,
+  source authentication and public-product mutations. See
+  [status names](../docs/status-names.md),
+  [Grand Company ranks](../docs/gc-rank.md) and
+  [materia](../docs/materia.md) for column maps and evidence limits.
 - `build_local_guildleve_names.py` joins every `passiveGL_craft.csv` row to
   the journal title in `xtx_quest.csv`, auditing the UI text 4219 lookup
   controls. It writes `derived/local_guildleve_names.csv` and

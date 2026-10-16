@@ -212,6 +212,11 @@ def validate_schemas() -> None:
         (MANIFESTS / "manifest.json", "manifest.schema.json", "manifest.json"),
         (MANIFESTS / "tables.json", "tables.schema.json", "tables.json"),
         (
+            MANIFESTS / "retail_sheet_exports.json",
+            "retail_sheet_exports.schema.json",
+            "retail_sheet_exports.json",
+        ),
+        (
             MANIFESTS / "zone_internal_names.json",
             "zone_internal_names.schema.json",
             "zone_internal_names.json",
@@ -426,8 +431,37 @@ def validate_sheet_inventory() -> None:
         )
 
 
+def validate_retail_sheet_exports() -> None:
+    """Verify the public sheet products and authenticated corpus reproduction."""
+    from build_retail_sheet_exports import validate_public
+
+    try:
+        validate_public(REPO_ROOT)
+    except (OSError, UnicodeError, ValueError, KeyError, TypeError) as exc:
+        errors.append(f"retail sheet exports: {exc}")
+        return
+    if not CORPUS_ABSENT:
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(REPO_ROOT / "tools/build_retail_sheet_exports.py"),
+                "--check",
+                "--csv-dir",
+                str(CSV_DIR),
+            ],
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode:
+            errors.append(
+                "retail sheet exports are not reproducible: "
+                + (result.stdout + result.stderr).strip()
+            )
+
+
 def validate_derived_counts() -> None:
     """Validate generator-reported counts against their payloads."""
+    validate_retail_sheet_exports()
     validate_guildleve_names()
     validate_local_guildleve_names()
     actors_path = MANIFESTS / "staticactor_class_paths.json"
