@@ -68,6 +68,29 @@ This finding covers static sheet content and the named getter projections.
 The cited client contract owns the request flow, widget results and remaining
 packet boundaries.
 
+## Command selector text boundary
+
+The decoded CSV archive pinned by
+[`manifests/private_csv_corpus.json`](../manifests/private_csv_corpus.json)
+contains 803 files. Its 70,029,056 expanded bytes match every member name,
+size and SHA-256 in [`manifests/tables.json`](../manifests/tables.json).
+The archive SHA-256 is
+`006f9438a8cfd9277376f0ab28474500c67e4665050aa631cae64c9e6f38a5b0`.
+
+Exact case-sensitive UTF-8 text searches across those members returned no
+`askJoinMateria`, `cancelTarget`, `askJoinResult`, `displayRate`,
+`delegateCommand` or `commandJudgeMode` occurrence. `command.csv`
+contains rows `22014` and `22015`, with source SHA-256
+`14548e379a6c4f76c10a4ac53866161ebf1622ce7f1e76a760e85f0577f38848`.
+The absence of those literals does not exclude a computed selector or assign
+runtime meanings to numeric cells. These static rows supply neither a
+command-to-callback causal record nor its executed variation and arguments.
+
+Reproduce the text query by reading each declared CSV member from the pinned
+archive with Python `zipfile`, checking its size and digest against
+`tables.json`, and searching decoded UTF-8 text for the six exact strings.
+This is a text-search boundary, separate from the sheet getter projections.
+
 ## Reproduction
 
 Run `python tools/build_retail_sheet_exports.py --csv-dir <root>` to regenerate
