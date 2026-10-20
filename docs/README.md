@@ -44,6 +44,7 @@ evidence, derived findings, and repository policy.
 - [Quest 110016 journal selectors](quest-110016-journal-references.md)
 - [Guildleve selected row values](guildleve-selected-row-values.md)
 - [Guildleve display names](guildleve-names.md)
+- [Request-warden operation text](request-warden-operation-text.md)
 - [Parley title rows](parley-title-rows.md)
 - [Grand Company enlistment notices](grand-company-enlistment-notices.md)
 - [Grand Company dialogue row variants](grand-company-dialogue-variants.md)
