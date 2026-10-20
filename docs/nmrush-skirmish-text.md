@@ -27,10 +27,12 @@ calls without changing their return contract.
 | First key in its option list | 49 | "Yes." |
 
 Row 19 is an authored self-introduction, without a spawn record identifying
-an actual NPC. The selected island dialogue names no site. The menu labels
-do not establish the numeric result returned for a choice or the caller's
-response to it. The published ask methods retain and return one option
-result without interpreting it.
+an actual NPC. The selected island dialogue names no site. The conditional
+widget result mapping belongs to
+`xivl-client-scripts:docs/nmrush-guide-director-contract.md`, "Shared talk and
+choice helpers". The labels alone do not establish an actual selection or
+the caller's response. The ask methods retain and return one option result
+without interpreting it.
 
 The rows do not bind either `QuestDirectorNMRush01` or
 `QuestDirectorNMRush02` to a particular instance. Instructions and battle
