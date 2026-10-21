@@ -67,10 +67,47 @@ event argument or another explicit content binding is still required.
 | Join/Cancel retry, s=0 | 115 | Slay all targets in the map-designated area before they escape |
 | Join/Cancel retry, s=0 | 119 | A statement that success will be rewarded |
 
-These are authored prompts and instructions, without encounter-state or
-reward-grant evidence. Row 157 in the separate `worldMaster:say` call is not
-a row join to this bank. The selected operation text supplies no binding for
-the Director's externally supplied `requestId` or Guildleve row 1.
+The following consecutive rows supply the authored choices. Their order is
+not, by itself, a native widget result-code contract.
+
+| Prompt | Consecutive choice row IDs | English choices in row order |
+| --- | --- | --- |
+| 111 | 112, 113, 114 | Yes; No; Learn operation objectives |
+| 131 | 132, 133, 134 | No; Yes; Review operation objectives |
+| 63 | 64, 65 | Yes; No |
+| 94 | 95, 96, 97 | Yes; Remain here; Cancel |
+
+Rows 90-93 offer transportation. Each contains an encoded `aetheryte` sheet
+reference nested inside an `xtx/placeName` noun control and a conditional
+"'s aetherial gate" suffix. The matching End method supplies two formatting
+arguments. These rows do not describe cancellation, completion or withdrawal
+state codes. Their exact native parameter evaluation remains unbound.
+
+Row 157 says that the behest for the supplied place is recommended for the
+supplied adventurer level. Its controls contain `xtx/placeName` and a number.
+The Join call `worldMaster:say(self,157,A3,A4)` passes the Warden object
+explicitly. The helper receiver name does not select a text bank: the Lua
+helpers forward the explicit owner and message arguments to the native
+message pool. Row 157 exists in this Warden bank and is absent from
+`worldMaster.csv`. This is a static text association, without a retained
+rendered message or a proven native formatting range.
+
+## Request article text
+
+`worldMaster.csv` row 50090, physical line 1826, contains the exact control:
+
+```text
+[@head-all:022d2cff2a022826ff107874782f646973706c61794e616d65ff1202280eff0872657175657374e802e80303020303]
+```
+
+Its nested sheet controls name `xtx/displayName` and `request`; the latter
+retains the two operand expressions `E8 02` and `E8 03`. The expression
+grammar is recorded in `xivl-tools:docs/formats/ssd-sheet.md`, "Rich-string
+read and text-export contract". That grammar preserves expressions without
+executing their runtime meaning. The scripts contract traces `requestId`
+and the objective selector into this article's formatting arguments. The
+encoded reference does not establish an encounter instance, a server token
+allocation rule or a native row lookup on its own.
 
 ## Source and reproduction
 
@@ -85,9 +122,14 @@ five-string-column layout described by the
 The exact local input archive is pinned by
 [private_csv_corpus.json](../manifests/private_csv_corpus.json). Read only its
 named member, verify the member size/hash, and parse its label/type headers
-and the 21 row IDs listed above with Python `csv`. Preserve encoded controls
-and row IDs. The rows occupy physical lines 3-8, 10, 59, 90, 106, 110, 114,
-126 and 134-141. Rows 4, 8, 149 and 150 occupy lines 6, 10, 140 and 141.
+and the row IDs listed above with Python `csv`. Preserve encoded controls
+and row IDs. The recruitment/retry selection occupies physical
+lines 3-8, 10, 59, 90, 106, 110, 114, 126 and 134-141. The menu and
+transport selection occupies lines 59-61, 86-93, 106-109, 126-129 and 148.
+Rows 4, 8, 149 and 150 occupy lines 6, 10, 140 and 141.
 Physical line numbers include both header rows and must not be
-substituted for row IDs. No original Lua or native body is needed to reproduce
-these static text observations.
+substituted for row IDs. `worldMaster.csv` contains 1,851,138 bytes with
+SHA-256 `2E2E2DD5CD9651388F6FA575B4229081AD0452165E78B725DF0A5B5B7CF7C643`,
+also pinned in `tables.json`. The same archive/member check and Python CSV
+query reproduce its row 50090 and the absence of row 157. No original Lua
+or native body is needed to reproduce these static text observations.
