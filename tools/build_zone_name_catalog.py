@@ -77,7 +77,7 @@ def scan_blobs(game_dir: Path) -> list[dict]:
                 # A stage-alias resident label is usable only when the blob contains exactly one zone name.
                 primary = names[0]
             if primary is None and not names:
-                continue  # divider / shared-object blob, no zone evidence
+                continue  # A divider or shared-object blob does not identify a zone.
             blobs.append(
                 {
                     "resourceIdHex": f"0x{subdir.replace('/', '')}{dat.stem}",

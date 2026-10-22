@@ -131,7 +131,7 @@ _EXPLICIT_ZONE_NAMES: dict[str, str | None] = {
     "234": "fst0Office01",
     "236": "sea1Field01",
     "244": "prv0Inn01",
-    # Names without a unique client binding remain explicit curation.
+    # A name without a unique client binding needs an explicit curated entry.
     "192": "ocn1Battle01",
     "193": "ocn0Battle02",
     "194": "ocn1Battle03",
