@@ -43,6 +43,7 @@ evidence, derived findings, and repository policy.
 - [Quest 110420 journal selectors](quest-110420-journal-references.md)
 - [Quest 110016 journal selectors](quest-110016-journal-references.md)
 - [Guildleve selected row values](guildleve-selected-row-values.md)
+- [Guildleve 12468 client rows](guildleve-12468-client-rows.md)
 - [Guildleve display names](guildleve-names.md)
 - [Request-warden operation text](request-warden-operation-text.md)
 - [NMRush guide Skirmish text](nmrush-skirmish-text.md)
