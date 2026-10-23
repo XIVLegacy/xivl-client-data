@@ -47,6 +47,7 @@ Read these pages when the change touches their subject:
 
 1. [Evidence and claims](evidence-and-claims.md)
 2. [Comments and prose](comments-and-prose.md)
+3. [Test authoring](test-authoring.md)
 
 The repository README, `tools/README.md`, manifests, schemas, and finding
 documents remain canonical for their own surfaces.
