@@ -68,6 +68,8 @@ jobs:
         run: python tools/test_retail_staticactor.py
       - name: Test private CSV archive tooling
         run: python tools/test_private_csv_corpus.py
+      - name: Test external CSV-root selection
+        run: python tools/test_external_csv_root.py
       - name: Test retail CSV corpus contract
         run: python tools/test_retail_csv_corpus.py
       - name: Test actor appearance census
