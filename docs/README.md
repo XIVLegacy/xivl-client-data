@@ -62,7 +62,7 @@ evidence, derived findings, and repository policy.
 - [Decoded form dependency structure](sqwt-form-dependency-structure.md)
 - [Nameplate primary-label form attributes](sqwt-nameplate-primary-label.md)
 - [NPC dialogue form and template declarations](sqwt-npc-dialogue-structure.md)
-- [Ask form and template declarations](sqwt-ask-structure.md)
+- [Ask form, template and style declarations](sqwt-ask-structure.md)
 
 ## Repository policy
 
