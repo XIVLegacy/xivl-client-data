@@ -61,6 +61,7 @@ evidence, derived findings, and repository policy.
 - [Decoded form Content carriers](sqwt-form-content-carriers.md)
 - [Decoded form dependency structure](sqwt-form-dependency-structure.md)
 - [Nameplate primary-label form attributes](sqwt-nameplate-primary-label.md)
+- [NPC dialogue form and template declarations](sqwt-npc-dialogue-structure.md)
 
 ## Repository policy
 
