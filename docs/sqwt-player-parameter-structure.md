@@ -171,10 +171,14 @@ Each `BeginStoryboard` contains one `Storyboard`. Each storyboard contains
 one `PropertyAnimationUsingKeyFrames` with
 `Storyboard.TargetProperty="RenderTransformOrigin"` and
 `BeginTime="0:0:0"`, containing one `DiscreteValueKeyFrame Value="0.5,0.5"`.
+Those are the complete property-animation attributes. Neither has `Duration`.
+Each keyframe has only its `Value` attribute, with no `KeyTime` or children.
 Each also contains one `DoubleAnimation` with
 `Storyboard.TargetProperty="VisualOpacity"`, `Duration="0:0:0.2"` and
 `BeginTime="0:0:0"`. The On command's raw `To` is `1`, and the Off
-command's is `0`. These label-trigger descendants have no `TargetName`,
+command's is `0`. Those are the complete double-animation attributes,
+with no `From` attribute or children. Both `Storyboard` elements have no
+attributes. These label-trigger descendants have no `TargetName`,
 `Storyboard.TargetName` or `SourceName` attribute. Both command triggers
 have only their `Command` attribute. Their stop-action strings exactly match
 the opposite begin-action names. These literal joins do not resolve an
@@ -220,8 +224,10 @@ matches a begin-action name in this same selected template.
 Each begin action contains one `Storyboard`. Each storyboard declares these
 children in document order: one `PropertyAnimationUsingKeyFrames`, then
 three `DoubleAnimation` elements. The property animation declares
-`Storyboard.TargetProperty="RenderTransformOrigin"` and contains one
-`DiscreteValueKeyFrame Value="0.5,0.5"`. The double animations declare
+only `Storyboard.TargetProperty="RenderTransformOrigin"`, with no `BeginTime`
+or `Duration` attribute. It contains one `DiscreteValueKeyFrame` with only
+`Value="0.5,0.5"`, no `KeyTime` attribute and no children.
+The double animations declare
 `Duration="0:0:0.2"` and `BeginTime="0:0:0"`. Their property and value
 attributes are listed below. An absent attribute is marked absent.
 
@@ -232,6 +238,8 @@ attributes are listed below. An absent attribute is marked absent.
 | `HidingAnimation` | `ApplicationCommands.InvisibleWindow` | `1` / `0` | absent / `5` | absent / `5` |
 
 The property columns denote exact `Storyboard.TargetProperty` strings.
+Together with `Duration` and `BeginTime` above, these are the complete
+`DoubleAnimation` attributes. All nine double animations have no children.
 No selected Window trigger or its descendants declares `SourceName`,
 `TargetName`, `Storyboard.TargetName`, `CommandTarget`, `CommandParameter`
 or `Target`. None has a binding-shaped attribute value. The selected
