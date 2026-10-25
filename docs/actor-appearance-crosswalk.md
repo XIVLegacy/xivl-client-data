@@ -132,3 +132,52 @@ bytes. The mutation tests cover changed packed values, signed `s32` decoding,
 column-type drift, missing actor-class joins, deterministic output, and LF line
 endings. `tools/verify_actor_appearance_crosswalk.py` remains the bounded check
 for the four native-anchored zero rows.
+
+## Selected generator, transmitter and Vanguard rows
+
+The authenticated actor-class, graphic and display-name tables retain these
+static associations. Numeric IDs are source row keys; repeated English text
+does not merge the rows or establish an encounter variant.
+
+| Actor/graphic row IDs | Display-name ID | English text | Base | Size ordinal | Head | Body |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| 1002064, 2210802 | 3210802 | ceruleum generator | 10525 | 2 | 2048 | 2048 |
+| 1002063, 2210801 | 3210801 | magitek transmitter | 10525 | 2 | 1024 | 1024 |
+| 2109001, 2109003 | 3109001 | magitek vanguard | 10052 | 2 | 0 | 1025 |
+| 2209001 | 3209001 | magitek vanguard | 10052 | 1 | 0 | 1025 |
+| 2209003 | 3109003 | magitek vanguard | 10052 | 1 | 0 | 1025 |
+
+All eight rows have `hairColor`, `skinColor` and `eyeColor` equal to 1.
+Every other mapped appearance field, apart from base, size, head and body in
+the table, is zero. This includes the seven packed appearance words at
+columns 25-31. Raw graphic columns 0-5 are blank, and trailing columns 45-46
+are zero. Raw actor-class columns 0-4 are blank; column 5 holds the listed
+display-name ID. These blank cells are not rewritten as numeric zero.
+
+Across all 7,831 graphic rows, the exact `(display-name ID, base)` pairs in
+the table match only the row IDs listed in their respective rows. Their
+cardinalities are 2, 2, 2, 1 and 1. Comparing English text instead of display
+ID, `("magitek vanguard", 10052)` matches all four Vanguard IDs listed here;
+the generator/base and transmitter/base pairs each match their two listed
+IDs. These are full-table counts, not uniqueness claims from the selected
+subset. None of the three Vanguard display IDs contains an F-1 or H-1 suffix
+in its English text.
+
+Sources are `csv/actorclass.csv`, `csv/actorclass_graphic.csv` at the listed
+IDs, and `csv/xtx_displayName.csv` at the listed display IDs, extraction
+`2012.09.19.0001`. The column positions come from
+`tools/mappings/actor_class.py` and `tools/mappings/actor_appearance.py`,
+checked against the label/type headers. SHA-256 pins in
+[`manifests/tables.json`](../manifests/tables.json) are, respectively,
+`3ac9f8d1812d49101f367e2a41356be96b5d64b1fc5ca29949195f50ebe1d984`,
+`7da8241400530885e0a28ded04a03acf2771b0580a79c1f49f46ee0861010611`, and
+`36c5dfba312695d9f4ee090dba123dfd7792feba55d88b0062c070d98abc0505`.
+
+The numeric bases are not resource paths. The separately documented
+`xivl-decomp:docs/actor/appearance-path-decoder.md`, sections Base-model split
+and Directory prefix, maps appearance-record word 0 values 10525 and 10052
+to category 1, model numbers 525 and 52, and prefixes
+`/client/chara/mon/m525/` and `/client/chara/mon/m052/`. Applying that rule to
+these table bases is conditional on their use as appearance-record word 0.
+It does not prove file existence, a selected runtime appearance, a Lua class
+binding, F-1/H-1 identity, content 13 ownership or a historical spawn.
