@@ -37,7 +37,8 @@ evidence, derived findings, and repository policy.
 - [Seeker disappearance message rows](seeker-disappearance-message-rows.md)
 - [Copperbell Mines map identity](copperbell-map-identity.md)
 - [Coerthas Central Lowlands map identity](coerthas-central-lowlands-map-identity.md)
-- [Zone-group place-key rows](zone-group-place-rows.md)
+- [Zone-group place-key rows](zone-group-place-rows.md) - Gridania and Shroud
+  labels, regional membership and variant-resource limits.
 - [Regional dungeon layout associations](dungeon-map-identities.md)
 - [Mor Dhona map identity](mor-dhona-map-identity.md)
 - [Job-quest marker and actor-class joins](job-quest-marker-joins.md)
