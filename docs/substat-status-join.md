@@ -19,8 +19,15 @@ value `6` from bits 12..15, and kind 2 reads value `8` from bits 8..11.
 
 ```text
 wire <= 0x8000: 200000 + wire
-wire >  0x8000: 200000 + wire - 0x4350
+wire >  0x8000: 200000 + wire + 0x4350
 ```
+
+The constructor's unsigned comparison applies the added adjustment only above
+`0x8000`. The native instruction sequence and boundary examples are retained in
+`xivl-decomp:docs/actor/status-wire-translation.md#translation`
+and `xivl-decomp:config/status_wire_translation.json` (`translation.nonzero`).
+Wire `0x8000` maps to row `232768`, `0x8001` maps to `250001`, and `0xFFFF`
+maps to `282767`. Zero is an empty sentinel and does not perform a lookup.
 
 For this capture, `200000 + 0x5ADF = 223263`. Both `status.csv` and
 `xtx_status.csv` contain row `223263`; the English name for the whole status
@@ -31,9 +38,13 @@ packed 32-bit word. Therefore this joined record's word is the row id,
 `223263`, or `0x0003681F`.
 
 The analyzer fails closed when the translated row is absent or duplicated. The
-two transform branches overlap, so the crosswalk records independently verified
-low-branch and high-branch wire encodings. Row `223263` accepts both `0x5ADF`
-and `0x9E2F`; the retained capture used `0x5ADF`.
+low branch reaches rows `200001..232768`, and the high branch reaches
+`250001..282767`. These ranges are disjoint, so each reachable row has one wire
+encoding. The inverse subtracts `200000` in the low range and `217232` in the
+high range. Rows `232769..250000` are unreachable. The crosswalk records the
+wire id in its branch's column and leaves the other column empty. Row `223263`
+accepts only `0x5ADF`; wire `0x9E2F` resolves to row `257727`. High row `251001`
+accepts `0x83E9`.
 
 ## Bit projections
 

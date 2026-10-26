@@ -48,13 +48,13 @@ def decode_wire_id(wire_id: int) -> int:
     if wire_id == 0:
         return 0
     adjustment = HIGH_WIRE_ADJUSTMENT if wire_id > 0x8000 else 0
-    return WIRE_BASE + wire_id - adjustment
+    return WIRE_BASE + wire_id + adjustment
 
 
 def wire_ids_for_row(row_id: int) -> tuple[int, ...]:
     candidates = (
         row_id - WIRE_BASE,
-        row_id - WIRE_BASE + HIGH_WIRE_ADJUSTMENT,
+        row_id - WIRE_BASE - HIGH_WIRE_ADJUSTMENT,
     )
     return tuple(
         candidate
