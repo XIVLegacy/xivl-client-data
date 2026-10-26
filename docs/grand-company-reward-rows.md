@@ -12,6 +12,12 @@ the reward sheet itself.
 | 111402 | 1000201 / Storm Seal | 250 |
 | 111602 | 1000202 / Serpent Seal | 250 |
 | 111802 | 1000203 / Flame Seal | 250 |
+| 111405 | 1000201 / Storm Seal | 300 |
+| 111605 | 1000202 / Serpent Seal | 300 |
+| 111805 | 1000203 / Flame Seal | 300 |
+| 111406 | 1000201 / Storm Seal | 300 |
+| 111606 | 1000202 / Serpent Seal | 300 |
+| 111806 | 1000203 / Flame Seal | 300 |
 | 111407 | 1000201 / Storm Seal | 1000 |
 | 111607 | 1000202 / Serpent Seal | 1000 |
 | 111807 | 1000203 / Flame Seal | 1000 |
