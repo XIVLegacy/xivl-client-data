@@ -41,6 +41,19 @@ The property references in column 13 are literal values, not a universal
 marker-row identity rule. The repeated destination-like fields and references
 do not establish a quest route or associate any row with an actor class.
 
+## Rows 11160301-11160304
+
+| Row | Columns 3/4 | Column 5 | Column 8 | Columns 9/10 | Column 12 | Column 13 |
+| ---: | --- | ---: | --- | --- | --- | --- |
+| `11160301` | `169.19`, `-174.75` | `1000114` | `m00013` | `103`, `5024` | `MapMarkerQuest` | `@5208/i11160301` |
+| `11160302` | `1131.75`, `206.34` | `2200199` | `m00013` | `104`, `402` | `MapMarkerQuest` | `@5208/i11160302` |
+| `11160303` | `-636.61`, `-2031.65` | `4000257` | `m00013` | `103`, `303` | `MapMarkerQuest` | `@5208/i11160303` |
+| `11160304` | `204`, `-1152` | `4000257` | `m00018` | `103`, `321` | `MapMarkerQuestArea` | `@5208/i11160304` |
+
+Row `11160304` is the only selected row with resource `m00018` and
+`MapMarkerQuestArea` in column 12. The rows do not establish which marker a
+journal phase displays.
+
 ## Rows 11170401-11170406
 
 | Row | Columns 3/4 | Column 5 | Columns 9/10 | Column 11 | Column 13 |
@@ -63,13 +76,13 @@ do not establish a quest route or associate any row with an actor class.
 | `11170505` | `-115`, `153` | `2700004` | `104`, `431` | `32` | `@5208/i11170505` |
 | `11170506` | `-119.84`, `127.86` | `4000257` | `104`, `431` | `32` | `@5208/i11170506` |
 
-Each row in these two sections also has resource `m00013` in column 8 and
-`MapMarkerQuest` in column 12. Column 11 is `0` in rows
-`11001601`-`11001620`. The column 11 values are literal and carry no
-assigned meaning here.
+Each row in the `11170401` and `11170501` sections also has resource
+`m00013` in column 8 and `MapMarkerQuest` in column 12. Column 11 is `0` in
+rows `11001601`-`11001620` and `11160301`-`11160304`. The column 11 values
+are literal and carry no assigned meaning here.
 
 Source: `xivl-client-data:csv/quest_marker.csv`, rows `11001601`-`11001620`,
-`11170401`-`11170406`, and `11170501`-`11170506`,
+`11160301`-`11160304`, `11170401`-`11170406`, and `11170501`-`11170506`,
 SHA-256
 `920e93e6c1dd136ed758f22465bea3644f2bbe53a6ff46f7d938dd51e3b514be` in
 `manifests/tables.json`. The source corpus is the pinned decoded
