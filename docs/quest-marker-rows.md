@@ -54,6 +54,15 @@ Row `11160304` is the only selected row with resource `m00018` and
 `MapMarkerQuestArea` in column 12. The rows do not establish which marker a
 journal phase displays.
 
+## Rows 11160401-11160404
+
+| Row | Columns 3/4 | Column 5 | Column 8 | Columns 9/10 | Column 12 | Column 13 |
+| ---: | --- | ---: | --- | --- | --- | --- |
+| `11160401` | `-63.56`, `-1565.32` | `4000257` | `m00013` | `103`, `321` | `MapMarkerQuest` | `@5208/i11160401` |
+| `11160402` | `-93.93`, `-1609.7` | `1400004` | `m00013` | `103`, `321` | `MapMarkerQuest` | `@5208/i11160402` |
+| `11160403` | `1605.01`, `1275.28` | `4000257` | `m00013` | `103`, `305` | `MapMarkerQuest` | `@5208/i11160403` |
+| `11160404` | `1634.3`, `1277.34` | `1200023` | `m00013` | `103`, `305` | `MapMarkerQuest` | `@5208/i11160404` |
+
 ## Rows 11170401-11170406
 
 | Row | Columns 3/4 | Column 5 | Columns 9/10 | Column 11 | Column 13 |
@@ -78,12 +87,13 @@ journal phase displays.
 
 Each row in the `11170401` and `11170501` sections also has resource
 `m00013` in column 8 and `MapMarkerQuest` in column 12. Column 11 is `0` in
-rows `11001601`-`11001620` and `11160301`-`11160304`. The column 11 values
-are literal and carry no assigned meaning here.
+rows `11001601`-`11001620`, `11160301`-`11160304`, and
+`11160401`-`11160404`. The column 11 values are literal and carry no assigned
+meaning here.
 
 Source: `xivl-client-data:csv/quest_marker.csv`, rows `11001601`-`11001620`,
-`11160301`-`11160304`, `11170401`-`11170406`, and `11170501`-`11170506`,
-SHA-256
+`11160301`-`11160304`, `11160401`-`11160404`, `11170401`-`11170406`, and
+`11170501`-`11170506`, SHA-256
 `920e93e6c1dd136ed758f22465bea3644f2bbe53a6ff46f7d938dd51e3b514be` in
 `manifests/tables.json`. The source corpus is the pinned decoded
 `2012.09.19.0001` snapshot; its archive identity is recorded in
