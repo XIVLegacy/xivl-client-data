@@ -55,6 +55,7 @@ evidence, derived findings, and repository policy.
 - [Grand Company dialogue row variants](grand-company-dialogue-variants.md)
 - [Grand Company journal interaction text](grand-company-journal-text.md)
 - [Grand Company reward rows](grand-company-reward-rows.md)
+- [Selected Grand Company quest reward offers](grand-company-quest-rewards.md)
 - [Raid progression message rows](raid-message-rows.md)
 - [Job fight display names](job-quest-combat-display-joins.md)
 - [Item and equipment columns](item-equipment-columns.md)
