@@ -75,8 +75,10 @@ client evidence only when one zone and one named layout share a place-name id.
 Unshipped series layouts use the slot rule, while market, ocean, inn, and
 related families contribute vocabulary without series bindings. The mapping's
 explicit table is a separate reconciliation layer for ambiguous or absent
-bindings and preserves SQL `NULL` for placeholder rows. Two catalog values
-are fixed by dedicated shipped blobs: zone 139 is sea0Field05 (layout 105) and
-zone 264 is lak0Dungeon01 (layout 511). Unresolved bindings remain maintainer
-material, not client evidence. The generated catalog's provenance and
-limitations stay with the manifest.
+bindings and preserves SQL `NULL` for placeholder rows. The catalog binds
+zone 139 to sea0Field05 from the dedicated shipped layout 105 blob.
+Layout 511 supplies lak0Dungeon01 vocabulary, but the current catalog emits
+no zoneBindings entry for numeric zone 264. That zone's lak0Dungeon01 name
+comes from the mapping's explicit table and remains curation. Unresolved
+bindings are not additional client evidence. The generated catalog's
+provenance and limitations stay with the manifest.
