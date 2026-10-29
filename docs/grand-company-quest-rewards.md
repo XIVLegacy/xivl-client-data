@@ -76,12 +76,16 @@ The two selected entries in authenticated
 These products are exact-arithmetic reconstructions, not observed displayed
 amounts. In an authored Python 3.12 binary64 reconstruction, the first product
 is `4970.000000000001` and standard `math.ceil` returns `4971`; the second
-product and standard ceil result are `2160`. The native `_math.ceil`
-implementation and actual client numeric evaluation were not executed or
-established by this source check. The retained expressions therefore do not
-justify asserting `4970` or `4971` as the retail display, or either product as
-an earned EXP grant. Q51 is a calculation selector here, not a newly proved
-quest level requirement.
+product and standard ceil result are `2160`.
+
+`xivl-decomp:docs/script/lua-math-ceil-paths.md#argument-and-result-carriers`
+establishes binary64 argument/result storage for the registered native `ceil`
+callback in the pinned executable. Its `#finite-rounding-conditions` section
+qualifies the fallback by selected x87 control word and normal completion.
+Neither fact determines actual Lua DIV/MUL intermediate precision or runtime
+controls. The retained expressions therefore do not justify asserting `4970`
+or `4971` as the retail display, or either product as an earned EXP grant.
+Q51 is a calculation selector here, not a newly proved quest level requirement.
 
 ## Other reward-sheet keys
 
