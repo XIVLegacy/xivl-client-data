@@ -60,6 +60,7 @@ evidence, derived findings, and repository policy.
 - [Job fight display names](job-quest-combat-display-joins.md)
 - [Item and equipment columns](item-equipment-columns.md)
 - [Armoire stored-item catalog rows](armoire-item-rows.md)
+- [Job artifact armor and relic item rows](job-artifact-relic-rows.md)
 - [Item compatibility inspection](item-compatibility-inspector.md)
 - [Localized name and key crosswalk](autotranslate-name-crosswalk.md)
 - [Decoded form Content carriers](sqwt-form-content-carriers.md)
