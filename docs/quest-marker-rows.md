@@ -119,3 +119,37 @@ Source: `xivl-client-data:csv/quest_marker.csv`, rows `11001601`-`11001620`,
 `manifests/tables.json`. The source corpus is the pinned decoded
 `2012.09.19.0001` snapshot; its archive identity is recorded in
 `docs/ai_agents/retail-input-validation.md`.
+
+## Row 11065801
+
+Positions in this section are zero-based logical columns after the row ID.
+The exact row 11065801 contains:
+
+| Logical columns | Values |
+| --- | --- |
+| 2 / 3, float | -451.41 / -375.83 |
+| 4 / 5, s32 | 4000257 / -1 |
+| 6, str | common/mapMarker.le.spk |
+| 7, str | m00018 |
+| 8 / 9, s32 | 103 / 301 |
+| 10, s32 | 0 |
+| 11, str | MapMarkerQuestArea |
+| 12, str | @5208/i11065801 |
+| 13, str | Visible |
+
+`quest.csv` contains row 110658. Same-key `xtx_quest.csv` logical column 2
+has the English title The Penultimate Prank. The source rows are on physical
+lines 197 in both quest sheets and 3679 in `quest_marker.csv`.
+The exact incoming numeric comparison is owned by
+`xivl-captures:studies/quest-journal-map-wire/derived/evidence-map.md`.
+It supplies one equal-key static crosscheck, without a phase-selection rule,
+a complete world transform, native UI sheet binding or observed rendering.
+
+Complete member identities in [tables.json](../manifests/tables.json) are:
+`quest_marker.csv` SHA-256
+`920e93e6c1dd136ed758f22465bea3644f2bbe53a6ff46f7d938dd51e3b514be`;
+`quest.csv` SHA-256
+`bdadece1907b7050aaeee7c94a2a2d395fe76b504e47cbb1616b57ba380209dc`;
+and `xtx_quest.csv` SHA-256
+`938640466b314242916f1f8877a90154c4f4db7aa63de6223e6af4aa194e6719`.
+These are the decoded `2012.09.19.0001` extraction.
