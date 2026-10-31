@@ -64,6 +64,31 @@ label. This is a bounded sheet finding and does not establish whether another
 client path or retail rule implements level sync. The separate
 [status row absence finding](status-row-absence.md) covers row 230116.
 
+## Duplicate labels and numbered families
+
+The descriptions distinguish several identically named rows. In
+`xtx_status.csv` column 21, Berserk row 223160 describes enhanced attack
+power with reduced defense, while row 223207 describes attack-by-attack
+increases and a reset on taking damage. Decoy row 223108 describes ranged
+and magical absorption, while row 223238 also names melee attacks. Protect
+row 223129 names defense, while row 223239 names physical and magic defense.
+These are authored descriptions, without measured formulas or a server
+application rule.
+
+Sanguine Rite row 223117 describes sacrificing HP for magic potency. Row
+223234 describes MP restoration and interruption protection when taking
+damage, and row 223240 additionally says damage is halved. Power Surge
+I/II/III are separate rows 223212-223214, all describing increased attack
+power and reduced defense. Life Surge I/II/III are rows 223215-223217, all
+describing an Absorb HP effect on auto-attacks. Separate rows and descriptions
+do not establish stacking or replacement rules.
+
+The source locators are `xtx_status.csv` column 21, rows 223160 and 223207
+(lines 182 and 229), 223108 and 223238 (131 and 260), 223129 and 223239
+(151 and 261), 223117, 223234 and 223240 (140, 256 and 262), and
+223212-223217 (234-239). The complete member identities remain in
+[`tables.json`](../manifests/tables.json).
+
 ## Reproduction
 
 Run `python tools/build_retail_sheet_exports.py --csv-dir <root>` to regenerate
