@@ -160,3 +160,18 @@ Those paths are owned by
 and ordering and Native request and incoming state. The text rows and popup
 do not establish server award criteria, persistence, acceptance of a selected
 title, or native nameplate formatting.
+
+## Achievement display-name join
+
+The 208 title-linked achievement IDs in
+`xivl-decomp:config/achievement_title_map.json` each have an equal-ID row in
+`xtx_achievement.csv`. Its English achievement name is logical column 8,
+excluding the row ID. The referenced title key independently selects
+`xtx_title.csv` logical columns 3 and 4 for English selector-0 and selector-1
+strings. These are source-name joins; completion ordinals, predicate parents,
+title eligibility and award conditions remain separate domains in the native
+achievement/title maps cited above.
+
+Sources: `csv/xtx_achievement.csv` column 8 and `csv/xtx_title.csv` columns
+3/4, with the complete member identities in
+[tables.json](../manifests/tables.json), extraction `2012.09.19.0001`.
