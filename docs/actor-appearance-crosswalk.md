@@ -181,3 +181,29 @@ to category 1, model numbers 525 and 52, and prefixes
 these table bases is conditional on their use as appearance-record word 0.
 It does not prove file existence, a selected runtime appearance, a Lua class
 binding, F-1/H-1 identity, content 13 ownership or a historical spawn.
+
+## Companion-preset row range
+
+All 116 `actorclass_graphic.csv` rows 1070001-1070116 are present.
+`mainHand` at logical column 25, excluding the row ID, has type `s32`.
+There are 107 nonzero words and nine zero words. The neutral bits 29:20
+component has these counts among the nonzero words:
+
+| Component | Rows |
+| ---: | ---: |
+| 56 | 9 |
+| 76 | 25 |
+| 161 | 25 |
+| 201 | 16 |
+| 281 | 16 |
+| 316 | 16 |
+
+Bits 31:30 are zero in all 116 rows. The zero-word row IDs are
+1070108-1070116. A zero source word remains an explicit case. These
+component values do not establish weapon-family names, item `mainSkill`,
+a caster category or an item-catalog-to-appearance foreign key.
+
+Source: `csv/actorclass_graphic.csv`, rows 1070001-1070116, logical column
+25, with the complete member identity pinned above and in
+[tables.json](../manifests/tables.json). The existing packed-word census and
+native boundary own the `2/10/10/10` representation.
