@@ -40,6 +40,34 @@ praise do not prove admission requirements, encounter composition, waves,
 state progression, termination or reward grants. The script finding owns
 the separately established Director01 UI-state branches.
 
+## Actor label and admission instructions
+
+`actorclass.csv` row 1002087, column 5 (`s32`), has display-name key
+1600350. That key joins to `xtx_displayName.csv` row 1600350, English
+column 1 (`str`), `Storm Captain Loetahlsyn`. Separately, `_zoneParam.csv`
+row 230, column 0 (`s32`), selects place-name key 1051, whose English
+column 1 in `xtx_placeName.csv` is `Limsa Lominsa`. The two joins do not
+place this actor in that zone or bind its class path. The static-actor script
+catalog excludes NPC bindings and cannot supply that missing edge.
+
+The guide bank's row 27 says every party member must have Grand Company
+allegiance. Row 28 formats a minimum level from its first argument and a
+minimum party size from its second, with a fixed maximum of eight and a
+Disciple of War or Magic requirement. The additional `processNotWarp`
+call `worldMaster:say(self, 28, 45, 4)` supplies level 45 and a party of
+four to eight. Its decoded source locator is
+`xivl-client-scripts:lua/scripts/chara/npc/populace/populacenmrushguide.lua:125`,
+with method binding at line 131. That member's SHA-256 is
+`0540eaef9635883c898d1dca2b7286301a324c64aa02e6cc81adb23422fedb13`,
+recorded by `xivl-client-scripts:manifests/scripts.json`.
+These are admission instructions, without a historical admission decision.
+
+Physical source lines are `actorclass.csv:2045`,
+`xtx_displayName.csv:2051`, `_zoneParam.csv:76`,
+`xtx_placeName.csv:104` and `populaceNMRushGuide.csv:14-15` for rows 27-28.
+The complete member identities are pinned in
+[`tables.json`](../manifests/tables.json).
+
 ## Source and reproduction
 
 The source is extraction `2012.09.19.0001`, `populaceNMRushGuide.csv`,
