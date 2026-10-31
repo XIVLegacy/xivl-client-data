@@ -12,6 +12,7 @@ evidence, derived findings, and repository policy.
 ## Evidence and derived findings
 
 - [Identity catalogs and domain boundaries](identity-catalogs.md)
+- [Static content values and runtime producers](content-value-boundaries.md)
 - [Achievement name and title-key joins](achievement-name-joins.md)
 - [Actor appearance words](actor-appearance-crosswalk.md)
 - [Selected creation equipment rows](character-creation-equipment-rows.md)
