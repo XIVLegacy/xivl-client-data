@@ -73,7 +73,7 @@ the base class. HP cost exists only where a subclass overrides it.
 
 | Sheet col | Meaning | Getter |
 |---|---|---|
-| 37 | caster life-state requirement category (gates alive/dead/sit) | `processCanCommandForActorStat` :73 |
+| 37 | actor-main-state requirement category | `processCanCommandForActorStat` :73 |
 | 64 | range | `getRange` :678 |
 | 65 | best range | `getBestRange` :689 |
 | 66 | minimum range | `getMinimumRange` :700 |
@@ -83,6 +83,15 @@ the base class. HP cost exists only where a subclass overrides it.
 | 82 | recast-separates-hands flag | `isRecastSeparationHands` :2170 |
 | 108 | damage attribute (enum) | `getCommandDamageAttribute` :1884 |
 | 110 | damage element (enum) | `getCommandDamageElem` :1895 |
+
+`processCanCommandForActorStat` reads actor main state and column 37. After
+its dead and sitting checks, source state 0 accepts categories 0, 1, 2, 5,
+6 and 7. Source state 2 accepts categories 0, 2 and 5. Category 2 therefore
+passes the base check in passive state 0, including Heavy Swing 27190.
+Column 37 alone does not establish a complete list of battle commands usable
+in passive mode. The selected original bytecode and refusal-text limits are
+recorded in
+`xivl-client-scripts:docs/passive-mode-command-contract.md#base-actor-state-predicate`.
 
 ### The four-parameter scaling model
 
