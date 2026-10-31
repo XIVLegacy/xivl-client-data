@@ -96,6 +96,35 @@ faction guildleve. The stored value is 40 on 35 of the 65 rows, and on none of
 the Horn and Hand block. The client talk routes keyed by these IDs are in
 `xivl-client-scripts:docs/guildleve-journal-lifecycle.md`.
 
+## Company-associated authority rows
+
+A separate 30-row group has `authority` 40065, 40066 or 40067. Those values
+join to `xtx_guildleveText.csv` English column 1 as The Maelstrom, The Order
+of the Twin Adder and The Immortal Flames. Every row has zero stored
+`factionCreditRequired`, `borderId` 20003 and `classType` 1. The authority
+join supports a Company association. It does not identify the publisher or
+prove which leves the server offered.
+
+| Authority | Guildleve IDs | Physical source lines |
+| ---: | --- | --- |
+| 40065 | 20901-20906, 21421-21424 | `guildleve.csv:597-606` |
+| 40067 | 21701-21706, 22221-22224 | `guildleve.csv:607-616` |
+| 40066 | 22521-22526, 23021-23024 | `guildleve.csv:617-626` |
+
+The objective distribution and stored timers are the 13001-13003 rows in
+the [objective table](#objective-plate-and-time-limit-joins). The matching
+English objective rows describe protecting a charge, defeating as many
+enemies as possible within the allotted time, and using `/poke` to find
+enemies carrying the formatted item.
+
+Source positions are `guildleve.csv` columns 1 (`s32`), 4 (`s16`),
+8/17/20 (`s32`) and 21 (`s8`), as recorded by
+[`tools/mappings/guildleve.py`](../tools/mappings/guildleve.py).
+The text joins use `xtx_guildleveText.csv` column 1 (`str`), rows
+13001-13003 (physical lines 44-46) and 40065-40067 (118-120).
+The complete table identities are pinned in
+[`tables.json`](../manifests/tables.json).
+
 ## Source identity
 
 The files are pinned in `manifests/tables.json` for extraction
