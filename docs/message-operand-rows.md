@@ -8,6 +8,8 @@ server producer, its runtime argument type or an observed rendered message.
 | Bank and row | Static expression or meaning | Source column |
 | --- | --- | --- |
 | worldMaster 30604 | Command-removal text looks up `xtx/command` using formatting argument 2. It does not render an action slot. | English 1 |
+| worldMaster 50141 | Remaining leve allowances, using formatting argument 1 for the count and singular/plural selection. | English 1, physical line 1877 |
+| worldMaster 34102 | Countdown using formatting argument 1 for seconds and argument 2 to select Logging out, Returning or Teleporting. | English 1, physical line 1300 |
 | man2u0 176 | A proximity refusal for fixed item 11000081. | English 1 |
 | man2u0 177 | Fixed item 11000081 has no effect on the display-name target supplied by formatting argument 1. The item key is embedded in the row. | English 1 |
 | man2u0 178 | The fixed item's effect expires. | English 1 |
@@ -42,6 +44,12 @@ The caller's forwarding positions belong to
 operands. The text identifies a lookup domain, without a separate guild enum
 or a complete server eligibility rule. WorldMaster 51075 is a generic template;
 it does not identify a particular duty or prove its objective dispatcher.
+
+The arithmetic `0x20C3DD = 2150877 = 0x200000 + 50141` and
+`0x208536 = 2131254 = 0x200000 + 34102` identifies candidate row numbers.
+It does not establish a GameMessage bank-selector relationship or observed
+runtime parameters. Row 34102 describes logout, return and teleport
+countdowns, without identifying a guildleve-start countdown.
 
 Source rows are in `worldMaster.csv`, `man2u0.csv` and `noc000.csv` as listed
 above, with names in `xtx_itemName.csv` and `xtx_text_jobName.csv`.
