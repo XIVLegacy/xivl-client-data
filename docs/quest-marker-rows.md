@@ -49,6 +49,18 @@ do not establish a quest route or associate any row with an actor class.
 | `11150002` | `1528.58`, `-1258.28` | `4000257` | `m00013` | `101`, `103` | `MapMarkerQuest` | `@5208/i11150002` |
 | `11150003` | `168`, `-175.67` | `1000385` | `m00013` | `101`, `5004` | `MapMarkerQuest` | `@5208/i11150003` |
 
+## Rows 11150301-11150304
+
+| Row | Columns 3/4 | Column 5 | Column 8 | Columns 9/10 | Column 12 | Column 13 |
+| ---: | --- | ---: | --- | --- | --- | --- |
+| `11150301` | `983.92`, `-1566.65` | `4000257` | `m00013` | `101`, `103` | `MapMarkerQuest` | `@5208/i11150301` |
+| `11150302` | `168`, `-175.67` | `1000385` | `m00013` | `101`, `5004` | `MapMarkerQuest` | `@5208/i11150302` |
+| `11150303` | `1337`, `1337` | `1200193` | `m00013` | `102`, `203` | `MapMarkerQuest` | `@5208/i11150303` |
+| `11150304` | `1350.38`, `1351.41` | `4000257` | `m00013` | `102`, `203` | `MapMarkerQuest` | `@5208/i11150304` |
+
+Row `11150302` matches row `11150003` in every column except column 13. The
+rows do not establish which marker a journal phase displays.
+
 ## Rows 11160301-11160304
 
 | Row | Columns 3/4 | Column 5 | Column 8 | Columns 9/10 | Column 12 | Column 13 |
@@ -95,12 +107,13 @@ journal phase displays.
 
 Each row in the `11170401` and `11170501` sections also has resource
 `m00013` in column 8 and `MapMarkerQuest` in column 12. Column 11 is `0` in
-rows `11001601`-`11001620`, `11150001`-`11150003`, `11160301`-`11160304`,
-and `11160401`-`11160404`. The column 11 values are literal and carry no
-assigned meaning here.
+rows `11001601`-`11001620`, `11150001`-`11150003`, `11150301`-`11150304`,
+`11160301`-`11160304`, and `11160401`-`11160404`. The column 11 values are
+literal and carry no assigned meaning here.
 
 Source: `xivl-client-data:csv/quest_marker.csv`, rows `11001601`-`11001620`,
-`11150001`-`11150003`, `11160301`-`11160304`, `11160401`-`11160404`,
+`11150001`-`11150003`, `11150301`-`11150304`, `11160301`-`11160304`,
+`11160401`-`11160404`,
 `11170401`-`11170406`, and `11170501`-`11170506`, SHA-256
 `920e93e6c1dd136ed758f22465bea3644f2bbe53a6ff46f7d938dd51e3b514be` in
 `manifests/tables.json`. The source corpus is the pinned decoded
