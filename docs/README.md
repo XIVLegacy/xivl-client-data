@@ -12,6 +12,10 @@ evidence, derived findings, and repository policy.
 ## Evidence and derived findings
 
 - [Actor appearance words](actor-appearance-crosswalk.md)
+- [Selected creation equipment rows](character-creation-equipment-rows.md)
+- [Tribe row domains](tribe-row-domains.md)
+- [Skill-name rows](skill-name-rows.md)
+- [Selected message operand rows](message-operand-rows.md)
 - [Movement binding rows](movement-binding-rows.md)
 - [Deepvoid actor appearances](deepvoid-class-appearance.md)
 - [Selected quest replay rows](quest-replay-rows.md)
