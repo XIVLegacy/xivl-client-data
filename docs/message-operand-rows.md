@@ -45,7 +45,7 @@ operands. The text identifies a lookup domain, without a separate guild enum
 or a complete server eligibility rule. WorldMaster 51075 is a generic template;
 it does not identify a particular duty or prove its objective dispatcher.
 
-The arithmetic `0x20C3DD = 2150877 = 0x200000 + 50141` and
+The arithmetic `0x20C3DD = 2147293 = 0x200000 + 50141` and
 `0x208536 = 2131254 = 0x200000 + 34102` identifies candidate row numbers.
 It does not establish a GameMessage bank-selector relationship or observed
 runtime parameters. Row 34102 describes logout, return and teleport
