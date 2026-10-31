@@ -11,6 +11,8 @@ evidence, derived findings, and repository policy.
 
 ## Evidence and derived findings
 
+- [Identity catalogs and domain boundaries](identity-catalogs.md)
+- [Achievement name and title-key joins](achievement-name-joins.md)
 - [Actor appearance words](actor-appearance-crosswalk.md)
 - [Selected creation equipment rows](character-creation-equipment-rows.md)
 - [Tribe row domains](tribe-row-domains.md)
