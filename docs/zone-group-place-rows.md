@@ -20,7 +20,37 @@ two zones carry that place-name ID in `_zoneParam.csv` position 0:
 | `155`, `206` | `201` | `2001` |
 | `175`, `209` | `301` | `3051` |
 
-Their other three listed zones carry different place-name IDs. Zones `184`
+The complete member lists are:
+
+| Zone-group row | Position 0 | Positions 1-5 |
+| ---: | ---: | --- |
+| `101` | `1051` | `133`, `230`, `134`, `232`, `140` |
+| `201` | `2001` | `155`, `206`, `160`, `234`, `161` |
+| `301` | `3051` | `175`, `209`, `180`, `233`, `181` |
+
+Their other three listed zones carry different place-name IDs. The English
+labels come from `xtx_placeName.csv` column 1:
+
+| Zone ID | Zone-group row | Position | Place-name ID | English label |
+| ---: | ---: | ---: | ---: | --- |
+| 134 | 101 | 3 | 1092 | Market Wards |
+| 232 | 101 | 4 | 1512 | Maelstrom Command |
+| 140 | 101 | 5 | 1091 | Sailors Ward |
+| 160 | 201 | 3 | 2096 | Market Wards |
+| 234 | 201 | 4 | 2526 | Adders' Nest |
+| 161 | 201 | 5 | 2095 | Peasants Ward |
+| 180 | 301 | 3 | 3096 | Market Wards |
+| 233 | 301 | 4 | 3514 | Hall of Flames |
+| 181 | 301 | 5 | 3095 | Merchants Ward |
+
+Each position-5 zone is the only `_zoneParam.csv` row carrying its
+place-name ID. None of the fifteen member zones has a `zoneBindings` entry
+in [`zone_internal_names.json`](../manifests/zone_internal_names.json), so
+these rows do not name a layout for any of them. The
+[Bridge map identity](bridge-map-identity.md) records the static rows that
+surround zone 140.
+
+Zones `184`
 through `188` also carry `3051` but are not listed in row `301`. A prior
 external lead, `docs/mob_placement_records_2026-09-27.md` at revision
 `d5fb880e17f07f31ea7f8380ff813e5d71b6b678`, groups these zone IDs the same

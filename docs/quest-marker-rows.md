@@ -61,6 +61,26 @@ do not establish a quest route or associate any row with an actor class.
 Row `11150302` matches row `11150003` in every column except column 13. The
 rows do not establish which marker a journal phase displays.
 
+## Rows 11150401-11150410
+
+| Row | Columns 3/4 | Column 5 | Column 8 | Columns 9/10 | Column 12 | Column 13 |
+| ---: | --- | ---: | --- | --- | --- | --- |
+| `11150401` | `669`, `-606` | `4000257` | `m00013` | `101`, `103` | `MapMarkerQuest` | `@5208/i11150401` |
+| `11150402` | `620`, `-597` | `1700011` | `m00013` | `101`, `103` | `MapMarkerQuest` | `@5208/i11150402` |
+| `11150403` | `617`, `-596` | `1200023` | `m00013` | `101`, `103` | `MapMarkerQuest` | `@5208/i11150403` |
+| `11150404` | `-442`, `175` | `1600258` | `m00013` | `101`, `121` | `MapMarkerQuest` | `@5208/i11150404` |
+| `11150405` | `-333`, `-321` | `1900006` | `m00013` | `202`, `5005` | `MapMarkerQuest` | `@5208/i11150405` |
+
+Rows `11150406`-`11150410` each have columns 3/4 `-431`, `187`; column 5
+`1600179`; column 8 `m00013`; columns 9/10 `101`, `121`; column 12
+`MapMarker`; and column 13 `@5208/i11000101`. They repeat the shape of rows
+`11001612`-`11001620`.
+
+Row `11150405` is the only `quest_marker.csv` row with column 10 value
+`5005`. The [Bridge map identity](bridge-map-identity.md) joins that value to
+its layout and map rows. The rows do not establish which marker a journal
+phase displays, and they supply no height or facing.
+
 ## Rows 11160301-11160304
 
 | Row | Columns 3/4 | Column 5 | Column 8 | Columns 9/10 | Column 12 | Column 13 |
@@ -108,11 +128,13 @@ journal phase displays.
 Each row in the `11170401` and `11170501` sections also has resource
 `m00013` in column 8 and `MapMarkerQuest` in column 12. Column 11 is `0` in
 rows `11001601`-`11001620`, `11150001`-`11150003`, `11150301`-`11150304`,
-`11160301`-`11160304`, and `11160401`-`11160404`. The column 11 values are
+`11150401`-`11150410`, `11160301`-`11160304`, and `11160401`-`11160404`.
+The column 11 values are
 literal and carry no assigned meaning here.
 
 Source: `xivl-client-data:csv/quest_marker.csv`, rows `11001601`-`11001620`,
-`11150001`-`11150003`, `11150301`-`11150304`, `11160301`-`11160304`,
+`11150001`-`11150003`, `11150301`-`11150304`, `11150401`-`11150410`
+on physical lines `5869`-`5878`, `11160301`-`11160304`,
 `11160401`-`11160404`,
 `11170401`-`11170406`, and `11170501`-`11170506`, SHA-256
 `920e93e6c1dd136ed758f22465bea3644f2bbe53a6ff46f7d938dd51e3b514be` in

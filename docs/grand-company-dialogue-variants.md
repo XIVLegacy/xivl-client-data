@@ -117,6 +117,37 @@ select `xtx/journalxtxSea` rows `235`, `236`, `237`, and `238`, with no nested
 branch. Header indices `18`-`21` and `36` repeat the four selections under
 code `E0`.
 
+Row `111405`, An Officer and a Wise Man, has the same active-text shape.
+Header indices `13`-`16` and `35` hold four `if` tokens keyed on `$E8(1)`
+with code `E4` and integers 0 through 3. They select `xtx/journalxtxSea`
+rows `284`, `285`, `286`, and `287`, with no nested branch. Header indices
+`18`-`21` and `36` repeat the four selections under code `E0`. Header
+indices `28`-`31` and `38` list rows `284`-`287` without a branch. Offer
+header indices `46`-`50` select row `283`. Header indices `22`-`25` each
+hold a single space and header index `37` is empty, so the row has no item
+branch.
+
+In English column 1, `xtx/journalxtxSea` row `284` is the full text of row
+`283` followed by two newline tokens and one added line. That line is a
+reference mark, U+203B, then ` Up to two party members may accompany you.`
+Rows `283` and `285`-`287` carry no party clause.
+
+Row `111410`, Imperial Devices (Limsa Lominsa), uses a different item
+shape. Header indices `22`-`25` and `37` each hold three `if` tokens that
+compare `$E8(6)` with integers 1, 2, and 3 using code `E4`. Each true
+operand is an `xtx/itemName` lookup followed by a newline token, and each
+false operand is empty.
+
+| `$E8(6)` | Item |
+| ---: | --- |
+| 1 | `11000267`, Stillglade Fane Petition |
+| 2 | `11000268`, Sealed Urn |
+| 3 | `11000263`, Blackened Accumulator |
+
+No other `xtx_quest.csv` row references item `11000263`. Its active-text
+headers select `xtx/journalxtxSea` rows `247`-`251`, and rows `250` and
+`251` also contain lookups of item `11000263`.
+
 `JournalDetailWidget.setDetailData` uses text key `4001` for its held-item
 text and text key `5004` for its active-condition text. Both calls receive
 the widget's journal ID, six numeric inputs, and a final string input. See
@@ -126,15 +157,18 @@ and reward presentation widgets", at revision
 indices `22`-`25` and `37`, so reading them as the text behind key `4001` is
 an interpretation.
 
-Sources: `xivl-client-data:csv/xtx_quest.csv` rows `111404`, `111604`,
-`111605`, and `111804`, physical lines `429`, `463`, `464`, and `497`, SHA-256
+Sources: `xivl-client-data:csv/xtx_quest.csv` rows `111404`, `111405`,
+`111410`, `111604`, `111605`, and `111804`, physical lines `429`, `430`,
+`435`, `463`, `464`, and `497`, SHA-256
 `938640466b314242916f1f8877a90154c4f4db7aa63de6223e6af4aa194e6719`
 (`manifests/tables.json:6267-6271`).
-`xivl-client-data:csv/xtx_journalxtxSea.csv` rows `235`-`238`, SHA-256
+`xivl-client-data:csv/xtx_journalxtxSea.csv` rows `235`-`238`, `247`-`251`,
+and `283`-`287`, SHA-256
 `051c2501dc9d362e7ffc1c6ec3c840ae9458c95e583fde517ba4a610297d198d`
 (`manifests/tables.json:6187-6191`).
 `xivl-client-data:csv/xtx_itemName.csv` rows `11000253`,
-`11000255`-`11000259`, `11000271`, and `11000272`, SHA-256
+`11000255`-`11000259`, `11000263`, `11000267`, `11000268`, `11000271`, and
+`11000272`, SHA-256
 `917c34eb0621b7d7a8261145023d0bb95cd8ca9eb52288ceb66e80d08f0d78c2`
 (`manifests/tables.json:6163-6167`). All three tables are from extraction
 `2012.09.19.0001`.
