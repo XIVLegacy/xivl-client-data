@@ -14,6 +14,7 @@ server producer, its runtime argument type or an observed rendered message.
 | man2u0 177 | Fixed item 11000081 has no effect on the display-name target supplied by formatting argument 1. The item key is embedded in the row. | English 1 |
 | man2u0 178 | The fixed item's effect expires. | English 1 |
 | worldMaster 51075 | Generic item-use defeat objective: item argument 1, display-name argument 2 and group/singular selector argument 3. | English 1 |
+| worldMaster 51146 | Names an actor attempting to board a regular airship and denies access to an `xtx/raidDungeon` lookup. This is a denial template, not a boarding invitation or countdown. | English 1 |
 | noc000 66 | Japanese and German text look up `xtx/text_jobName` using formatting argument 1. The English text omits that label. | Selected localized expressions |
 | noc000 67 | Level, item, quality and quantity use arguments 1, 2, 3 and 4, respectively. | Selected localized expressions |
 
@@ -55,3 +56,10 @@ Source rows are in `worldMaster.csv`, `man2u0.csv` and `noc000.csv` as listed
 above, with names in `xtx_itemName.csv` and `xtx_text_jobName.csv`.
 Their complete size/SHA-256 identities are in
 [tables.json](../manifests/tables.json).
+
+An English search of all 2,321 numeric rows in the hash-matched
+`worldMaster.csv` for `airship`, `flying ship`, `boarding` and departure-word
+forms selected only row 51146. This finite bank search does not identify its
+producer, a boarding state or a schedule. Other banks, locales and computed
+substitutions remain outside that result. The member has 1,851,138 bytes and
+SHA-256 `2e2e2dd5cd9651388f6fa575b4229081ad0452165e78b725df0a5b5b7cf7c643`.
