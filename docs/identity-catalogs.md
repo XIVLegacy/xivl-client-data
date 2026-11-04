@@ -65,8 +65,8 @@ search Region or session-language codes remain unresolved.
 ## Mob taxonomy and immunity
 
 The [selected actor taxonomy](https://github.com/XIVLegacy/xivl-captures/blob/main/studies/monster-actor-class-paths/README.md#evidence-boundary)
-keeps 52 population candidates, decoded-race labels, wiki families and retained
-instance paths distinct. The
+keeps 52 population candidates, decoded-race labels and wiki families distinct.
+Its retained source lifetimes supply no instance path for them. The
 [wiki study](https://github.com/XIVLegacy/xivl-captures/blob/main/studies/gamerescape-tables/README.md#study-contents)
 owns 82 client-race/family crosscheck records and 52 family records, with source
 page revisions and wiki-tier qualifications. These are bounded associations,
