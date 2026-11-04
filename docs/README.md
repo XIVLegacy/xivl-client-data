@@ -20,6 +20,7 @@ evidence, derived findings, and repository policy.
 - [Tribe row domains](tribe-row-domains.md)
 - [Skill-name rows](skill-name-rows.md)
 - [Selected message operand rows](message-operand-rows.md)
+- [Wandering Minstrel text rows](wandering-minstrel-text-rows.md)
 - [Movement binding rows](movement-binding-rows.md)
 - [Deepvoid actor appearances](deepvoid-class-appearance.md)
 - [Selected quest replay rows](quest-replay-rows.md)
