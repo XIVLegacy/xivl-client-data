@@ -16,6 +16,7 @@ evidence, derived findings, and repository policy.
 - [Static content values and runtime producers](content-value-boundaries.md)
 - [Achievement name and title-key joins](achievement-name-joins.md)
 - [Actor appearance words](actor-appearance-crosswalk.md)
+- [Selected var_wep visual column types](var-wep-visual-columns.md)
 - [Selected creation equipment rows](character-creation-equipment-rows.md)
 - [Tribe row domains](tribe-row-domains.md)
 - [Skill-name rows](skill-name-rows.md)
