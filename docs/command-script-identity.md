@@ -36,6 +36,35 @@ static actor `30101` instead selects `/Command/DebugInputCommand`. Column 36
 is therefore not a substitute for the command id; its meaning remains
 unresolved.
 
+## Widget-open command priority declaration
+
+The static-actor row for `24228` maps to
+`/Command/System/WidgetOpenCommand`. The supplied `command.csv` row `24228`
+declares `-1` in sheet column `29`. The CSV label is `29` and
+its type is `s32`. Excluding the leading row id, this is `CsvRow.values[29]`,
+or CSV field index `30`, following `tools/_csv_reader.py`. The unique row
+ends at CSV line `804` in the identified member.
+
+The published `CommandBaseClass.getPriority` column29 reader is owned by
+`xivl-client-scripts:docs/confirm-prompt-client-contracts.md#answers-and-command-submission`.
+The `CharaBaseClass.getCommandName` system-command selector consequence is in
+`xivl-client-scripts:docs/linkshell-party-command-contracts.md#shared-dispatch-and-wire-representation`.
+If the selected command resolves those implementations and its sheet read
+returns this row's column29 value, the published system-command path with
+priority `-1` selects `commandRequest`. This declaration does not identify an actual
+command object, installed sheet/provider, dynamic method or selected native
+descriptor. The mapped class and row alone do not prove invocation or
+accepted widget creation.
+
+The member is pinned by [tables.json](../manifests/tables.json), row
+`command.csv`: 126638 bytes, SHA-256
+`14548e379a6c4f76c10a4ac53866161ebf1622ce7f1e76a760e85f0577f38848`,
+extraction `2012.09.19.0001`. Its containing archive is pinned by
+[private_csv_corpus.json](../manifests/private_csv_corpus.json). This selected
+cell was read in memory from that authenticated member; no other row or
+column value contributes to this finding. Header, row uniqueness, signed
+type and field-index checks are distinct from full-corpus reproduction.
+
 ## Formula coverage
 
 Every command row with a nonnegative parameter grow selector has a static
