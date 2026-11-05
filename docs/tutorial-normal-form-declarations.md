@@ -73,11 +73,12 @@ contains no text/source/context Setter declaration or text/source/context
 attribute, excluding event `SourceType`. None of the four selected control
 names occurs in this template input.
 
-Each form root declares `SqwtStyleFile="common/default.style"`. That is the
-first unread dependency; its body and further dependencies were not inspected.
-Template/style application, inherited values and text-provider resolution
-therefore remain unresolved. Matching the template key is string equality,
-without a claim that the resource was resolved or applied.
+Each form root declares `SqwtStyleFile="common/default.style"`. The
+[selected local style declarations](tutorial-normal-style-declarations.md)
+record the exact root/control keys, matching entries and scoped text/input
+absence. Further dependencies, template/style application, inherited values
+and text-provider resolution remain unresolved. Matching the template key is
+string equality, without a claim that the resource was resolved or applied.
 
 The published resolver in
 `xivl-decomp:docs/resource/sqwt-form-locale-resolution.md`, Lua entry,

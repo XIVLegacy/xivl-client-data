@@ -81,6 +81,7 @@ evidence, derived findings, and repository policy.
 - [NPC dialogue form and template declarations](sqwt-npc-dialogue-structure.md)
 - [Ask form, template and style declarations](sqwt-ask-structure.md)
 - [Normal tutorial form declarations](tutorial-normal-form-declarations.md)
+- [Normal tutorial selected style declarations](tutorial-normal-style-declarations.md)
 - [PlayerParameter form and template declarations](sqwt-player-parameter-structure.md)
 - [ActionGauge cast progress declarations](sqwt-action-gauge-structure.md)
 
