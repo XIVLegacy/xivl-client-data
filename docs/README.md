@@ -83,6 +83,7 @@ evidence, derived findings, and repository policy.
 - [Normal tutorial form declarations](tutorial-normal-form-declarations.md)
 - [Normal tutorial selected style declarations](tutorial-normal-style-declarations.md)
 - [Getting Around text arguments](tutorial-getting-around-text-arguments.md)
+- [Getting Around display-name labels](tutorial-getting-around-display-names.md)
 - [PlayerParameter form and template declarations](sqwt-player-parameter-structure.md)
 - [ActionGauge cast progress declarations](sqwt-action-gauge-structure.md)
 
