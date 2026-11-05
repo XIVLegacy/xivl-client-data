@@ -80,6 +80,7 @@ evidence, derived findings, and repository policy.
 - [Nameplate primary-label form attributes](sqwt-nameplate-primary-label.md)
 - [NPC dialogue form and template declarations](sqwt-npc-dialogue-structure.md)
 - [Ask form, template and style declarations](sqwt-ask-structure.md)
+- [Normal tutorial form declarations](tutorial-normal-form-declarations.md)
 - [PlayerParameter form and template declarations](sqwt-player-parameter-structure.md)
 - [ActionGauge cast progress declarations](sqwt-action-gauge-structure.md)
 
