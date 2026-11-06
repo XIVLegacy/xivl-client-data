@@ -20,7 +20,7 @@ after the CSV row ID, authenticated against both decoded header rows.
 | `status.csv` | 59 | Row 223992, the typed positions already preserved by the status export |
 | `xtx_status.csv` | 69 | Row 223992, English name column 3 and description column 21 (`str`) |
 | `_item.csv` | 4 | Row 3020506, class path column 0 (`str`) |
-| `xtx_itemName.csv` | 135 | Row 3020506, English name column 6 (`str`) |
+| `xtx_itemName.csv` | 135 | Row 3020506, English name column 6 and description column 26 (`str`) |
 | `equipment.csv` | 140 | Rows selected by column 71 = `16010`, columns 71-74 (`s16`) |
 | `xtx_text_paramName.csv` | 10 | Row 16010, English label column 1 (`str`) |
 
@@ -184,6 +184,13 @@ Row 3020506 joins exactly from `_item.csv` class path
 `Normal/CmnGoodStatusItem` to `xtx_itemName.csv` English name
 `scroll of Sanction`. This establishes a named catalog item and its declared
 class, without executing that class or identifying a target status argument.
+
+The English description at column 26, CSV record 464 including the headers,
+presents reading the scroll as invoking Sanction. It supplies no numeric
+duration. The UTF-8 cell has SHA-256
+`e0018aea69127d4b9a7e5f0d7dfd688403ead5b526337e9424590bc8670622d5`.
+This is authored use intent; it does not identify a numeric target-status
+argument or establish actual use, item consumption or status application.
 
 The existing [GC seal catalog](../derived/gc_seal_shop_catalog.csv) contains
 three offers for item 3020506, at shop rows 100032, 200032 and 300032. Each
