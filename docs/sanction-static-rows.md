@@ -82,6 +82,54 @@ limits. In particular, the literal `10800` in column 47 remains an unnamed
 Blank, zero and `-1` remain distinct raw values. No duration, flag, icon,
 refresh, death, stacking or server-application semantics are assigned here.
 
+### Declared status class
+
+The published [static-actor class map](../manifests/staticactor_class_paths.json)
+declares `id: 223992` with `classPath: /Status/GrandCompanyStatus`.
+At revision `6f4def61dcec1c4abe1dd8154be15eb86f742770`, that publication is
+248434 bytes, SHA-256
+`d612438827e5997422ab6f64a807e567ddf1b953c532e8a319d67b93c53c9db0`.
+Its provenance identifies evidence class `client_extraction`, source
+`client/script/rq9q1797qvs.san` and generator
+`tools/extract_staticactor_san.py`. This adopts the published record, without
+reinterpreting the raw SAN or establishing runtime class resolution.
+
+The selected leaf module is
+`xivl-client-scripts:lua/scripts/status/grandcompanystatus.lua`, lines 1-8,
+at revision `b407618eab0655b6d769580c6d9fae550366a46a`.
+`xivl-client-scripts:manifests/scripts.json` pins its canonical identity;
+`xivl-client-scripts:manifests/retail_lua_coverage.json`, resource
+`rq9qpr/3s9w67vxu9wlrq9qpr.le.lpb`, pins the original and decoded payload:
+
+| Artifact | Bytes | SHA-256 |
+| --- | ---: | --- |
+| Canonical Lua | 172 | `93c83032988b5f20a564df53a90912a32533ae6d31bda637691446e890230bc7` |
+| Original LPB | 202 | `fbcbe98a7bc1027dfe16bda26a3df96a2709bc99985f1f378735461e315b02dd` |
+| Decoded payload | 189 | `e725b787a9b8c8673dc550315346206920e017d70e9e34820933171fccb040fd` |
+
+The authenticated original root has eight instructions starting at decoded
+byte offset 32, zero fixed parameters, vararg flag 2, zero upvalues and zero
+child prototypes. Its direct requests match the canonical Lua:
+
+| Global call | Literal arguments, in order | Arguments / retained results | Original root PC / byte offset | Canonical line |
+| --- | --- | --- | --- | ---: |
+| `require` | `/Status/StatusBaseClass` | 1 / 0 | 2 / 40 | 4 |
+| `_defineClass` | `GrandCompanyStatus`, `StatusBaseClass` | 2 / 0 | 6 / 56 | 8 |
+
+PCs and offsets are zero-based. These ordinary global calls have no implicit
+receiver. The root reads `_defineClass` after `require` returns normally.
+A `require` exception prevents that class request; an `_defineClass`
+exception prevents normal completion. On normal completion, root PC 7 at
+byte offset 60 returns zero values. Neither helper's result is assigned or
+returned by this module.
+
+The inspected root contains no function or method definitions or direct
+field assignments. This does not establish an absence of inherited callbacks
+or helper side effects. `require`, `StatusBaseClass`, `_defineClass` and the
+registry or native bindings they may reach remain uninspected dependencies.
+The declared path and class request establish neither a registered status
+object nor status grant, duration or equipment-bonus policy.
+
 ### Conditional status-wire lookup
 
 The published native status-key translation gives one wire operand whose
