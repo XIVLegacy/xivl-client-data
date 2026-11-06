@@ -28,6 +28,7 @@ evidence, derived findings, and repository policy.
 - [Selected quest marker rows](quest-marker-rows.md)
 - [Hamlet supply item rows](hamlet-supply-rows.md)
 - [Hamlet quartermaster name rows](hamlet-quartermaster-name-rows.md)
+- [Hamlet buff control declarations](hamlet-buff-control-declarations.md)
 - [Ifrit candidate appearance boundary](ifrit-appearance-boundary.md)
 - [SubStat status values](substat-status-join.md)
 - [Status row absence](status-row-absence.md)
