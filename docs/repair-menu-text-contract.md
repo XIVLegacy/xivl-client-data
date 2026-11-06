@@ -1,7 +1,7 @@
 # NPC repair menu text
 
-Twenty selected English cells in `populaceItemRepairer.csv` label repair
-menu choices, equipment slots and a paged prompt. The NPC initializer
+Twenty-three selected English cells in `populaceItemRepairer.csv` label
+repair menu choices, equipment slots, a paged prompt and confirmation text. The NPC initializer
 requests text bank 2204 with schema name `populaceItemRepairer`. These
 static facts conditionally label the published menu caller. They do not
 identify an inventory item or establish a repair result.
@@ -19,6 +19,7 @@ English is position 1, the third physical CSV field.
 
 | Selected row keys | One-based CSV records, including both headers |
 | --- | --- |
+| 6, 7, 8 | 8, 9, 10 |
 | 13, 14, 15, 16, 18 | 15, 16, 17, 18, 20 |
 | 20, 21, 23, 25, 26 | 22, 23, 25, 27, 28 |
 | 33, 34, 35, 36 | 35, 36, 37, 38 |
@@ -136,6 +137,72 @@ and its 4,749-byte decoded payload, SHA-256
 The canonical archive identity is owned by
 `xivl-client-scripts:manifests/private_lua_corpus.json`.
 
+## Confirmation text and conditional caller joins
+
+The three additional English cells supply the confirmation prompt and its
+ordered answer labels:
+
+| Row key | Authored content |
+| --- | --- |
+| 6 | Repair costs for a formatted item name and suffix, followed by a gil amount and a second gil amount labeled as in the player's possession. |
+| 7 | Proceed with repairs. |
+| 8 | Never mind the repairs. |
+
+Rows 7/8 contain no exported controls. Row 6 preserves the following
+positions. Token names and E8 nodes follow the published rich-string
+syntax cited above; they do not establish evaluation or a rendered quote.
+
+| Position in row 6 | Preserved control operands |
+| --- | --- |
+| First `switch` | Its selector is a string containing `sheet` operands string `itemData`, E8 index 1 and integer 41. Six string alternatives each contain a `color` control, with integer operands `4294177779,4290838432,4284532991,4289957119,4294944358,4293254526` in order. |
+| Following `edge-color` | Integer 4280690214. |
+| `english-noun` | String `xtx/itemName`, integer 2, E8 index 1, integer 1, integer 1, in order. |
+| Second `switch` | E8 index 2 followed by four string alternatives: empty, a space followed by +1, a space followed by +2 and a space followed by +3. |
+| Following `edge-color`, then `color` | Each has placeholder EC. |
+| First `kilo` | E8 index 3 followed by string comma. The following authored text labels the amount in gil. |
+| Second `kilo` | E8 index 4 followed by string comma. The following authored text labels the amount as gil in the player's possession. |
+
+The `sheet` operands and `xtx/itemName` string do not themselves establish
+an item lookup result, selected inventory object, switch branch, color or
+formatted amount. A structural E8 index remains distinct from a caller's
+formatter argument position.
+
+The caller contract is adopted from
+`xivl-client-scripts:docs/repair-request-client-contract.md`, sections
+"NPC repair confirmation" and "Conditional wallet-helper binding",
+at revision `1750b735bf9069323f773c141e0500335ea2af97`, 28,166 bytes,
+SHA-256 `fe34a9346ba4f43b318ccb7689537c1190432d318a6442fa95cfafb88a40f6bc`.
+Its original `confirmRepairItem` frame, including the ask receiver, is
+`(N,N,6,2,1,1,A3,A4,A2,...G)`, where G is the complete result sequence of
+the supplied A1 receiver's `getMoneyOnHand` call. This preserves every
+result and its position, including trailing nils. The inherited helper
+contract in
+`xivl-client-scripts:docs/request-warden-event-contract.md#widget-result-production`
+conditionally requests prompt 6, consecutive answer rows 7/8, default index
+1, paging false and cancellation true. Its open formatter tail is owned by
+`xivl-client-scripts:docs/open-world-key-coffer-contract.md#confirmation-and-event-contract`.
+
+If the dynamic helper and provider resolve these English cells, row 7
+labels answer position 1 and row 8 labels answer position 2. The original
+caller retains one ask result and returns one Boolean, true only when that
+result equals numeric 1. This does not authenticate a native UI event's
+label-to-result association or prove that repairs proceed.
+
+The original formatter tail begins with A3,A4,A2, followed by all of G.
+Under the exact published wallet-helper binding, that helper returns one
+M on every normal path, giving tail `(A3,A4,A2,M)`. The canonical
+confirmation instead appends two getter-result slots and gives
+`(A3,A4,A2,M,nil)` under that binding. The original open width and canonical
+fixed width remain distinct. Neither frame establishes an E8-index-to-tail
+binding, actual formatter values or a delivered quote. The initializer's
+bank 2204/schema declaration remains conditional on the actual provider,
+schema and locale binding.
+
+The first uninspected edges are those actual bindings, formatter evaluation
+and native answer/result association. These text and caller facts do not
+identify an inventory item or establish a global NPC fee, bulk service,
+payment, condition restoration, material use or settlement.
+
 ## Verification and boundary
 
 The selected member, headers, row locators, English labels and control
@@ -143,8 +210,10 @@ positions were checked against the pinned source. Original initializer
 calls and widths were checked independently of the canonical method using
 authored fixtures for fresh tables, lookup/call ordering, discarded results
 and errors. These are source and fixture checks, without retail execution.
-Reproduction needs only the selected cells and initializer, not another
-repair method or adjacent text row.
+The confirmation cells and conditional caller joins were checked against
+their pinned sources with literal control, argument-position and rejecting
+checks. Reproduction needs the selected cells and published contracts,
+without another raw repair method or adjacent text row.
 
 Actual provider/schema/locale and formatter binding are the first unresolved
 edges. Supplied argument meanings, historical NPC binding and invocation,
