@@ -76,11 +76,21 @@ cell has UTF-8 SHA-256
 
 The existing [status export](../derived/status_names.csv) preserves row
 223992's typed values under their positional `status_col_N` names. The
-[status contract](status-names.md#columns-and-limits) owns those types and
-limits. In particular, the literal `10800` in column 47 remains an unnamed
-`float` sheet value. It is not an independently established applied duration.
-Blank, zero and `-1` remain distinct raw values. No duration, flag, icon,
-refresh, death, stacking or server-application semantics are assigned here.
+[status contract](status-names.md#columns-and-limits) owns those raw types
+and limits. Column 47 is the `float` value `10800`.
+
+The conditional provider composition in
+`xivl-client-scripts:docs/sanction-status-base-contract.md`, "Conditional
+Sanction composition," identifies this as the base-life value queried by
+`StatusBaseClass.getStatusLifeAtSheet` under the actual inherited/native
+bindings, unchanged row/column keys, selected table/schema and loaded-cache
+premises described there. The native identity and row/column interpretations
+retain their `INFERRED` tiers. The source contract is 18307 bytes, SHA-256
+`e59f43a4bce76c406823621b0dc692909d41899660d656dc8baad13857607843`.
+
+That query assigns no time unit and proves no applied duration, expiry,
+actual death removal, refresh, stacking or server-application policy. Blank,
+zero and `-1` remain distinct raw values.
 
 ### Declared status class
 
