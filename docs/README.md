@@ -67,6 +67,7 @@ evidence, derived findings, and repository policy.
 - [Parley message-widget declarations](parley-message-widget-declarations.md)
 - [Parley child title and turn-label arguments](parley-child-text-arguments.md)
 - [Parley ability title and help text](parley-ability-text-labels.md)
+- [Parley ability-button template and text](parley-ability-button-text.md)
 - [Grand Company enlistment notices](grand-company-enlistment-notices.md)
 - [Grand Company dialogue row variants](grand-company-dialogue-variants.md)
 - [Grand Company journal interaction text](grand-company-journal-text.md)

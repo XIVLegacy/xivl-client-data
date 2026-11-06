@@ -13,6 +13,11 @@ leaves the four numbered button-label requests and the omitted fifth label
 unresolved at that declaration boundary. No numbered label row or fifth
 label source is inferred from a control name or template default.
 
+The [button-text finding](parley-ability-button-text.md) owns the selected
+explicit template reference, named TextBlock candidate and four numbered
+English labels. Actual template/part selection and the fifth label source
+remain unproved.
+
 ## Caller and conditional provider
 
 The caller is
