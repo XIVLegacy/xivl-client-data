@@ -35,6 +35,7 @@ evidence, derived findings, and repository policy.
 - [Sanction static rows](sanction-static-rows.md)
 - [Grand Company rank rows](gc-rank.md)
 - [Grand Company quest identities](grand-company-quest-identities.md)
+- [Caravan entry and question text](caravan-entry-text-contract.md)
 - [Linkshell ranks and rank-message rows](linkshell-rank-message-rows.md)
 - [Materia sheet rows and instructional text](materia.md)
 - [Retail inventory cross-check](inventory-cross-check.md)
