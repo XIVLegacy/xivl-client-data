@@ -63,6 +63,7 @@ evidence, derived findings, and repository policy.
 - [Request-warden operation text](request-warden-operation-text.md)
 - [NMRush guide Skirmish text](nmrush-skirmish-text.md)
 - [Parley title rows](parley-title-rows.md)
+- [Parley topic-text arguments](parley-topic-text-arguments.md)
 - [Grand Company enlistment notices](grand-company-enlistment-notices.md)
 - [Grand Company dialogue row variants](grand-company-dialogue-variants.md)
 - [Grand Company journal interaction text](grand-company-journal-text.md)
