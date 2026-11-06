@@ -32,6 +32,7 @@ evidence, derived findings, and repository policy.
 - [SubStat status values](substat-status-join.md)
 - [Status row absence](status-row-absence.md)
 - [Status names and typed sheet values](status-names.md)
+- [Sanction static rows](sanction-static-rows.md)
 - [Grand Company rank rows](gc-rank.md)
 - [Grand Company quest identities](grand-company-quest-identities.md)
 - [Linkshell ranks and rank-message rows](linkshell-rank-message-rows.md)
