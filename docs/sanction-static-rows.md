@@ -82,6 +82,44 @@ limits. In particular, the literal `10800` in column 47 remains an unnamed
 Blank, zero and `-1` remain distinct raw values. No duration, flag, icon,
 refresh, death, stacking or server-application semantics are assigned here.
 
+### Conditional status-wire lookup
+
+The published native status-key translation gives one wire operand whose
+lookup key equals Sanction row `223992`: decimal `23992`, hex `0x5DB8`.
+It is in the low branch, where the key is `200000 + wire`. The high branch
+starts at key `250001`, so it supplies no second encoding for this row.
+This is a published-contract and arithmetic composition, without an observed
+Sanction status event.
+
+The native source is `xivl-decomp:docs/actor/status-wire-translation.md`,
+"Translation," "Producers" and "Sheet row space," revision
+`4081fda7ba8b8493e9b59e875bf335aa29ddb8ce`, 14,181 bytes, SHA-256
+`3ebe5ba0ab0df66f98ec186bca179b3d6d2ad447a17ef5dd1cc20d76b84b1d6f`.
+Its selected single-slot `0x0177` and twenty-slot `0x0179` routes share that
+translation. The publication owns the native routing, slot extents and
+readiness conditions; a matching lookup key alone does not establish a
+resolved registered status object or successful application to an actor.
+
+The existing `xivl-captures:studies/status-wire-projection-census/` finding
+reported 831 admitted `0x0179` events in its 54-capture corpus. Its three
+observed nonzero status rows were `223129`, `223263` and `223999`; row
+`223992` was absent. This limit applies to the study's admitted lanes and
+that opcode. It does not assess `0x0177` or other delivery paths.
+
+The census inputs to this comparison are pinned at Captures revision
+`09e8ab90411499f2b5f9c6e67b10526e378b33fc`:
+
+| Published artifact under the study | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `derived/verdicts.md` | 1824 | `3d0ce530da75ca2f6e5038e14939fd6174e0f2fb5e7e1726f00b16faf6830d0a` |
+| `derived/status-projections.csv` | 361 | `764ae1e35272b10a66117a37f766a656fe845cf7b91c4d696f8431574fee3e4e` |
+
+A runtime witness still needs the actual owner actor and slot, selected
+message route, registered status resolution and same-actor application.
+Linking that observation to an NPC service or scroll, measuring expiry and
+joining equipment changes remain separate requirements. The candidate wire
+operand establishes none of those causal or state transitions.
+
 ## Scroll identity and retained shop offers
 
 Row 3020506 joins exactly from `_item.csv` class path
