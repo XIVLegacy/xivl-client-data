@@ -64,6 +64,7 @@ evidence, derived findings, and repository policy.
 - [NMRush guide Skirmish text](nmrush-skirmish-text.md)
 - [Parley title rows](parley-title-rows.md)
 - [Parley topic-text arguments](parley-topic-text-arguments.md)
+- [Parley message-widget declarations](parley-message-widget-declarations.md)
 - [Grand Company enlistment notices](grand-company-enlistment-notices.md)
 - [Grand Company dialogue row variants](grand-company-dialogue-variants.md)
 - [Grand Company journal interaction text](grand-company-journal-text.md)
