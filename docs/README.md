@@ -37,6 +37,7 @@ evidence, derived findings, and repository policy.
 - [Grand Company quest identities](grand-company-quest-identities.md)
 - [Caravan entry and question text](caravan-entry-text-contract.md)
 - [Linkshell ranks and rank-message rows](linkshell-rank-message-rows.md)
+- [NPC repair menu text](repair-menu-text-contract.md)
 - [Materia sheet rows and instructional text](materia.md)
 - [Retail inventory cross-check](inventory-cross-check.md)
 - [Command battle parameters](command-battle-params.md)
