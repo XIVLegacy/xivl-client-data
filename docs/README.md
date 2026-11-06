@@ -38,6 +38,7 @@ evidence, derived findings, and repository policy.
 - [Materia sheet rows and instructional text](materia.md)
 - [Retail inventory cross-check](inventory-cross-check.md)
 - [Command battle parameters](command-battle-params.md)
+- [Craft HQ display text and arguments](craft-hq-text-arguments.md)
 - [Rank, cap, and Cure column findings](rank-cap-findings.md)
 - [Quest level requirements](quest-gating-findings.md)
 - [Shop and Grand Company seal catalogs](shop-catalogs.md)
