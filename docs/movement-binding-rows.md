@@ -132,3 +132,63 @@ binding text. They do not alone establish native column consumption, markup
 parsing, successful object construction, configuration overrides, active
 provider selection, a selected character, or command execution. Those joins
 require the corresponding native consumer evidence.
+
+## ActionMenu page command rows
+
+The selected game-master sheets contain the command rows below.
+Column 8 gives the command with prefix `UILuaCommands.`. Columns 3 and
+12 through 15 agree within each selected row. The source definitions,
+data, enable and offset identities are in
+[Retained source definitions](#retained-source-definitions). Decode the
+definition with the linked XML reader, compare the nonempty offset
+spans with the enable ranges, then read each span in the definition's
+column order. The selected types are signed 32-bit little-endian
+integers, one-byte Booleans and the linked length-framed strings.
+
+### ActionBar aliases
+
+In `key_config` and `key_config3` the four rows below use the
+configuration-variable names in the table. The row wraps the name and
+default as `[@name=default]`, with the dollar character part of the
+name. Every selected row has column 2 equal to 0, column 4 equal to
+`**`, column 9 equal to 0, column 10 equal to `**` and column 11
+equal to 1.
+
+| Key | Command suffix | Variable | `key_config` default | `key_config` data span | `key_config3` data span |
+|---|---|---|---|---|---|
+| 171 | `ActionBarSlotNext` | `KeyActionBarSlotNext1$` | `Down Shift` | `[43914, 44238)` | `[44004, 44278)` |
+| 172 | `ActionBarSlotNext` | `KeyActionBarSlotNext2$` | empty | `[44238, 44512)` | `[44278, 44552)` |
+| 173 | `ActionBarSlotPrev` | `KeyActionBarSlotPrev1$` | `Up Shift` | `[44512, 44826)` | `[44552, 44826)` |
+| 174 | `ActionBarSlotPrev` | `KeyActionBarSlotPrev2$` | empty | `[44826, 45100)` | `[44826, 45100)` |
+
+All four `key_config3` defaults are empty. The checked `key_config2`
+and alternate-master `key_config` have no rows for these aliases.
+
+### PushSlot commands
+
+The table groups consecutive keys. Adjacent offsets delimit each
+half-open row span. Column 2 is 0 and column 11 is 1 throughout.
+
+| Sheet | Command suffix | Keys | Row endpoints in data | Primary column 3 default |
+|---|---|---|---|---|
+| `key_config` | `PushSlotPrev` | 1007-1012 | 58939, 59142, 59335, 59543, 59741, 59945, 60139 | `UP` |
+| `key_config` | `PushSlotNext` | 1025-1030 | 62626, 62849, 63052, 63280, 63488, 63712, 63916 | `Down` |
+| `key_config2` | `PushSlotPrev` | 1006-1008 | 19467, 19594, 19726, 19854 | `UP` |
+| `key_config2` | `PushSlotNext` | 1015-1017 | 20655, 20792, 20934, 21072 | `Down` |
+| `key_config3` | `PushSlotPrev` | 1007-1012 | 58984, 59212, 59405, 59638, 59836, 60065, 60259 | `NumPad8` |
+| `key_config3` | `PushSlotNext` | 1025-1030 | 62851, 63089, 63292, 63535, 63743, 63982, 64186 | `NumPad2` |
+
+The six-row groups in `key_config` and `key_config3` interleave
+primary and secondary slots for each column 4 value in order
+`**`, `Control`, `Alt`. Prev uses variables `KeyUpFocus1` and
+`KeyUpFocus2`. Next uses `KeyDownFocus1` and `KeyDownFocus2`. The
+secondary defaults are empty. Column 9 is 0 and column 10 is `**`.
+
+The three-row groups in `key_config2` use literal defaults with the
+same column 4 sequence and one row per value. Column 9 is 1. Column 10
+is text `2` for Prev and `4` for Next. The alternate-master
+`key_config` has no rows for either PushSlot command.
+
+These rows identify extracted command names and default field text.
+Live profile selection, variable substitution, input routing and command
+delivery require separate evidence.
