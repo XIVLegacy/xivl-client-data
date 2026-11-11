@@ -63,6 +63,7 @@ evidence, derived findings, and repository policy.
 - [Mor Dhona map identity](mor-dhona-map-identity.md)
 - [Job-quest marker and actor-class joins](job-quest-marker-joins.md)
 - [Job journal phase text](job-journal-phase-text.md)
+- [Journal text cell sizes and ComboBox declarations](journal-sheet-cell-sizes.md)
 - [Quest 110420 journal selectors](quest-110420-journal-references.md)
 - [Quest 110016 journal selectors](quest-110016-journal-references.md)
 - [Guildleve selected row values](guildleve-selected-row-values.md)
