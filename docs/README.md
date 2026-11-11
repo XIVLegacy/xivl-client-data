@@ -101,6 +101,7 @@ evidence, derived findings, and repository policy.
 - [Getting Around display-name labels](tutorial-getting-around-display-names.md)
 - [Localized Getting Around text arguments](tutorial-localized-text-arguments.md)
 - [ConfirmWarp and ConfirmRaise answer labels](confirm-prompt-answer-labels.md)
+- [Boot select and error rows](boot-select-and-error-rows.md)
 - [PlayerParameter form and template declarations](sqwt-player-parameter-structure.md)
 - [ActionGauge cast progress declarations](sqwt-action-gauge-structure.md)
 
