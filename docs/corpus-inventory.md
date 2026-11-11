@@ -64,8 +64,8 @@ source identities and evidence qualifications in their owning metadata.
 | `_movie.csv` | 22 | Cutscene movie catalog. |
 | `_staffroll.csv` | small | Credits and staff list. |
 | `_group.csv` | 38 | Grouping metadata. |
-| `_boot_error_type.csv` | 57 | Boot and login error messages. |
-| `_text_error_type.csv` and `(2)` | small | Error text family. |
+| `_boot_error_type.csv` | 57 | Boot error type values with no text column. See [boot select and error rows](boot-select-and-error-rows.md#error-type-and-error-text-sheets). |
+| `_text_error_type.csv` and `(2)` | small | Error type values. The install sheet shares its 90 keys with `xtx/_text_error`. See [boot select and error rows](boot-select-and-error-rows.md#key-sets). |
 | `_worldMasterLogCategory.csv` | small | Log category catalog. |
 
 ## Localization
