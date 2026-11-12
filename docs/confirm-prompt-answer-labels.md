@@ -12,6 +12,10 @@ including their final periods:
 | ConfirmRaise | 2 | 1129 | `No.` |
 | ConfirmRaise | 3 | 1136 | `Close.` |
 
+The ConfirmRaise question at row 1127 contains `Revive?`. The English
+cell has no formatter operand, so it displays the same question when the
+opener supplies a sender name or numeric sender.
+
 These are static client labels. In particular, `Close.` does not establish
 expiry or a timeout, and `Accept.`, `Refuse.`, `Yes.` and `No.` do not prove
 authoritative acceptance/refusal, renewal or server policy.
@@ -84,6 +88,7 @@ digests exclude that framing. All offsets and ordinals are zero-based.
 
 | Row | Stored span | Stored bytes | Decoded bytes | Decoded SHA-256 |
 | --- | --- | ---: | ---: | --- |
+| 1127 | `[2403,2414)` | 11 | 7 | `9fed695f5fe76c9dcb4405a7e1268f60343f0f7dbddd2152049b5c14d392cbee` |
 | 1128 | `[2414,2422)` | 8 | 4 | `5f9a2b795615ba6a3d5455fd5624d773fbca5bcd16249c421fd37411dc9837da` |
 | 1129 | `[2422,2429)` | 7 | 3 | `38178a20b470cfd18299fb1593dd4ba706f1a83321dac051d01086efd8b7a96f` |
 | 1131 | `[2493,2504)` | 11 | 7 | `f02ae116e4c5a651e903479246e04215856a31a4e7f43d7f657140fc15cc49a3` |
@@ -95,8 +100,8 @@ digests exclude that framing. All offsets and ordinals are zero-based.
 Authenticate only the three resources above, including their non-reparse
 paths. Require exactly 13020 little-endian 32-bit row ends, monotonic ends
 and a final end equal to the data length. Each selected row must belong to
-exactly one enable range and have the exact nonempty span above. Decode no
-adjacent row or question row.
+exactly one enable range and have the exact nonempty span above. Decode
+only the listed rows.
 
 `xivl-tools:docs/formats/ssd-sheet.md`, The enable file and the row-offset
 array, Rows and columns, and The sheet string and its obfuscation, at revision
@@ -117,6 +122,5 @@ row, field, physical column, locale, namespace, enable membership and selected
 span boundaries, zero or inconsistent lengths, truncated frames, wrong
 terminators, invalid UTF-8, embedded NUL/control-token leads and trailing
 bytes. These strict checks describe this bounded verifier, without assigning
-the same validation rules to the native formatter. Only the five short labels
-and identity metadata are retained; no raw row frame, other row or CSV was
-retained or decoded.
+the same validation rules to the native formatter. Only the six short texts
+and identity metadata are retained.
