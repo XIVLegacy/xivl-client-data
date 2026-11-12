@@ -39,6 +39,7 @@ evidence, derived findings, and repository policy.
 - [Grand Company quest identities](grand-company-quest-identities.md)
 - [Caravan entry and question text](caravan-entry-text-contract.md)
 - [Caravan chocobo command text](caravan-chocobo-text-contract.md)
+- [Impish Impositions reward price text](impish-impositions-reward-price-text.md)
 - [Linkshell ranks and rank-message rows](linkshell-rank-message-rows.md)
 - [NPC repair menu text](repair-menu-text-contract.md)
 - [NPC repair manual instructions](repair-manual-text-contract.md)
