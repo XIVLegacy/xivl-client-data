@@ -33,6 +33,24 @@ in document order. `ProgressBar_Percentage` declares template
 TextBlocks named `TextBlock_CraftPointValue`,
 `TextBlock_QualityPointValue` and `TextBlock_HQRate`.
 
+### Progress value track
+
+The selected `TemplateControl_ProgressBar` has one event trigger. Its
+`RoutedEvent` is `ValueChanged` and its source name binds to the templated
+parent's `Name` in `OneWay` mode. Its sole action begins a storyboard with
+one `DoubleAnimation`. The target is `TemplateProgressBar_Percentage.Value`.
+`To` binds to the templated parent's `Value` and leaves `Mode` unspecified.
+The track declares `Velocity=200`. `From`, `Duration`, `BeginTime`,
+acceleration and repeat attributes are absent from this track.
+
+This declaration establishes the selected target and endpoint source.
+Listener installation, binding refresh, the start value and the clock
+require runtime evidence. The static native getter and velocity setup are
+in `xivl-decomp:docs/resource/sqwt-double-animation-clock.md` and
+`xivl-decomp:docs/resource/sqwt-double-animation-velocity.md`.
+
+### Timer command style
+
 The local template dictionary has a style keyed
 `Style_ProgressBar_TimerCommand` with target type `ProgressBar`.
 Its `TimeOverSe` command trigger contains one `SoundPlayerAction` with
