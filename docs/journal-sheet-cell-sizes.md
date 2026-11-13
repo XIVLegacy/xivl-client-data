@@ -160,6 +160,36 @@ The selected template does not name a style for its target `ComboBox`.
 `SqwtStyleFile="common/default.style"`, and one `ResourceDictionary` in the
 form has raw `Source="widget/JournalListWidget.tpl"`.
 
+## Journal detail form declarations
+
+The HD keyboard form `client/sqwt/widget/JournalDetailWidget.form` is
+14710 bytes with SHA-256
+`426eae8b1ee410d5b58f1932d0a3d70935d3416a8e281b6c1610e119a1915a4e`.
+Using the basename-key decode above yields 14702 bytes with SHA-256
+`ae4464bf399e43c9af8c8fe537060eb66bd9cc025aa54cb3075d373addb91e6c`.
+The signature, strict UTF-8 parse and byte-exact re-encryption also agree.
+
+The root is `Window_JournalDetailWidget`. Its `ScrollViewer_QuestArea`
+contains `Grid_Quest`, which has a direct `StackPanel_QuestData` child.
+The stack declares `Visibility=Collapsed` and
+`KeyboardNavigation.IsTabStop=False`.
+
+The root grid's child `Grid_Bottom` has a `Grid.InputBindings` member.
+Four pad bindings and four key bindings within it declare
+`CommandTarget="{Binding ElementName=ScrollViewer_GuildeleveArea}"`,
+`IsRepeat=True` and `HandledEventsToo=True`. The target is a sibling
+`ScrollViewer` of `Grid_Bottom`.
+
+| `ScrollViewer` command member | `PadAction` | `Key` |
+| --- | --- | --- |
+| `PageUpCommand` | `LUp+RLeft` | `PageUp` |
+| `PageDownCommand` | `LDown+RLeft` | `PageDown` |
+| `LineUpCommand` | `LUp` | `Up` |
+| `LineDownCommand` | `LDown` | `Down` |
+
+These are static declarations. Their routing, focus effects, and
+scroll steps need separate runtime evidence.
+
 ## Open
 
 - The native `ComboBox` and `Popup` classes.
