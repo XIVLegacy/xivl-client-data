@@ -20,12 +20,22 @@ The ListBox declares both `IsTabStop="False"` and
 `Item_1` through `Item_8`. Each selects `ControlTemplate_Material` from
 the form's widget dictionary.
 
-## Operation button
+## Recipe footer buttons
 
-In `Grid_Button`, the childless Button named `Button_Operate` at
-decoded line 410 declares `UILuaCommands.Operate`, `@3090` content,
-`BTN_basis` and minimum width 100. Its declaration supplies no
-`CommandTarget`, `CommandParameter` or `ClickMode`.
+The footer `Grid_Button` at decoded line 404 is the last child of the
+root Grid's unnamed StackPanel. It defines three Auto-width columns.
+Each direct child is a leaf Button with `UILuaCommands.Operate`,
+`BTN_basis`, 12-point text, margin `2,0,2,0`, minimum width 100 and
+`FontStretch="Auto"`.
+
+| Control | Decoded line | Content | Grid.Column |
+| --- | --- | --- | --- |
+| `Button_Operate` | 410 | `@3090` | omitted |
+| `Button_Back` | 411 | `@3091` | 1 |
+| `Button_Details` | 412 | omitted | 2 |
+
+These Buttons omit `Template`, `CommandTarget`, `CommandParameter` and
+`ClickMode`.
 
 These declarations identify static controls and template selections.
 Runtime material values, focus dispatch and recipe acceptance require
