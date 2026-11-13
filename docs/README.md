@@ -49,6 +49,7 @@ evidence, derived findings, and repository policy.
 - [Command battle parameters](command-battle-params.md)
 - [Craft HQ display text and arguments](craft-hq-text-arguments.md)
 - [Craft progress form declarations](craft-progress-form.md)
+- [Craft recipe form declarations](craft-recipe-form.md)
 - [Rank, cap, and Cure column findings](rank-cap-findings.md)
 - [Quest level requirements](quest-gating-findings.md)
 - [Shop and Grand Company seal catalogs](shop-catalogs.md)
