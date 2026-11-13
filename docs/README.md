@@ -106,6 +106,7 @@ evidence, derived findings, and repository policy.
 - [ConfirmWarp and ConfirmRaise answer labels](confirm-prompt-answer-labels.md)
 - [Boot select and error rows](boot-select-and-error-rows.md)
 - [PlayerParameter form and template declarations](sqwt-player-parameter-structure.md)
+- [Console icon tray window declarations](sqwt-console-icon-tray-window.md)
 - [ActionGauge cast progress declarations](sqwt-action-gauge-structure.md)
 
 ## Repository policy
