@@ -17,6 +17,8 @@ evidence, derived findings, and repository policy.
 - [Achievement name and title-key joins](achievement-name-joins.md)
 - [Actor appearance words](actor-appearance-crosswalk.md)
 - [Selected var_wep visual column types](var-wep-visual-columns.md)
+- [Weapon class index and attach table members](weapon-class-index-and-attach-table.md)
+- [Motion control block weapon hold records](motion-control-block-weapon-clips.md)
 - [Selected creation equipment rows](character-creation-equipment-rows.md)
 - [Tribe row domains](tribe-row-domains.md)
 - [Skill-name rows](skill-name-rows.md)
