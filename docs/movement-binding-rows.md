@@ -192,3 +192,55 @@ is text `2` for Prev and `4` for Next. The alternate-master
 These rows identify extracted command names and default field text.
 Live profile selection, variable substitution, input routing and command
 delivery require separate evidence.
+
+## Speed toggle, auto-run and camera mode rows
+
+The rows below pair three more command names with their binding text.
+They are read from the CSV products that `xivl extract` writes for an
+install whose `game.ver` reads `2012.09.19.0001`. Column numbers are the
+labels of the first header row, as in
+[Column and row identity](#column-and-row-identity). Column 8 is the
+command with the literal prefix `RaptureCommands.`. Every row below has
+128 in column 1 of the three game-master sheets, 0 in column 9, `**` in
+column 10 and true in column 11.
+
+Rows of `key_config`, with the differing `key_config3` default:
+
+| Row key | Command suffix | Column 2 | Column 3 | `key_config3` column 3 default |
+|---:|---|---:|---|---|
+| 6 | `ChangeMoveCharacterMode` | 0 | `[@ChangeCharaSpeed1$=X]` | `Z` |
+| 7 | `ChangeMoveCharacterMode` | 0 | `[@ChangeCharaSpeed2$=NumPad1]` | empty |
+| 8 | `MoveCharacterAutoRun` | 0 | `[@ChangeCharaAutoMove1$=R]` | `R` |
+| 9 | `MoveCharacterAutoRun` | 0 | `[@ChangeCharaAutoMove2$=NumPad7]` | empty |
+| 59 | `ChangeCameraMode` | 0 | `[@ChangeCameraView1$=V]` | `Home` |
+| 60 | `ChangeCameraMode` | 0 | `[@ChangeCameraView2$=NumPad5]` | empty |
+| 239 | `MoveCharacterAutoRun` | 8 | `L1` | `L1` |
+| 246 | `ChangeCameraMode` | 8 | `R3` | `R3` |
+
+`key_config3` holds the same eight row keys, commands, column 2 values
+and variable names. The six variable rows wrap the name and default as
+`[@name=default]`, with the dollar character part of the name.
+
+`key_config2` holds literal bindings with no variable wrapper:
+
+| Row key | Command suffix | Column 2 | Column 3 |
+|---:|---|---:|---|
+| 14 | `ChangeMoveCharacterMode` | 0 | `NumPad1` |
+| 15 | `MoveCharacterAutoRun` | 0 | `NumPad7` |
+| 16 | `MoveCharacterAutoRun` | 8 | `L1` |
+| 18 | `ChangeCameraMode` | 0 | `NumPad5` |
+| 19 | `ChangeCameraMode` | 8 | `R3` |
+
+The alternate-master `key_config(2).csv` holds rows 3 to 7 and 9 to 11
+for the same three commands. Its variable names carry no dollar
+character, and its first speed variable defaults to `NumPad1` and the
+second to `X`.
+
+These rows are the only rows of the four products whose column 8 names
+one of the three commands. They establish the default binding text of
+each command. The actor command arm that toggles auto-run is recorded in
+`xivl-decomp:docs/actor/auto-run-latch.md`. The listener that maps a
+command name to an actor command was not read, so the actor command that
+`ChangeMoveCharacterMode` raises is not established here. Profile
+selection, variable substitution and input routing require separate
+evidence.

@@ -25,6 +25,8 @@ evidence, derived findings, and repository policy.
 - [Selected message operand rows](message-operand-rows.md)
 - [Wandering Minstrel text rows](wandering-minstrel-text-rows.md)
 - [Movement binding rows](movement-binding-rows.md)
+- [Sound container bus byte](sound-container-bus-byte.md)
+- [Cut scene DataSet entries and motion banks](cut-dataset-motion-banks.md)
 - [Deepvoid actor appearances](deepvoid-class-appearance.md)
 - [Selected quest replay rows](quest-replay-rows.md)
 - [Selected quest marker rows](quest-marker-rows.md)
