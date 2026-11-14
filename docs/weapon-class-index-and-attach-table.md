@@ -186,9 +186,24 @@ The c001 `arw` class names joint 14, `n_gen`, in the flag 0 record of hands
 finds the strings `n_buki_r`, `j_buki_kosi_l`, `j_buki_sebo_r` and `n_throw`
 and does not find `n_gen`.
 
+A byte search of every `client/chara/pc/*/skl` file finds no `n_gen` either.
+Of the `client/chara/wep/*/skl` files, the NUL-terminated string `n_gen`
+occurs only in the four bow skeletons below.
+
+| File | Bytes | SHA-256 | Offset of `n_gen` |
+| --- | ---: | --- | ---: |
+| `client/chara/wep/w201/skl/0001` | 2640 | `0ecc22858b16413eb1e85fc19ff8469ffdb2e02d035238bf4b35771c91f28cbb` | 1384 |
+| `client/chara/wep/w202/skl/0001` | 2624 | `eccadaeb7c9d452ab358c8dc5bfee39e4f6194129652d92becc5a9d787da4e4f` | 1279 |
+| `client/chara/wep/w203/skl/0001` | 2640 | `849310c4cf91e4b4ea2a0b37955244779b528e7f626eea7b1ceddaefe0fe995c` | 1272 |
+| `client/chara/wep/w205/skl/0001` | 2640 | `d144f1cdf21d2a833f3c331273d5d7d2d85f2c1a7924f2f9a7d4ceecbbeee39c` | 1272 |
+
+The `arw` joint is therefore absent from the character skeletons and present
+in the bow skeletons. Whether the client resolves it on the bow is not
+established here.
+
 ## Limits
 
 - The joint names come from the native table, not from these members.
 - The order in which the three angles compose is not established.
-- The measurements cover the files named above. Other skeleton files and
-  the monster and weapon trees were not read.
+- The measurements cover the files named above and the `n_gen` search of the
+  character and weapon skeleton trees. The monster tree was not read.
