@@ -1,12 +1,12 @@
 # Boot select and error rows
 
 These records cover the boot error type and error text sheets, the
-character select string-table rows, and the status block markup of
-`system/bootup/CharacterSelection.form`. Facts marked `STATIC` are decoded
-static client data (`client_extraction`) or static observations of the
-identified client executable. `INFERRED` marks an interpretation that no
-reader or writer trace confirms. `UNKNOWN` marks a question the evidence
-leaves open.
+character select string-table rows, the status block markup of
+`system/bootup/CharacterSelection.form`, and the style of the select rows.
+Facts marked `STATIC` are decoded static client data (`client_extraction`)
+or static observations of the identified client executable. `INFERRED`
+marks an interpretation that no reader or writer trace confirms. `UNKNOWN`
+marks a question the evidence leaves open.
 
 ## Error type and error text sheets
 
@@ -63,8 +63,8 @@ by the text alone.
 The token columns use the export notation of
 `xivl-tools:docs/formats/ssd-sheet.md`, Rich-string read and text-export
 contract. `N1` is the newline token `02100103`. `C1` and `C2` are the number
-tokens `022003e80203` and `022003e80303`. `S3` is the string token
-`022903ea0403`. Those expressions retain their bytes and assign no runtime
+tokens `022003e80203` and `022003e80303`. `S1` and `S3` are the string
+tokens `022903ea0203` and `022903ea0403`. Those expressions retain their bytes and assign no runtime
 parameter bank.
 
 | Row | Text | Token sequence after the sentence | Tier |
@@ -79,11 +79,20 @@ parameter bank.
 | 13008, 13009, 13010 | The lobby server connection has encountered a problem. | as 13001 | STATIC |
 | 13011 | The server is undergoing maintenance. Please try logging in again later. | as 13001 | STATIC |
 | 13100 | The lobby server connection has encountered an error. | none | STATIC |
+| 14000, 14001, 15000 | A system error has occurred. | none | STATIC |
+| 15001 | A system error has occurred. | ` (` `C1` `)` | STATIC |
+| 15002 | A system error has occurred. | ` (` `S1` `)` | STATIC |
 | 20003 | Cancel FINAL FANTASY XIV installation? | none | STATIC |
 | 20005 | FINAL FANTASY XIV is already installed. | `N1` `Do you wish reinstall?` | STATIC |
+| 30000 | Debug | none | STATIC |
+| 30001 | An error occurred while connecting to the game server. | none | STATIC |
+| 30002 | An error has occurred on the game server. | none | STATIC |
+| 40000 | An error has occurred. | none | STATIC |
 
 The `Error Code: ` and `Status: ` labels are literal text in the row. Which
-values fill `C1`, `C2` and `S3` is UNKNOWN.
+values fill `C1`, `C2`, `S1` and `S3` is UNKNOWN. Which row the client shows
+when a connection to the game server ends after login is UNKNOWN. No
+consumer of rows 30000 to 30002 is recorded here.
 
 ### Sheet names in the client executable
 
@@ -194,6 +203,38 @@ the one number token `022003e80203`.
 The `/i1` suffix is preserved raw. Which native writer fills each
 unreferenced TextBlock, and from which roster value, is UNKNOWN.
 
+## Select row style
+
+`system/bootup/CharacterSelectionPhase.form` names
+`SqwtStyleFile="system/common/default.style"` on its root `Window`, and its
+eleven Buttons, `Button_Chara_1` to `Button_Chara_8`,
+`Button_CharacterDelete`, `Button_AccountManager` and `Button_Back`, take
+`SqwtStyle="BTN_basis"`. STATIC.
+
+`BTN_basis` in `system/common/default.style` has one `Parts Name="Frame"`
+with these rows. Every row's `FontColor` is `#fff3f3f3` except the Disabled
+row. STATIC.
+
+| Condition | Skin | Other attributes |
+| --- | --- | --- |
+| `SkinNormal` | `BTN_basis_N` | `FontEdgeColor="#ff262626"` |
+| `SkinHover` | `BTN_basis_H` | `FontEdgeColor="#ff466996"` |
+| `SkinActive` | `BTN_basis_A` | `FontEdgeColor="#ff466996"`, `SkinOffset="1,1"`, `ContentOffset="1,1"` |
+| `SkinDisabled` | `BTN_basis_D` | `FontColor="#80f3f3f3"`, `FontEdgeColor="#801a1a1a"` |
+| `SkinFocused` | `NULL` | `FontEdgeColor="#ff466996"` |
+| `SkinAnchored` | `BTN_basis_H` | `FontEdgeColor="#ff466996"` |
+| `SkinReserved` | `BTN_basis_R_anime` | `FontEdgeColor="#ff262626"` |
+
+`common/default.style` and `system/bootup/bootup.style` also declare a
+`BTN_basis`. Their skin names match these rows. Their edge colors differ:
+`bootup.style` uses `#ff666666` for Hover, Active, Anchored and Reserved,
+and `common/default.style` uses `#ff466996` for Reserved. Both add a
+`SkinDroppable` row with `Skin="NULL"`. STATIC.
+
+INFERRED. The select rows resolve `BTN_basis` in the form's own style
+file. Which condition the native select phase sets on its cursor row is
+UNKNOWN.
+
 ## Shipped wait dialogs
 
 | Form | Element | Raw attribute | English text | Tier |
@@ -203,10 +244,35 @@ unreferenced TextBlock, and from which roster value, is UNKNOWN.
 | `system/bootup/Waiting.form` | `Button_Cancel` | `Content="@100128"` | Cancel Login | STATIC |
 | `system/bootup/BootupDialog_NoBtn.form` | `TextBlock_Text` | no `Text`, no Button in the form | none | STATIC |
 
-English rows 100122 and 100124 read `Connection failed.` and
-`Connecting to server...`. STATIC. No shipped markup in these two forms
-references them. Which form retail uses for the lobby connect and login
-waits is UNKNOWN.
+The English `xtx/_text_ui` rows from 100121 to 100139 read as follows.
+Rows 100113 to 100120 are absent from the 100000 block. STATIC. `N1`, `C1`
+and `S1` are the tokens of [Selected English error text](#selected-english-error-text).
+
+| Row | English text |
+| ---: | --- |
+| 100121 | Server not responding. |
+| 100122 | Connection failed. |
+| 100123 | Connection established. |
+| 100124 | Connecting to server... |
+| 100125 | Previous |
+| 100126 | the World login queue notice above |
+| 100127 | `Place in Login Queue: ` `C1` |
+| 100128 | Cancel Login |
+| 100129 | Login complete. |
+| 100130 | a notice that the option of the character has expired, two sentences joined by `N1` |
+| 100131 | `C1` alone |
+| 100132 | the `A Word to Our Players` notice, which ends `Do you wish to continue?` |
+| 100133 | The character name must be changed. |
+| 100134 | a sentence that the character name `S1` cannot be used, with color and edge-color tokens around `S1` |
+| 100135 | A Word to Our Players |
+| 100136 | Unable to select World due to high population. |
+| 100137 | `Unable to establish connection to World.` `N1` and a pointer to the Lodestone World status page |
+| 100138 | `Unable to select World due to ongoing maintenance.` `N1` and the same pointer |
+| 100139 | a name length rule of 3 to 15 characters |
+
+No shipped markup in `Waiting.form` or `BootupDialog_NoBtn.form`
+references rows 100121 to 100124. Which form retail uses for the lobby
+connect and login waits is UNKNOWN.
 
 ## Source identity and reproduction
 
@@ -261,14 +327,17 @@ Require every enabled key to have a nonempty span and every row to consume
 its span exactly under the column order of
 `xivl-tools:docs/formats/ssd-sheet.md`, Rows and columns.
 
-| Form input under `client/sqwt/` | Bytes | SHA-256 | Decoded bytes | Decoded SHA-256 |
+| Input under `client/sqwt/` | Bytes | SHA-256 | Decoded bytes | Decoded SHA-256 |
 | --- | ---: | --- | ---: | --- |
 | `system/bootup/CharacterSelection.form` | 8977 | `6eb7a8613be1f6ccec3a74bd47af60dfec59c2c1e99f99988c10f25383ccaf65` | 8969 | `2a53e54c2395688b0b8520d0f9598ce7b94f65cf8cdfbc5beccb84e01340eb60` |
 | `system/bootup/CharacterSelectionPhase.form` | 2507 | `94a4f819381de4b20ebb77b2e3fad4d7f2cf2370a9ab3c19940cdacc31996698` | 2499 | `95c91e6c9593c72c8f3e1465b2fc5ea85ae31913df40a3b14dccbd6196f3a054` |
 | `system/bootup/Waiting.form` | 1720 | `c41493c44901b47c1a389831c9afcf8e3da5119f35d8eec6cf8b5a893ff85026` | 1712 | `72bc5361fc2956a093f10dcb18097ead82134982c055f85c7384c3e681880569` |
 | `system/bootup/BootupDialog_NoBtn.form` | 1249 | `701fcbd132d65df7ededa1345479a837690756abc36a54348e08a4f56bca3c72` | 1241 | `f87499d4179264ef968fa1ce7ccbf79f805226e0f17b46044c1c9d6b36d5c20e` |
+| `system/common/default.style` | 36125 | `a81675ab482b8db70619745f796d7dadc21099b9347c6660f2593bc90b42545b` | 36117 | `d4da6f66c10ac56b280aee36d51d83def52a5db39885b99ab670f264c18745f0` |
+| `system/bootup/bootup.style` | 84445 | `ce35e150d45eb7d2ce3a49314dd4f0b38ddabd10c917b8e6562693813eea5ba3` | 84437 | `d44ee0218e5cd7aa2bcc67c0f514e9c9adcde7400b3d86d60d8d9ac73d65c7ec` |
+| `common/default.style` | 353783 | `632b314cb2257fcbee42d4b002989a58dfeb42e64af864c1f5356336dc233dc0` | 353775 | `33bb178c3b172c62eeb65e8bcaf94f701a0ec3921564e27a619516900896d9f6` |
 
-Each form carries the signature `5351455800000000`. Decrypt the remainder
+Each form and style file carries the signature `5351455800000000`. Decrypt the remainder
 with the `Blowfish` class of
 [xivl-tools:tools/blowfish.py](https://github.com/XIVLegacy/xivl-tools/blob/e33378e5f2b429f49ff21a9450e787664227adca/tools/blowfish.py#L60-L125),
 keyed by the ASCII basename including its suffix. Require byte-exact
