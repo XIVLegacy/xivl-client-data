@@ -2,7 +2,9 @@
 
 These records cover the boot error type and error text sheets, the
 character select string-table rows, the status block markup of
-`system/bootup/CharacterSelection.form`, and the style of the select rows.
+`system/bootup/CharacterSelection.form` with the rows and banner styles
+its native writer uses, the style of the select rows, and the error dialog
+forms.
 Facts marked `STATIC` are decoded static client data (`client_extraction`)
 or static observations of the identified client executable. `INFERRED`
 marks an interpretation that no reader or writer trace confirms. `UNKNOWN`
@@ -200,8 +202,36 @@ The referenced English `xtx/_text_ui` rows read `Nameday:` for 100244,
 219 reads `Level: ` and row 220 reads `Physical Level: `, each followed by
 the one number token `022003e80203`.
 
-The `/i1` suffix is preserved raw. Which native writer fills each
-unreferenced TextBlock, and from which roster value, is UNKNOWN.
+The `/i1` suffix is preserved raw. The native writer of the unreferenced
+TextBlocks and the roster values it reads are traced in
+`xivl-decomp:docs/resource/character-select-status-block.md`.
+
+### Status block rows
+
+The native writer that fills the unreferenced TextBlocks is recorded in
+`xivl-decomp:docs/resource/character-select-status-block.md`. The English
+`xtx/_text_ui` rows it names read as follows. STATIC.
+
+| Rows | English content |
+| --- | --- |
+| 100601 to 100605 | Hyur, Elezen, Lalafell, Miqo'te, Roegadyn |
+| 100606 to 100620 | Midlander Male, Midlander Female, Highlander Male, Wildwood Male, Wildwood Female, Duskwight Male, Duskwight Female, Plainsfolk Male, Plainsfolk Female, Dunesfolk Male, Dunesfolk Female, Seeker of the Sun Female, Keeper of the Moon Female, Sea Wolf Male, Hellsguard Male |
+| 100838 to 100849 | Halone, the Fury, then Menphina, Thaliak, Nymeia, Llymlaen, Oschon, Byregot, Rhalgr, Azeyma, Nald'thal, Nophica and Althyk, each with its epithet |
+| 100240 | a switch token over 32 day ordinals (`1st` to `32nd`), then ` Sun of the `, a switch token over 12 moon names (`1st Astral` to `6th Umbral`), then ` Moon` |
+| 204 | one sheet token whose payload names `xtx/placeName` |
+| 231 | sheet tokens naming `xtx/text_jobName`, then ` Level: ` and a number token |
+
+Rows 219 and 220 are listed under
+[CharacterSelection status block markup](#characterselection-status-block-markup).
+
+### City banner styles
+
+`system/bootup/bootup.style` declares `Border_BannerGridania`,
+`Border_BannerLimsaLominsa` and `Border_BannerUldah`. Each has one
+`Parts Name="Frame"` whose `SkinNormal`, `SkinHover`, `SkinActive`,
+`SkinDisabled`, `SkinFocused`, `SkinAnchored` and `SkinReserved` rows all
+name the skin `BannerGridania`, `BannerLimsaLominsa` or `BannerUldah`, and
+whose `SkinDroppable` row names `NULL`. STATIC.
 
 ## Select row style
 
@@ -274,6 +304,28 @@ No shipped markup in `Waiting.form` or `BootupDialog_NoBtn.form`
 references rows 100121 to 100124. Which form retail uses for the lobby
 connect and login waits is UNKNOWN.
 
+## Error dialog forms
+
+The three forms under `system/errordialog/` share one shape: a `Window`
+named `Window_01` with `IsModal="True"`, `DragMode="NoDrag"`, width 480 and
+height 244 fixed by equal minimum and maximum, style file
+`system/common/default.style`, style `WIN_basis`, and the template
+dictionary `system/errordialog/ErrorDialog.tpl`. STATIC.
+
+| Form | `TextBox_ErrorMessage` | Buttons |
+| --- | --- | --- |
+| `ErrorDialogOk.form` | no `Text` | `Button_Ok`, `Content="@100036"` |
+| `ErrorDialogYesNo.form` | no `Text` | `Button_Yes`, `Content="@100037"`, and `Button_No`, `Content="@100038"` |
+| `ErrorDialogMsg.form` | `Text="Error Message"` | none |
+
+Each `TextBox_ErrorMessage` declares `TextWrapping="Wrap"`,
+`VerticalScrollBarVisibility="Auto"`, `IsReadOnly="True"`,
+`Focusable="False"` and `SqwtStyle="TEB_basis"`. Each Button has
+`SqwtStyle="BTN_basis"` and `MinWidth="120"`. The English `xtx/_text_ui`
+rows read `Accept` for 100036, `Yes` for 100037 and `No` for 100038.
+
+Which form the client opens for a given error row is UNKNOWN.
+
 ## Source identity and reproduction
 
 The install labels are `game.ver` `2012.09.19.0001` and `patch.ver` `1.23b`.
@@ -333,11 +385,15 @@ its span exactly under the column order of
 | `system/bootup/CharacterSelectionPhase.form` | 2507 | `94a4f819381de4b20ebb77b2e3fad4d7f2cf2370a9ab3c19940cdacc31996698` | 2499 | `95c91e6c9593c72c8f3e1465b2fc5ea85ae31913df40a3b14dccbd6196f3a054` |
 | `system/bootup/Waiting.form` | 1720 | `c41493c44901b47c1a389831c9afcf8e3da5119f35d8eec6cf8b5a893ff85026` | 1712 | `72bc5361fc2956a093f10dcb18097ead82134982c055f85c7384c3e681880569` |
 | `system/bootup/BootupDialog_NoBtn.form` | 1249 | `701fcbd132d65df7ededa1345479a837690756abc36a54348e08a4f56bca3c72` | 1241 | `f87499d4179264ef968fa1ce7ccbf79f805226e0f17b46044c1c9d6b36d5c20e` |
+| `system/errordialog/ErrorDialogOk.form` | 1542 | `3023e1d7091e672cfb19026e462eb0a43a4160ae68c1b8e459732f73b824d317` | 1534 | `edf0ea0e369f159cec7a5d8ba0d94cd2ab8611555aa369cb1151accb05d6c283` |
+| `system/errordialog/ErrorDialogYesNo.form` | 1885 | `30e2e6742f9cc09b877afe2b8f9c152f947aecbe98fcc7b449422c279e33e6cb` | 1877 | `fa4ecad92db674f2f590b11e414b3cfde353942c849a53a34efddb38dc22501f` |
+| `system/errordialog/ErrorDialogMsg.form` | 1368 | `bee0f26d6a8f52261694c55e1808e82ef4466d3dc752c0e5bb5e93f8219c86f9` | 1360 | `9a7b25845663edaa706566cb2773873835b0895655742cfb1f11530fcd277a68` |
+| `system/errordialog/ErrorDialog.tpl` | 2890 | `3d4bd3f5b06410a3afe394d5dfecd0acecbfb9e314e8259e40bdf6338344c308` | 2882 | `6ecfd74ad151ccb24c47185483d534af36b84a7887f647a35131a208ee260c56` |
 | `system/common/default.style` | 36125 | `a81675ab482b8db70619745f796d7dadc21099b9347c6660f2593bc90b42545b` | 36117 | `d4da6f66c10ac56b280aee36d51d83def52a5db39885b99ab670f264c18745f0` |
 | `system/bootup/bootup.style` | 84445 | `ce35e150d45eb7d2ce3a49314dd4f0b38ddabd10c917b8e6562693813eea5ba3` | 84437 | `d44ee0218e5cd7aa2bcc67c0f514e9c9adcde7400b3d86d60d8d9ac73d65c7ec` |
 | `common/default.style` | 353783 | `632b314cb2257fcbee42d4b002989a58dfeb42e64af864c1f5356336dc233dc0` | 353775 | `33bb178c3b172c62eeb65e8bcaf94f701a0ec3921564e27a619516900896d9f6` |
 
-Each form and style file carries the signature `5351455800000000`. Decrypt the remainder
+Each form, template and style file carries the signature `5351455800000000`. Decrypt the remainder
 with the `Blowfish` class of
 [xivl-tools:tools/blowfish.py](https://github.com/XIVLegacy/xivl-tools/blob/e33378e5f2b429f49ff21a9450e787664227adca/tools/blowfish.py#L60-L125),
 keyed by the ASCII basename including its suffix. Require byte-exact
