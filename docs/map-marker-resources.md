@@ -47,6 +47,25 @@ These are static string and resource relationships. No row contains
 `MapMarkerParty`, and similarity between that runtime class name and this
 sheet's `MapMarker*` classes is not a call edge.
 
+## Actor marker rows
+
+`2Dmap_actor_data.csv` (705 bytes, SHA-256
+`E2C42F76DC3BC4FE21A357176B110281BF1CB1D4438BE37F0E483F1069201E0E` in
+[tables.json](../manifests/tables.json)) holds 19 rows keyed 0 to 18. Column 0
+repeats the row key, column 1 is `common/mapMarker.le.spk` in every row and
+column 2 names the sequence:
+
+| Rows | Sequences |
+| --- | --- |
+| 0 to 6 | `m00001`, `m00002`, `m00003`, `m00004`, `m00005`, `m00007`, `m00008` |
+| 7 to 12 | `m00030`, `m00039`, `m00040`, `m00046`, `m00048`, `m00044` |
+| 13 to 18 | `m00054`, `m00055`, `m00056`, `m00057`, `m00058`, `m00059` |
+
+The minimap form binds this sheet as `type_data` with the `XmlFormat`
+`Type,SparkleFile,SparkleSequence`. The native selection of a row by an
+actor's marker number is in
+`xivl-decomp:docs/resource/minimap-marker-entries.md`, "Actor entries".
+
 ## Vocabulary search
 
 The generator searched the raw UTF-8 text of all 803 decoded CSVs using exact

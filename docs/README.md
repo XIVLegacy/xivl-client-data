@@ -20,6 +20,7 @@ evidence, derived findings, and repository policy.
 - [Weapon class index and attach table members](weapon-class-index-and-attach-table.md)
 - [Motion control block weapon hold records](motion-control-block-weapon-clips.md)
 - [Selected creation equipment rows](character-creation-equipment-rows.md)
+- [Character creation sheet shapes](character-creation-sheet-shapes.md)
 - [Tribe row domains](tribe-row-domains.md)
 - [Skill-name rows](skill-name-rows.md)
 - [Selected message operand rows](message-operand-rows.md)
