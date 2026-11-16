@@ -8,8 +8,9 @@ the sheets in the executable are in
 `xivl-decomp:docs/resource/character-select-status-block.md`, "Creation
 sheet holders". Facts marked `STATIC` are decoded static client data
 (`client_extraction`). `INFERRED` marks an interpretation that no reader
-trace confirms. No reader of these sheets has been traced, so every join
-below comes from the data alone.
+trace confirms. The joins of "Joins by count and membership" come from the
+data alone. The "Window table join" section tests the executable's
+appearance window table against the data.
 
 Column positions are zero-based after the row ID.
 
@@ -131,6 +132,57 @@ so the cells of eyebrows, eye shape, nose, mouth, features, highlights and
 ears, `boot_charaParts` cells 23 and 24 and the remaining `boot_charaLook`
 cells are not settled.
 
+## Window table join
+
+The appearance window table of the executable pairs each window with three
+cells. Its entries, the `boot_charaParts` loader and the readers of each
+dword are in `xivl-decomp:docs/resource/character-select-status-block.md`,
+"Parts loader" and "Appearance window table". There the second dword is
+passed to the tribe's `boot_charaParts` list and windows 6 and 17 store a
+Button's index rather than a list entry.
+
+STATIC. The loader reads a `/` entry as its last number plus one and the
+entries of cells 18 to 22 as hexadecimal. With that reading, the first
+dword of each window entry names a `boot_charaLook` cell whose value, in
+all 60 look rows, is a member of the second dword's `boot_charaParts` list
+for the row's tribe, or for windows 6 and 17 an index into it:
+
+| Window | Window form | `boot_charaLook` cell | `boot_charaParts` cell | Colour cell | Rows that fit |
+| ---: | --- | ---: | ---: | ---: | ---: |
+| 0 | `AppearancePhaseSizeWin` | 1 | 9 | | 60 |
+| 1 | `AppearancePhaseVoiceWin` | 18 | 10 | | 60 |
+| 2 | `AppearancePhaseSkinColorWin` | 16 | 0 | 18 | 60 |
+| 3 | `AppearancePhaseHairStyleWin` | 2 | 1 | | 60 |
+| 4 | `AppearancePhaseHairColorWin` | 15 | 3 | 19 | 60 |
+| 5 | `AppearancePhaseHairMColorWin` | 3 | 8 | 21 | 60 |
+| 6 | `AppearancePhaseHairVaWin` | 4 | 2 | | see below |
+| 7 | `AppearancePhaseFacePColorWin` | 17 | 4 | 20 | 60 |
+| 8 | `AppearancePhaseFaceTypeWin` | 5 | 5 | | 60 |
+| 9 | `AppearancePhaseFaceEyebroWin` | 8 | 13 | | 60 |
+| 10 | `AppearancePhaseFaceEyeWin` | 10 | 12 | | 60 |
+| 11 | `AppearancePhaseFacePupilWin` | 9 | 11 | | 60 |
+| 12 | `AppearancePhaseFaceNoseWin` | 11 | 14 | | 60 |
+| 13 | `AppearancePhaseFaceMouthWin` | 13 | 15 | | 60 |
+| 14 | `AppearancePhaseFeatureWin` | 14 | 17 | | 60 |
+| 15 | `AppearancePhaseFaceContWin` | 12 | 16 | | 60 |
+| 16 | none | 6 | 21 | | see below |
+| 17 | `AppearancePhaseFColorWin`, `AppearancePhaseFTColorWin` | 7 | 22 | 22 | 60, as indices |
+
+STATIC. Look cell 4 is 0 in every row. For 14 rows the template's hair
+style has a `/` entry in cell 2, so 0 is an index below its count. For the
+other 46 rows that entry is `0`, which the loader reads as a count of 0.
+Look cell 6 holds values from 0 to 12. Only the 17 rows whose value is 0
+are members of cell 21, whose first entry is `0`, and every value is below
+the 32 entries of cell 21.
+
+INFERRED. The seven joins of the previous section are the windows 0, 1, 2,
+3, 4, 7 and 8 of this table. The table settles the cells of the other
+windows: highlights cell 8, eyebrows 13, eye shape 12, iris 11, nose 14,
+mouth 15, `AppearancePhaseFaceContWin` 16 and `AppearancePhaseFeatureWin`
+17, and look cell 4 is a hair variation index. Window 16 has no form push,
+and its look cell 6 reads as an index into cell 21. Which windows show
+features and ears, and the meaning of window 16, are not settled.
+
 ## Source identity and reproduction
 
 The install labels are `game.ver` `2012.09.19.0001` and `patch.ver` `1.23b`.
@@ -145,5 +197,9 @@ hashes recorded in [tables.json](../manifests/tables.json):
 | `boot_charaParts.csv` | 21107 | `BA3346916B246C50AF5ECAF7DDBE48E340A9FDAB5D89D56915D063F75810525C` |
 
 Split each `boot_charaParts` cell on commas and each entry on `/` for the
-membership test. Decode the forms and templates with `xivl extract-resource`
+membership test. For the window table join, read an entry with `/` as its
+last number plus one and the entries of cells 18 to 22 as hexadecimal, take
+the tribe of each `boot_charaLook` row from its key, and test each look cell
+of the table against its window's list, or against the list's count for
+windows 6 and 17, with the hair style's cell 2 count for window 6. Decode the forms and templates with `xivl extract-resource`
 and count the `Button` and `CheckBox` elements by name.
