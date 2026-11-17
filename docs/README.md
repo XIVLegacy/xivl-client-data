@@ -18,6 +18,7 @@ evidence, derived findings, and repository policy.
 - [Actor appearance words](actor-appearance-crosswalk.md)
 - [Selected var_wep visual column types](var-wep-visual-columns.md)
 - [Weapon class index and attach table members](weapon-class-index-and-attach-table.md)
+- [Skeleton size records and look-at IK definition records](skeleton-cib-and-ik-members.md)
 - [Motion control block weapon hold records](motion-control-block-weapon-clips.md)
 - [Selected creation equipment rows](character-creation-equipment-rows.md)
 - [Character creation sheet shapes](character-creation-sheet-shapes.md)
