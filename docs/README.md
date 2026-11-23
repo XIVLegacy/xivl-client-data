@@ -60,6 +60,8 @@ evidence, derived findings, and repository policy.
 - [Craft progress form declarations](craft-progress-form.md)
 - [Craft progress command name and help](craft-progress-command-text.md)
 - [Craft recipe form declarations](craft-recipe-form.md)
+- [EXP popup form declarations](exp-popup-form.md)
+- [Mouse-enter trigger and drag census](sqwt-hover-and-drag-census.md)
 - [Rank, cap, and Cure column findings](rank-cap-findings.md)
 - [Quest level requirements](quest-gating-findings.md)
 - [Shop and Grand Company seal catalogs](shop-catalogs.md)
