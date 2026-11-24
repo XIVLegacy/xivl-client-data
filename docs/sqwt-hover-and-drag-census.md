@@ -86,6 +86,20 @@ templates, including their `.sd.` variants, declare no `DragDrop.` property.
 No `Style` or `.style` file declares one. The `SkinDroppable` condition
 appears in `common_c/default.style` with `Skin="NULL"`.
 
+The `Drop` event triggers in the same templates are:
+
+| Template | Trigger action |
+| --- | --- |
+| `ControlTemplate_Button_EquipIcon` in `widget_c/EquipWidget.tpl` | `ExecuteCommandAction` with `Command="UICommands.Dropped"`, `CommandParameter="{CommandParameter Int,%s,%s}"`, `PropertyName1="%0"` and `PropertyName2="%1"` |
+| `ControlTemplate_Button_BattleCommand` and `ControlTemplate_Button_Command` in `widget_c/ActionEquipWidget.tpl` | `ExecuteCommandAction` with `Command="UICommands.Dropped"` and a `TemplatedParent` command target, no parameter |
+
+`widget_c/ActionEquipWidget.tpl` (input 10098 bytes, SHA-256
+`9d1cd9caf3458179bd5bcbf884bbb43b45f6cd4652753d9675276dc938a25d3c`, decoded
+10090 bytes, SHA-256 `2a9e182e509c6d82afe9d9e65b017c3fd3a6f25df9f5c78b0f4ad902494b4dd2`)
+declares two `Drop` triggers and no `DragDrop.` setter. The native move,
+release and argument object are in
+`xivl-decomp:docs/input/sqwt-drag-drop-pipeline.md`.
+
 These are static declarations. The native arming rule for the two ids is in
 `xivl-decomp:docs/input/sqwt-mouse-preview-producer.md`, and the drag event
 names are in `xivl-decomp:docs/input/sqwt-scroll-and-drag-events.md`. Which
