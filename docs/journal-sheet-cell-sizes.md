@@ -160,6 +160,33 @@ The selected template does not name a style for its target `ComboBox`.
 `SqwtStyleFile="common/default.style"`, and one `ResourceDictionary` in the
 form has raw `Source="widget/JournalListWidget.tpl"`.
 
+## ComboBox list part declarations
+
+The same style document declares these parts. The list style is the `ListBox`
+part of `COM_basis`.
+
+| Widget | Style | Part | Raw `Reference` | Raw `Style` |
+| --- | --- | --- | --- | --- |
+| `ListBox` | `LIB_basis_comboList` | `Background` | `Window` | `WIN_basis_comboList` |
+| `ListBox` | `LIB_basis_comboList` | `RightDownSpace` | `Window` | `NULL` |
+| `ListBox` | `LIB_basis_comboList` | `HorizontalScrollBar` | `ScrollBar` | `SCB_basis` |
+| `ListBox` | `LIB_basis_comboList` | `VerticalScrollBar` | `ScrollBar` | `SCB_basis` |
+| `ScrollBar` | `SCB_basis` | `UpButton` | `Button` | `BTN_basis_scrollUp` |
+| `ScrollBar` | `SCB_basis` | `DownButton` | `Button` | `BTN_basis_scrollDown` |
+| `ScrollBar` | `SCB_basis` | `LeftButton` | `Button` | `BTN_basis_scrollLeft` |
+| `ScrollBar` | `SCB_basis` | `RightButton` | `Button` | `BTN_basis_scrollRight` |
+| `ScrollBar` | `SCB_basis` | `HorizontalSlidingThumb` | `Button` | `BTN_basis_scrollSlidingH` |
+| `ScrollBar` | `SCB_basis` | `VerticalSlidingThumb` | `Button` | `BTN_basis_scrollSlidingV` |
+| `ScrollBar` | `SCB_basis` | `HorizontalBackground` | `Window` | `SCB_basis_bgH` |
+| `ScrollBar` | `SCB_basis` | `VerticalBackground` | `Window` | `SCB_basis_bgV` |
+
+`JournalListWidget.tpl` holds no `ScrollBarVisibility` text, so its
+`PART_ListBox` declares no `VerticalScrollBarVisibility`. The native default of
+that property, the placement of the bar and its effect on row width are
+unresolved. The constructed viewer of a `ListBox` is recorded in
+`xivl-decomp:docs/resource/sqwt-listbox-constructed-parts.md`, "Constructed
+item viewport".
+
 ## Journal detail form declarations
 
 The HD keyboard form `client/sqwt/widget/JournalDetailWidget.form` is
