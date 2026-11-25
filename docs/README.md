@@ -65,6 +65,8 @@ evidence, derived findings, and repository policy.
 - [Window Hiding trigger census](sqwt-window-hiding-census.md)
 - [QuestDetailWidget scroll input bindings](sqwt-quest-detail-scroll-bindings.md)
 - [Root windows with an empty MinWidth](sqwt-empty-root-minwidth.md)
+- [Help attribute census](sqwt-help-attribute-census.md)
+- [Character creation vertically scaled borders](sqwt-character-creation-scaled-border.md)
 - [ItemListWidget help declarations](item-list-widget-help-declarations.md)
 - [Rank, cap, and Cure column findings](rank-cap-findings.md)
 - [Quest level requirements](quest-gating-findings.md)
