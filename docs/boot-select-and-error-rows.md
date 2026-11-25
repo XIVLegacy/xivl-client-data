@@ -354,6 +354,81 @@ under `client/sqwt` gives these `client_extraction` results.
 
 How a boot form's skin texture path joins a root was not established.
 
+### Boot patch style groups
+
+The decoded `system/bootup/patch/patch.style` under the boot root is 13707
+bytes, SHA-256
+`c5d6edb563f1ee1df897fa9aa517ff807258361e68c26bad9cfad68b8ba0a6fb`. It declares
+`Widget` groups of `Type` `Window`, `Button`, `Label`, `Border` and
+`ProgressBar` only. It has no `TextBlock` group.
+
+`PatchDialog_Btn1Btn2.form`, `PatchPhase.form` and `PatchPhase_Red.form` in the
+same directory name `system/bootup/patch/patch.style` as the root
+`SqwtStyleFile`. Each holds a `TextBlock` with `SqwtStyle` `TBL_null`:
+`TextBlock_Text` in the first and `TextBlock_Information` in the other two.
+
+The boot root `system/common/default.style` declares `TBL_null` in its
+`TextBlock` group, with one `Frame` part. All seven `Property` conditions give
+`Skin` `NULL`. `SkinNormal`, `SkinHover`, `SkinActive` and `SkinFocused` give
+`FontColor` `#fff3f3f3` and `FontEdgeColor` `#ff262626`. `SkinDisabled` gives
+`#80f3f3f3` and `#801a1a1a`. `SkinAnchored` and `SkinReserved` give neither
+font attribute.
+
+Which style sheet a runtime lookup searches for these three forms is
+unresolved. The style loader boundary is in
+`xivl-decomp:docs/resource/sqwt-tab-scroll-text-parts.md`, "Style name
+fallback". These declarations establish neither a missing style nor use of the
+`default.style` entry.
+
+### References that match no file
+
+The 1122 `.form`, `.tpl` and `.style` files below `client/sqwt` were decoded.
+One, `system/common/Staffroll.form`, did not parse as XML because of an unbound
+prefix. In the other 1121, the `SqwtStyleFile` and `Source` values that end in
+`.style` or `.tpl` were compared without regard to case against paths below
+`client/sqwt` and below `client/sqwt/boot`. These values match no file under
+either root.
+
+| Raw value | Referring files |
+| --- | --- |
+| `common_c/WINBasisWithTitle_noGrayout.tpl` | `widget_c/PcProfileWidget.form` |
+| `debug/DebugDispWidget.tpl` | `widget/DebugDispWidget.form` |
+| `debug/ProtoUI.style` | `widget/DebugDispWidget.form` |
+| `system/bootup/LoginPhase.style` | `system/bootup/DebugPhase.form`, `system/bootup/LoadingPhase.form` |
+| `system/bootup/PatchPhase.style` | `system/bootup/PatchPhase.form` |
+| `system/bootup/windows.style` | `system/bootup/CharaMakeLooksPhase.form` |
+| `system/common/default2.style` | `system/bootup/CharaMakeRacePhase.form` |
+
+The comparison does not try paths relative to the referring file. It does not
+show that the client requests any of these values.
+
+## Interface string key coverage
+
+Definition `0x0B450082` declares `xtx/_text_ui` for `ja`, `en`, `de`, `fr` and
+`chs`. Each declaration has four blocks, which begin at 0, 70000, 90000 and
+100000. Every key in a block's enable ranges has a nonempty row span.
+
+| `lang` | Enabled keys |
+| --- | ---: |
+| `ja` | 3974 |
+| `en` | 3973 |
+| `de` | 3968 |
+| `fr` | 3974 |
+| `chs` | 3600 |
+
+The union over the five is 4355 keys. This equals the `dataRowCount` of
+`xtx__text_ui.csv` in
+[local_guildleve_names.json](../manifests/local_guildleve_names.json). 381 keys
+are enabled for `chs` and for none of the other four. They include 1601, 1606,
+3718, 6906 to 6910 and 10239. An enabled key does not show that its text is
+nonempty. These counts do not establish how the client treats a form reference
+to a key that its language does not enable.
+
+| Block 0 enable file | Resource | Bytes | SHA-256 |
+| --- | --- | ---: | --- |
+| `en` | `0x0B4502B6` | 1552 | `3f7c0b8461cfd18a336fb9bb72dbcd5439e65106eea8ea85a6ab731894866183` |
+| `chs` | `0x0B4507FD` | 1064 | `16521fdcaabc08a89e88bafa5d0bea02c8456a8017e9a3e28bee604c9788027d` |
+
 ## Source identity and reproduction
 
 The install labels are `game.ver` `2012.09.19.0001` and `patch.ver` `1.23b`.
