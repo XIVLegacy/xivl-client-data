@@ -43,6 +43,26 @@ childless Border with literal `SqwtStyle` `BOD_basis_npcLinesBody`,
 `IsHitTestVisible` `False` and `VisualOpacity` `0`. Each name is unique in
 the form. The selected common template declares neither name.
 
+## Push button declarations
+
+One right-aligned `WrapPanel` with raw `Width` 240, at form lines 63-74, holds
+ten buttons named `Button_Push_1` to `Button_Push_10` at lines 64-73. Each
+declares `Command="UILuaCommands.Operate"`, `SqwtStyle="BTN_null"`,
+`Visibility="Collapsed"` and the template
+`ControlTemplate_Button_PushIcon`.
+
+In the local template file, `ControlTemplate_Button_PushIcon` starts at line
+2. Its `EventTrigger` for `MouseEnter` at line 90 and its `EventTrigger` for
+`GotAnchor` at line 98 declare the same `SourceType` `Button` and the same two
+`DoubleAnimation` tracks. One drives `SqwtDrawOrder` from 0 to 0.5 with no
+target name. The other drives `VisualOpacity` of `Label_IconEffect` from 0
+to 1.
+
+`ControlTemplate_Button_Icon` at line 141 sets `IsTabStop` to `False`. Its
+`Label_HoverEffect` declares `IsTabStop="True"` and
+`SqwtStyle="LAB_basis_iconHoverEffect"`. These declarations do not establish
+the first anchor, the traversal order or the return of focus.
+
 ## Selected template and style
 
 The selected `ControlTemplate` at common template lines 2-73 has target
