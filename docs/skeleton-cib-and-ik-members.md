@@ -123,6 +123,48 @@ pairs `+0x44..+0x50` equal to -40, 30, -45, 45 and the flag byte `+0x88` equal
 to 27. Of the 48 skeletons `mon/m0*/skl/0001` read, 36 hold one type 2 member
 and 12 hold none.
 
+## Constraint direction groups named s0
+
+Every file under `client/chara` was read for `SEDBPHB` blocks: 689 files hold
+820 blocks. Blocks were parsed with the layout of
+[IK definition blocks](#ik-definition-blocks), and a block counted as read only
+when each of its groups had kind 7. A second pass searched each file that holds
+a block for the bytes of the string `s0` between two zero bytes.
+
+Both passes find the name in the same 95 files. 91 are face model files under
+`pc/*/kao/*/fac_mdl`, which are all the `fac_mdl` files there that hold a
+block. Each has one `s0` group with the members `eye_l` and `eye_r`, both of
+type byte 4. The other four are the monster skeletons below, also with type
+byte 4 members. No `pc/*/skl` file holds the name. Many blocks use layouts that
+this page does not read.
+
+| File | Bytes | SHA-256 | `s0` members |
+| --- | ---: | --- | --- |
+| `mon/m006/skl/0001` | 24400 | `159f4a453b59195240fae0899a4b46a0297cd9899f71d3ac781e221c57d5c630` | `eye_l`, `eye_r` |
+| `mon/m028/skl/0001` | 21008 | `b72d8b3f82f5aa9a631f4dc86d05654dc205d6f4e9f18292dc3831c427f4d942` | `const_dir_ik_001`, `const_dir_ik_002` |
+| `mon/m029/skl/0001` | 30160 | `0feb28c9115fd473e62eddec45558a95b066394a68b0bafc3aeb8b7f40446796` | `const_dir_ik_001` |
+| `mon/m045/skl/0001` | 26608 | `dd29c5f4daef3c9caa1b9932631f941c4922a44847ea049ff59d0967d0da9192` | `const_dir_ik_001`, `const_dir_ik_002` |
+
+Offsets are from the member start. The dword at `+0x10` is the chain count, and
+`+0x14` and `+0x18` are self-relative names. In all 91 face model files the
+count is 3, `+0x14` names `j_f_eye_l` or `j_f_eye_r` after the member's side,
+`+0x18` names `j_kao`, the floats at `+0x3C` and `+0x40` are 4000 and 3000 and
+those at `+0x4C` and `+0x50` are 1.0. The four floats at `+0x28..+0x34` differ
+between files. The four monster files have a chain count of 0.
+
+`pc/c002/kao/f001/fac_mdl/0001` is 144800 bytes with SHA-256
+`04784e4ad4866eba52273b8c50dcb723ef295a80cb53fb41bb36e1d4379d932a`. In both of
+its members the floats at `+0x1C..+0x24` are 0 and those at `+0x28..+0x34` are
+-13, 13, -20 and 20. The chain table at `+0x0C` names, for the left member,
+`j_f_mayu_l`, `j_f_umab_l` and `j_f_dmab_l`, and the `_r` names for the right
+member. Each chain entry holds eight three-float rows at `+0x10..+0x6C` and a
+dword 0 at `+0x70`.
+
+The native loader of type byte 4 and its field map are in
+`xivl-decomp:docs/actor/chara-look-at-consumers.md`, "ConstraintDirectionIKObject
+loading". These install reads do not show which face model a running client
+loads or how its groups join an actor's constraint set.
+
 ## Reproduction
 
 Walk the `SEDBPHB` blocks of each file with the offsets above. Walk the `RES `
