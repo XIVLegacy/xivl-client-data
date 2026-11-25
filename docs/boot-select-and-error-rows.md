@@ -326,6 +326,34 @@ rows read `Accept` for 100036, `Yes` for 100037 and `No` for 100038.
 
 Which form the client opens for a given error row is UNKNOWN.
 
+## Boot sqwt root files
+
+The boot modes resolve forms under `client/sqwt/boot`, as recorded in
+`xivl-decomp:docs/resource/sqwt-form-locale-resolution.md`, "Rule for an
+install loader". Comparing files at equal relative paths under that root and
+under `client/sqwt` gives these `client_extraction` results.
+
+- `system/errordialog/ErrorDialog.tpl`, `ErrorDialogOk.form` and
+  `ErrorDialogYesNo.form` are byte-equal in the two roots.
+- `system/common/default.style`, `default.skin`, `default.win32.gtex`,
+  `WINBasis.tpl`, `WINBasisLight.tpl`, `WINBasisWithTitle.tpl` and
+  `WINBasisWithTitle_noClose.tpl` exist in both roots, and each pair differs.
+- `system/bootup/patch/` under the boot root holds `patch.skin`,
+  `patch.style`, `patch.win32.gtex`, `PatchPhase.form`,
+  `PatchPhase_Red.form`, `PatchDialog_Btn1Btn2.form`,
+  `PatchPhaseBackground.form` and `PatchPhaseBackground.tpl`. None of these
+  paths exists under `client/sqwt`.
+
+| Boot root file | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `system/common/default.style` | 32854 | `d01cae478999df10bfac173671bb31d5059fbebcbad6db5cbf08a5246a31786d` |
+| `system/common/default.skin` | 19152 | `5e2aa169c9fb84486acecca33b4af08b6067740e354c32cc618031b515506492` |
+| `system/common/default.win32.gtex` | 1048608 | `030af42bc55bdee93795f621e099c91076fef62489fc97e2fee3aa4bb015bd16` |
+| `system/bootup/patch/patch.style` | 13715 | `b83845f395c37850de7a91d7b135fb62947a0a2e2953010f100213f1549abdaf` |
+| `system/bootup/patch/patch.skin` | 14363 | `a640c3421164a032fd18e918610dcaabfc9531068fe245de14970ed14ccea3fd` |
+
+How a boot form's skin texture path joins a root was not established.
+
 ## Source identity and reproduction
 
 The install labels are `game.ver` `2012.09.19.0001` and `patch.ver` `1.23b`.

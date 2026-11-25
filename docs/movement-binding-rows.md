@@ -244,3 +244,28 @@ command name to an actor command was not read, so the actor command that
 `ChangeMoveCharacterMode` raises is not established here. Profile
 selection, variable substitution and input routing require separate
 evidence.
+
+## Console tray command rows
+
+The rows below come from the CSV products that `xivl extract` writes for an
+install whose `game.ver` reads `2012.09.19.0001`. Their file bytes match
+[tables.json](../manifests/tables.json). Column labels follow
+[Column and row identity](#column-and-row-identity). Column 8 is the command
+with the literal prefix `UILuaCommands.`. Every row below has 128 in column 1.
+
+| Sheets | Row keys | Command suffix | Column 2 | Columns 3 and 12 to 15 |
+|---|---|---|---:|---|
+| `key_config`, `key_config3` | 185 | `ConsoleTray` | 0 | `\[@KeyConsoleTray1$=]` |
+| `key_config`, `key_config3` | 186 | `ConsoleTray` | 0 | `\[@KeyConsoleTray2$=]` |
+| `key_config`, `key_config3` | 233 | `Function2` | 8 | `RUp` |
+| `key_config`, `key_config3` | 234 | `Function1` | 8 | `RLeft` |
+
+The two `ConsoleTray` rows declare a variable name with an empty default in
+each of those five columns. The column values are quoted as the CSV stores
+them. `key_config2.csv` rows 66 and 67 and `key_config(2).csv` rows 68 and 69
+give `Function2` the binding `RUp` and `Function1` the binding `RLeft`.
+Neither of those two files has a row whose column 8 is
+`UILuaCommands.ConsoleTray`. The script route of these commands is recorded in
+`xivl-client-scripts:docs/confirm-prompt-client-contracts.md`, "Tray push
+selectors and keyboard entry". Active profile selection, user rebinding and
+input delivery require separate evidence.

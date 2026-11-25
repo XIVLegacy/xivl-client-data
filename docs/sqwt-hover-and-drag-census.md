@@ -51,6 +51,27 @@ each `.sd.` variant with its base:
 All 10 triggers that contain a `Setter` are the `TitlePhase` files above. No
 other template declares a hover `Setter` inside a `MouseEnter` trigger.
 
+## Leave events and qualified spellings
+
+Over the same parsed files, a count that includes `MouseLeave` and the
+qualified spellings finds 306 `EventTrigger` elements: the 217 above, 64
+`MouseLeave`, 23 `Button.MouseEnter` and 2 `Label.MouseEnter`.
+`MouseEnteredItem` is not included. These triggers are in 177 files. An
+`ExecuteCommandAction` occurs in 113 of them, in 63 files. For 101, in 55
+files, a command value starts with `UILuaCommands.`. All 25 qualified
+triggers hold an `ExecuteCommandAction`.
+
+`widget/ActionSettingWidget.tpl` is 7433 bytes with SHA-256
+`cc07f15df3c5c2fcabd08d4e0fd0fbd4afab83863008b68557b65ebef6444eca`. Its decoded
+XML is 7425 bytes with SHA-256
+`def8486a5e91a804ec6b470767e1b61e998a95d66b9f4d2cbfa77276071aa42c`. The templates
+`ControlTemplate_Button_Class`, `ControlTemplate_Button_Command`,
+`ControlTemplate_Button_BattleCommand` and
+`ControlTemplate_Button_BattleCommand_2` each execute
+`UILuaCommands.EnterMouseFocus` on `MouseEnter`. The command parameter binds
+the templated parent's `Name` path with `Mode=OneWay`. None of them declares a
+`MouseLeave` command.
+
 ## IsMouseOver conditions
 
 The text `Property="IsMouseOver"` occurs 66 times in 18 files:
