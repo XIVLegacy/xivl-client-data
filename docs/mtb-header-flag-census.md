@@ -86,6 +86,72 @@ The value formula `A + B*fraction` therefore gives `A` for any fraction. The
 reference decoder raises on a segment with no sample, so `A` was read directly.
 How the native sampler walks such a segment was not traced.
 
+## Hair motions
+
+These reads cover the motions named `cbxh_hairwave1` to `cbxh_hairwave3` and
+`chxh_hairwave1` to `chxh_hairwave3`. Channels were walked with the reference
+decoder above. A pair, a joint key and a kind are the blob fields of its
+page. A joint key is not a skeleton row index. The base node that the name
+provider adds for a pair is open there.
+
+| Motions | Entries | Byte | Channels by pair and joint key | Last key frame |
+| --- | ---: | ---: | --- | --- |
+| `cut`, `cbxh_hairwave1`, `2`, `3` | 3, 9, 74 | 7 | none | no key |
+| `cut`, `chxh_hairwave3` | 4 | 15 | pair 13, keys 0 to 3 | 119 |
+| `chara/pc`, `chxh_hairwave1` to `3` | 279 | 15 | pair 13, keys 0 to 3, and in some entries pair 2, keys 67, 72, 74, 76 and 83 | 118 or 119, except 3 entries with no channel |
+
+Each of the 86 `cbxh` blobs is 160 bytes with 17 pairs and no descriptor.
+`FixedMotionCalculator` samples one descriptor per call, so these blobs give
+it no row to write. Their `Header` f32 at `+0x04` is 119.0.
+
+The four `cut` `chxh_hairwave3` entries are in the scene files `gc010715`,
+`gc010720`, `gc010740` and `sum6w020`. Each has four channels under an entry
+path that ends `face_pose\miga\hir\h902\bin\chxh_hairwave3`.
+
+The `chara/pc` entries are three in each of 93
+`client/chara/pc/c<NNN>/kao/h<NNN>/hir_mdl/9999` files. All channels in this
+table that have keys are kind 0. The three entries with no channel are in
+`c021/kao/h041`. Two of the files, `c003/kao/h004` and `c021/kao/h012`, are 6
+bytes shorter than the total in their `PWIB` header. A walker that checks
+that total rejects them. They were read from the `RES ` offset at `+0x08`.
+
+### MotionClip records that name them
+
+Every scheduler in the files below `client/cut` that contain the bytes
+`hairwave` was parsed. Those files include each scheduler whose name table
+can hold such a name. Each MotionClip name was resolved from `s32(D+0x10)`
+with the `RIDTBL` formula of
+`xivl-decomp:docs/resource/combat-motion-name-provider.md`,
+"ResourceReference and serialized provider". All 147 records that resolve to
+a hair name are bound to a `ProxyActor` actor record.
+
+| Scene file | `cbxh_hairwave1` | `cbxh_hairwave2` | `cbxh_hairwave3` | `chxh_hairwave3` |
+| --- | ---: | ---: | ---: | ---: |
+| `gc010715` | 1 | 0 | 0 | 1 |
+| `gc010720` | 0 | 0 | 8 | 1 |
+| `gc010740` | 0 | 0 | 24 | 9 |
+| `man0l010` | 0 | 0 | 25 | 0 |
+| `man0l020` | 0 | 1 | 25 | 0 |
+| `man0l040` | 0 | 0 | 1 | 0 |
+| `man0u000` | 0 | 0 | 1 | 0 |
+| `man2l030` | 2 | 0 | 10 | 0 |
+| `man2l090` | 0 | 0 | 5 | 0 |
+| `sum6w020` | 0 | 0 | 24 | 9 |
+
+| File below `client/cut` | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `gc010715/gc010715` | 254288 | `4430b85a480e5aec4d5a43527fbe89da31914057c93d65afea242821dd844edd` |
+| `gc010720/gc010720` | 1944288 | `cf94ea0b710667db41e8ef3c22574e15bac0a92628d9906416959a6b68fce4bf` |
+| `gc010740/gc010740` | 2080800 | `0efcd15e988abd4c606ed9bd0c32bdf902748c893707697ffe7ada7c9ea8ff56` |
+| `sum6w020/sum6w020` | 2082032 | `3438e2049de7cabf6ef2bda67fda5bf612d05b10236d5ab803f52c768e716666` |
+| `man0l010/man0l010` | 15519280 | `5b925ff3a43fa2bf6943b023a1df2de1d7325a6d6031a6fb12a6e6e5533e5cee` |
+| `man0l020/man0l020` | 15089184 | `8fbfc1b7f15737c737e2292f1a7fe5dcc0487f360f1971892808bc9bc1524b6d` |
+
+These records show authored names. They do not show which motion data the
+client resolves for a record, the layer or blend it uses, or that the motion
+plays. It is not established that joint keys 0 to 3 of pair 13 are hair model
+joints.
+
 ## Limits
 
 - The counts cover installed motions. They do not show which motions a client
