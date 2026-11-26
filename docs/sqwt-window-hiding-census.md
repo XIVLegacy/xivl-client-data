@@ -18,10 +18,13 @@ unbound namespace prefix and is outside the counts.
 ## Hiding event triggers
 
 An `EventTrigger` whose `RoutedEvent` is `Hiding` occurs in 136 files, once in
-each, and every one of the files is a `.tpl`. The trigger holds a
+each, and every one of the files is a `.tpl`. In 133 files the trigger holds a
 `BeginStoryboard` with a `Storyboard` whose `CompletedCommand` is
-`ApplicationCommands.InvisibleWindow` in 133 files and has no
-`CompletedCommand` in 3.
+`ApplicationCommands.InvisibleWindow`. The triggers of the other 3 files hold
+no `BeginStoryboard`. In `widget/PopupHelpWidget.tpl` the trigger holds two
+`StopStoryboard` elements. In `widget/TutorialWidgetK15.tpl` and
+`widget/TutorialWidgetP15.tpl` it holds one `ExecuteCommandAction`
+([lesson 15 icon pulse](sqwt-tutorial-linkshell-pulse.md#local-window-style)).
 
 The `VisualOpacity` `DoubleAnimation` of the trigger, counted per file:
 
