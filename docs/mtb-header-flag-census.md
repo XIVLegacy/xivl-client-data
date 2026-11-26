@@ -98,7 +98,10 @@ provider adds for a pair is open there.
 | --- | ---: | ---: | --- | --- |
 | `cut`, `cbxh_hairwave1`, `2`, `3` | 3, 9, 74 | 7 | none | no key |
 | `cut`, `chxh_hairwave3` | 4 | 15 | pair 13, keys 0 to 3 | 119 |
-| `chara/pc`, `chxh_hairwave1` to `3` | 279 | 15 | pair 13, keys 0 to 3, and in some entries pair 2, keys 67, 72, 74, 76 and 83 | 118 or 119, except 3 entries with no channel |
+| `chara/pc`, `chxh_hairwave1` to `3` | 279 | 15 | pair 13, a subset of keys 0 to 3, and in some entries also pair 2, keys 67, 72, 74, 76 and 83 | 118 or 119, except 3 entries with no channel |
+
+In `chara/pc`, 96 of the 279 entries hold all four pair 13 keys, and 48 hold
+key 0 only.
 
 Each of the 86 `cbxh` blobs is 160 bytes with 17 pairs and no descriptor.
 `FixedMotionCalculator` samples one descriptor per call, so these blobs give
