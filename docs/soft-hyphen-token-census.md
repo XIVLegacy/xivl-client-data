@@ -1,8 +1,9 @@
 # Soft hyphen token census
 
-The installed sheets hold one byte form of the rich-text code `0x16`, the four
-bytes `02 16 01 03`. This page counts it in a static sheet export and records
-the longest cells without a token.
+Every top-level `soft-hyphen` marker in a static sheet export carries the four
+bytes `02 16 01 03`, the token of rich-text code `0x16`. This page counts those
+markers, counts the same four bytes inside the hex of other rich tokens, and
+records the longest cells without a token.
 
 ## Input and method
 
@@ -22,15 +23,26 @@ same digest and row count.
 
 ## Token form
 
-The export holds 38421 `soft-hyphen` markers, in 10571 cells of 428 files.
-Every marker carries the token hex `02160103`. No `[@duplicate:` alternate in
-the export, once its hex is decoded, holds a `soft-hyphen` marker or those four
-bytes.
+A top-level marker is a `soft-hyphen` marker that the cell text holds itself.
+The export holds 38421 of them, in 10571 cells of 428 files. Every one carries
+the token hex `02160103`. No `[@duplicate:` alternate in the export, once its
+hex is decoded, holds a `soft-hyphen` marker or those four bytes.
+
+The same four bytes also occur 744 times inside the decoded token hex of other
+rich tokens, which the export does not write as `soft-hyphen` markers. By the
+name of the enclosing token, `if` holds 650, `switch` 93 and `sheet` 1. These
+nested occurrences are in 171 cells of 84 files. 154 of those cells, in 75
+files, hold no top-level marker. The search covers every token other than
+`soft-hyphen` and `duplicate` markers and matches the four bytes at byte
+boundaries. It does not parse the enclosing token, and it does not look for
+another byte form of code `0x16`.
 
 ## Five-string-column sheets
 
 676 files declare exactly five columns, each of type `str`. They hold 43797
-rows and 24375 of the markers. The counts below are by column ordinal.
+rows, 24375 of the top-level markers and 599 of the nested occurrences. The
+counts below are by column ordinal. The first table counts top-level markers
+only.
 
 | Ordinal | Rows with a marker | Markers | Files with a marker |
 | ---: | ---: | ---: | ---: |
@@ -40,7 +52,18 @@ rows and 24375 of the markers. The counts below are by column ordinal.
 | 3 | 4408 | 16885 | 376 |
 | 4 | 0 | 0 | 0 |
 
-The one file with a marker at ordinal 1 is `xtx__text_ui.csv`.
+The one file with a top-level marker at ordinal 1 is `xtx__text_ui.csv`.
+
+The second table counts nested occurrences only. Its last column counts the
+cells that hold a nested occurrence and no top-level marker.
+
+| Ordinal | Rows with a nested occurrence | Occurrences | Files | Cells without a top-level marker |
+| ---: | ---: | ---: | ---: | ---: |
+| 0 | 0 | 0 | 0 | 0 |
+| 1 | 0 | 0 | 0 | 0 |
+| 2 | 64 | 319 | 41 | 58 |
+| 3 | 75 | 280 | 51 | 66 |
+| 4 | 0 | 0 | 0 | 0 |
 
 For the client's named language fields,
 `xivl-decomp:docs/resource/sqwt-plain-text-reference-lookup.md`, Default
@@ -48,10 +71,12 @@ table and named language fields, maps `ja`, `en`, `de` and `fr` to reference
 fields 0 to 3. This census reports ordinals. It does not check the language
 selection of each of the 676 definitions.
 
-In `xtx__text_ui.csv` the rows with a marker at ordinals 0 to 4 number 0, 10,
-184, 172 and 0. Row 1009 holds three markers at ordinal 1 and none at the other
-ordinals. The export also writes a second file, `xtx__text_ui(2).csv`, which
-this paragraph does not count.
+In `xtx__text_ui.csv` the rows with a top-level marker at ordinals 0 to 4
+number 0, 10, 184, 172 and 0, with 0, 30, 660, 718 and 0 markers. Nested
+occurrences number 0, 0, 19, 19 and 0, in 0, 0, 3, 3 and 0 cells that hold no
+top-level marker. Row 1009 holds three top-level markers at ordinal 1 and none
+at the other ordinals. The export also writes a second file,
+`xtx__text_ui(2).csv`, which this paragraph does not count.
 
 ## Cells without a token
 
