@@ -245,6 +245,50 @@ command name to an actor command was not read, so the actor command that
 selection, variable substitution and input routing require separate
 evidence.
 
+## Camera movement rows
+
+The rows below pair the camera axis commands with their binding text. They are
+read from the CSV products that `xivl extract` writes for an install whose
+`game.ver` reads `2012.09.19.0001`. Their file bytes match
+[tables.json](../manifests/tables.json). Column labels follow
+[Column and row identity](#column-and-row-identity). Column 8 is the command
+with the literal prefix `RaptureCommands.`. Every row below has 2 in column 2.
+Columns 3 and 12 to 15 agree within each row.
+
+| Sheet | Row key | Command suffix | Column 3 |
+|---|---:|---|---|
+| `key_config` | 1 | `ZoomCamera` | `AxisR,L1,` then the slots `MoveCameraFront1$`, `MoveCameraBack1$`, two empty, `MoveCameraFront2$`, `MoveCameraBack2$` |
+| `key_config` | 2 | `MoveCamera` | `AxisR,,` then the slots `MoveCameraUp1$`, `MoveCameraDown1$`, `MoveCameraLeft1$`, `MoveCameraRight1$` and the same four names with `2$` |
+| `key_config3` | 1 | `ZoomCamera` | the same variables as `key_config` row 1 |
+| `key_config3` | 2 | `MoveCamera` | the same variables as `key_config` row 2 |
+| `key_config2` | 10 | `ZoomCamera` | `AxisR,L1,` with every following slot empty |
+| `key_config2` | 17 | `MoveCamera` | `AxisR` with every following slot empty |
+
+Each variable slot wraps its name and default as `[@name=default]`, with the
+dollar character part of the name, after a backslash.
+
+| Variable | `key_config` default | `key_config3` default |
+|---|---|---|
+| `MoveCameraFront1$` | `O` | `PageUp` |
+| `MoveCameraBack1$` | `P` | `PageDown` |
+| `MoveCameraFront2$` | `NumPad9` | `NumPad9` |
+| `MoveCameraBack2$` | `NumPad3` | `NumPad3` |
+| `MoveCameraUp1$` | `I` | `Up` |
+| `MoveCameraDown1$` | `K` | `Down` |
+| `MoveCameraLeft1$` | `J` | `Left` |
+| `MoveCameraRight1$` | `L` | `Right` |
+| the four `MoveCamera` names with `2$` | empty | empty |
+
+The alternate-master `key_config(2).csv` names `MoveCamera` in row 8, with
+`AxisR`, the variables without the dollar character and the defaults `I`, `K`,
+`J` and `L`. It also names `ForwardCameraOn`, `ForwardCameraOff`,
+`BackwardCameraOn` and `BackwardCameraOff` in rows 12 to 19.
+
+The slot names are row text. How the held keys become command arguments is on
+`xivl-decomp:docs/actor/camera-held-keys-and-lock-aim.md`, "Held key pair".
+Profile selection, variable substitution and a player's own bindings require
+separate evidence.
+
 ## Console tray command rows
 
 The rows below come from the CSV products that `xivl extract` writes for an

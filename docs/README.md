@@ -28,6 +28,7 @@ evidence, derived findings, and repository policy.
 - [Selected message operand rows](message-operand-rows.md)
 - [Wandering Minstrel text rows](wandering-minstrel-text-rows.md)
 - [Movement binding rows](movement-binding-rows.md)
+- [Named log line rows](named-log-line-rows.md)
 - [Tab control binding rows](tab-control-binding-rows.md)
 - [Sound container bus byte](sound-container-bus-byte.md)
 - [Character and weapon sound tables](chara-sound-tables.md)
