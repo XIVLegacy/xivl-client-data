@@ -32,6 +32,7 @@ evidence, derived findings, and repository policy.
 - [Sound container bus byte](sound-container-bus-byte.md)
 - [Character and weapon sound tables](chara-sound-tables.md)
 - [Cut scene DataSet entries and motion banks](cut-dataset-motion-banks.md)
+- [MTB Header flag byte census](mtb-header-flag-census.md)
 - [Deepvoid actor appearances](deepvoid-class-appearance.md)
 - [Selected quest replay rows](quest-replay-rows.md)
 - [Selected quest marker rows](quest-marker-rows.md)
