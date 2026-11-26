@@ -120,6 +120,8 @@ evidence, derived findings, and repository policy.
 - [Ask form, template and style declarations](sqwt-ask-structure.md)
 - [Normal tutorial form declarations](tutorial-normal-form-declarations.md)
 - [Normal tutorial selected style declarations](tutorial-normal-style-declarations.md)
+- [Tutorial lesson 15 icon pulse declarations](sqwt-tutorial-linkshell-pulse.md)
+- [Soft hyphen token census](soft-hyphen-token-census.md)
 - [Getting Around text arguments](tutorial-getting-around-text-arguments.md)
 - [Getting Around display-name labels](tutorial-getting-around-display-names.md)
 - [Localized Getting Around text arguments](tutorial-localized-text-arguments.md)
