@@ -6,7 +6,7 @@ character, monster and cut motion trees. The container layout is
 `xivl-decomp:docs/resource/mtb-container-framing.md`, "Header and tables" and
 "Header payload". The native effect of bit 0 is
 `xivl-decomp:docs/resource/mtb-fixed-motion-calculator.md`, "Layer blend mode".
-It selects the additive Calculate mode on the static path described there.
+On the static path described there, a set bit selects Calculate mode 1.
 
 ## Method
 
