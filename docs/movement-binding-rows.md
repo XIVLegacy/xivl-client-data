@@ -35,6 +35,16 @@ The [sheet inventory](../manifests/sheet_inventory.csv) identifies
 authenticate the three same-named CSV products. A runtime request still needs
 its native sheet-selection evidence.
 
+## `key_config` and `key_config3` cell differences
+
+The two sheets hold the same 310 row IDs. With the text after `=` removed from
+each `[@name=...]` token in columns 3 and 12 through 15, every cell matches
+except eight. Rows 187 (`Map.ScaleDown`) and 188 (`Map.ScaleUp`), columns 12
+through 15, hold literal `PageUp` and `PageDown` swapped between the sheets.
+Column 3 of both rows matches. The sheets therefore differ in variable defaults
+and in these literal cells. Which sheet the client selects is in
+`xivl-decomp:docs/input/escape-key-routing.md`, "Sheet selector".
+
 ## Retained source definitions
 
 The retained retail `game.ver` and `patch.ver` identify `2012.09.19.0001` and
